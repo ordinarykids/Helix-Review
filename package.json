@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:styles": "stylelint \"**/*.{css,sass,scss}\""
   },
   "dependencies": {
     "next": "13.3.4",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@aleph/eslint-config-nought": "^1.1.10",
+    "@aleph/stylelint-config-nought": "^1.0.3",
     "@next/eslint-plugin-next": "^13.3.4",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
@@ -26,6 +28,8 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "sass": "^1.62.1",
+    "stylelint": "^15.6.1",
     "typescript": "5.0.4"
   },
   "packageManager": "yarn@3.5.1"
