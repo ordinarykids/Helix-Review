@@ -34,10 +34,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# If you're using Zero-Installs
+# For if you're not using Zero-Installs
 # See https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
