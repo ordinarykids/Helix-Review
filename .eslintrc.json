@@ -3,6 +3,27 @@
   "extends": [
     "next/core-web-vitals",
     "plugin:@next/next/recommended",
+    "plugin:storybook/recommended",
     "@aleph/eslint-config-nought"
-  ]
+  ],
+  "rules": {
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.*",
+          "**/.storybook/**/*.*"
+        ],
+        "peerDependencies": true
+      }
+    ]
+  }
 }

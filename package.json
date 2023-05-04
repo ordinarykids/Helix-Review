@@ -9,9 +9,12 @@
     "lint": "next lint",
     "lint:es": "eslint .",
     "lint:styles": "stylelint \"**/*.{css,sass,scss}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "next": "13.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -20,6 +23,13 @@
     "@aleph/eslint-config-nought": "^1.1.10",
     "@aleph/stylelint-config-nought": "^1.0.3",
     "@next/eslint-plugin-next": "^13.3.4",
+    "@storybook/addon-essentials": "^7.0.8",
+    "@storybook/addon-interactions": "^7.0.8",
+    "@storybook/addon-links": "^7.0.8",
+    "@storybook/blocks": "^7.0.8",
+    "@storybook/nextjs": "^7.0.8",
+    "@storybook/react": "^7.0.8",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
@@ -32,8 +42,11 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.0",
     "sass": "^1.62.1",
+    "storybook": "^7.0.8",
+    "storybook-css-modules": "^1.0.8",
     "stylelint": "^15.6.1",
     "typescript": "5.0.4"
   },
