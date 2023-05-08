@@ -7,9 +7,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 1. After cloning this repository, if you use `nvm` run `nvm install` to use and, if needed, install the version of node specified in `.nvmrc`. Or otherwise use the specified node version.
 
-2. Run `yarn` to install dependencies
+2. Run `yarn` to install dependencies.
 
-3. Run `yarn dev` to run the development server and Ooen [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Run `yarn dev` to run the development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deployments
 
