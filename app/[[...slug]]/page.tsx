@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation'
-import fetchPage from '../lib/sanity/fetch/fetchPage'
+import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import styles from './page.module.css'
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const { slug } = params
   const pagePath = slug ?? ['home']
-  const pageData = await fetchPage(pagePath.join('/'))
+  const pageData = await fetchPageByPath(pagePath.join('/'))
 
   if (!pageData) {
     notFound()
