@@ -1,4 +1,4 @@
-import pageStyles from './page.module.css'
+import pageStyles from './[[...slug]]/page.module.css'
 
 export default function NotFound() {
   return (

@@ -15,7 +15,7 @@ export default {
   ],
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'string',
       title: 'Title',
       group: 'mainContent',

@@ -1,6 +1,6 @@
 import { cache } from 'react'
 import { createClient } from 'next-sanity'
-import { sanityDataset, sanityProjectId, sanityApiVersion } from '../../../environment'
+import { sanityDataset, sanityProjectId, sanityApiVersion } from '../../../../environment'
 
 export const sanityClient = createClient({
   projectId: sanityProjectId,
