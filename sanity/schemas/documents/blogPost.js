@@ -78,7 +78,7 @@ export default {
       group: 'pageSettings',
     },
     {
-      name: 'docSlug',
+      name: 'slug',
       type: 'slug',
       title: 'Slug',
       group: 'pageSettings',
@@ -86,6 +86,7 @@ export default {
         source: 'title',
         maxLength: 200,
       },
+      validation: (Rule) => Rule.required(),
     },
   ],
 }
