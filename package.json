@@ -10,19 +10,30 @@
     "lint:styles": "stylelint \"**/*.{css,sass,scss}\"",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "codegen": "sanity-codegen codegen"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.0",
+    "@sanity-codegen/cli": "alpha",
+    "@sanity-codegen/client": "alpha",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/ui": "^1.3.3",
+    "@sanity/vision": "^3.10.1",
     "classnames": "^2.3.2",
     "next": "13.3.4",
     "next-sanity": "^4.3.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-is": "^18.2.0",
+    "sanity": "^3.10.1",
+    "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@aleph/eslint-config-nought": "^1.1.10",
     "@aleph/stylelint-config-nought": "^1.0.3",
     "@next/eslint-plugin-next": "^13.3.4",
+    "@sanity/eslint-config-studio": "^2.0.1",
     "@storybook/addon-essentials": "^7.0.8",
     "@storybook/addon-interactions": "^7.0.8",
     "@storybook/addon-links": "^7.0.8",
