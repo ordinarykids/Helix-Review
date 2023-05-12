@@ -3,8 +3,21 @@ import { notFound } from 'next/navigation'
 import fetchBlogPostBySlug from '../../lib/sanity/fetch/fetchBlogPostBySlug'
 import styles from './page.module.css'
 
-export const metadata: Metadata = {
-  title: 'Blog',
+export async function generateMetadata(
+  { params }: { params: { slug: string } },
+): Promise<Metadata> {
+  const { slug } = params
+  const blogPost = await fetchBlogPostBySlug(slug)
+
+  if (!blogPost) {
+    notFound()
+  }
+
+  const { title } = blogPost
+
+  return {
+    title,
+  }
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
