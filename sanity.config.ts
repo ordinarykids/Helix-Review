@@ -31,7 +31,7 @@ export default defineConfig({
             type: 'string',
           },
         ],
-        value: (parameters) => ({
+        value: (parameters: ({ parentCategoryId: string})) => ({
           parent: {
             _type: 'reference',
             _ref: parameters.parentCategoryId,
