@@ -1,3 +1,4 @@
+import { DocumentIcon } from '@sanity/icons'
 import isUniqueAcrossAllDocuments from '../../lib/isUniqueAcrossAllDocuments'
 
 // https://maxkarlsson.dev/blog/how-to-make-hierarchical-slugs-in-sanity
@@ -26,6 +27,7 @@ export default {
   name: 'page',
   type: 'document',
   title: 'Page',
+  icon: DocumentIcon,
   fields: [
     {
       name: 'title',
