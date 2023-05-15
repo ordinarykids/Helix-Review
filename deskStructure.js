@@ -59,7 +59,7 @@ export const structure = (S) => {
             .title('All Posts'),
         ),
       S.listItem()
-        .title('Catgories')
+        .title('Categories')
         .icon(SchemaIcon)
         .child(
           S.documentTypeList('category')
