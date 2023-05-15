@@ -11,5 +11,14 @@ export default {
       type: 'string',
       title: 'Tag Name',
     },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'name',
+      },
+      validation: (Rule) => Rule.required(),
+    },
   ],
 }
