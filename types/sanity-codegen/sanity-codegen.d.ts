@@ -1,7 +1,25 @@
 /// <reference types="@sanity-codegen/types" />
 
 namespace Sanity.Default.Client {
-  type Config = {};
+  type Config = {
+    AllBlogPosts: Sanity.Default.Query.AllBlogPosts;
+    BlogPost: Sanity.Default.Query.BlogPost;
+  };
+}
+namespace Sanity.Default.Query {
+  type AllBlogPosts = {
+    slug: {
+      _type: "slug";
+      current?: string;
+      source?: string;
+    } | null;
+    title: string | null;
+  }[];
+}
+namespace Sanity.Default.Query {
+  type BlogPost = {
+    title: string | null;
+  };
 }
 namespace Sanity.Default.Schema {
   type BlogPost =

@@ -1,0 +1,42 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import fetchAllBlogPosts from '../lib/sanity/fetch/fetchAllBlogPosts'
+import styles from './page.module.css'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+}
+
+export default async function Page() {
+  const blogPosts = await fetchAllBlogPosts()
+
+  if (!blogPosts) {
+    notFound()
+  }
+
+  return (
+    <main className={styles.main}>
+      <h1>Blog</h1>
+      {blogPosts.length > 0 ? (
+        <ul>
+          {blogPosts.map((blogPost) => {
+            const { slug, title } = blogPost
+            const slugCurrent = slug?.current
+            return slugCurrent && (
+              <li>
+                <h2>
+                  <Link href={`/blog/${slugCurrent}`}>
+                    {title}
+                  </Link>
+                </h2>
+              </li>
+            )
+          })}
+        </ul>
+      ) : (
+        <h2>No blog posts found</h2>
+      )}
+    </main>
+  )
+}
