@@ -1,6 +1,8 @@
 // Document schemas
 import blogPost from './documents/blogPost'
+import category from './documents/category'
 import page from './documents/page'
+import tag from './documents/tag'
 
 // Object schemas
 import featuredImage from './objects/featuredImage'
@@ -10,6 +12,8 @@ import seo from './objects/seo'
 export const schemaTypes = [
   page,
   blogPost,
+  category,
   featuredImage,
   seo,
+  tag,
 ]
