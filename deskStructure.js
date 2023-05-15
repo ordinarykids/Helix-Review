@@ -2,13 +2,14 @@ import { createClient } from '@sanity/client'
 import {
   DocumentIcon, EditIcon, SchemaIcon, TagIcon,
 } from '@sanity/icons'
+import { sanityProjectId, sanityDataset, sanityApiVersion } from './environment'
 
 export const structure = (S) => {
   const client = createClient({
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
-    dataset: process.env.SANITY_STUDIO_DATASET,
+    projectId: sanityProjectId,
+    dataset: sanityDataset,
     useCdn: false,
-    apiVersion: process.env.SANITY_STUDIO_API_VERSION,
+    apiVersion: sanityApiVersion,
   })
 
   const getCategoryMenuItems = (id) => {
