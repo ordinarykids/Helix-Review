@@ -1,5 +1,5 @@
 import { SchemaIcon } from '@sanity/icons'
-import isUniqueAcrossAllDocuments from '@/sanity/lib/isUniqueAcrossAllDocuments'
+import isUniqueAcrossAllDocuments from '../../lib/isUniqueAcrossAllDocuments'
 
 // https://maxkarlsson.dev/blog/how-to-make-hierarchical-slugs-in-sanity
 async function asyncSlugifier(input, type, context) {
