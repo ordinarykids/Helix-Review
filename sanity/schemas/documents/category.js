@@ -1,4 +1,4 @@
-import { DocumentIcon } from '@sanity/icons'
+import { SchemaIcon } from '@sanity/icons'
 import isUniqueAcrossAllDocuments from '../../lib/isUniqueAcrossAllDocuments'
 
 // https://maxkarlsson.dev/blog/how-to-make-hierarchical-slugs-in-sanity
@@ -9,52 +9,49 @@ async function asyncSlugifier(input, type, context) {
   })
   const parentQuery = '*[_id == $id][0]'
   const parentQueryParams = {
-    id: input.doc.parent?._ref || '', // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle
+    id: input.doc.parent?._ref || '',
   }
   const parent = await client.fetch(
     parentQuery,
     parentQueryParams,
   )
-  const parentSlug = parent?.slug?.current ? `${parent.slug.current}/` : '' // if there's no parent assign an empty string, it will make the function return the current slug as the root
-  const pageSlug = input.doc.title
+  const parentSlug = parent?.slug?.current ? `${parent.slug.current}/` : ''
+  const pageSlug = input.doc.name
     .toLowerCase()
-    .replace(/\s+/g, '-') // slugify the title using a simple regex
+    .replace(/\s+/g, '-')
     .slice(0, 200)
   return `${parentSlug}${pageSlug}`
 }
 
 export default {
-  name: 'page',
+  name: 'category',
   type: 'document',
-  title: 'Page',
-  icon: DocumentIcon,
+  title: 'Category',
+  icon: SchemaIcon,
   fields: [
     {
-      name: 'title',
+      name: 'name',
       type: 'string',
-      title: 'Title',
+      title: 'Category Name',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'parent',
       type: 'reference',
-      to: [
-        {
-          type: 'page',
-        },
-      ],
-      options: {
-        disableNew: true,
-      },
+      title: 'Parent Category',
+      description: 'Optional: Choose a parent category or create a new parent category',
+      to: [{ type: 'category' }],
     },
     {
       name: 'slug',
       type: 'slug',
-      title: 'Slug/Path',
-      description: 'Include entire path to page if this is a child page. E.g., "parent-page/child-page"',
+      title: 'Slug',
       options: {
         source: (doc, options) => ({ doc, options }),
         isUnique: isUniqueAcrossAllDocuments,
         slugify: asyncSlugifier,
+        maxLength: 200,
       },
       validation: (Rule) => Rule.required(),
     },

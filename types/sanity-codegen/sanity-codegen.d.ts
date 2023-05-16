@@ -26,6 +26,7 @@ namespace Sanity.Default.Schema {
     | {
         _id: string;
         _type: "blogPost";
+        categories?: Sanity.Reference<Sanity.Ref.Ref_g9NP0uw2PoULD9fs>[];
         content?: {
           _key: string;
           _type: "block";
@@ -38,8 +39,8 @@ namespace Sanity.Default.Schema {
           markDefs?: unknown[];
           style?: string;
         }[];
-        featuredImage?: Sanity.Ref.Ref_mvCL3x1vVJWV3Rxy;
-        seo?: Sanity.Ref.Ref_LdVXYGXgUSpL8dPG;
+        featuredImage?: Sanity.Ref.Ref_pqFZkY6HUi8lgwCf;
+        seo?: Sanity.Ref.Ref_W6G1kIKnU31TthwL;
         showHeroSubheader?: boolean;
         slug?: {
           _type: "slug";
@@ -58,7 +59,23 @@ namespace Sanity.Default.Schema {
           markDefs?: unknown[];
           style?: string;
         }[];
+        tags?: Sanity.Reference<Sanity.Ref.Ref_B6A0nRxqdQXDd7GD>[];
         title?: string;
+      }
+    | undefined;
+}
+namespace Sanity.Default.Schema {
+  type Category =
+    | {
+        _id: string;
+        _type: "category";
+        name?: string;
+        parent?: Sanity.Reference<Sanity.Ref.Ref_g9NP0uw2PoULD9fs>;
+        slug?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
       }
     | undefined;
 }
@@ -174,7 +191,7 @@ namespace Sanity.Default.Schema {
     | {
         _id: string;
         _type: "page";
-        parent?: Sanity.Reference<Sanity.Ref.Ref_0NHjYWgRg2ghu3BT>;
+        parent?: Sanity.Reference<Sanity.Ref.Ref_ndIUKShY2tjslTaK>;
         slug?: {
           _type: "slug";
           current?: string;
@@ -208,7 +225,7 @@ namespace Sanity.Default.Schema {
         path?: string;
         sha1hash?: string;
         size?: number;
-        source?: Sanity.Ref.Ref_yeC0Y4TWFpijpUnP;
+        source?: Sanity.Ref.Ref_umSdRVIlAf5KPi1N;
         title?: string;
         url?: string;
       }
@@ -224,13 +241,13 @@ namespace Sanity.Default.Schema {
         description?: string;
         extension?: string;
         label?: string;
-        metadata?: Sanity.Ref.Ref_0rkucckSxZWp1jX4;
+        metadata?: Sanity.Ref.Ref_xSFZzoyNdJwAU7ui;
         mimeType?: string;
         originalFilename?: string;
         path?: string;
         sha1hash?: string;
         size?: number;
-        source?: Sanity.Ref.Ref_yeC0Y4TWFpijpUnP;
+        source?: Sanity.Ref.Ref_umSdRVIlAf5KPi1N;
         title?: string;
         uploadId?: string;
         url?: string;
@@ -270,7 +287,7 @@ namespace Sanity.Default.Schema {
   type SanityImageMetadata =
     | {
         blurHash?: string;
-        dimensions?: Sanity.Ref.Ref_OdMnG1zI83oRF8Qc;
+        dimensions?: Sanity.Ref.Ref_R8EwGHhUNDrXVWpP;
         hasAlpha?: boolean;
         isOpaque?: boolean;
         location?: {
@@ -280,20 +297,20 @@ namespace Sanity.Default.Schema {
           lng: number;
         };
         lqip?: string;
-        palette?: Sanity.Ref.Ref_BAJF62N9xOV4ykG6;
+        palette?: Sanity.Ref.Ref_XCWNve3RB3KKv8Ej;
       }
     | undefined;
 }
 namespace Sanity.Default.Schema {
   type SanityImagePalette =
     | {
-        darkMuted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        darkVibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        dominant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        lightMuted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        lightVibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        muted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-        vibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
+        darkMuted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        darkVibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        dominant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        lightMuted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        lightVibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        muted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+        vibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
       }
     | undefined;
 }
@@ -422,12 +439,63 @@ namespace Sanity.Default.Schema {
       }
     | undefined;
 }
+namespace Sanity.Default.Schema {
+  type Tag =
+    | {
+        _id: string;
+        _type: "tag";
+        name?: string;
+        slug?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
+      }
+    | undefined;
+}
 namespace Sanity.Ref {
-  type Ref_0NHjYWgRg2ghu3BT =
+  type Ref_92YsxVfMPKLHl9Ms = {
+    background?: string;
+    foreground?: string;
+    population?: number;
+    title?: string;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_B6A0nRxqdQXDd7GD =
+    | {
+        _id: string;
+        _type: "tag";
+        name?: string;
+        slug?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
+      }
+    | undefined;
+}
+namespace Sanity.Ref {
+  type Ref_g9NP0uw2PoULD9fs =
+    | {
+        _id: string;
+        _type: "category";
+        name?: string;
+        parent?: Sanity.Reference<Sanity.Ref.Ref_g9NP0uw2PoULD9fs>;
+        slug?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
+      }
+    | undefined;
+}
+namespace Sanity.Ref {
+  type Ref_ndIUKShY2tjslTaK =
     | {
         _id: string;
         _type: "page";
-        parent?: Sanity.Reference<Sanity.Ref.Ref_0NHjYWgRg2ghu3BT>;
+        parent?: Sanity.Reference<Sanity.Ref.Ref_ndIUKShY2tjslTaK>;
         slug?: {
           _type: "slug";
           current?: string;
@@ -438,42 +506,117 @@ namespace Sanity.Ref {
     | undefined;
 }
 namespace Sanity.Ref {
-  type Ref_0rkucckSxZWp1jX4 = {
-    blurHash?: string;
-    dimensions?: Sanity.Ref.Ref_OdMnG1zI83oRF8Qc;
-    hasAlpha?: boolean;
-    isOpaque?: boolean;
-    location?: {
-      _type: "geopoint";
-      alt: number;
-      lat: number;
-      lng: number;
+  type Ref_pqFZkY6HUi8lgwCf = {
+    image?: {
+      asset: Sanity.Reference<{
+        _type: "sanity.imageAsset";
+        assetId: string;
+        extension: string;
+        metadata: {
+          _type: "sanity.imageMetadata";
+          dimensions: {
+            _type: "sanity.imageDimensions";
+            aspectRatio: number;
+            height: number;
+            width: number;
+          };
+          hasAlpha: boolean;
+          isOpaque: boolean;
+          lqip: string;
+          palette: {
+            _type: "sanity.imagePalette";
+            darkMuted: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            darkVibrant: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            dominant: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            lightMuted: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            lightVibrant: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            muted: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+            vibrant: {
+              _type: "sanity.imagePaletteSwatch";
+              background: string;
+              foreground: string;
+              population: number;
+              title: string;
+            };
+          };
+        };
+        mimeType: string;
+        originalFilename: string;
+        path: string;
+        sha1hash: string;
+        size: number;
+        uploadId: string;
+        url: string;
+      }>;
+      crop?: {
+        _type: "sanity.imageCrop";
+        bottom: number;
+        left: number;
+        right: number;
+        top: number;
+      };
+      hotspot?: {
+        _type: "sanity.imageHotspot";
+        height: number;
+        width: number;
+        x: number;
+        y: number;
+      };
     };
-    lqip?: string;
-    palette?: Sanity.Ref.Ref_BAJF62N9xOV4ykG6;
   };
 }
 namespace Sanity.Ref {
-  type Ref_BAJF62N9xOV4ykG6 = {
-    darkMuted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    darkVibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    dominant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    lightMuted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    lightVibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    muted?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
-    vibrant?: Sanity.Ref.Ref_fAeJlIZqV4cSvbeJ;
+  type Ref_R8EwGHhUNDrXVWpP = {
+    aspectRatio?: number;
+    height?: number;
+    width?: number;
   };
 }
 namespace Sanity.Ref {
-  type Ref_fAeJlIZqV4cSvbeJ = {
-    background?: string;
-    foreground?: string;
-    population?: number;
-    title?: string;
+  type Ref_umSdRVIlAf5KPi1N = {
+    id?: string;
+    name?: string;
+    url?: string;
   };
 }
 namespace Sanity.Ref {
-  type Ref_LdVXYGXgUSpL8dPG = {
+  type Ref_W6G1kIKnU31TthwL = {
     canonicalUrl?: string;
     focusKeyword?: string;
     focusSynonyms?: string;
@@ -578,112 +721,29 @@ namespace Sanity.Ref {
   };
 }
 namespace Sanity.Ref {
-  type Ref_mvCL3x1vVJWV3Rxy = {
-    image?: {
-      asset: Sanity.Reference<{
-        _type: "sanity.imageAsset";
-        assetId: string;
-        extension: string;
-        metadata: {
-          _type: "sanity.imageMetadata";
-          dimensions: {
-            _type: "sanity.imageDimensions";
-            aspectRatio: number;
-            height: number;
-            width: number;
-          };
-          hasAlpha: boolean;
-          isOpaque: boolean;
-          lqip: string;
-          palette: {
-            _type: "sanity.imagePalette";
-            darkMuted: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            darkVibrant: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            dominant: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            lightMuted: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            lightVibrant: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            muted: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-            vibrant: {
-              _type: "sanity.imagePaletteSwatch";
-              background: string;
-              foreground: string;
-              population: number;
-              title: string;
-            };
-          };
-        };
-        mimeType: string;
-        originalFilename: string;
-        path: string;
-        sha1hash: string;
-        size: number;
-        uploadId: string;
-        url: string;
-      }>;
-      crop?: {
-        _type: "sanity.imageCrop";
-        bottom: number;
-        left: number;
-        right: number;
-        top: number;
-      };
-      hotspot?: {
-        _type: "sanity.imageHotspot";
-        height: number;
-        width: number;
-        x: number;
-        y: number;
-      };
+  type Ref_XCWNve3RB3KKv8Ej = {
+    darkMuted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    darkVibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    dominant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    lightMuted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    lightVibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    muted?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+    vibrant?: Sanity.Ref.Ref_92YsxVfMPKLHl9Ms;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_xSFZzoyNdJwAU7ui = {
+    blurHash?: string;
+    dimensions?: Sanity.Ref.Ref_R8EwGHhUNDrXVWpP;
+    hasAlpha?: boolean;
+    isOpaque?: boolean;
+    location?: {
+      _type: "geopoint";
+      alt: number;
+      lat: number;
+      lng: number;
     };
-  };
-}
-namespace Sanity.Ref {
-  type Ref_OdMnG1zI83oRF8Qc = {
-    aspectRatio?: number;
-    height?: number;
-    width?: number;
-  };
-}
-namespace Sanity.Ref {
-  type Ref_yeC0Y4TWFpijpUnP = {
-    id?: string;
-    name?: string;
-    url?: string;
+    lqip?: string;
+    palette?: Sanity.Ref.Ref_XCWNve3RB3KKv8Ej;
   };
 }
