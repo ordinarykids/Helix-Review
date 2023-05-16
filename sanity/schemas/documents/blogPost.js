@@ -74,9 +74,9 @@ const blogPost = defineType({
       ],
     }),
     defineField({
-      name: 'category',
+      name: 'categories',
       type: 'array',
-      title: 'Category',
+      title: 'Categories',
       group: 'mainContent',
       of: [
         defineArrayMember({
@@ -88,9 +88,9 @@ const blogPost = defineType({
       ],
     }),
     defineField({
-      name: 'tag',
+      name: 'tags',
       type: 'array',
-      title: 'Tag',
+      title: 'Tags',
       group: 'mainContent',
       of: [
         defineArrayMember({
