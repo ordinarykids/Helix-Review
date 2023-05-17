@@ -7,6 +7,7 @@ import tag from './documents/tag'
 // Object schemas
 import featuredImage from './objects/featuredImage'
 import seo from './objects/seo'
+import styledLink from './objects/styledLink'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
@@ -15,5 +16,6 @@ export const schemaTypes = [
   category,
   featuredImage,
   seo,
+  styledLink,
   tag,
 ]
