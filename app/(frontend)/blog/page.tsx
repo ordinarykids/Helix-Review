@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import fetchAllBlogPosts from '../lib/sanity/fetch/fetchAllBlogPosts'
+import fetchAllBlogPosts from 'app/(frontend)/lib/sanity/fetch/fetchAllBlogPosts'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -22,11 +22,10 @@ export default async function Page() {
         <ul>
           {blogPosts.map((blogPost) => {
             const { slug, title } = blogPost
-            const slugCurrent = slug?.current
-            return slugCurrent && (
+            return slug && (
               <li>
                 <h2>
-                  <Link href={`/blog/${slugCurrent}`}>
+                  <Link href={`/blog/${slug}`}>
                     {title}
                   </Link>
                 </h2>
