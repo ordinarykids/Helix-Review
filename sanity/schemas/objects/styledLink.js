@@ -5,8 +5,8 @@ export default {
   type: 'object',
   title: 'Link',
   initialValue: {
-    style: 'default',
-    align: 'default',
+    style: 'primary',
+    align: 'left',
   },
   fields: [
     defineField({
@@ -27,7 +27,7 @@ export default {
       title: 'Style',
       options: {
         list: [
-          { title: 'Primary Button', value: 'default' },
+          { title: 'Primary Button', value: 'primary' },
           { title: 'Secondary Button', value: 'secondary' },
           { title: 'Carat', value: 'carat' },
         ],
@@ -39,7 +39,7 @@ export default {
       title: 'Align',
       options: {
         list: [
-          { title: 'Left', value: 'default' },
+          { title: 'Left', value: 'left' },
           { title: 'Center', value: 'center' },
         ],
       },
