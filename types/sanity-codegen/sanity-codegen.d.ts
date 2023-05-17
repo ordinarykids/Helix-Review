@@ -4,20 +4,34 @@ namespace Sanity.Default.Client {
   type Config = {
     AllBlogPosts: Sanity.Default.Query.AllBlogPosts;
     BlogPost: Sanity.Default.Query.BlogPost;
+    PageByPath: Sanity.Default.Query.PageByPath;
   };
 }
 namespace Sanity.Default.Query {
   type AllBlogPosts = {
-    slug: {
-      _type: "slug";
-      current?: string;
-      source?: string;
-    } | null;
+    slug: string | null;
     title: string | null;
   }[];
 }
 namespace Sanity.Default.Query {
   type BlogPost = {
+    categories:
+      | {
+          name: Sanity.Ref.Ref_nhtZs5tHfCIF1m6o;
+          slug: Sanity.Ref.Ref_wI7FB8Tm8XA9VQSO;
+        }[]
+      | null;
+    tags:
+      | {
+          name: Sanity.Ref.Ref_MsYrmUqhP2wXAko5;
+          slug: Sanity.Ref.Ref_Fq5BSBHfXg0BQ08x;
+        }[]
+      | null;
+    title: string | null;
+  };
+}
+namespace Sanity.Default.Query {
+  type PageByPath = {
     title: string | null;
   };
 }
@@ -476,6 +490,9 @@ namespace Sanity.Ref {
     | undefined;
 }
 namespace Sanity.Ref {
+  type Ref_Fq5BSBHfXg0BQ08x = unknown;
+}
+namespace Sanity.Ref {
   type Ref_g9NP0uw2PoULD9fs =
     | {
         _id: string;
@@ -491,6 +508,9 @@ namespace Sanity.Ref {
     | undefined;
 }
 namespace Sanity.Ref {
+  type Ref_MsYrmUqhP2wXAko5 = string | null;
+}
+namespace Sanity.Ref {
   type Ref_ndIUKShY2tjslTaK =
     | {
         _id: string;
@@ -504,6 +524,9 @@ namespace Sanity.Ref {
         title?: string;
       }
     | undefined;
+}
+namespace Sanity.Ref {
+  type Ref_nhtZs5tHfCIF1m6o = string | null;
 }
 namespace Sanity.Ref {
   type Ref_pqFZkY6HUi8lgwCf = {
@@ -719,6 +742,9 @@ namespace Sanity.Ref {
     seoDescription?: string;
     seoTitle?: string;
   };
+}
+namespace Sanity.Ref {
+  type Ref_wI7FB8Tm8XA9VQSO = unknown;
 }
 namespace Sanity.Ref {
   type Ref_XCWNve3RB3KKv8Ej = {

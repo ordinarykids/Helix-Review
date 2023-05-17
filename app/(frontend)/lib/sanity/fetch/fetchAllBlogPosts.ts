@@ -5,7 +5,7 @@ const fetchAllBlogPosts = async () => {
   const query = codegen(
     'AllBlogPosts',
     groq`*[_type == "blogPost"]{
-      slug,
+      "slug": slug.current,
       title,
     }`,
   )
