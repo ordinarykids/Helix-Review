@@ -37,7 +37,6 @@ export default {
       name: 'align',
       type: 'string',
       title: 'Align',
-      description: 'Choose text alignment',
       options: {
         list: [
           { title: 'Left', value: 'default' },
