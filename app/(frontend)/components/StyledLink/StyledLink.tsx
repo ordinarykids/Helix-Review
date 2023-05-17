@@ -1,36 +1,13 @@
-'use client'
-
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import classNames from 'classnames'
 import styles from './StyledLink.module.scss'
 
-interface StyledLinkProps {
-  text: string
-}
-
-export default function StyledLink({ text }: StyledLinkProps) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    document.title = `${text} - ${count} times`
-  }, [count, text])
-
+export default function StyledLink({ text, link }: Sanity.Default.Schema.StyledLink) {
   const containerClasses = classNames(styles.container, styles.someOtherClass)
 
   return (
-    <div className={containerClasses}>
-      <h1>{text}</h1>
-      <button
-        type='button'
-        onClick={() => setCount(count + 1)}
-      >
-        Click me
-      </button>
-      <p>
-        You clicked
-        {count}
-        times
-      </p>
-    </div>
+    <Link href={link} className={containerClasses}>
+      {text}
+    </Link>
   )
 }

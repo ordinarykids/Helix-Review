@@ -13,12 +13,21 @@ type Story = StoryObj<typeof StyledLink>;
 
 export const Default: Story = {
   args: {
-    text: 'Hello World!',
+    text: 'Contact Us',
+    link: 'https://aleph.dev/fun',
   },
 }
 
-export const Foo: Story = {
+export const Secondary: Story = {
   args: {
-    text: 'Hello World, different variation!',
+    text: 'Learn More',
+    link: 'https://aleph.dev/fun',
+  },
+}
+
+export const Carat: Story = {
+  args: {
+    text: 'Learn More',
+    link: 'https://aleph.dev/fun',
   },
 }
