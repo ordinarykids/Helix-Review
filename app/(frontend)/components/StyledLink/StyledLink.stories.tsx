@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import StyledLink from '.'
 
+const centered = (Story: any) => (
+  <div style={{ marginTop: '2px', textAlign: 'center' }}>
+    <Story />
+  </div>
+)
+
 const meta: Meta<typeof StyledLink> = {
   title: 'Components/StyledLink',
   component: StyledLink,
@@ -19,6 +25,7 @@ export const Primary: Story = {
     align: 'center',
   },
 }
+Primary.decorators = [centered]
 
 export const Secondary: Story = {
   args: {
@@ -28,6 +35,8 @@ export const Secondary: Story = {
     align: 'center',
   },
 }
+
+Secondary.decorators = [centered]
 
 export const Carat: Story = {
   args: {

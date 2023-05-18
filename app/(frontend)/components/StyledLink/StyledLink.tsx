@@ -10,9 +10,9 @@ export default function StyledLink({
 
   return (
     <Link href={link} className={linkClasses}>
-      {text}
+      <span className={styles.text}>{text}</span>
       {style === 'carat'
-      && <ArrowRight />}
+      && <span><ArrowRight /></span>}
     </Link>
   )
 }

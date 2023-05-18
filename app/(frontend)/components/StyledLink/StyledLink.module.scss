@@ -4,6 +4,10 @@
   text-decoration: none;
 }
 
+.text {
+  margin-right: 16px;
+}
+
 .primary {
   background-color: #3f4c77;
   color: #fff;
@@ -18,8 +22,4 @@
 .carat {
   padding: 0;
   color: #3f4c77;
-}
-
-.left {
-  float: left;
 }
