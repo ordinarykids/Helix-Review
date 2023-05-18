@@ -11,7 +11,7 @@ export default meta
 
 type Story = StoryObj<typeof StyledLink>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     text: 'Contact Us',
     link: 'https://aleph.dev/fun',
