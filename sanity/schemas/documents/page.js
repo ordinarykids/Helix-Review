@@ -35,6 +35,11 @@ export default {
       title: 'Title',
     },
     {
+      name: 'hero',
+      type: 'pageHero',
+      title: 'Hero',
+    },
+    {
       name: 'parent',
       type: 'reference',
       to: [
