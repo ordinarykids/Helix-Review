@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 export async function generateMetadata(
   { params }: { params: { slug: string[] } },
@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     notFound()
   }
   return (
-    <main className={styles.main}>
+    <main className={styles.container}>
       <h1>{pageData?.title || 'No title found'}</h1>
     </main>
   )
