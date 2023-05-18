@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import fetchBlogPostBySlug from 'app/(frontend)/lib/sanity/fetch/fetchBlogPostBySlug'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const { title, categories, tags } = blogPost
 
   return (
-    <main className={styles.main}>
+    <main className={styles.container}>
       <h1>{title}</h1>
       {categories && (
         <div>

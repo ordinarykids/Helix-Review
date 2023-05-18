@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import fetchAllBlogPosts from 'app/(frontend)/lib/sanity/fetch/fetchAllBlogPosts'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -16,7 +16,7 @@ export default async function Page() {
   }
 
   return (
-    <main className={styles.main}>
+    <main className={styles.container}>
       <h1>Blog</h1>
       {blogPosts.length > 0 ? (
         <ul>
