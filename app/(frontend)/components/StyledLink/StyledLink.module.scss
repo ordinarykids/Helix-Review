@@ -1,9 +1,25 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.StyledLink {
+  padding: 16px 96px;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
-.someOtherClass {
-  /* Add your styles here */
+.primary {
+  background-color: #3f4c77;
+  color: #fff;
+}
+
+.secondary {
+  border: 2px solid #3f4c77;
+  background-color: transparent;
+  color: #3f4c77;
+}
+
+.carat {
+  padding: 0;
+  color: #3f4c77;
+}
+
+.left {
+  float: left;
 }

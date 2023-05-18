@@ -15,6 +15,8 @@ export const Default: Story = {
   args: {
     text: 'Contact Us',
     link: 'https://aleph.dev/fun',
+    style: 'primary',
+    align: 'center',
   },
 }
 
@@ -22,6 +24,8 @@ export const Secondary: Story = {
   args: {
     text: 'Learn More',
     link: 'https://aleph.dev/fun',
+    style: 'secondary',
+    align: 'center',
   },
 }
 
@@ -29,5 +33,7 @@ export const Carat: Story = {
   args: {
     text: 'Learn More',
     link: 'https://aleph.dev/fun',
+    style: 'carat',
+    align: 'left',
   },
 }
