@@ -5,6 +5,7 @@ import page from './documents/page'
 import tag from './documents/tag'
 
 // Object schemas
+import cardWithImage from './objects/cardWithImage'
 import featuredImage from './objects/featuredImage'
 import pageHero from './objects/pageHero'
 import seo from './objects/seo'
@@ -13,6 +14,7 @@ import seo from './objects/seo'
 export const schemaTypes = [
   page,
   blogPost,
+  cardWithImage,
   category,
   featuredImage,
   pageHero,
