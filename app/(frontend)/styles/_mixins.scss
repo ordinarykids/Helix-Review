@@ -1,0 +1,18 @@
+@forward "@aleph/nought-sass-mixins" with (
+  $grid-column-count: 12,
+  $grid-column-gap: 24px,
+  $container-width: 1174px,
+  $container-padding: 96px,
+  $container-padding-sm: 20px,
+  $grid-responsive-column-counts: (
+    md: 8,
+    sm: 4,
+  ),
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 390px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1200px,
+  )
+);
