@@ -4,7 +4,7 @@ import healthServicesFile from '../../../../stories/assets/HealthSystems.png'
 import lifeSciencesFile from '../../../../stories/assets/LifeSciences.png'
 import publicHealthFile from '../../../../stories/assets/PublicHealth.png'
 
-const containerStyle = {
+const containerStyle = { // move to global?
   display: 'grid',
   maxWidth: '1174px',
   marginLeft: 'auto',
@@ -35,7 +35,7 @@ type Story = StoryObj<typeof CardWithImage>;
 const imageWidth = 374
 const imageHeight = 328
 
-export const HealthSystems: Story = {
+export const HealthSystemsCard: Story = {
   args: {
     title: 'Health Systems',
     width: imageWidth,
@@ -45,7 +45,7 @@ export const HealthSystems: Story = {
   },
 }
 
-export const LifeSciences: Story = {
+export const LifeSciencesCard: Story = {
   args: {
     title: 'Life Sciences',
     width: imageWidth,
@@ -55,7 +55,7 @@ export const LifeSciences: Story = {
   },
 }
 
-export const PublicHealth: Story = {
+export const PublicHealthCard: Story = {
   args: {
     title: 'Public Health',
     width: imageWidth,
