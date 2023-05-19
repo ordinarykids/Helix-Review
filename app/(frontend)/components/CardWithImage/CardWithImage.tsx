@@ -1,10 +1,10 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import classNames from 'classnames'
 import styles from './CardWithImage.module.scss'
 
 interface CardWithImageProps {
   title: string,
-  src: string,
+  src: StaticImageData,
   width: number,
   height: number,
   alt: string,
