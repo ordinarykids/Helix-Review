@@ -1,4 +1,8 @@
+@use "../../styles/mixins" as *;
+
 .wrap {
+  @include spanColumns(4);
+
   display: flex;
   flex-direction: column;
   align-items: center;
