@@ -18,10 +18,13 @@ export default function CardWithImage({
   return (
     <div className={containerClasses}>
       <Image
+        className={classNames(styles.image)}
         src={src}
         width={width}
         height={height}
         alt={alt}
+        // fill
+        // style={{ objectFit: 'contain' }}
       />
       <h2 className={styles.title}>{title}</h2>
       StyledLink here
