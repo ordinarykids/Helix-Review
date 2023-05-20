@@ -84,6 +84,15 @@ const blogPost = defineType({
           type: 'reference',
           title: 'Category',
           to: [{ type: 'category' }],
+          options: {
+            filter: ({ document }) => {
+              const catIds = (document.categories || []).map(({ _ref }) => _ref)
+              return {
+                filter: '!(@._id in $catIds)',
+                params: { catIds },
+              }
+            },
+          },
         }),
       ],
     }),
