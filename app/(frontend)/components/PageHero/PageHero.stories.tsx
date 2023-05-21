@@ -1,5 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import PageHero from '.'
+
+const withNoSubsection: Decorator = (Story) => (
+  <div className='withNoSubsection'>
+    <Story />
+  </div>
+)
 
 const meta: Meta<typeof PageHero> = {
   title: 'Components/PageHero',
@@ -11,14 +17,17 @@ export default meta
 
 type Story = StoryObj<typeof PageHero>;
 
-export const Default: Story = {
+export const HomePage: Story = {
   args: {
-    text: 'Hello World!',
+    header: 'Weaving Genomics into the Fabric of Healthcare',
+    subheader: 'Helix transforms health organizations to leverage the power of genomics across their enterprise; creating strategic value and fueling future growth.',
   },
 }
 
-export const Foo: Story = {
+export const NotHomepage: Story = {
   args: {
-    text: 'Hello World, different variation!',
+    header: 'Page header, different variation!',
+    subheader: 'Page subheader',
   },
 }
+NotHomepage.decorators = [withNoSubsection]
