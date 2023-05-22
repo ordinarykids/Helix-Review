@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import './styles/globals.css'
+import ttNorms from './lib/fonts'
+import './styles/globals.scss'
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>
+      <body className={ttNorms.variable}>
         <Link href='/'>Home</Link>
         &nbsp;
         <Link href='/blog'>Blog</Link>

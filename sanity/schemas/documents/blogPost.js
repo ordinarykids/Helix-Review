@@ -84,6 +84,15 @@ const blogPost = defineType({
           type: 'reference',
           title: 'Category',
           to: [{ type: 'category' }],
+          options: {
+            filter: ({ document }) => {
+              const catIds = (document.categories || []).map(({ _ref }) => _ref)
+              return {
+                filter: '!(@._id in $catIds)',
+                params: { catIds },
+              }
+            },
+          },
         }),
       ],
     }),
@@ -100,7 +109,7 @@ const blogPost = defineType({
           to: [{ type: 'tag' }],
           options: {
             filter: ({ document }) => {
-              const tagIds = (document.tag || []).map(({ _ref }) => _ref)
+              const tagIds = (document.tags || []).map(({ _ref }) => _ref)
               return {
                 filter: '!(@._id in $tagIds)',
                 params: { tagIds },

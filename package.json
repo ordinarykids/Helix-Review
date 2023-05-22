@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@aleph/eslint-config-nought": "^1.1.10",
+    "@aleph/nought-sass-mixins": "^2.0.0",
     "@aleph/stylelint-config-nought": "^1.0.3",
     "@next/eslint-plugin-next": "^13.3.4",
     "@sanity/eslint-config-studio": "^2.0.1",

@@ -1,0 +1,13 @@
+@use "app/(frontend)/styles/typography" as *;
+
+.eyebrow {
+  color: #333;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+
+.htmlWrapper {
+  @include bodyBase;
+
+  margin-bottom: 32px;
+}

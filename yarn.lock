@@ -19,6 +19,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aleph/nought-sass-mixins@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@aleph/nought-sass-mixins@npm:2.0.0"
+  checksum: 1bd5a62f34f1477d1ccd5b9cd4b468e8f92b5f4aed307f6455b6271487bc7985a262ce0948d57ff95dcf622f15d828563a365bcd85e936d2003b973e4cd1cacd
+  languageName: node
+  linkType: hard
+
 "@aleph/stylelint-config-nought@npm:^1.0.3":
   version: 1.0.3
   resolution: "@aleph/stylelint-config-nought@npm:1.0.3"
@@ -10120,6 +10127,7 @@ __metadata:
   resolution: "helix-dot-com-next@workspace:."
   dependencies:
     "@aleph/eslint-config-nought": ^1.1.10
+    "@aleph/nought-sass-mixins": ^2.0.0
     "@aleph/stylelint-config-nought": ^1.0.3
     "@next/eslint-plugin-next": ^13.3.4
     "@portabletext/react": ^3.0.0
