@@ -1,8 +1,7 @@
 @use "./colors" as *;
+@use "./typography" as *;
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -12,9 +11,40 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  font-size: $root-font-size;
+}
+
+body {
+  @include bodyBase;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
 a {
-  color: inherit;
-  text-decoration: none;
+  @include link;
 }
 
 @media (prefers-color-scheme: dark) {
