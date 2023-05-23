@@ -1,3 +1,6 @@
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+
 .StyledLink {
   padding: 16px 96px;
   border-radius: 3px;
@@ -5,21 +8,35 @@
 }
 
 .text {
+  @include body6;
+
   margin-right: 16px;
+  color: $white;
 }
 
 .primary {
-  background-color: #3f4c77;
+  background-color: $darkblue-300;
   color: #fff;
 }
 
 .secondary {
-  border: 2px solid #3f4c77;
+  border: 2px solid $darkblue-300;
   background-color: transparent;
-  color: #3f4c77;
+  color: $darkblue-300;
+
+  .text {
+    color: $darkblue-300;
+  }
 }
 
 .carat {
+  display: flex;
+  align-items: center;
   padding: 0;
-  color: #3f4c77;
+  color: $darkblue-300;
+
+  .text {
+    color: $darkblue-300;
+    font-weight: 700;
+  }
 }
