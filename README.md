@@ -1,7 +1,5 @@
-# helix-dot-com-next
-Next.js code for corporate website 
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Helix.com Front End
+[Next.js](https://nextjs.org/docs) code for corporate website, including [Storybook](https://storybook.js.org/docs/react/get-started/install/) for documenting styles and components.
 
 ## Getting Started
 
@@ -21,11 +19,9 @@ Pushes to the `main` branch auto-deploy to [https://helix-dot-com-next.vercel.ap
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Storybook
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You can run Storybook locally alongside the studio with `yarn storybook`. Changes to storybook will automatically deploy to Vercel:
+- Storybook on the `main` (production) environment is at [https://helix-dot-com-storybook.vercel.app/](https://helix-dot-com-storybook.vercel.app/)
+- Storybook on `staging` is at [https://helix-dot-com-storybook-staging.vercel.app/](https://helix-dot-com-storybook-staging.vercel.app/)
