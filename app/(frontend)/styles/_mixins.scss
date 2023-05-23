@@ -1,12 +1,20 @@
+@use "./spacing" as *;
+
 @forward "@aleph/nought-sass-mixins" with (
   $grid-column-count: 12,
-  $grid-column-gap: 24px,
-  $container-width: 1174px,
-  $container-padding: 96px,
-  $container-padding-sm: 20px,
+  $grid-column-gap: $grid-column-gap,
+  $container-width: $container-width,
+  $container-padding: $container-padding,
+  $container-responsive-padding: (
+    md: $container-padding-md,
+    sm: $container-padding-sm,
+  ),
   $grid-responsive-column-counts: (
     md: 8,
     sm: 4,
+  ),
+  $grid-responsive-column-gap: (
+    md: $grid-column-gap-md,
   ),
   $grid-breakpoints: (
     xs: 0,
