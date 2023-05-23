@@ -14,9 +14,6 @@ const containerStyle = { // move to global?
   columnGap: '24px',
   gridTemplateColumns: 'repeat(12, 1fr)',
 }
-const wrapStyle = {
-  border: '1px dashed magenta',
-}
 
 const meta: Meta<typeof CardWithImage> = {
   title: 'Components/CardWithImage',
@@ -24,7 +21,7 @@ const meta: Meta<typeof CardWithImage> = {
   //   tags: ['autodocs'], // Uncomment if you aren't using an MDX file for docs here
   decorators: [
     (Story) => (
-      <div style={wrapStyle}>
+      <div>
         <Story />
       </div>
     ),
