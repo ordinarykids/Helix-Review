@@ -3,9 +3,16 @@ import classNames from 'classnames'
 import ArrowRight from '../svgs/ArrowRight'
 import styles from './StyledLink.module.scss'
 
+interface StyledLinkProps {
+  text: string,
+  link: string,
+  style: string,
+  align: string,
+}
+
 export default function StyledLink({
   text, link, style, align,
-}: Sanity.Default.Schema.StyledLink) {
+}: StyledLinkProps) {
   const linkClasses = classNames(styles.StyledLink, styles[style], styles[align])
 
   return (
