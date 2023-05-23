@@ -18,6 +18,17 @@ const cardWithImage = defineType({
     }),
     // styledLink
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare(selection) {
+      const { title } = selection
+      return {
+        title,
+      }
+    },
+  },
 })
 
 export default cardWithImage
