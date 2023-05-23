@@ -24,4 +24,4 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 You can run Storybook locally alongside the studio with `yarn storybook`. Changes to storybook will automatically deploy to Vercel:
 - Storybook on the `main` (production) environment is at [https://helix-dot-com-storybook.vercel.app/](https://helix-dot-com-storybook.vercel.app/)
-- Storybook on `staging` is at [https://helix-dot-com-storybook-staging.vercel.app/](https://helix-dot-com-storybook-staging.vercel.app/)
+- Storybook on `staging` is at [https://helix-dot-com-storybook-git-staging-helix.vercel.app/](https://helix-dot-com-storybook-git-staging-helix.vercel.app/)
