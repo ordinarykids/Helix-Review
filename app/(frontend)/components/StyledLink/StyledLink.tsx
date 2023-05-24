@@ -6,8 +6,8 @@ import styles from './StyledLink.module.scss'
 interface StyledLinkProps {
   text: string,
   link: string,
-  style: string,
-  align: string,
+  style: 'primary' | 'secondary' | 'carat',
+  align: 'left' | 'center',
 }
 
 export default function StyledLink({
