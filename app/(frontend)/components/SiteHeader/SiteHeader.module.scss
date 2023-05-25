@@ -1,0 +1,10 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+.container {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

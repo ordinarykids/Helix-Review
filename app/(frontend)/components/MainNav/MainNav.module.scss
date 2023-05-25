@@ -1,0 +1,82 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+$link-color: $darkblue-300;
+
+.navList {
+  @include listReset;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuItem {
+  position: relative;
+  margin-top: to-rem(28);
+  padding-bottom: to-rem(28);
+  color: $link-color;
+
+  &:not(:last-child) {
+    margin-right: 54px;
+  }
+
+  &_Button {
+    @include buttonReset;
+    @include body3;
+  }
+}
+
+.submenu {
+  @include listReset;
+
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -40px;
+  width: max-content;
+  padding: to-rem(40);
+  column-gap: 24px;
+  background-color: $white;
+
+  .menuItem:last-child & {
+    right: 0;
+    left: unset;
+  }
+
+  &__open {
+    display: flex;
+  }
+}
+
+.linkGroup {
+  @include listReset;
+}
+
+.linkGroupHeader {
+  @include body6;
+
+  color: $link-color;
+}
+
+.submenuLink {
+  @include body6;
+
+  &,
+  &:visited {
+    color: $link-color;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $link-color;
+    text-decoration: underline;
+    text-underline-offset: to-rem(5);
+  }
+
+  &__hasHeader {
+    @include body5;
+  }
+}
