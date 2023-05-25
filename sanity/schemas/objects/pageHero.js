@@ -44,9 +44,9 @@ const pageHero = defineType({
     }),
     defineField({
       name: 'media',
-      type: 'file', // pending final file format
+      type: 'url', // pending final file format
       title: 'Media',
-      description: 'Add file to override image',
+      description: 'Add file url to override image',
       hidden: ({ document }) => (document.slug?.current !== 'home'),
     }),
     defineField({
