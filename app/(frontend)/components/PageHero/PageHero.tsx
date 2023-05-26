@@ -38,18 +38,20 @@ export default function PageHero({
         <div className={classNames(styles.heroRight)}>
           {media
             ? (
-              <h2>FPO animation</h2>
+              <div className={classNames(styles.heroAnimation)}>
+                <h2>FPO animation</h2>
+              </div>
             )
             : (
-              <Image
-                className={classNames(styles.image)}
-                src={src}
-                width={width}
-                height={height}
-                alt={alt}
-              // fill
-              // style={{ objectFit: 'contain' }}
-              />
+              <div className={classNames(styles.heroImage)}>
+                <Image
+                  className={classNames(styles.image)}
+                  src={src}
+                  width={width}
+                  height={height}
+                  alt={alt}
+                />
+              </div>
             )}
         </div>
       </div>
