@@ -1,4 +1,5 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import heroFPOImage from '../../../../stories/assets/HeroFPO.svg'
 import PageHero from '.'
 
 const withNoSubsection: Decorator = (Story) => (
@@ -21,6 +22,10 @@ export const HomePage: Story = {
   args: {
     header: 'Weaving Genomics into the Fabric of Healthcare',
     subheader: 'Helix transforms health organizations to leverage the power of genomics across their enterprise; creating strategic value and fueling future growth.',
+    src: heroFPOImage,
+    width: 434,
+    height: 427,
+    alt: 'Hero FPO image',
   },
 }
 

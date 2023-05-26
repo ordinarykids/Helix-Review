@@ -18,12 +18,12 @@ interface PageHeroProps {
   width: number,
   height: number,
   alt: string,
-  animation: string,
+  media: string,
   // cardWithImageProps: CardWithImageProps,
 }
 
 export default function PageHero({
-  header, subheader, src, width, height, alt, animation,
+  header, subheader, src, width, height, alt, media,
 }: PageHeroProps) {
   const containerClasses = classNames(styles.container)
 
@@ -36,7 +36,7 @@ export default function PageHero({
           {/* StyledLink component */}
         </div>
         <div className={classNames(styles.heroRight)}>
-          {animation
+          {media
             ? (
               <h2>FPO animation</h2>
             )
