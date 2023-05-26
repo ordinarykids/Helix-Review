@@ -9,6 +9,7 @@ import cardWithImage from './objects/cardWithImage'
 import featuredImage from './objects/featuredImage'
 import pageHero from './objects/pageHero'
 import seo from './objects/seo'
+import styledLink from './objects/styledLink'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
@@ -19,5 +20,6 @@ export const schemaTypes = [
   featuredImage,
   pageHero,
   seo,
+  styledLink,
   tag,
 ]

@@ -1,9 +1,53 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/spacing" as *;
+@use "../../styles/typography" as *;
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: $coolgray-300;
 }
 
-.someOtherClass {
-  /* Add your styles here */
+.hero {
+  @include containerGrid;
+
+  padding-top: $spacing-large;
+  padding-bottom: $spacing-large;
+  border: 6px dashed green;
+
+  @include media-breakpoint-up(md) {
+    padding-top: $spacing-x-large;
+    padding-bottom: $spacing-x-large;
+    border: 3px dotted red;
+  }
+
+  &Left {
+    @include spanColumns(6, 1);
+  }
+
+  &Header {
+    margin-bottom: $spacing-standard;
+    padding-right: $spacing-x-large;
+  }
+
+  &Subheader {
+    @include body1;
+
+    margin-bottom: $spacing-medium;
+  }
+
+  &Right {
+    @include spanColumns(6, 7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .subsection {
+    // display: none;
+  }
 }
