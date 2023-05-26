@@ -10,6 +10,7 @@ import featuredImage from './objects/featuredImage'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import seo from './objects/seo'
+import styledLink from './objects/styledLink'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
@@ -21,5 +22,6 @@ export const schemaTypes = [
   link,
   navigationSectionPanel,
   seo,
+  styledLink,
   tag,
 ]

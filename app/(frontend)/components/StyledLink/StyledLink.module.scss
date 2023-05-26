@@ -1,0 +1,42 @@
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+
+.StyledLink {
+  padding: 16px 96px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.text {
+  @include body6;
+
+  margin-right: 16px;
+  color: $white;
+}
+
+.primary {
+  background-color: $darkblue-300;
+  color: #fff;
+}
+
+.secondary {
+  border: 2px solid $darkblue-300;
+  background-color: transparent;
+  color: $darkblue-300;
+
+  .text {
+    color: $darkblue-300;
+  }
+}
+
+.carat {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: $darkblue-300;
+
+  .text {
+    color: $darkblue-300;
+    font-weight: 700;
+  }
+}
