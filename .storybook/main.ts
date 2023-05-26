@@ -3,8 +3,7 @@ const config: StorybookConfig = {
   stories: [
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
-    "../app/components/**/*.mdx",
-    "../app/components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../app/**/components/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -19,5 +18,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: [{
+    from: '../app/\(frontend\)/fonts',
+    to: '/app/fonts',
+  }]
 };
 export default config;
