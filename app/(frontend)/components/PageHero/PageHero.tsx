@@ -1,5 +1,7 @@
 import classNames from 'classnames'
+import React from 'react'
 import Image, { StaticImageData } from 'next/image'
+import StyledLink from '../StyledLink/StyledLink'
 // import CardWithImage from '../CardWithImage/CardWithImage'
 import styles from './PageHero.module.scss'
 
@@ -10,6 +12,15 @@ import styles from './PageHero.module.scss'
 //   height: number,
 //   alt: string,
 // }
+
+const StyledLinkComponent = () => (
+  <StyledLink
+    text='Contact Us'
+    link=''
+    linkStyle='primary'
+    align='left'
+  />
+)
 
 interface PageHeroProps {
   header: string,
@@ -33,7 +44,9 @@ export default function PageHero({
         <div className={classNames(styles.heroLeft)}>
           <h2 className={classNames(styles.heroHeader)}>{header}</h2>
           <p className={classNames(styles.heroSubheader)}>{subheader}</p>
-          {/* StyledLink component */}
+          <div className={classNames(styles.link)}>
+            <StyledLinkComponent />
+          </div>
         </div>
         <div className={classNames(styles.heroRight)}>
           {media
