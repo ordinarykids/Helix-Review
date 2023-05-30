@@ -6,19 +6,19 @@ import styles from './StyledLink.module.scss'
 export interface StyledLinkProps {
   text: string,
   link: string,
-  style: 'primary' | 'secondary' | 'carat',
+  linkStyle: 'primary' | 'secondary' | 'carat',
   align: 'left' | 'center',
 }
 
 export default function StyledLink({
-  text, link, style, align,
+  text, link, linkStyle, align,
 }: StyledLinkProps) {
-  const linkClasses = classNames(styles.StyledLink, styles[style], styles[align])
+  const linkClasses = classNames(styles.StyledLink, styles[linkStyle], styles[align])
 
   return (
     <Link href={link} className={linkClasses}>
       <span className={styles.text}>{text}</span>
-      {style === 'carat'
+      {linkStyle === 'carat'
       && <span><ArrowRight /></span>}
     </Link>
   )
