@@ -8,6 +8,7 @@ import tag from './documents/tag'
 // Object schemas
 import featuredImage from './objects/featuredImage'
 import link from './objects/link'
+import navigationLink from './objects/navigationLink'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
@@ -20,6 +21,7 @@ export const schemaTypes = [
   featuredImage,
   mainNavigation,
   link,
+  navigationLink,
   navigationSectionPanel,
   seo,
   styledLink,

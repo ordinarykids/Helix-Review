@@ -12,6 +12,11 @@ export default defineField({
       title: 'Group Title',
     },
     {
+      name: 'titlelink',
+      type: 'link',
+      title: 'Group Title Link',
+    },
+    {
       name: 'navigationLinks',
       type: 'array',
       title: 'Links',

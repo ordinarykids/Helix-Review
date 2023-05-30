@@ -1,11 +1,15 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import cx from 'classnames'
+import StyledLink from '../StyledLink'
+import ArrowDropdown from '../svgs/ArrowDropdown'
 import styles from './MainNav.module.scss'
+
+type teaserDocTypes = | 'blogPost'
 
 export default function MainNav({ navData }: { navData: Sanity.Default.Query.MainNavigation }) {
   const pathname = usePathname()
@@ -24,42 +28,111 @@ export default function MainNav({ navData }: { navData: Sanity.Default.Query.Mai
     })
   }
 
+  const docTypes = {
+    blogPost: {
+      text: 'Blog',
+      slug: '/blog',
+    },
+  }
+
   return (
     <nav className={styles.nav}>
       {navData && (
         <ul className={styles.navList}>
-          {navData?.navigationSections?.map((section, sectionIndex) => (
-            <li className={styles.menuItem}>
-              <button className={styles.menuItem_Button} type='button' onClick={() => toggleOpen(sectionIndex)}>
-                {section.title}
-              </button>
-              <ul className={cx(styles.submenu, { [styles.submenu__open]: openSubmenuIndex === sectionIndex })}>
-                {section.navigationSectionPanel.columns.map((column) => (
-                  <li className={styles.column}>
-                    {column.navigationLinkGroups.map((linkGroup) => (
-                      <ul className={styles.linkGroup}>
-                        {linkGroup.title && (
-                          <li className={styles.linkGroupHeader}>
-                            {linkGroup.title}
-                          </li>
-                        )}
-                        {linkGroup.navigationLinks.map((link) => (
-                          <li>
-                            <Link
-                              href={`${link.url.link || link.url.externalUrl}`}
-                              className={cx(styles.submenuLink, { [styles.submenuLink__hasHeader]: linkGroup.title })}
+          {navData?.navigationSections?.map((section, sectionIndex) => {
+            const { navigationLinkGroups, teaser, ctaLink } = section.navigationSectionPanel
+            return (
+              <li className={styles.menuItem}>
+                <button className={styles.menuItem_Button} type='button' onClick={() => toggleOpen(sectionIndex)}>
+                  {section.title}
+                  <span
+                    className={cx(
+                      styles.menuItem_ButtonArrow,
+                      { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
+                    )}
+                  >
+                    <ArrowDropdown />
+                  </span>
+                </button>
+                <div className={cx(styles.submenu, { [styles.submenu__open]: openSubmenuIndex === sectionIndex })}>
+                  <div className={styles.submenuMainContent}>
+                    <div
+                      className={cx(
+                        styles.submenus,
+                        { [styles.submenus__oneCol]: navigationLinkGroups.length === 1 },
+                        { [styles.submenus__twoCol]: navigationLinkGroups.length === 2 },
+                        {
+                          [styles.submenus__threeCol]: navigationLinkGroups.length === 3
+                            || (
+                              navigationLinkGroups.length > 3
+                              && teaser
+                            ),
+                        },
+                      )}
+                    >
+                      {navigationLinkGroups.map((linkGroup) => (
+                        <ul className={styles.linkGroup}>
+                          {linkGroup.title && (
+                            <li className={styles.linkGroupHeader}>
+                              {linkGroup.titlelink ? (
+                                <Link
+                                  href={`${linkGroup.titlelink.link || linkGroup.titlelink.externalUrl}`}
+                                  className={styles.linkGroupHeader_Link}
+                                >
+                                  {linkGroup.title}
+                                </Link>
+                              ) : (
+                                linkGroup.title
+                              )}
+                            </li>
+                          )}
+                          {linkGroup.navigationLinks.map((link) => (
+                            <li
+                              className={cx(
+                                styles.linkGroupItem,
+                                { [styles.linkGroupItem__hasHeader]: linkGroup.title },
+                              )}
                             >
-                              {link.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ))}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
+                              <Link
+                                href={`${link.url.link || link.url.externalUrl}`}
+                                className={cx(styles.submenuLink, { [styles.submenuLink__hasHeader]: linkGroup.title })}
+                              >
+                                {link.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      ))}
+                    </div>
+                    {teaser && (
+                      <div className={styles.teaser}>
+                        {teaser.image?.url && (
+                          <div className={styles.teaser_ImageWrap}>
+                            <Image
+                              className={styles.teaser_Image}
+                              src={teaser.image.url}
+                              width={teaser.image.width}
+                              height={teaser.image.height}
+                            />
+                          </div>
+                        )}
+                        <div className={styles.teaser_TextWrap}>
+                          <p className={styles.teaser_Type}>
+                            {`Featured ${docTypes[teaser._type as teaserDocTypes].text}`}
+                          </p>
+                          <p className={styles.teaser_Excerpt}>
+                            {teaser.title}
+                          </p>
+                          <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} linkStyle='carat' />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {ctaLink?.title && (ctaLink?.url.link || ctaLink?.url.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />}
+                </div>
+              </li>
+            )
+          })}
         </ul>
       )}
     </nav>

@@ -1,5 +1,5 @@
 import { defineField, defineArrayMember } from 'sanity'
-import navigationSectionPanelColumn from './navigationSectionPanelColumn'
+import navigationLinkGroup from './navigationLinkGroup'
 
 export default defineField({
   name: 'navigationSectionPanel',
@@ -7,18 +7,35 @@ export default defineField({
   type: 'object',
   fields: [
     {
-      name: 'columns',
+      name: 'navigationLinkGroups',
       type: 'array',
-      title: 'Columns',
-      of: [defineArrayMember(navigationSectionPanelColumn)],
+      title: 'Link Groups',
+      of: [defineArrayMember(navigationLinkGroup)],
       codegen: { required: true },
-      validation: (Rule) => Rule.required().min(1).max(3).error('Must have 1-3 columns.'),
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Teaser',
       name: 'teaser',
       type: 'reference',
       to: [{ type: 'blogPost' }],
+    },
+    {
+      name: 'ctaLink',
+      title: 'CTA Link',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'url',
+          type: 'link',
+          title: 'URL',
+        },
+      ],
     },
   ],
 })

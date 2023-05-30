@@ -1,5 +1,4 @@
 import { defineField } from 'sanity'
-import link from './link'
 
 export default defineField({
   name: 'navigationLink',

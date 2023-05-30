@@ -8,19 +8,39 @@ const fetchMainNav = async () => {
       navigationSections[]{
         title,
         navigationSectionPanel {
-          columns[]{
-            navigationLinkGroups[] {
+          navigationLinkGroups[] {
+            title,
+            titlelink {
+              "link": internalLink->slug.current,
+              externalUrl,
+            },
+            navigationLinks[] {
               title,
-              navigationLinks[] {
-                title,
-                url {
-                  "link": internalLink->slug.current,
-                  externalUrl,
-                },
+              url {
+                "link": internalLink->slug.current,
+                externalUrl,
               },
             },
           },
-          teaser,
+          teaser->{
+            'image': featuredImage.image.asset->{
+              url,
+              'height': metadata.dimensions.height,
+              'width': metadata.dimensions.width,
+              'aspectRatio': metadata.dimensions.aspectRatio,
+              'blurHash': metadata.blurHash,
+            },
+            title,
+            _type,
+            "slug": slug.current,
+          },
+          ctaLink {
+            title,
+            url {
+              "link": internalLink->slug.current,
+              externalUrl,
+            },
+          },
         },
       },
     }`,
