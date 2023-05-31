@@ -5,13 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import cx from 'classnames'
+import { MainNavigation } from 'app/(frontend)/lib/sanity/fetch/fetchMainNav'
 import StyledLink from '../StyledLink'
 import ArrowDropdown from '../svgs/ArrowDropdown'
 import styles from './MainNav.module.scss'
 
 type teaserDocTypes = | 'blogPost'
 
-export default function MainNav({ navData }: { navData: Sanity.Default.Query.MainNavigation }) {
+export default function MainNav({ navData }: { navData: MainNavigation }) {
   const pathname = usePathname()
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState<number | null>(null)
 
@@ -128,7 +129,7 @@ export default function MainNav({ navData }: { navData: Sanity.Default.Query.Mai
                       </div>
                     )}
                   </div>
-                  {ctaLink?.title && (ctaLink?.url.link || ctaLink?.url.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />}
+                  {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />}
                 </div>
               </li>
             )
