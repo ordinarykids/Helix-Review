@@ -15,6 +15,7 @@ type teaserDocTypes = | 'blogPost'
 export default function MainNav({ navData }: { navData: MainNavigation }) {
   const pathname = usePathname()
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState<number | null>(null)
+  const [hoveredSubmenuIndex, setHoveredSubmenuIndex] = useState<number | null>(null)
 
   useEffect(() => {
     setOpenSubmenuIndex(null)
@@ -44,7 +45,21 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
             const { navigationLinkGroups, teaser, ctaLink } = section.navigationSectionPanel
             return (
               <li key={section._key} className={styles.menuItem}>
-                <button className={styles.menuItem_Button} type='button' onClick={() => toggleOpen(sectionIndex)}>
+                <button
+                  className={cx(
+                    styles.menuItem_Button,
+                    {
+                      [styles.menuItem_Button__faded]:
+                        ((hoveredSubmenuIndex !== null && hoveredSubmenuIndex !== sectionIndex)
+                        || (openSubmenuIndex !== null && openSubmenuIndex !== sectionIndex))
+                        && hoveredSubmenuIndex !== sectionIndex && openSubmenuIndex !== sectionIndex,
+                    },
+                  )}
+                  type='button'
+                  onClick={() => toggleOpen(sectionIndex)}
+                  onMouseEnter={() => setHoveredSubmenuIndex(sectionIndex)}
+                  onMouseLeave={() => setHoveredSubmenuIndex(null)}
+                >
                   {section.title}
                   <span
                     className={cx(

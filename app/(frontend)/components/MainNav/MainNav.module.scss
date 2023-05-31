@@ -1,9 +1,11 @@
 @use "sass:math";
 @use "../../styles/colors" as *;
+@use "../../styles/misc" as *;
 @use "../../styles/mixins" as *;
 @use "../../styles/typography" as *;
 
 $menu-item-color: $darkblue-300;
+$menu-item-color-faded: $darkblue-500;
 
 .navList {
   @include listReset;
@@ -16,7 +18,6 @@ $menu-item-color: $darkblue-300;
 
 .menuItem {
   margin-top: to-rem(28);
-  color: $menu-item-color;
 
   &:not(:last-child) {
     margin-right: 54px;
@@ -31,6 +32,20 @@ $menu-item-color: $darkblue-300;
     @include body3;
 
     padding-bottom: to-rem(28);
+    transition: color $transition-speed;
+    color: $menu-item-color;
+
+    svg path {
+      transition: stroke $transition-speed;
+    }
+
+    &__faded {
+      color: $menu-item-color-faded;
+
+      svg path {
+        stroke: $menu-item-color-faded;
+      }
+    }
   }
 
   &_ButtonArrow {
@@ -65,13 +80,13 @@ $menu-item-color: $darkblue-300;
 
 .submenuMainContent {
   display: flex;
-  column-gap: 24px;
+  column-gap: $grid-column-gap;
 }
 
 .submenus {
   display: grid;
-  column-gap: 24px;
-  row-gap: 24px;
+  column-gap: $grid-column-gap;
+  row-gap: $grid-column-gap;
   grid-template-columns: repeat(4, 1fr);
 
   &__oneCol {
