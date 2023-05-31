@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
+import { media } from 'sanity-plugin-media'
 import { structure } from './deskStructure'
 import { schemaTypes } from './sanity/schemas'
 import { sanityDataset, sanityProjectId } from './environment'
@@ -21,7 +22,7 @@ export default defineConfig({
   projectId: sanityProjectId || 'g5irbagy',
   dataset: sanityDataset || 'staging',
 
-  plugins: [deskTool({ structure }), visionTool()],
+  plugins: [deskTool({ structure }), visionTool(), media()],
 
   schema: {
     types: schemaTypes,
