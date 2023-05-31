@@ -114,6 +114,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               src={teaser.image.url}
                               width={teaser.image.width}
                               height={teaser.image.height}
+                              alt={teaser.image.altText || `Image for ${teaser.title}`}
                             />
                           </div>
                         )}

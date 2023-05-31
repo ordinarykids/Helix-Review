@@ -29,6 +29,7 @@ export type MainNavigation = {
           teaser: {
             _type: string;
             image?: {
+              altText?: string | null;
               aspectRatio: number;
               blurHash: string;
               height: number;
@@ -65,6 +66,7 @@ const fetchMainNav = async () => {
         },
         teaser->{
           'image': featuredImage.image.asset->{
+            altText,
             url,
             'height': metadata.dimensions.height,
             'width': metadata.dimensions.width,
@@ -84,7 +86,7 @@ const fetchMainNav = async () => {
         },
       },
     },
-  },`
+  }`
   const res = await sanityFetch<MainNavigation>(query)
   return res
 }
