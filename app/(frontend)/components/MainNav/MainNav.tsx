@@ -43,7 +43,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
           {navData?.navigationSections?.map((section, sectionIndex) => {
             const { navigationLinkGroups, teaser, ctaLink } = section.navigationSectionPanel
             return (
-              <li className={styles.menuItem}>
+              <li key={section._key} className={styles.menuItem}>
                 <button className={styles.menuItem_Button} type='button' onClick={() => toggleOpen(sectionIndex)}>
                   {section.title}
                   <span
@@ -72,7 +72,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                       )}
                     >
                       {navigationLinkGroups.map((linkGroup) => (
-                        <ul className={styles.linkGroup}>
+                        <ul key={linkGroup._key} className={styles.linkGroup}>
                           {linkGroup.title && (
                             <li className={styles.linkGroupHeader}>
                               {linkGroup.titlelink ? (
@@ -89,6 +89,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           )}
                           {linkGroup.navigationLinks.map((link) => (
                             <li
+                              key={link._key}
                               className={cx(
                                 styles.linkGroupItem,
                                 { [styles.linkGroupItem__hasHeader]: linkGroup.title },

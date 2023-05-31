@@ -14,12 +14,14 @@ export type MainNavigation = {
           } | null;
           navigationLinkGroups: {
             navigationLinks: {
+              _key: string;
               title: string;
               url: {
                 externalUrl?: string | null;
                 link?: string | null;
               };
             }[];
+            _key: string;
             title?: string | null;
             titlelink?: {
               externalUrl?: string | null;
@@ -40,6 +42,7 @@ export type MainNavigation = {
             title?: string | null;
           } | null;
         };
+        _key: string;
         title: string;
       }[]
     | null;
@@ -48,15 +51,18 @@ export type MainNavigation = {
 const fetchMainNav = async () => {
   const query = groq`*[_type == "mainNavigation"][0]{
     navigationSections[]{
+      _key,
       title,
       navigationSectionPanel {
         navigationLinkGroups[] {
+          _key,
           title,
           titlelink {
             "link": internalLink->slug.current,
             externalUrl,
           },
           navigationLinks[] {
+            _key,
             title,
             url {
               "link": internalLink->slug.current,
