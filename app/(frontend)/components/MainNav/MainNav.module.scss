@@ -16,7 +16,6 @@ $menu-item-color: $darkblue-300;
 
 .menuItem {
   margin-top: to-rem(28);
-  padding-bottom: to-rem(28);
   color: $menu-item-color;
 
   &:not(:last-child) {
@@ -30,6 +29,8 @@ $menu-item-color: $darkblue-300;
   &_Button {
     @include buttonReset;
     @include body3;
+
+    padding-bottom: to-rem(28);
   }
 
   &_ButtonArrow {
