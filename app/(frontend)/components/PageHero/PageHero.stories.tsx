@@ -26,6 +26,8 @@ export const HomePage: Story = {
     width: 434,
     height: 427,
     alt: 'Hero FPO image',
+    buttonText: 'Contact Us',
+    buttonLink: 'https://helix.com',
   },
 }
 
@@ -33,6 +35,8 @@ export const NotHomepage: Story = {
   args: {
     header: 'Page header, different variation!',
     subheader: 'Page subheader',
+    buttonText: 'Contact Us',
+    buttonLink: 'https://helix.com',
   },
 }
 NotHomepage.decorators = [withNoSubsection]
