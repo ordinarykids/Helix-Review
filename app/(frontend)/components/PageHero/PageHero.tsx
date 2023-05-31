@@ -13,15 +13,6 @@ import styles from './PageHero.module.scss'
 //   alt: string,
 // }
 
-const StyledLinkComponent = () => (
-  <StyledLink
-    text='Contact Us'
-    link=''
-    linkStyle='primary'
-    align='left'
-  />
-)
-
 interface PageHeroProps {
   header: string,
   subheader: string,
@@ -30,11 +21,13 @@ interface PageHeroProps {
   height: number,
   alt: string,
   media: string,
+  buttonText: string,
+  buttonLink: string,
   // cardWithImageProps: CardWithImageProps,
 }
 
 export default function PageHero({
-  header, subheader, src, width, height, alt, media,
+  header, subheader, src, width, height, alt, media, buttonText, buttonLink,
 }: PageHeroProps) {
   const containerClasses = classNames(styles.container)
 
@@ -45,7 +38,10 @@ export default function PageHero({
           <h2 className={classNames(styles.heroHeader)}>{header}</h2>
           <p className={classNames(styles.heroSubheader)}>{subheader}</p>
           <div className={classNames(styles.link)}>
-            <StyledLinkComponent />
+            <StyledLink
+              text={buttonText}
+              link={buttonLink}
+            />
           </div>
         </div>
         <div className={classNames(styles.heroRight)}>
