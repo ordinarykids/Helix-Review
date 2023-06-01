@@ -4,22 +4,19 @@
 @use "../../styles/typography" as *;
 
 .container {
-  background-color: $coolgray-300;
-}
-
-.hero {
   @include containerGrid;
 
   padding-top: $spacing-large;
   padding-bottom: $spacing-large;
-  border: 6px dashed green;
+  background-color: $coolgray-300;
 
   @include media-breakpoint-up(md) {
     padding-top: $spacing-x-large;
     padding-bottom: $spacing-x-large;
-    border: 3px dotted red;
   }
+}
 
+.hero {
   &Left {
     @include spanColumns(6, 1);
   }
