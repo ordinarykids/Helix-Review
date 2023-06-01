@@ -60,13 +60,16 @@ $menu-item-color-faded: $darkblue-500;
 }
 
 .submenu {
-  display: none;
   position: absolute;
   top: 100%;
   left: -40px;
   padding: 40px;
+  transition: opacity 250ms, visibility 250ms;
   border: 1px solid lightgray;
   background-color: $white;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 
   .menuItem:nth-last-child(-n + 2) & {
     right: 0;
@@ -75,6 +78,9 @@ $menu-item-color-faded: $darkblue-500;
 
   &__open {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 
