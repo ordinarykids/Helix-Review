@@ -111,6 +111,10 @@ $menu-item-color-faded: $darkblue-500;
   @include listReset;
 
   width: 174px;
+
+  .submenus__oneColWithTeaser & {
+    width: 248px;
+  }
 }
 
 .linkGroupHeader {

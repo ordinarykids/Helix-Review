@@ -84,6 +84,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               && teaser
                             ),
                         },
+                        { [styles.submenus__oneColWithTeaser]: navigationLinkGroups.length === 1 && teaser },
                       )}
                     >
                       {navigationLinkGroups.map((linkGroup) => (
