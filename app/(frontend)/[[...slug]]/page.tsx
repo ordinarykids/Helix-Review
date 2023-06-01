@@ -30,8 +30,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     notFound()
   }
   return (
-    <main className={styles.container}>
-      <h1>{pageData?.title || 'No title found'}</h1>
+    <main className={styles.main}>
+      <div className={styles.container}>
+        <h1>{pageData?.title || 'No title found'}</h1>
+      </div>
     </main>
   )
 }

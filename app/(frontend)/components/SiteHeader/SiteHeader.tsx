@@ -8,7 +8,7 @@ export default async function SiteHeader() {
   const mainNavData = await fetchMainNav()
 
   return (
-    <header className={styles.nav}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <Link href='/'>
           <Image src='/helix_brand_logo.png' width={123} height={32} alt='Helix brand logo' />
