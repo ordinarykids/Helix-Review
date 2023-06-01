@@ -137,6 +137,13 @@ $font-family-tt-norms: var(--tt-norms);
   font-weight: 344;
 }
 
+@mixin body9() {
+  @include fontSize(14, 16);
+
+  font-family: $font-family-tt-norms;
+  font-weight: 344;
+}
+
 @mixin h1() {
   @include headerDesktopXl;
 
