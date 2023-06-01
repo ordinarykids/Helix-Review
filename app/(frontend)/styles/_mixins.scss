@@ -24,3 +24,19 @@
     xl: 1200px,
   )
 );
+
+@mixin buttonReset() {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+@mixin listReset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

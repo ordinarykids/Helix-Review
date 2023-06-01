@@ -134,6 +134,7 @@ const blogPost = defineType({
         source: 'title',
         maxLength: 200,
       },
+      codegen: { required: true },
       validation: (Rule) => Rule.required(),
     }),
   ],

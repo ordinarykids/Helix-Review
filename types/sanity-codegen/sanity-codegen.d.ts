@@ -9,7 +9,7 @@ namespace Sanity.Default.Client {
 }
 namespace Sanity.Default.Query {
   type AllBlogPosts = {
-    slug: string | null;
+    slug: string;
     title: string | null;
   }[];
 }
@@ -17,14 +17,24 @@ namespace Sanity.Default.Query {
   type BlogPost = {
     categories:
       | {
+<<<<<<< HEAD
           name: Sanity.Ref.Ref_IhvVS1h6gCbVs729;
           slug: Sanity.Ref.Ref_TzENAn7kdxrbzkbS;
+=======
+          name: Sanity.Ref.Ref_UQNbW4GvfvSRaG2S;
+          slug: Sanity.Ref.Ref_n9BWzLCEmvVzxObC;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         }[]
       | null;
     tags:
       | {
+<<<<<<< HEAD
           name: Sanity.Ref.Ref_Qo2c2d9e7NcLGWrQ;
           slug: Sanity.Ref.Ref_o6lt9TznZ0GahjCz;
+=======
+          name: Sanity.Ref.Ref_cBMFwtAuje13NPuE;
+          slug: Sanity.Ref.Ref_KaHeHcgui7abMWsc;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         }[]
       | null;
     title: string | null;
@@ -41,7 +51,11 @@ namespace Sanity.Default.Schema {
     | {
         _id: string;
         _type: "blogPost";
+<<<<<<< HEAD
         categories?: Sanity.Reference<Sanity.Ref.Ref_J1MlXZjCS3fWZApB>[];
+=======
+        categories?: Sanity.Reference<Sanity.Ref.Ref_GPuf4a9UddFj2cKH>[];
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         content?: {
           _key: string;
           _type: "block";
@@ -54,12 +68,17 @@ namespace Sanity.Default.Schema {
           markDefs?: unknown[];
           style?: string;
         }[];
+<<<<<<< HEAD
         featuredImage?: Sanity.Ref.Ref_Pvyw09jTKUA3Ffng;
         seo?: Sanity.Ref.Ref_tRmWLqJNszQXsfc9;
+=======
+        featuredImage?: Sanity.Ref.Ref_W5gkR3Pl8jiG9MmI;
+        seo?: Sanity.Ref.Ref_xwukxpCj6ouwu0Vw;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         showHeroSubheader?: boolean;
-        slug?: {
+        slug: {
           _type: "slug";
-          current?: string;
+          current: string;
           source?: string;
         };
         subheader?: {
@@ -74,6 +93,7 @@ namespace Sanity.Default.Schema {
           markDefs?: unknown[];
           style?: string;
         }[];
+<<<<<<< HEAD
         tags?: Sanity.Reference<Sanity.Ref.Ref_OS0erVH659saj6Qd>[];
         title?: string;
       }
@@ -174,6 +194,9 @@ namespace Sanity.Default.Schema {
             y: number;
           };
         };
+=======
+        tags?: Sanity.Reference<Sanity.Ref.Ref_kIh7upXUtGpMj7yn>[];
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         title?: string;
       }
     | undefined;
@@ -184,7 +207,11 @@ namespace Sanity.Default.Schema {
         _id: string;
         _type: "category";
         name?: string;
+<<<<<<< HEAD
         parent?: Sanity.Reference<Sanity.Ref.Ref_J1MlXZjCS3fWZApB>;
+=======
+        parent?: Sanity.Reference<Sanity.Ref.Ref_GPuf4a9UddFj2cKH>;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         slug?: {
           _type: "slug";
           current?: string;
@@ -301,12 +328,74 @@ namespace Sanity.Default.Schema {
     | undefined;
 }
 namespace Sanity.Default.Schema {
+  type Link = {
+    externalUrl?: string;
+    internalLink?: Sanity.Reference<Sanity.Ref.Ref_XkFPOIf3iseWL0Cm>;
+  };
+}
+namespace Sanity.Default.Schema {
+  type MainNavigation =
+    | {
+        _id: string;
+        _type: "mainNavigation";
+        navigationSections?: {
+          navigationSectionPanel?: Sanity.Ref.Ref_gXOpy1JZTO66rY0r;
+          title: string;
+        }[];
+      }
+    | undefined;
+}
+namespace Sanity.Default.Schema {
+  type MediaTag =
+    | {
+        _id: string;
+        _type: "media.tag";
+        name?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
+      }
+    | undefined;
+}
+namespace Sanity.Default.Schema {
+  type NavigationLink =
+    | {
+        title: string;
+        url: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+      }
+    | undefined;
+}
+namespace Sanity.Default.Schema {
+  type NavigationSectionPanel =
+    | {
+        ctaLink?: {
+          title?: string;
+          url: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+        };
+        navigationLinkGroups: {
+          navigationLinks: {
+            title: string;
+            url: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+          }[];
+          title?: string;
+          titlelink: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+        }[];
+        teaser?: Sanity.Reference<Sanity.Ref.Ref_9dFt0MMBqnlUH34K>;
+      }
+    | undefined;
+}
+namespace Sanity.Default.Schema {
   type Page =
     | {
         _id: string;
         _type: "page";
+<<<<<<< HEAD
         hero?: Sanity.Ref.Ref_F0aVG2nhbg9bMyq8;
         parent?: Sanity.Reference<Sanity.Ref.Ref_GTHfnsqWFTc0C8HO>;
+=======
+        parent?: Sanity.Reference<Sanity.Ref.Ref_XkFPOIf3iseWL0Cm>;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         slug?: {
           _type: "slug";
           current?: string;
@@ -454,7 +543,11 @@ namespace Sanity.Default.Schema {
         path?: string;
         sha1hash?: string;
         size?: number;
+<<<<<<< HEAD
         source?: Sanity.Ref.Ref_h3cqfGfoKG93qt58;
+=======
+        source?: Sanity.Ref.Ref_QPeoa7zJwBINTF54;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         title?: string;
         url?: string;
       }
@@ -470,13 +563,21 @@ namespace Sanity.Default.Schema {
         description?: string;
         extension?: string;
         label?: string;
+<<<<<<< HEAD
         metadata?: Sanity.Ref.Ref_d0L00lx8fDzfxDCz;
+=======
+        metadata?: Sanity.Ref.Ref_ijqKQ8HI8J9h0Jxf;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         mimeType?: string;
         originalFilename?: string;
         path?: string;
         sha1hash?: string;
         size?: number;
+<<<<<<< HEAD
         source?: Sanity.Ref.Ref_h3cqfGfoKG93qt58;
+=======
+        source?: Sanity.Ref.Ref_QPeoa7zJwBINTF54;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         title?: string;
         uploadId?: string;
         url?: string;
@@ -516,7 +617,11 @@ namespace Sanity.Default.Schema {
   type SanityImageMetadata =
     | {
         blurHash?: string;
+<<<<<<< HEAD
         dimensions?: Sanity.Ref.Ref_cbfAx1wlgU9HuejA;
+=======
+        dimensions?: Sanity.Ref.Ref_OGBxPIGtFLizMITE;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         hasAlpha?: boolean;
         isOpaque?: boolean;
         location?: {
@@ -526,13 +631,18 @@ namespace Sanity.Default.Schema {
           lng: number;
         };
         lqip?: string;
+<<<<<<< HEAD
         palette?: Sanity.Ref.Ref_1mxdSGBpTyHAOl1G;
+=======
+        palette?: Sanity.Ref.Ref_lmS3Kcw5cN68sqNZ;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
       }
     | undefined;
 }
 namespace Sanity.Default.Schema {
   type SanityImagePalette =
     | {
+<<<<<<< HEAD
         darkMuted?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
         darkVibrant?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
         dominant?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
@@ -540,6 +650,15 @@ namespace Sanity.Default.Schema {
         lightVibrant?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
         muted?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
         vibrant?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
+=======
+        darkMuted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        darkVibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        dominant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        lightMuted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        lightVibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        muted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+        vibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
       }
     | undefined;
 }
@@ -693,6 +812,7 @@ namespace Sanity.Default.Schema {
     | undefined;
 }
 namespace Sanity.Ref {
+<<<<<<< HEAD
   type Ref_1mxdSGBpTyHAOl1G = {
     darkMuted?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
     darkVibrant?: Sanity.Ref.Ref_X5jRpuBMN4anuleM;
@@ -849,15 +969,55 @@ namespace Sanity.Ref {
         hero?: Sanity.Ref.Ref_F0aVG2nhbg9bMyq8;
         parent?: Sanity.Reference<Sanity.Ref.Ref_GTHfnsqWFTc0C8HO>;
         slug?: {
+=======
+  type Ref_9dFt0MMBqnlUH34K =
+    | {
+        _id: string;
+        _type: "blogPost";
+        categories?: Sanity.Reference<Sanity.Ref.Ref_GPuf4a9UddFj2cKH>[];
+        content?: {
+          _key: string;
+          _type: "block";
+          children: {
+            _key: string;
+            _type: "span";
+            marks?: unknown[];
+            text?: string;
+          }[];
+          markDefs?: unknown[];
+          style?: string;
+        }[];
+        featuredImage?: Sanity.Ref.Ref_W5gkR3Pl8jiG9MmI;
+        seo?: Sanity.Ref.Ref_xwukxpCj6ouwu0Vw;
+        showHeroSubheader?: boolean;
+        slug: {
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
           _type: "slug";
-          current?: string;
+          current: string;
           source?: string;
         };
+<<<<<<< HEAD
+=======
+        subheader?: {
+          _key: string;
+          _type: "block";
+          children: {
+            _key: string;
+            _type: "span";
+            marks?: unknown[];
+            text?: string;
+          }[];
+          markDefs?: unknown[];
+          style?: string;
+        }[];
+        tags?: Sanity.Reference<Sanity.Ref.Ref_kIh7upXUtGpMj7yn>[];
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         title?: string;
       }
     | undefined;
 }
 namespace Sanity.Ref {
+<<<<<<< HEAD
   type Ref_h3cqfGfoKG93qt58 = {
     id?: string;
     name?: string;
@@ -869,11 +1029,21 @@ namespace Sanity.Ref {
 }
 namespace Sanity.Ref {
   type Ref_J1MlXZjCS3fWZApB =
+=======
+  type Ref_cBMFwtAuje13NPuE = string | null;
+}
+namespace Sanity.Ref {
+  type Ref_GPuf4a9UddFj2cKH =
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
     | {
         _id: string;
         _type: "category";
         name?: string;
+<<<<<<< HEAD
         parent?: Sanity.Reference<Sanity.Ref.Ref_J1MlXZjCS3fWZApB>;
+=======
+        parent?: Sanity.Reference<Sanity.Ref.Ref_GPuf4a9UddFj2cKH>;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
         slug?: {
           _type: "slug";
           current?: string;
@@ -883,10 +1053,50 @@ namespace Sanity.Ref {
     | undefined;
 }
 namespace Sanity.Ref {
+<<<<<<< HEAD
   type Ref_o6lt9TznZ0GahjCz = unknown;
 }
 namespace Sanity.Ref {
   type Ref_OS0erVH659saj6Qd =
+=======
+  type Ref_gXOpy1JZTO66rY0r = {
+    ctaLink?: {
+      title?: string;
+      url: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+    };
+    navigationLinkGroups: {
+      navigationLinks: {
+        title: string;
+        url: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+      }[];
+      title?: string;
+      titlelink: Sanity.Ref.Ref_XFmlPL6D0P5H6z9N;
+    }[];
+    teaser?: Sanity.Reference<Sanity.Ref.Ref_9dFt0MMBqnlUH34K>;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_ijqKQ8HI8J9h0Jxf = {
+    blurHash?: string;
+    dimensions?: Sanity.Ref.Ref_OGBxPIGtFLizMITE;
+    hasAlpha?: boolean;
+    isOpaque?: boolean;
+    location?: {
+      _type: "geopoint";
+      alt: number;
+      lat: number;
+      lng: number;
+    };
+    lqip?: string;
+    palette?: Sanity.Ref.Ref_lmS3Kcw5cN68sqNZ;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_KaHeHcgui7abMWsc = unknown;
+}
+namespace Sanity.Ref {
+  type Ref_kIh7upXUtGpMj7yn =
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
     | {
         _id: string;
         _type: "tag";
@@ -900,6 +1110,7 @@ namespace Sanity.Ref {
     | undefined;
 }
 namespace Sanity.Ref {
+<<<<<<< HEAD
   type Ref_Pvyw09jTKUA3Ffng = {
     image?: {
       asset: Sanity.Reference<{
@@ -1007,6 +1218,49 @@ namespace Sanity.Ref {
     noindex?: boolean;
     ogDescription?: string;
     ogImage?: {
+=======
+  type Ref_lmS3Kcw5cN68sqNZ = {
+    darkMuted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    darkVibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    dominant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    lightMuted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    lightVibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    muted?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+    vibrant?: Sanity.Ref.Ref_pf2loXbx0NPuHGZ6;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_n9BWzLCEmvVzxObC = unknown;
+}
+namespace Sanity.Ref {
+  type Ref_OGBxPIGtFLizMITE = {
+    aspectRatio?: number;
+    height?: number;
+    width?: number;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_pf2loXbx0NPuHGZ6 = {
+    background?: string;
+    foreground?: string;
+    population?: number;
+    title?: string;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_QPeoa7zJwBINTF54 = {
+    id?: string;
+    name?: string;
+    url?: string;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_UQNbW4GvfvSRaG2S = string | null;
+}
+namespace Sanity.Ref {
+  type Ref_W5gkR3Pl8jiG9MmI = {
+    image?: {
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
       asset: Sanity.Reference<{
         _type: "sanity.imageAsset";
         assetId: string;
@@ -1098,12 +1352,10 @@ namespace Sanity.Ref {
         y: number;
       };
     };
-    openGraphUrl?: string;
-    seoDescription?: string;
-    seoTitle?: string;
   };
 }
 namespace Sanity.Ref {
+<<<<<<< HEAD
   type Ref_TzENAn7kdxrbzkbS = unknown;
 }
 namespace Sanity.Ref {
@@ -1112,6 +1364,37 @@ namespace Sanity.Ref {
     header?: string;
     homeHeroSubsectionTitle?: string;
     image?: {
+=======
+  type Ref_XFmlPL6D0P5H6z9N = {
+    externalUrl?: string;
+    internalLink?: Sanity.Reference<Sanity.Ref.Ref_XkFPOIf3iseWL0Cm>;
+  };
+}
+namespace Sanity.Ref {
+  type Ref_XkFPOIf3iseWL0Cm =
+    | {
+        _id: string;
+        _type: "page";
+        parent?: Sanity.Reference<Sanity.Ref.Ref_XkFPOIf3iseWL0Cm>;
+        slug?: {
+          _type: "slug";
+          current?: string;
+          source?: string;
+        };
+        title?: string;
+      }
+    | undefined;
+}
+namespace Sanity.Ref {
+  type Ref_xwukxpCj6ouwu0Vw = {
+    canonicalUrl?: string;
+    focusKeyword?: string;
+    focusSynonyms?: string;
+    nofollow?: boolean;
+    noindex?: boolean;
+    ogDescription?: string;
+    ogImage?: {
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
       asset: Sanity.Reference<{
         _type: "sanity.imageAsset";
         assetId: string;
@@ -1203,6 +1486,7 @@ namespace Sanity.Ref {
         y: number;
       };
     };
+<<<<<<< HEAD
     media?: string;
     subheader?: {
       _key: string;
@@ -1224,5 +1508,10 @@ namespace Sanity.Ref {
     foreground?: string;
     population?: number;
     title?: string;
+=======
+    openGraphUrl?: string;
+    seoDescription?: string;
+    seoTitle?: string;
+>>>>>>> 753c62147817719cc0ef910382c8966e088d74d6
   };
 }

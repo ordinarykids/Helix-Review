@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import classNames from 'classnames'
+import cx from 'classnames'
 import ArrowRight from '../svgs/ArrowRight'
 import styles from './StyledLink.module.scss'
 
@@ -8,18 +8,20 @@ export interface StyledLinkProps {
   link: string,
   linkStyle?: 'primary' | 'secondary' | 'carat',
   align?: 'left' | 'center',
+  theme?: 'dark' | 'light' | 'nav'
+  className?: string
 }
 
 export default function StyledLink({
-  text, link, linkStyle = 'primary', align = 'left',
+  text, link, linkStyle = 'primary', align = 'left', theme = 'dark', className,
 }: StyledLinkProps) {
-  const linkClasses = classNames(styles.StyledLink, styles[linkStyle], styles[align])
+  const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[align], styles[theme])
 
   return (
-    <Link href={link} className={linkClasses}>
+    <Link href={link} className={cx(linkClasses, className)}>
       <span className={styles.text}>{text}</span>
       {linkStyle === 'carat'
-      && <span><ArrowRight /></span>}
+      && <ArrowRight />}
     </Link>
   )
 }

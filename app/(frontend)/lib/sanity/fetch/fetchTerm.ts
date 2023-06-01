@@ -11,7 +11,7 @@ const fetchTerm = async (taxonomy: string, slug: string) => {
   const query = groq`
     *[_type == $taxonomy && slug.current == $slug][0]{
       name,
-    },`
+    }`
   const res = await sanityFetch<Term>(query, { taxonomy, slug })
   return res
 }

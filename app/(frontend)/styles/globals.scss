@@ -17,6 +17,8 @@ html {
 
 body {
   @include bodyBase;
+
+  margin: 0;
 }
 
 h1 {
@@ -41,6 +43,10 @@ h5 {
 
 h6 {
   @include h6;
+}
+
+p {
+  margin-top: 0;
 }
 
 a {

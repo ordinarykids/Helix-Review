@@ -1,4 +1,9 @@
+@use "../styles/colors" as *;
 @use "../styles/mixins" as *;
+
+.main {
+  background-color: $coolgray-300;
+}
 
 .container {
   @include containerGrid;
