@@ -23,7 +23,9 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const { slug } = params
+  console.log('slug: ', slug)
   const pagePath = slug ?? ['home']
+  console.log('pagePath: ', pagePath)
   const pageData = await fetchPageByPath(pagePath.join('/'))
 
   if (!pageData) {
