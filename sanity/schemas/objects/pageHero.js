@@ -32,11 +32,11 @@ const pageHero = defineType({
         }),
       ],
     }),
-    // defineField({
-    //   name: 'styledLink',
-    //   type: 'styledLink',
-    //   title: 'Link',
-    // }),
+    defineField({
+      name: 'styledLink',
+      type: 'styledLink',
+      title: 'Link',
+    }),
     defineField({
       name: 'image',
       type: 'image',
@@ -47,22 +47,6 @@ const pageHero = defineType({
       type: 'url', // pending final file format
       title: 'Media',
       description: 'Add file url to override image',
-      hidden: ({ document }) => (document.slug?.current !== 'home'),
-    }),
-    defineField({
-      name: 'homeHeroSubsectionTitle',
-      type: 'text',
-      title: 'Subsection Title',
-      rows: 1,
-      hidden: ({ document }) => (document.slug?.current !== 'home'),
-    }),
-    defineField({
-      name: 'cards',
-      type: 'array',
-      title: 'Subsection Cards',
-      of: [
-        defineArrayMember({ type: 'cardWithImage' }),
-      ],
       hidden: ({ document }) => (document.slug?.current !== 'home'),
     }),
   ],
