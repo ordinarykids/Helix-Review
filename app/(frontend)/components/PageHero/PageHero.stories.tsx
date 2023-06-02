@@ -1,12 +1,6 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import heroFPOImage from '../../../../stories/assets/HeroFPO.svg'
 import PageHero from '.'
-
-const withNoSubsection: Decorator = (Story) => (
-  <div className='withNoSubsection'>
-    <Story />
-  </div>
-)
 
 const meta: Meta<typeof PageHero> = {
   title: 'Components/PageHero',
@@ -30,13 +24,3 @@ export const HomePage: Story = {
     buttonLink: 'https://helix.com',
   },
 }
-
-export const NotHomepage: Story = {
-  args: {
-    header: 'Page header, different variation!',
-    subheader: 'Page subheader',
-    buttonText: 'Contact Us',
-    buttonLink: 'https://helix.com',
-  },
-}
-NotHomepage.decorators = [withNoSubsection]

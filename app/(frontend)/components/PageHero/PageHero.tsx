@@ -2,16 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import StyledLink from '../StyledLink/StyledLink'
-// import CardWithImage from '../CardWithImage/CardWithImage'
 import styles from './PageHero.module.scss'
-
-// interface CardWithImageProps {
-//   title: string,
-//   src: StaticImageData,
-//   width: number,
-//   height: number,
-//   alt: string,
-// }
 
 interface PageHeroProps {
   header: string,
@@ -23,7 +14,6 @@ interface PageHeroProps {
   media: string,
   buttonText: string,
   buttonLink: string,
-  // cardWithImageProps: CardWithImageProps,
 }
 
 export default function PageHero({
@@ -62,9 +52,6 @@ export default function PageHero({
                 />
               </div>
             )}
-        </div>
-        <div className={classNames(styles.subsection)}>
-          {/* <CardWithImage title='foo' src={[]} height={100} width={100} /> */}
         </div>
       </div>
     </div>
