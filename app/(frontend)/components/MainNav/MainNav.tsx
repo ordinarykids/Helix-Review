@@ -38,7 +38,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
   }
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} aria-label='Main menu'>
       {navData && (
         <ul className={styles.navList}>
           {navData?.navigationSections?.map((section, sectionIndex) => {
@@ -59,6 +59,8 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                   onClick={() => toggleOpen(sectionIndex)}
                   onMouseEnter={() => setHoveredSubmenuIndex(sectionIndex)}
                   onMouseLeave={() => setHoveredSubmenuIndex(null)}
+                  aria-expanded={openSubmenuIndex === sectionIndex}
+                  aria-controls={`submenu-${sectionIndex}`}
                 >
                   {section.title}
                   <span
@@ -70,7 +72,10 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                     <ArrowDropdown />
                   </span>
                 </button>
-                <div className={cx(styles.submenu, { [styles.submenu__open]: openSubmenuIndex === sectionIndex })}>
+                <div
+                  id={`submenu-${sectionIndex}`}
+                  className={cx(styles.submenu, { [styles.submenu__open]: openSubmenuIndex === sectionIndex })}
+                >
                   <div className={styles.submenuMainContent}>
                     <div
                       className={cx(
