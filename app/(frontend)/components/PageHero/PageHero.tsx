@@ -16,10 +16,12 @@ interface PageHeroProps {
   media: string,
   buttonText: string,
   buttonLink: string,
+  buttonAlign: 'left' | 'center',
+  buttonStyle: 'button' | 'carat',
 }
 
 export default function PageHero({
-  header, subheader, src, width, height, alt, media, buttonText, buttonLink,
+  header, subheader, src, width, height, alt, media, buttonText, buttonLink, buttonAlign, buttonStyle,
 }: PageHeroProps) {
   return (
     <div className={cx(styles.wrap)}>
@@ -33,9 +35,9 @@ export default function PageHero({
             <StyledLink
               text={buttonText}
               link={buttonLink}
-              linkStyle='button'
+              linkStyle={buttonStyle}
               size='large'
-              align='left'
+              align={buttonAlign}
               theme='dark'
             />
           </div>
