@@ -23,7 +23,7 @@ export default function PageHero({
     <div className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
-          <h2 className={cx(styles.heroHeader)}>{header}</h2>
+          <h1 className={cx(styles.heroHeader)}>{header}</h1>
           <p className={cx(styles.heroSubheader)}>{subheader}</p>
           <div className={cx(styles.link)}>
             <StyledLink
