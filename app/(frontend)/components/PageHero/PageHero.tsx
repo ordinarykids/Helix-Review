@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import cx from 'classnames'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import StyledLink from '../StyledLink/StyledLink'
@@ -19,32 +19,32 @@ interface PageHeroProps {
 export default function PageHero({
   header, subheader, src, width, height, alt, media, buttonText, buttonLink,
 }: PageHeroProps) {
-  const containerClasses = classNames(styles.container)
+  const containerClasses = cx(styles.container)
 
   return (
-    <div className={classNames(styles.wrap)}>
+    <div className={cx(styles.wrap)}>
       <div className={containerClasses}>
-        <div className={classNames(styles.heroLeft)}>
-          <h2 className={classNames(styles.heroHeader)}>{header}</h2>
-          <p className={classNames(styles.heroSubheader)}>{subheader}</p>
-          <div className={classNames(styles.link)}>
+        <div className={cx(styles.heroLeft)}>
+          <h2 className={cx(styles.heroHeader)}>{header}</h2>
+          <p className={cx(styles.heroSubheader)}>{subheader}</p>
+          <div className={cx(styles.link)}>
             <StyledLink
               text={buttonText}
               link={buttonLink}
             />
           </div>
         </div>
-        <div className={classNames(styles.heroRight)}>
+        <div className={cx(styles.heroRight)}>
           {media
             ? (
-              <div className={classNames(styles.heroAnimation)}>
+              <div className={cx(styles.heroAnimation)}>
                 <h2>FPO animation</h2>
               </div>
             )
             : (
-              <div className={classNames(styles.heroImage)}>
+              <div className={cx(styles.heroImage)}>
                 <Image
-                  className={classNames(styles.image)}
+                  className={cx(styles.image)}
                   src={src}
                   width={width}
                   height={height}
