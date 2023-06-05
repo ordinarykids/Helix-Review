@@ -1,12 +1,14 @@
 import cx from 'classnames'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
+import type { PortableTextBlock } from '@portabletext/types'
+import { PortableText } from '@portabletext/react'
 import StyledLink from '../StyledLink/StyledLink'
 import styles from './PageHero.module.scss'
 
 interface PageHeroProps {
   header: string,
-  subheader: string,
+  subheader: PortableTextBlock[],
   src: StaticImageData,
   width: number,
   height: number,
@@ -24,7 +26,9 @@ export default function PageHero({
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           <h1 className={cx(styles.heroHeader)}>{header}</h1>
-          <p className={cx(styles.heroSubheader)}>{subheader}</p>
+          <div className={cx(styles.heroSubheader)}>
+            <PortableText value={subheader} />
+          </div>
           <div className={cx(styles.link)}>
             <StyledLink
               text={buttonText}
