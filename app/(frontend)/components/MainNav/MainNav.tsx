@@ -147,12 +147,12 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           <p className={styles.teaser_Excerpt}>
                             {teaser.title}
                           </p>
-                          <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} linkStyle='carat' />
+                          <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} linkStyle='carat' size='small' align='left' theme='light' />
                         </div>
                       </div>
                     )}
                   </div>
-                  {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />}
+                  {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' size='small' align='left' theme='light' />}
                 </div>
               </li>
             )

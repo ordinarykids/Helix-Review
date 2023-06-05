@@ -33,6 +33,10 @@ export default function PageHero({
             <StyledLink
               text={buttonText}
               link={buttonLink}
+              linkStyle='button'
+              size='large'
+              align='left'
+              theme='dark'
             />
           </div>
         </div>
