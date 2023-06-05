@@ -19,11 +19,9 @@ interface PageHeroProps {
 export default function PageHero({
   header, subheader, src, width, height, alt, media, buttonText, buttonLink,
 }: PageHeroProps) {
-  const containerClasses = cx(styles.container)
-
   return (
     <div className={cx(styles.wrap)}>
-      <div className={containerClasses}>
+      <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           <h2 className={cx(styles.heroHeader)}>{header}</h2>
           <p className={cx(styles.heroSubheader)}>{subheader}</p>
