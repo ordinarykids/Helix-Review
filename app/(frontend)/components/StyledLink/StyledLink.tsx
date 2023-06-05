@@ -6,16 +6,17 @@ import styles from './StyledLink.module.scss'
 export interface StyledLinkProps {
   text: string,
   link: string,
-  linkStyle?: 'primary' | 'secondary' | 'carat',
+  linkStyle?: 'button' | 'carat',
+  size?: 'large' | 'small',
   align?: 'left' | 'center',
-  theme?: 'dark' | 'light' | 'nav'
+  theme?: 'dark' | 'light',
   className?: string
 }
 
 export default function StyledLink({
-  text, link, linkStyle = 'primary', align = 'left', theme = 'dark', className,
+  text, link, linkStyle = 'button', size = 'large', align = 'left', theme = 'dark', className,
 }: StyledLinkProps) {
-  const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[align], styles[theme])
+  const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[size], styles[align], styles[theme])
 
   return (
     <Link href={link} className={cx(linkClasses, className)}>
