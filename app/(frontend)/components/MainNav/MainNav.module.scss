@@ -166,13 +166,13 @@ $mobile-group-item-margin: to-rem(32);
 
   @include media-breakpoint-down(lg) {
     max-height: 0;
-    transition: max-height 400ms ease-out, visibility 1ms 400ms;
+    transition: max-height 250ms ease-out, visibility 1ms 250ms;
     overflow: hidden;
 
     &__open {
       height: auto;
       max-height: 800px;
-      transition: max-height 400ms ease-in;
+      transition: max-height 250ms ease-in;
     }
 
     &__open.submenu__taller {
