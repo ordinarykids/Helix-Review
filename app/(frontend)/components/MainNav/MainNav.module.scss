@@ -288,6 +288,7 @@ $mobile-group-item-margin: to-rem(32);
 .teaser {
   width: 248px;
   max-width: 100%;
+  color: $darkblue-300;
 
   @include media-breakpoint-down(lg) {
     margin-top: $mobile-group-margin;
