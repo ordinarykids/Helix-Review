@@ -48,9 +48,3 @@ p {
 a {
   @include link;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
