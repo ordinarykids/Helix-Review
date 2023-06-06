@@ -166,7 +166,7 @@ $mobile-group-item-margin: to-rem(32);
 
   @include media-breakpoint-down(lg) {
     max-height: 0;
-    transition: max-height 400ms ease-out;
+    transition: max-height 400ms ease-out, visibility 1ms 400ms;
     overflow: hidden;
 
     &__open {
