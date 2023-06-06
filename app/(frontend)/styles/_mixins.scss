@@ -17,11 +17,11 @@
     md: $grid-column-gap-md,
   ),
   $grid-breakpoints: (
-    xs: 0,
-    sm: 390px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
+    xs: $breakpoint-xs,
+    sm: $breakpoint-sm,
+    md: $breakpoint-md,
+    lg: $breakpoint-lg,
+    xl: $breakpoint-xl,
   )
 );
 

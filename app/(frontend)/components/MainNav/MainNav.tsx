@@ -77,6 +77,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           <span
                             className={cx(
                               styles.menuItem_ButtonArrow,
+                              styles.menuItem_ButtonArrow__hideMobile,
                               { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
                             )}
                           >
@@ -86,10 +87,25 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                       )
                       : `${word} `
                   ))}
+                  <span
+                    className={cx(
+                      styles.menuItem_ButtonArrow,
+                      styles.menuItem_ButtonArrow__hideDesktop,
+                      { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
+                    )}
+                  >
+                    <ArrowDropdown />
+                  </span>
                 </button>
                 <div
                   id={`submenu-${sectionIndex}`}
-                  className={cx(styles.submenu, { [styles.submenu__open]: openSubmenuIndex === sectionIndex })}
+                  className={cx(
+                    styles.submenu,
+                    {
+                      [styles.submenu__open]: openSubmenuIndex === sectionIndex,
+                      [styles.submenu__taller]: navigationLinkGroups.length > 1,
+                    },
+                  )}
                 >
                   <div className={styles.submenuMainContent}>
                     <div
@@ -149,6 +165,15 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                         </ul>
                       ))}
                     </div>
+                    {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && (
+                      <StyledLink
+                        className={cx(styles.ctaLink, styles.ctaLink__hideDesktop)}
+                        text={ctaLink.title}
+                        link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
+                        linkStyle='carat'
+                        theme='nav'
+                      />
+                    )}
                     {teaser && (
                       <div
                         className={cx(
@@ -182,7 +207,15 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                       </div>
                     )}
                   </div>
-                  {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && <StyledLink className={styles.ctaLink} text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />}
+                  {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && (
+                    <StyledLink
+                      className={cx(styles.ctaLink, styles.ctaLink__hideMobile)}
+                      text={ctaLink.title}
+                      link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
+                      linkStyle='carat'
+                      theme='nav'
+                    />
+                  )}
                 </div>
               </li>
             )
