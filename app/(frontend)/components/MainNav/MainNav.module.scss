@@ -6,25 +6,35 @@
 
 $menu-item-color: $darkblue-300;
 $menu-item-color-faded: $darkblue-500;
+$menu-desktop-breakpoint-1: 1215px;
+$menu-desktop-breakpoint-2: 1115px;
+
+.nav {
+  margin-left: 14px;
+}
 
 .navList {
   @include listReset;
 
   display: flex;
   position: relative;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  column-gap: 54px;
+
+  @media (max-width: $menu-desktop-breakpoint-1) {
+    column-gap: 28px;
+  }
 }
 
 .menuItem {
   margin-top: to-rem(28);
 
-  &:not(:last-child) {
-    margin-right: 54px;
-  }
-
   &:not(:nth-last-child(-n + 2)) {
     position: relative;
+  }
+
+  @media (max-width: $menu-desktop-breakpoint-2) {
+    width: min-content;
   }
 
   &_Button {
@@ -34,6 +44,7 @@ $menu-item-color-faded: $darkblue-500;
     padding-bottom: to-rem(28);
     transition: color $transition-speed;
     color: $menu-item-color;
+    text-align: left;
 
     svg path {
       transition: stroke $transition-speed;
@@ -46,6 +57,10 @@ $menu-item-color-faded: $darkblue-500;
         stroke: $menu-item-color-faded;
       }
     }
+  }
+
+  &_TitleEnd {
+    white-space: nowrap;
   }
 
   &_ButtonArrow {
@@ -80,6 +95,20 @@ $menu-item-color-faded: $darkblue-500;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+
+  @media (max-width: $menu-desktop-breakpoint-1) {
+    .menuItem:nth-child(2) &,
+    .menuItem:nth-child(3) & {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: $menu-desktop-breakpoint-2) {
+    .menuItem:nth-last-child(2) & {
+      right: -$container-padding / 2;
+    }
   }
 }
 
@@ -193,6 +222,18 @@ $menu-item-color-faded: $darkblue-500;
     @include body9;
 
     margin-bottom: to-rem(8);
+  }
+
+  &__hideDesktop {
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  &__hideMobile {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
   }
 }
 

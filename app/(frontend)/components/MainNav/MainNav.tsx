@@ -42,7 +42,14 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
       {navData && (
         <ul className={styles.navList}>
           {navData?.navigationSections?.map((section, sectionIndex) => {
-            const { navigationLinkGroups, teaser, ctaLink } = section.navigationSectionPanel
+            const {
+              navigationLinkGroups,
+              teaser,
+              hideTeaserDesktop,
+              hideTeaserMobile,
+              ctaLink,
+            } = section.navigationSectionPanel
+            const sectionTitleSplit = section.title.split(' ')
             return (
               <li key={section._key} className={styles.menuItem}>
                 <button
@@ -62,15 +69,23 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                   aria-expanded={openSubmenuIndex === sectionIndex}
                   aria-controls={`submenu-${sectionIndex}`}
                 >
-                  {section.title}
-                  <span
-                    className={cx(
-                      styles.menuItem_ButtonArrow,
-                      { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
-                    )}
-                  >
-                    <ArrowDropdown />
-                  </span>
+                  {sectionTitleSplit.map((word, titleWordIndex) => (
+                    sectionTitleSplit.length === titleWordIndex + 1
+                      ? (
+                        <span key={word} className={styles.menuItem_TitleEnd}>
+                          {word}
+                          <span
+                            className={cx(
+                              styles.menuItem_ButtonArrow,
+                              { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
+                            )}
+                          >
+                            <ArrowDropdown />
+                          </span>
+                        </span>
+                      )
+                      : `${word} `
+                  ))}
                 </button>
                 <div
                   id={`submenu-${sectionIndex}`}
@@ -87,9 +102,16 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                             || (
                               navigationLinkGroups.length > 3
                               && teaser
+                              && !hideTeaserDesktop
                             ),
                         },
-                        { [styles.submenus__oneColWithTeaser]: navigationLinkGroups.length === 1 && teaser },
+                        {
+                          [styles.submenus__oneColWithTeaser]: (
+                            navigationLinkGroups.length === 1
+                            && teaser
+                            && !hideTeaserDesktop
+                          ),
+                        },
                       )}
                     >
                       {navigationLinkGroups.map((linkGroup) => (
@@ -128,7 +150,15 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                       ))}
                     </div>
                     {teaser && (
-                      <div className={styles.teaser}>
+                      <div
+                        className={cx(
+                          styles.teaser,
+                          {
+                            [styles.teaser__hideDesktop]: hideTeaserDesktop,
+                            [styles.teaser__hideMobile]: hideTeaserMobile,
+                          },
+                        )}
+                      >
                         {teaser.image?.url && (
                           <div className={styles.teaser_ImageWrap}>
                             <Image

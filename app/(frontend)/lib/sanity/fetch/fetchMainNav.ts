@@ -41,6 +41,8 @@ export type MainNavigation = {
             slug: string;
             title?: string | null;
           } | null;
+          hideTeaserDesktop: boolean | null;
+          hideTeaserMobile: boolean | null;
         };
         _key: string;
         title: string;
@@ -83,6 +85,8 @@ const fetchMainNav = async () => {
           _type,
           "slug": slug.current,
         },
+        hideTeaserDesktop,
+        hideTeaserMobile,
         ctaLink {
           title,
           url {
