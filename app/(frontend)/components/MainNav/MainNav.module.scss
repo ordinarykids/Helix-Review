@@ -12,6 +12,54 @@ $menu-desktop-breakpoint-2: 1115px;
 $mobile-group-margin: to-rem(40);
 $mobile-group-item-margin: to-rem(32);
 
+.mobileToggle {
+  @include buttonReset;
+
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+
+  &__open {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+
+  &_Bar {
+    display: block;
+    width: 16px;
+    height: 2px;
+    transition: transform 250ms, opacity 150ms;
+    background-color: $darkgray-200;
+    opacity: 1;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &__open {
+      position: absolute;
+      width: 20px;
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
 .nav {
   @include media-breakpoint-up(lg) {
     margin-left: 14px;
@@ -21,9 +69,19 @@ $mobile-group-item-margin: to-rem(32);
     @include container;
 
     position: fixed;
+    transition: opacity 250ms, visibility 250ms;
     background-color: $white;
+    opacity: 0;
     overflow: auto;
+    visibility: hidden;
     inset: 120px 0 0;
+    pointer-events: none;
+
+    &__mobileOpen {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
   }
 }
 
@@ -99,6 +157,7 @@ $mobile-group-item-margin: to-rem(32);
     margin-left: to-rem(8);
 
     @include media-breakpoint-down(lg) {
+      margin-right: 9px;
       float: right;
     }
 
