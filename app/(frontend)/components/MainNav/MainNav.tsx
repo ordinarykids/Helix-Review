@@ -217,7 +217,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                             <p className={styles.teaser_Type}>
                               {`Featured ${docTypes[teaser._type as teaserDocTypes].text}`}
                             </p>
-                            <p className={styles.teaser_Excerpt}>
+                            <p className={styles.teaser_Title}>
                               {teaser.title}
                             </p>
                             <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} linkStyle='carat' />
