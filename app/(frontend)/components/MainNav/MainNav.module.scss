@@ -69,13 +69,16 @@ $mobile-group-item-margin: to-rem(32);
     @include container;
 
     position: fixed;
-    transition: opacity 250ms, visibility 250ms;
     background-color: $white;
     opacity: 0;
     overflow: auto;
     visibility: hidden;
     inset: 120px 0 0;
     pointer-events: none;
+
+    &__isMobile {
+      transition: opacity 250ms, visibility 250ms;
+    }
 
     &__mobileOpen {
       opacity: 1;
