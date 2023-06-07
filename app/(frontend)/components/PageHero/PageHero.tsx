@@ -1,46 +1,40 @@
 import cx from 'classnames'
 import React from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
+import type { PageHeroType } from '../../lib/sanity/fetch/fetchPageByPath'
 import StyledLink from '../StyledLink/StyledLink'
 import styles from './PageHero.module.scss'
 
-interface PageHeroProps {
-  header: string,
-  subheader: PortableTextBlock[],
-  src: StaticImageData,
-  width: number,
-  height: number,
-  alt: string,
-  media: string,
-  buttonText: string,
-  buttonLink: string,
-  buttonAlign: 'left' | 'center',
-  buttonStyle: 'button' | 'carat',
-}
+export default function PageHero({ pageHero }: NonNullable<PageHeroType>) {
+  if (!pageHero) {
+    return null
+  }
+  const {
+    header, subheader, media, button, image,
+  } = pageHero
 
-export default function PageHero({
-  header, subheader, src, width, height, alt, media, buttonText, buttonLink, buttonAlign, buttonStyle,
-}: PageHeroProps) {
   return (
     <div className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           <h1 className={cx(styles.heroHeader)}>{header}</h1>
           <div className={cx(styles.heroSubheader)}>
-            <PortableText value={subheader} />
+            <PortableText value={subheader as PortableTextBlock} />
           </div>
-          <div className={cx(styles.link)}>
-            <StyledLink
-              text={buttonText}
-              link={buttonLink}
-              linkStyle={buttonStyle}
-              size='large'
-              align={buttonAlign}
-              theme='dark'
-            />
-          </div>
+          {button && (
+            <div className={cx(styles.link)}>
+              <StyledLink
+                text={button.text}
+                link={button.link}
+                linkStyle={button.linkStyle}
+                size='large'
+                align={button.align}
+                theme='dark'
+              />
+            </div>
+          )}
         </div>
         <div className={cx(styles.heroRight)}>
           {media
@@ -49,14 +43,14 @@ export default function PageHero({
                 <h2>FPO animation</h2>
               </div>
             )
-            : (
+            : image && (
               <div className={cx(styles.heroImage)}>
                 <Image
                   className={cx(styles.image)}
-                  src={src}
-                  width={width}
-                  height={height}
-                  alt={alt}
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  alt={image.alt}
                 />
               </div>
             )}
