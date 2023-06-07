@@ -5,9 +5,14 @@ export default {
   type: 'object',
   title: 'Link',
   initialValue: {
-    style: 'primary',
+    linkStyle: 'button',
+    theme: 'dark',
+    size: 'large',
     align: 'left',
   },
+  fieldsets: [
+    { name: 'linkSettings', title: 'Settings' },
+  ],
   fields: [
     defineField({
       name: 'text',
@@ -24,14 +29,38 @@ export default {
       codegen: { required: true },
     }),
     defineField({
-      name: 'style',
+      name: 'linkStyle',
       type: 'string',
       title: 'Style',
+      fieldset: 'linkSettings',
       options: {
         list: [
-          { title: 'Primary Button', value: 'primary' },
-          { title: 'Secondary Button', value: 'secondary' },
+          { title: 'Button', value: 'button' },
           { title: 'Carat', value: 'carat' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'theme',
+      type: 'string',
+      title: 'Theme',
+      fieldset: 'linkSettings',
+      options: {
+        list: [
+          { title: 'Dark', value: 'dark' },
+          { title: 'Light', value: 'light' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'size',
+      type: 'string',
+      title: 'Size',
+      fieldset: 'linkSettings',
+      options: {
+        list: [
+          { title: 'Large', value: 'large' },
+          { title: 'Small', value: 'small' },
         ],
       },
     }),
@@ -39,6 +68,7 @@ export default {
       name: 'align',
       type: 'string',
       title: 'Align',
+      fieldset: 'linkSettings',
       options: {
         list: [
           { title: 'Left', value: 'left' },
