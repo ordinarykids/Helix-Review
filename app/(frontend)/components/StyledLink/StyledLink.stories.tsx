@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import StyledLink from '.'
 
 const centered = (Story: any) => (
-  <div style={{ marginTop: '2px', textAlign: 'center' }}>
+  <div style={{ textAlign: 'center' }}>
     <Story />
   </div>
 )
@@ -21,8 +21,10 @@ export const Primary: Story = {
   args: {
     text: 'Contact Us',
     link: 'https://aleph.dev/fun',
-    linkStyle: 'primary',
+    linkStyle: 'button',
     align: 'center',
+    size: 'large',
+    theme: 'dark',
   },
 }
 Primary.decorators = [centered]
@@ -31,8 +33,10 @@ export const Secondary: Story = {
   args: {
     text: 'Learn More',
     link: 'https://aleph.dev/fun',
-    linkStyle: 'secondary',
+    linkStyle: 'button',
     align: 'center',
+    size: 'large',
+    theme: 'light',
   },
 }
 
@@ -44,5 +48,7 @@ export const Carat: Story = {
     link: 'https://aleph.dev/fun',
     linkStyle: 'carat',
     align: 'left',
+    size: 'large',
+    theme: 'light',
   },
 }
