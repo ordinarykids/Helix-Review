@@ -51,6 +51,7 @@ export default {
           { title: 'Light', value: 'light' },
         ],
       },
+      hidden: ({ parent }) => parent?.linkStyle === 'carat',
     }),
     defineField({
       name: 'size',
@@ -63,6 +64,7 @@ export default {
           { title: 'Small', value: 'small' },
         ],
       },
+      hidden: ({ parent }) => parent?.linkStyle === 'carat',
     }),
     defineField({
       name: 'align',
@@ -75,6 +77,7 @@ export default {
           { title: 'Center', value: 'center' },
         ],
       },
+      hidden: ({ parent }) => parent?.size === 'small',
     }),
   ],
 }
