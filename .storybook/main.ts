@@ -22,6 +22,6 @@ const config: StorybookConfig = {
     from: '../app/\(frontend\)/fonts',
     to: '/app/fonts',
   },
-  '../stories/assets',]
+  '../public',]
 };
 export default config;

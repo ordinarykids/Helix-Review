@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import heroFPOImage from '../../../../stories/assets/HeroFPO.svg'
+import heroFPOImage from 'public/HeroFPO.svg'
 import PageHero from '.'
 
 const meta: Meta<typeof PageHero> = {
