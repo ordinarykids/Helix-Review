@@ -2,7 +2,6 @@
 @use "../../styles/colors" as *;
 
 .StyledLink {
-  padding: 16px 96px;
   border-radius: 3px;
   text-decoration: none;
 }
@@ -12,7 +11,7 @@
 
   color: $white;
 
-  .secondary & {
+  .light & {
     color: $darkblue-300;
   }
 
@@ -26,22 +25,43 @@
   }
 }
 
-.primary {
-  background-color: $darkblue-300;
-  color: #fff;
+.large {
+  display: block;
+  width: 280px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-.secondary {
+.small {
+  padding: 8px 16px;
+}
+
+.dark {
+  background-color: $darkblue-300;
+}
+
+.light {
   border: 2px solid $darkblue-300;
   background-color: transparent;
   color: $darkblue-300;
 }
 
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .carat {
-  display: inline-flex;
+  display: inline-block;
   align-items: center;
   padding: 0;
+  border: none;
   color: $darkblue-300;
+
+  &.left {
+    display: flex;
+    justify-content: left;
+  }
 }
 
 .nav {
