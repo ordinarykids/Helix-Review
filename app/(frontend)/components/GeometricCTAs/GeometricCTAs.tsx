@@ -1,7 +1,10 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { PortableText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 import cx from 'classnames'
+import publicHealthImg from 'public/public_health@2x.webp'
+import lifeSciencesImg from 'public/life_sciences@2x.webp'
+import healthSystemsImg from 'public/health_systems@2x.webp'
 import StyledLink from '../StyledLink'
 import Circles from '../svgs/Circles'
 import Hexagons from '../svgs/Hexagons'
@@ -28,7 +31,7 @@ type ShapeData = {
   [Key in GeometricCTAsShapes]: { // eslint-disable-line no-unused-vars
     shapeComp: JSX.Element
     textAlign: 'left' | 'right'
-    imgSrc: string
+    imgSrc: StaticImageData
     imgWidth: number
     imgHeight: number
     imgAltText: string
@@ -40,7 +43,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
     circle: {
       shapeComp: <Circles />,
       textAlign: 'right',
-      imgSrc: '/public_health@2x.webp',
+      imgSrc: publicHealthImg,
       imgWidth: 470,
       imgHeight: 446,
       imgAltText: 'Woman holds a clipboard while wearing protective gear including white coverall, surgical mask, face shield, and goggles',
@@ -48,7 +51,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
     hexagon: {
       shapeComp: <Hexagons />,
       textAlign: 'left',
-      imgSrc: '/life_sciences@2x.webp',
+      imgSrc: lifeSciencesImg,
       imgWidth: 681,
       imgHeight: 507,
       imgAltText: 'Two women in lab coats and protective eyewear look through a miscroscope',
@@ -56,7 +59,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
     triangle: {
       shapeComp: <Triangles />,
       textAlign: 'left',
-      imgSrc: '/health_systems@2x.webp',
+      imgSrc: healthSystemsImg,
       imgWidth: 659,
       imgHeight: 532,
       imgAltText: 'Man in button-up shirt and tie shows something on a clipboard or tablet to a woman doctor wearing a doctor coat and stethoscope',
