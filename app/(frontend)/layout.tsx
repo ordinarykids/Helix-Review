@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import ttNorms from './lib/fonts'
+import SiteHeader from './components/SiteHeader'
 import './styles/globals.scss'
 
 export const metadata: Metadata = {
@@ -19,11 +19,8 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={ttNorms.variable}>
-        <Link href='/'>Home</Link>
-        &nbsp;
-        <Link href='/blog'>Blog</Link>
-        &nbsp;
-        <Link href='/test'>Test page</Link>
+        {/* @ts-expect-error Async Server Component */}
+        <SiteHeader />
         {children}
       </body>
     </html>

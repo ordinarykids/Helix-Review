@@ -182,6 +182,14 @@ export const TypeSizes: Story = {
         content: `<p class="body8">${defaultContent}</p>`,
         usage: '@include body8',
       },
+      {
+        name: 'Body 9',
+        fontSize: 14,
+        lineHeight: 16,
+        weight: 344,
+        content: `<p class="body9">${defaultContent}</p>`,
+        usage: '@include body9',
+      },
     ],
   },
 }
