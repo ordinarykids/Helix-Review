@@ -5,6 +5,9 @@ const meta: Meta<typeof PartnerLogoGrid> = {
   title: 'Components/PartnerLogoGrid',
   component: PartnerLogoGrid,
   tags: ['autodocs'], // Uncomment if you aren't using an MDX file for docs here
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export default meta
