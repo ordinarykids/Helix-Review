@@ -13,7 +13,7 @@ interface StyledLinkProps {
 }
 
 export default function StyledLink({
-  text, link, linkStyle = 'primary', align = 'left', theme = 'dark', className,
+  text, link, className, linkStyle = 'primary', align = 'left', theme = 'dark', 
 }: StyledLinkProps) {
   const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[align], styles[theme])
 
