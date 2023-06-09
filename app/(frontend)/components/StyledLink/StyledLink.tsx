@@ -6,14 +6,14 @@ import styles from './StyledLink.module.scss'
 interface StyledLinkProps {
   text: string,
   link: string,
+  className?: string,
   linkStyle?: 'primary' | 'secondary' | 'carat',
   align?: 'left' | 'center',
-  theme?: 'dark' | 'light' | 'nav'
-  className?: string
+  theme?: 'dark' | 'light' | 'nav',
 }
 
 export default function StyledLink({
-  text, link, className, linkStyle = 'primary', align = 'left', theme = 'dark', 
+  text, link, className, linkStyle = 'primary', align = 'left', theme = 'dark',
 }: StyledLinkProps) {
   const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[align], styles[theme])
 
