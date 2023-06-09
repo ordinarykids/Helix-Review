@@ -50,7 +50,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
       textAlign: 'left',
       imgSrc: '/life_sciences.png',
       imgWidth: 681,
-      imgHeight: 506.5,
+      imgHeight: 507,
       imgAltText: 'Two women in lab coats and protective eyewear look through a miscroscope',
     },
     triangle: {
