@@ -16,8 +16,9 @@ export type GeometricCTAsShapes = 'circle' | 'hexagon' | 'triangle'
 export interface GeometricCTAsProps {
   title?: string
   ctas: {
-    title?: string,
-    content?: PortableTextBlock,
+    _key: string
+    title?: string
+    content?: PortableTextBlock
     linkText?: string
     linkUrl?: {
       externalUrl?: string | null
@@ -75,6 +76,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
       </div>
       {ctas.map((cta) => {
         const {
+          _key,
           title: ctaTitle,
           content,
           linkText,
@@ -82,7 +84,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
           shape,
         } = cta
         return (
-          <div className={cx(styles.cta, styles[`cta__${shape}`])}>
+          <div key={_key} className={cx(styles.cta, styles[`cta__${shape}`])}>
             <div className={styles.container}>
               <div className={styles.inner}>
                 <div className={cx(styles.shape, styles[`shape__${shape}`])}>
