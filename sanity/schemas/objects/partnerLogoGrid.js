@@ -29,6 +29,8 @@ export default defineType({
               name: 'logo',
               type: 'image',
               title: 'Logo',
+              codegen: { required: true },
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: 'external',
