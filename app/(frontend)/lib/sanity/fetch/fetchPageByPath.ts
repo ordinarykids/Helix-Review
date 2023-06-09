@@ -12,7 +12,7 @@ interface GeometricCTAsField extends Key, GeometricCTAsProps {
 
 type PageByPath = {
   title: string | null
-  pageBuilder: (| GeometricCTAsField)[]
+  pageBuilder: (| GeometricCTAsField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
