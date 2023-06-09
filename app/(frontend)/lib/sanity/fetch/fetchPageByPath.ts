@@ -1,14 +1,38 @@
-import { codegen, groq } from '@sanity-codegen/client'
+import { groq } from 'next-sanity'
+import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { sanityFetch } from '../sanityClient'
 
+interface Key {
+  _key: string,
+}
+
+interface GeometricCTAsField extends Key, GeometricCTAsProps {
+  _type: 'geometricCTAs'
+}
+
+type PageByPath = {
+  title: string | null
+  pageBuilder: (| GeometricCTAsField)[]
+}
+
 const fetchPageByPath = async (pagePath: string) => {
-  const query = codegen(
-    'PageByPath',
-    groq`*[_type == "page" && slug.current == $pagePath][0]{
-      title,
-    }`,
-  )
-  const res = await sanityFetch<Sanity.Default.Query.PageByPath>(query, { pagePath })
+  const query = groq`*[_type == "page" && slug.current == $pagePath][0]{
+    title,
+    pageBuilder[] {
+      ...,
+      _type == 'geometricCTAs' => {
+        ...,
+        ctas[] {
+          ...,
+          linkUrl {
+            "link": internalLink->slug.current,
+            externalUrl,
+          },
+        }
+      },
+    },
+  }`
+  const res = await sanityFetch<PageByPath>(query, { pagePath })
   return res
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
+import GeometricCTAs from '../components/GeometricCTAs'
 import styles from './page.module.scss'
 
 export async function generateMetadata(
@@ -29,11 +30,23 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   if (!pageData) {
     notFound()
   }
+
+  const { title, pageBuilder } = pageData
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1>{pageData?.title || 'No title found'}</h1>
+        <h1>{title || 'No title found'}</h1>
       </div>
+      {pageBuilder && pageBuilder.length > 0 && pageBuilder.map((buildingBlock) => {
+        switch (buildingBlock?._type) {
+          case 'geometricCTAs':
+            return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
+
+          default:
+            return null
+        }
+      })}
     </main>
   )
 }
