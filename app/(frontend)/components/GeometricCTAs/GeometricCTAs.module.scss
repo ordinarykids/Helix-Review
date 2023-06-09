@@ -2,6 +2,10 @@
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
 
+.wrap {
+  overflow: hidden;
+}
+
 .wrap,
 .cta {
   background-color: $coolgray-300;
@@ -49,10 +53,18 @@
 
   &__left {
     @include spanColumns(6, 2);
+
+    @include media-breakpoint-down(lg) {
+      @include spanColumns(7, 1);
+    }
   }
 
   &__right {
     @include spanColumns(6, 6);
+
+    @include media-breakpoint-down(lg) {
+      @include spanColumns(7, 6);
+    }
   }
 
   &__triangle {
@@ -89,17 +101,21 @@
 
 .imgWrap {
   position: absolute;
-  right: 0;
   bottom: 0;
+  left: 52.5%;
   z-index: 2;
 
   &__circle {
-    right: unset;
     left: 24px;
+
+    @include media-breakpoint-down(lg) {
+      right: 51%;
+      left: unset;
+    }
   }
 
-  &__triangle {
-    right: -9px;
+  &__hexagon {
+    left: 50.1%;
   }
 }
 
