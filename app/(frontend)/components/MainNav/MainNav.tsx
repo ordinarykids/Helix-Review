@@ -271,7 +271,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           </div>
                         )}
                       </div>
-                      {getCTALink(ctaLink, true)}
+                      {getCTALink(ctaLink)}
                     </div>
                   </li>
                 )
