@@ -35,6 +35,12 @@ export default {
       title: 'Title',
     },
     {
+      name: 'partnerLogoGrid',
+      type: 'partnerLogoGrid',
+      title: 'Partner Logo Grid',
+      hidden: ({ document }) => document?.slug?.current !== 'home',
+    },
+    {
       name: 'parent',
       type: 'reference',
       to: [
