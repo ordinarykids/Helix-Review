@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { RemoveScroll } from 'react-remove-scroll'
 import debounce from 'lodash.debounce'
 import cx from 'classnames'
-import { MainNavigation } from 'app/(frontend)/lib/sanity/fetch/fetchMainNav'
+import type { MainNavigation, MainNavCTALink } from 'app/(frontend)/lib/sanity/fetch/fetchMainNav'
 import useIsBelowBreakpoint from 'app/(frontend)/hooks/useIsBelowBreakpoint'
 import StyledLink from '../StyledLink'
 import ArrowDropdown from '../svgs/ArrowDropdown'
@@ -58,6 +58,27 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
     window.addEventListener('resize', getHeaderBottomPosDebounced)
     return () => window.removeEventListener('resize', getHeaderBottomPosDebounced)
   }, [getHeaderBottomPos])
+
+  const getCTALink = (ctaLink: MainNavCTALink, desktop = true) => {
+    if (ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl)) {
+      return (
+        <StyledLink
+          className={cx(
+            styles.ctaLink,
+            {
+              [styles.ctaLink__hideMobile]: desktop,
+              [styles.ctaLink__hideDesktop]: !desktop,
+            },
+          )}
+          text={ctaLink.title}
+          link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
+          linkStyle='carat'
+          theme='nav'
+        />
+      )
+    }
+    return null
+  }
 
   const docTypes = {
     blogPost: {
@@ -216,15 +237,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                             </ul>
                           ))}
                         </div>
-                        {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && (
-                          <StyledLink
-                            className={cx(styles.ctaLink, styles.ctaLink__hideDesktop)}
-                            text={ctaLink.title}
-                            link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
-                            linkStyle='carat'
-                            theme='nav'
-                          />
-                        )}
+                        {getCTALink(ctaLink, false)}
                         {teaser && (
                           <div
                             className={cx(
@@ -258,15 +271,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           </div>
                         )}
                       </div>
-                      {ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl) && (
-                        <StyledLink
-                          className={cx(styles.ctaLink, styles.ctaLink__hideMobile)}
-                          text={ctaLink.title}
-                          link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
-                          linkStyle='carat'
-                          theme='nav'
-                        />
-                      )}
+                      {getCTALink(ctaLink)}
                     </div>
                   </li>
                 )
