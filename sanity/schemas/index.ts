@@ -9,6 +9,7 @@ import tag from './documents/tag'
 import featuredImage from './objects/featuredImage'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
+import partnerLogoGrid from './objects/partnerLogoGrid'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
 
@@ -21,6 +22,7 @@ export const schemaTypes = [
   mainNavigation,
   link,
   navigationSectionPanel,
+  partnerLogoGrid,
   seo,
   styledLink,
   tag,
