@@ -40,15 +40,15 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
     circle: {
       shapeComp: <Circles />,
       textAlign: 'right',
-      imgSrc: '/public_health.png',
+      imgSrc: '/public_health@2x.webp',
       imgWidth: 470,
-      imgHeight: 450,
+      imgHeight: 446,
       imgAltText: 'Woman holds a clipboard while wearing protective gear including white coverall, surgical mask, face shield, and goggles',
     },
     hexagon: {
       shapeComp: <Hexagons />,
       textAlign: 'left',
-      imgSrc: '/life_sciences.png',
+      imgSrc: '/life_sciences@2x.webp',
       imgWidth: 681,
       imgHeight: 507,
       imgAltText: 'Two women in lab coats and protective eyewear look through a miscroscope',
@@ -56,9 +56,9 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
     triangle: {
       shapeComp: <Triangles />,
       textAlign: 'left',
-      imgSrc: '/health_systems.png',
-      imgWidth: 822,
-      imgHeight: 544,
+      imgSrc: '/health_systems@2x.webp',
+      imgWidth: 659,
+      imgHeight: 532,
       imgAltText: 'Man in button-up shirt and tie shows something on a clipboard or tablet to a woman doctor wearing a doctor coat and stethoscope',
     },
   }
