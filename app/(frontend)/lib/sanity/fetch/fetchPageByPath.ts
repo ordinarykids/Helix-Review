@@ -6,6 +6,7 @@ const fetchPageByPath = async (pagePath: string) => {
     'PageByPath',
     groq`*[_type == "page" && slug.current == $pagePath][0]{
       title,
+      partnerLogoGrid
     }`,
   )
   const res = await sanityFetch<Sanity.Default.Query.PageByPath>(query, { pagePath })
