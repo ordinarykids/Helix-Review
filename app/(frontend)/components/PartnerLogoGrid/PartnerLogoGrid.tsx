@@ -12,8 +12,12 @@ export default function PartnerLogoGrid(props: PartnerLogoGridProps) {
   return (
     <section className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
-        <h1>{header}</h1>
-        <p>{subheader}</p>
+        {header && (
+          <h1 className={(cx(styles.header))}>{header}</h1>
+        )}
+        {subheader && (
+          <p className={(cx(styles.subheader))}>{subheader}</p>
+        )}
         <div className={cx(styles.logoGrid)}>
           logos here
         </div>
