@@ -11,8 +11,9 @@ export default meta
 
 type Story = StoryObj<typeof GeometricCTAs>;
 
-const getCTAArgs = (shape: GeometricCTAsShapes) => (
+const getCTAArgs = (shape: GeometricCTAsShapes, key: string) => (
   {
+    _key: key,
     title: 'Health Systems',
     content: {
       _key: '6bcf5e7a8cdb',
@@ -66,9 +67,9 @@ export const All: Story = {
   args: {
     title: 'Healthcare Organizations We Serve',
     ctas: [
-      getCTAArgs('triangle'),
-      getCTAArgs('hexagon'),
-      getCTAArgs('circle'),
+      getCTAArgs('triangle', '1'),
+      getCTAArgs('hexagon', '2'),
+      getCTAArgs('circle', '3'),
     ],
   },
 }
@@ -77,7 +78,7 @@ export const Triangles: Story = {
   args: {
     title: 'Healthcare Organizations We Serve',
     ctas: [
-      getCTAArgs('triangle'),
+      getCTAArgs('triangle', '1'),
     ],
   },
 }
@@ -86,7 +87,7 @@ export const Hexagons: Story = {
   args: {
     title: 'Healthcare Organizations We Serve',
     ctas: [
-      getCTAArgs('hexagon'),
+      getCTAArgs('hexagon', '2'),
     ],
   },
 }
@@ -95,7 +96,7 @@ export const Circles: Story = {
   args: {
     title: 'Healthcare Organizations We Serve',
     ctas: [
-      getCTAArgs('circle'),
+      getCTAArgs('circle', '3'),
     ],
   },
 }
