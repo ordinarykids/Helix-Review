@@ -2,7 +2,11 @@ import { groq } from 'next-sanity'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { sanityFetch } from '../sanityClient'
 
-interface GeometricCTAsField extends GeometricCTAsProps {
+interface Key {
+  _key: string,
+}
+
+interface GeometricCTAsField extends Key, GeometricCTAsProps {
   _type: 'geometricCTAs'
 }
 
