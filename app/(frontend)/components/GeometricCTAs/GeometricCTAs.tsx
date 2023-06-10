@@ -91,7 +91,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
                   {shapeData[shape].shapeComp}
                 </div>
                 {(title || content || (linkText && linkUrl)) && (
-                  <div className={styles.textWrap}>
+                  <div className={cx(styles.textWrap, styles[`textWrap__${shape}`])}>
                     <div
                       className={cx(
                         styles.textBox,

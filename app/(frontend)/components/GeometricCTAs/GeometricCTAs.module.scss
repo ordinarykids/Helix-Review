@@ -1,6 +1,7 @@
 @use "../../styles/typography" as *;
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/spacing";
 
 .wrap {
   overflow: hidden;
@@ -12,6 +13,12 @@
 
   &__hexagon {
     background-color: $charcoal-800;
+  }
+}
+
+.cta {
+  @include media-breakpoint-down(md) {
+    overflow: hidden;
   }
 }
 
@@ -39,10 +46,46 @@
   position: relative;
   align-items: center;
   min-height: 704px;
+
+  @include media-breakpoint-down(md) {
+    align-items: flex-end;
+    min-height: 800px;
+  }
 }
 
 .textWrap {
   @include grid;
+
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  @include media-breakpoint-down(md) {
+    &__circle {
+      margin-bottom: 214px;
+    }
+
+    &__hexagon {
+      margin-bottom: 220px;
+    }
+
+    &__triangle {
+      margin-bottom: 270px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__circle {
+      margin-bottom: 220px;
+    }
+
+    &__hexagon {
+      margin-bottom: 184px;
+    }
+
+    &__triangle {
+      margin-bottom: 218px;
+    }
+  }
 }
 
 .textBox {
@@ -52,19 +95,23 @@
   z-index: 1;
 
   &__left {
-    @include spanColumns(6, 2);
+    @include columns(2, 8);
 
     @include media-breakpoint-down(lg) {
-      @include spanColumns(7, 1);
+      @include columns(1, 8);
     }
   }
 
   &__right {
-    @include spanColumns(6, 6);
+    @include columns(6, 12);
 
     @include media-breakpoint-down(lg) {
-      @include spanColumns(7, 6);
+      @include columns(6, -1);
     }
+  }
+
+  @include media-breakpoint-down(md) {
+    @include columns(2, 8);
   }
 
   &__triangle {
@@ -74,6 +121,8 @@
 
 .ctaTitle {
   @include headerDesktopSm;
+
+  margin-bottom: to-rem(24);
 }
 
 .content {
@@ -97,18 +146,31 @@
     right: 0;
     left: unset;
   }
+
+  @include media-breakpoint-down(md) {
+    top: 24px;
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-right: -(spacing.$container-padding-sm);
+    margin-left: -(spacing.$container-padding-sm);
+  }
 }
 
 .imgWrap {
   position: absolute;
   bottom: 0;
-  left: 52.5%;
   z-index: 2;
 
   &__circle {
     left: 24px;
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-only(md) {
       right: 51%;
       left: unset;
     }
@@ -116,6 +178,66 @@
 
   &__hexagon {
     left: 50.1%;
+  }
+
+  &__triangle {
+    left: 52.5%;
+  }
+
+  @include media-breakpoint-down(md) {
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__circle {
+      bottom: -40px;
+
+      .img {
+        width: 313px;
+      }
+    }
+
+    &__hexagon {
+      bottom: -74px;
+
+      .img {
+        width: 431px;
+      }
+    }
+
+    &__triangle {
+      bottom: -80px;
+
+      .img {
+        width: 474px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__circle {
+      bottom: -10px;
+
+      .img {
+        width: 268px;
+      }
+    }
+
+    &__hexagon {
+      .img {
+        width: 390px;
+      }
+    }
+
+    &__triangle {
+      bottom: -40px;
+
+      .img {
+        width: 366px;
+      }
+    }
   }
 }
 
