@@ -7,6 +7,5 @@ export default defineType({
   description: 'Add, edit, and reorder sections',
   of: [
     defineArrayMember({ type: 'geometricCTAs' }),
-    defineArrayMember({ type: 'styledLink' }),
   ],
 })
