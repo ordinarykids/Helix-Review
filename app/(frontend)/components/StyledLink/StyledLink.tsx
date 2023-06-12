@@ -14,7 +14,7 @@ export interface StyledLinkProps {
 }
 
 export default function StyledLink({
-  text, link, linkStyle = 'button', size = 'large', align = 'left', theme = 'dark', className,
+  text, link, linkStyle = 'button', size = 'large', align = 'left', theme = 'dark', className = '',
 }: StyledLinkProps) {
   const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[size], styles[align], styles[theme])
 
