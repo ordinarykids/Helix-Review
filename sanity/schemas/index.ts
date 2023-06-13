@@ -13,8 +13,12 @@ import featuredImage from './objects/featuredImage'
 import geometricCTAs from './objects/geometricCTAs'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
+import pageSection from './objects/pageSection'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
+
+// Page sections
+import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
@@ -27,7 +31,9 @@ export const schemaTypes = [
   mainNavigation,
   navigationSectionPanel,
   pageBuilder,
+  pageSection,
   seo,
   styledLink,
   tag,
+  videoEmbed,
 ]
