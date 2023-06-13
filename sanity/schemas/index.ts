@@ -6,6 +6,7 @@ import page from './documents/page'
 import tag from './documents/tag'
 
 // Object schemas
+import button from './objects/button'
 import featuredImage from './objects/featuredImage'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
@@ -16,6 +17,7 @@ import styledLink from './objects/styledLink'
 export const schemaTypes = [
   page,
   blogPost,
+  button,
   category,
   featuredImage,
   mainNavigation,
