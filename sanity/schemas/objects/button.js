@@ -19,12 +19,14 @@ export default {
       name: 'text',
       type: 'string',
       title: 'Text',
+      codegen: { required: true },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'link',
       type: 'link',
       title: 'Link',
+      codegen: { required: true },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
