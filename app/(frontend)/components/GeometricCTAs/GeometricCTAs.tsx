@@ -68,7 +68,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
   }
 
   return (
-    <div className={cx(styles.wrap, styles[`wrap__${ctas[0].shape}`])}>
+    <section className={cx(styles.wrap, styles[`wrap__${ctas[0].shape}`])}>
       <div className={styles.titleWrap}>
         <h2 className={styles.title}>
           {title}
@@ -127,6 +127,6 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
           </div>
         )
       })}
-    </div>
+    </section>
   )
 }
