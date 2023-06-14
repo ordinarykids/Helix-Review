@@ -1,9 +1,58 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+
+.Button {
+  border-radius: 3px;
+  text-align: center;
 }
 
-.someOtherClass {
-  /* Add your styles here */
+.text {
+  @include body6;
+
+  color: #fff;
+}
+
+.dark {
+  background-color: $darkblue-300;
+}
+
+.light {
+  background-color: #fff;
+
+  .text {
+    color: $darkblue-300;
+  }
+}
+
+.outline {
+  border: 2px solid $darkblue-300;
+  background-color: transparent;
+
+  .text {
+    color: $darkblue-300;
+  }
+
+  &.light {
+    border: 2px solid #fff;
+
+    .text {
+      color: #fff;
+    }
+  }
+}
+
+.large {
+  display: block;
+  width: 280px;
+  padding-top: to-rem(16);
+  padding-bottom: to-rem(16);
+}
+
+.small {
+  padding: 8px to-rem(16);
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
 }
