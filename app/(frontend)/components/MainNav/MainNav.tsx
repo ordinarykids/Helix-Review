@@ -71,7 +71,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
             },
           )}
         >
-          <StyledLink text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} theme='nav' />
+          <StyledLink text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} />
         </div>
       )
     }
