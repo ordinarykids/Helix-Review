@@ -8,13 +8,12 @@ export interface StyledLinkProps {
   link: string,
   className?: string,
   align?: 'left' | 'center',
-  theme?: 'dark' | 'light' | 'nav',
 }
 
 export default function StyledLink({
-  text, link, className, align = 'left', theme = 'dark',
+  text, link, className, align = 'left',
 }: StyledLinkProps) {
-  const linkClasses = cx(styles.StyledLink, styles[align], styles[theme])
+  const linkClasses = cx(styles.StyledLink, styles[align])
 
   return (
     <Link href={link} className={cx(linkClasses, className)}>
