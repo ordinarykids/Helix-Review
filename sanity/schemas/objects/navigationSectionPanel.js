@@ -21,6 +21,16 @@ export default defineField({
       to: [{ type: 'blogPost' }],
     },
     {
+      title: 'Hide teaser on desktop',
+      name: 'hideTeaserDesktop',
+      type: 'boolean',
+    },
+    {
+      title: 'Hide teaser on mobile',
+      name: 'hideTeaserMobile',
+      type: 'boolean',
+    },
+    {
       name: 'ctaLink',
       title: 'CTA Link',
       type: 'object',
