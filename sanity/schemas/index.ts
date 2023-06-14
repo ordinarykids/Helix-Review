@@ -10,6 +10,7 @@ import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
 import featuredImage from './objects/featuredImage'
+import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
@@ -26,6 +27,7 @@ export const schemaTypes = [
   blogPost,
   category,
   featuredImage,
+  geometricCTA,
   geometricCTAs,
   link,
   mainNavigation,

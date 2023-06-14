@@ -1,5 +1,4 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
-import geometricCTA from './geometricCTA'
 
 export default defineType({
   name: 'geometricCTAs',
@@ -15,7 +14,7 @@ export default defineType({
       name: 'ctas',
       type: 'array',
       title: 'CTAs',
-      of: [defineArrayMember(geometricCTA)],
+      of: [defineArrayMember({ type: 'geometricCTA' })],
       codegen: { required: true },
       validation: (Rule) => Rule.required(),
     }),
