@@ -44,8 +44,7 @@
 .large {
   display: block;
   width: 280px;
-  padding-top: to-rem(16);
-  padding-bottom: to-rem(16);
+  padding: 16px to-rem(16);
 }
 
 .small {
