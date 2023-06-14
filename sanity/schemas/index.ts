@@ -9,6 +9,7 @@ import tag from './documents/tag'
 import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
+import button from './objects/button'
 import featuredImage from './objects/featuredImage'
 import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
@@ -25,6 +26,7 @@ import videoEmbed from './pageSections/videoEmbed'
 export const schemaTypes = [
   page,
   blogPost,
+  button,
   category,
   featuredImage,
   geometricCTA,
