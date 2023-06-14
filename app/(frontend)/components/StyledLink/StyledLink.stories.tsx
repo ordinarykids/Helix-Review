@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import StyledLink from '.'
 
-const centered = (Story: any) => (
+const centered: Decorator = (Story) => (
   <div style={{ textAlign: 'center' }}>
     <Story />
   </div>
@@ -17,38 +17,18 @@ export default meta
 
 type Story = StoryObj<typeof StyledLink>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     text: 'Contact Us',
     link: 'https://aleph.dev/fun',
-    linkStyle: 'button',
-    align: 'center',
-    size: 'large',
-    theme: 'dark',
   },
 }
-Primary.decorators = [centered]
 
-export const Secondary: Story = {
+export const Centered: Story = {
   args: {
     text: 'Learn More',
     link: 'https://aleph.dev/fun',
-    linkStyle: 'button',
     align: 'center',
-    size: 'large',
-    theme: 'light',
   },
 }
-
-Secondary.decorators = [centered]
-
-export const Carat: Story = {
-  args: {
-    text: 'Learn More',
-    link: 'https://aleph.dev/fun',
-    linkStyle: 'carat',
-    align: 'left',
-    size: 'large',
-    theme: 'light',
-  },
-}
+Centered.decorators = [centered]
