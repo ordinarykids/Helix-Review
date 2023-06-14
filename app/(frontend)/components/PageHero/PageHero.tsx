@@ -1,11 +1,22 @@
 import cx from 'classnames'
 import React from 'react'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
-import type { PageHeroType } from '../../lib/sanity/fetch/fetchPageByPath'
+import type { StyledLinkProps } from '@/app/(frontend)/components/StyledLink/StyledLink'
 import StyledLink from '../StyledLink/StyledLink'
 import styles from './PageHero.module.scss'
+
+export type PageHeroType = {
+  title?: string | null,
+  pageHero?: {
+    header?: string | null,
+    subheader?: PortableTextBlock | null,
+    media?: string | null,
+    button: StyledLinkProps | null,
+    image: ImageProps | null,
+  } | null,
+}
 
 export default function PageHero({ pageHero }: NonNullable<PageHeroType>) {
   if (!pageHero) {

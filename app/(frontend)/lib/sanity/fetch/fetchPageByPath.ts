@@ -1,19 +1,5 @@
 import { codegen, groq } from '@sanity-codegen/client'
-import { ImageProps } from 'next/image'
-import type { PortableTextBlock } from '@portabletext/types'
-import type { StyledLinkProps } from '@/app/(frontend)/components/StyledLink/StyledLink'
 import { sanityFetch } from '../sanityClient'
-
-export type PageHeroType = {
-  title?: string | null,
-  pageHero?: {
-    header?: string | null,
-    subheader?: PortableTextBlock | null,
-    media?: string | null,
-    button: StyledLinkProps | null,
-    image: ImageProps | null,
-  } | null,
-}
 
 const fetchPageByPath = async (pagePath: string) => {
   const query = codegen(
