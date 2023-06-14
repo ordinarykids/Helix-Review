@@ -21,6 +21,7 @@ const config: StorybookConfig = {
   staticDirs: [{
     from: '../app/\(frontend\)/fonts',
     to: '/app/fonts',
-  }]
+  },
+  '../public',]
 };
 export default config;

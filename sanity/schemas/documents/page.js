@@ -58,5 +58,10 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'pageBuilder',
+      type: 'pageBuilder',
+      title: 'Page Builder',
+    },
   ],
 }

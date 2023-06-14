@@ -62,7 +62,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
   const getCTALink = (ctaLink: MainNavCTALink, desktop = true) => {
     if (ctaLink?.title && (ctaLink?.url?.link || ctaLink?.url?.externalUrl)) {
       return (
-        <StyledLink
+        <div
           className={cx(
             styles.ctaLink,
             {
@@ -70,11 +70,9 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
               [styles.ctaLink__hideDesktop]: !desktop,
             },
           )}
-          text={ctaLink.title}
-          link={`${ctaLink.url.link || ctaLink.url.externalUrl}`}
-          linkStyle='carat'
-          theme='nav'
-        />
+        >
+          <StyledLink text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />
+        </div>
       )
     }
     return null
