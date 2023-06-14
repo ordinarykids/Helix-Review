@@ -2,70 +2,19 @@
 @use "../../styles/colors" as *;
 
 .StyledLink {
+  display: inline-flex;
+  align-items: center;
   border-radius: 3px;
   text-decoration: none;
+
+  svg path {
+    fill: $blue-300;
+  }
 }
 
 .text {
   @include body6;
 
-  color: $white;
-
-  .light & {
-    color: $darkblue-300;
-  }
-
-  .carat & {
-    margin-right: 7.5px;
-    color: $darkblue-300;
-  }
-
-  .nav & {
-    color: $blue-300;
-  }
-}
-
-.large {
-  display: block;
-  width: 280px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.small {
-  padding: 8px 16px;
-}
-
-.dark {
-  background-color: $darkblue-300;
-}
-
-.light {
-  border: 2px solid $darkblue-300;
-  background-color: transparent;
-  color: $darkblue-300;
-}
-
-.center {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.carat {
-  display: inline-block;
-  align-items: center;
-  padding: 0;
-  border: none;
-  color: $darkblue-300;
-
-  &.left {
-    display: flex;
-    justify-content: left;
-  }
-}
-
-.nav {
-  svg path {
-    fill: $blue-300;
-  }
+  margin-right: 8px;
+  color: $blue-300;
 }
