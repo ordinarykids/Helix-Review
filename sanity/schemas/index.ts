@@ -5,9 +5,14 @@ import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
 import tag from './documents/tag'
 
+// Fields
+import pageBuilder from './fields/pageBuilder'
+
 // Object schemas
 import featuredImage from './objects/featuredImage'
 import pageHero from './objects/pageHero'
+import geometricCTA from './objects/geometricCTA'
+import geometricCTAs from './objects/geometricCTAs'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import seo from './objects/seo'
@@ -21,8 +26,12 @@ export const schemaTypes = [
   featuredImage,
   pageHero,
   mainNavigation,
+  geometricCTA,
+  geometricCTAs,
   link,
+  mainNavigation,
   navigationSectionPanel,
+  pageBuilder,
   seo,
   styledLink,
   tag,

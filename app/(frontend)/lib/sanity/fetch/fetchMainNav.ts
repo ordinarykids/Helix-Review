@@ -1,17 +1,19 @@
 import { groq } from 'next-sanity'
 import { sanityFetch } from '../sanityClient'
 
+export type MainNavCTALink = {
+  title?: string | null;
+  url?: {
+    externalUrl?: string | null;
+    link?: string | null;
+  };
+} | null | undefined
+
 export type MainNavigation = {
   navigationSections:
     | {
         navigationSectionPanel: {
-          ctaLink?: {
-            title?: string | null;
-            url?: {
-              externalUrl?: string | null;
-              link?: string | null;
-            };
-          } | null;
+          ctaLink?: MainNavCTALink;
           navigationLinkGroups: {
             navigationLinks: {
               _key: string;
@@ -41,6 +43,8 @@ export type MainNavigation = {
             slug: string;
             title?: string | null;
           } | null;
+          hideTeaserDesktop: boolean | null;
+          hideTeaserMobile: boolean | null;
         };
         _key: string;
         title: string;
@@ -83,6 +87,8 @@ const fetchMainNav = async () => {
           _type,
           "slug": slug.current,
         },
+        hideTeaserDesktop,
+        hideTeaserMobile,
         ctaLink {
           title,
           url {

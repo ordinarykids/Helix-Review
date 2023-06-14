@@ -6,23 +6,20 @@ import styles from './StyledLink.module.scss'
 export interface StyledLinkProps {
   text: string,
   link: string,
-  linkStyle?: 'button' | 'carat',
-  size?: 'large' | 'small',
+  className?: string,
   align?: 'left' | 'center',
-  theme?: 'dark' | 'light',
-  className?: string
+  theme?: 'dark' | 'light' | 'nav',
 }
 
 export default function StyledLink({
-  text, link, linkStyle = 'button', size = 'large', align = 'left', theme = 'dark', className,
+  text, link, className, align = 'left', theme = 'dark',
 }: StyledLinkProps) {
-  const linkClasses = cx(styles.StyledLink, styles[linkStyle], styles[size], styles[align], styles[theme])
+  const linkClasses = cx(styles.StyledLink, styles[align], styles[theme])
 
   return (
     <Link href={link} className={cx(linkClasses, className)}>
       <span className={styles.text}>{text}</span>
-      {linkStyle === 'carat'
-      && <ArrowRight />}
+      <ArrowRight />
     </Link>
   )
 }

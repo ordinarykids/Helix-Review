@@ -39,8 +39,6 @@ export default function PageHero({ pageHero }: NonNullable<PageHeroType>) {
               <StyledLink
                 text={button.text}
                 link={button.link}
-                linkStyle={button.linkStyle}
-                size='large'
                 align={button.align}
                 theme='dark'
               />
