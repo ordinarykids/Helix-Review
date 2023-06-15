@@ -1,46 +1,43 @@
-import { codegen, groq } from '@sanity-codegen/client'
-import { ImageProps } from 'next/image'
+import { groq } from 'next-sanity'
+import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
+import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
 
-export type PageHeroType = {
-  title?: string | null,
-  partnerLogoGrid?: {
-    header?: string | null,
-    subheader?: string | null,
-    logos: {
-      _key: string,
-      image: ImageProps | null,
-      externalLink?: string | null,
-      uploadedFileURL?: string | null,
-    } | null,
-  } | null,
+interface Key {
+  _key: string,
+}
+
+interface GeometricCTAsField extends Key, GeometricCTAsProps {
+  _type: 'geometricCTAs'
+}
+
+interface PageSectionField extends Key, PageSectionProps {
+  _type: 'pageSection'
+}
+
+type PageByPath = {
+  title: string | null
+  pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
-  const query = codegen(
-    'PageByPath',
-    groq`*[_type == "page" && slug.current == $pagePath][0]{
-      title,
-      partnerLogoGrid {
-        header,
-        subheader,
-        logos[] {
-          _key,
-          'image': {
-            'src': logo.asset->url,
-            'alt': logo.asset->metadata.altText,
-            'height': logo.asset->metadata.dimensions.height,
-            'width': logo.asset->metadata.dimensions.width,
-            'aspectRatio': logo.asset->metadata.dimensions.aspectRatio,
-            'blurHash': metadata.blurHash,
+  const query = groq`*[_type == "page" && slug.current == $pagePath][0]{
+    title,
+    pageBuilder[] {
+      ...,
+      _type == 'geometricCTAs' => {
+        ...,
+        ctas[] {
+          ...,
+          linkUrl {
+            "link": internalLink->slug.current,
+            externalUrl,
           },
-          externalLink,
-          'uploadedFileURL': file.asset->url,
         }
-      }
-    }`,
-  )
-  const res = await sanityFetch<Sanity.Default.Query.PageByPath>(query, { pagePath })
+      },
+    },
+  }`
+  const res = await sanityFetch<PageByPath>(query, { pagePath })
   return res
 }
 
