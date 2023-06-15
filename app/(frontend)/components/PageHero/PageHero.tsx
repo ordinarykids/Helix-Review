@@ -7,31 +7,23 @@ import Button, { ButtonProps } from '../Button/Button'
 import styles from './PageHero.module.scss'
 
 export type PageHeroType = {
-  title?: string | null,
-  pageHero?: {
     header?: string | null,
-    subheader?: PortableTextBlock | null,
+    subheader?: PortableTextBlock[],
     media?: string | null,
     button: ButtonProps,
     image: ImageProps | null,
-  } | null,
-}
-
-export default function PageHero({ pageHero }: NonNullable<PageHeroType>) {
-  if (!pageHero) {
-    return null
   }
-  const {
-    header, subheader, media, button, image,
-  } = pageHero
 
+export default function PageHero({
+  header, subheader, media, button, image,
+}: PageHeroType) {
   return (
     <div className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           <h1 className={cx(styles.heroHeader)}>{header}</h1>
           <div className={cx(styles.heroSubheader)}>
-            <PortableText value={subheader as PortableTextBlock} />
+            { subheader && <PortableText value={subheader} /> }
           </div>
           {button && (
             <div className={cx(styles.link)}>
