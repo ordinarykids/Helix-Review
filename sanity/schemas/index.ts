@@ -27,7 +27,6 @@ export const schemaTypes = [
   category,
   featuredImage,
   pageHero,
-  mainNavigation,
   geometricCTA,
   geometricCTAs,
   link,
