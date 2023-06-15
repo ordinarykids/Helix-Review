@@ -18,6 +18,20 @@ type PageByPath = {
 const fetchPageByPath = async (pagePath: string) => {
   const query = groq`*[_type == "page" && slug.current == $pagePath][0]{
     title,
+    'pageHero': hero {
+      header,
+      subheader,
+      media,
+      button,
+      'image': {
+        'src': image.asset->url,
+        'alt': image.asset->metadata.altText,
+        'height': image.asset->metadata.dimensions.height,
+        'width': image.asset->metadata.dimensions.width,
+        'aspectRatio': image.asset->metadata.dimensions.aspectRatio,
+        'blurHash': metadata.blurHash,
+      }
+    },
     pageBuilder[] {
       ...,
       _type == 'geometricCTAs' => {
