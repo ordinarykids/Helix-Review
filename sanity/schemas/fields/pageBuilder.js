@@ -6,6 +6,7 @@ export default defineType({
   title: 'Page sections',
   description: 'Add, edit, and reorder sections',
   of: [
+    defineArrayMember({ type: 'pageSection' }),
     defineArrayMember({ type: 'geometricCTAs' }),
   ],
 })

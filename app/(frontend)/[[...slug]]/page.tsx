@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import GeometricCTAs from '../components/GeometricCTAs'
+import PageSection from '../components/PageSection'
 import styles from './page.module.scss'
 
 export async function generateMetadata(
@@ -40,6 +41,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
       {pageBuilder && pageBuilder.length > 0 && pageBuilder.map((buildingBlock) => {
         switch (buildingBlock?._type) {
+          case 'pageSection':
+            return <PageSection key={buildingBlock._key} {...buildingBlock} />
+
           case 'geometricCTAs':
             return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
 
