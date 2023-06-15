@@ -18,7 +18,7 @@ export interface GeometricCTAsProps {
   ctas: {
     _key: string
     title?: string
-    content?: PortableTextBlock
+    content?: PortableTextBlock[]
     linkText?: string
     linkUrl?: {
       externalUrl?: string | null

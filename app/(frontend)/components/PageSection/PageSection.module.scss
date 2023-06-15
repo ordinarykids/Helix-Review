@@ -1,0 +1,36 @@
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/spacing";
+
+.wrap {
+  padding-top: to-rem(64);
+  padding-bottom: to-rem(64);
+  overflow: hidden;
+
+  @include media-breakpoint-down(md) {
+    padding-top: to-rem(40);
+    padding-bottom: to-rem(40);
+  }
+}
+
+.titleWrap {
+  @include containerGrid;
+
+  text-align: center;
+}
+
+.title {
+  @include columns(3, 11);
+  @include headerDesktopMd;
+
+  margin-bottom: to-rem(40);
+  color: $darkblue-100;
+
+  @include media-breakpoint-down(md) {
+    @include columns(1, -1);
+    @include headerMobileMd;
+
+    margin-bottom: to-rem(24);
+  }
+}
