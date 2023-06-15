@@ -107,7 +107,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
                       )}
                       {(linkText && linkUrl) && (
                         <div className={styles.link}>
-                          <StyledLink text={linkText} link={`${linkUrl.link || linkUrl.externalUrl}`} linkStyle='carat' />
+                          <StyledLink text={linkText} link={`${linkUrl.link || linkUrl.externalUrl}`} />
                         </div>
                       )}
                     </div>
