@@ -35,11 +35,6 @@ export default {
       title: 'Title',
     },
     {
-      name: 'hero',
-      type: 'pageHero',
-      title: 'Hero',
-    },
-    {
       name: 'parent',
       type: 'reference',
       to: [
@@ -62,6 +57,11 @@ export default {
         slugify: asyncSlugifier,
       },
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'hero',
+      type: 'pageHero',
+      title: 'Hero',
     },
     {
       name: 'pageBuilder',
