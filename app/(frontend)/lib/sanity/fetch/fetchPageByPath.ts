@@ -18,7 +18,7 @@ interface PageSectionField extends Key, PageSectionProps {
 
 type PageByPath = {
   title: string | null
-  pageHero: PageHeroType,
+  pageHero: PageHeroType | null,
   pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
