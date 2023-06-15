@@ -33,9 +33,9 @@ const pageHero = defineType({
       ],
     }),
     defineField({
-      name: 'styledLink',
-      type: 'styledLink',
-      title: 'Link',
+      name: 'button',
+      type: 'button',
+      title: 'Button',
     }),
     defineField({
       name: 'image',
