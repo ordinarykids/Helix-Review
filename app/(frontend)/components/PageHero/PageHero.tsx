@@ -3,8 +3,7 @@ import React from 'react'
 import Image, { ImageProps } from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
-import type { StyledLinkProps } from '@/app/(frontend)/components/StyledLink/StyledLink'
-import StyledLink from '../StyledLink/StyledLink'
+import Button, { ButtonProps } from '../Button/Button'
 import styles from './PageHero.module.scss'
 
 export type PageHeroType = {
@@ -13,7 +12,7 @@ export type PageHeroType = {
     header?: string | null,
     subheader?: PortableTextBlock | null,
     media?: string | null,
-    button: StyledLinkProps | null,
+    button: ButtonProps,
     image: ImageProps | null,
   } | null,
 }
@@ -36,11 +35,9 @@ export default function PageHero({ pageHero }: NonNullable<PageHeroType>) {
           </div>
           {button && (
             <div className={cx(styles.link)}>
-              <StyledLink
+              <Button
                 text={button.text}
                 link={button.link}
-                align={button.align}
-                theme='dark'
               />
             </div>
           )}
