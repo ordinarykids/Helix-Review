@@ -10,6 +10,7 @@ import icon from './fields/icon'
 import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
+import button from './objects/button'
 import featuredImage from './objects/featuredImage'
 import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
@@ -28,6 +29,7 @@ import videoEmbed from './pageSections/videoEmbed'
 export const schemaTypes = [
   page,
   blogPost,
+  button,
   cardGrid,
   category,
   featuredImage,
