@@ -14,9 +14,9 @@ type Story = StoryObj<typeof PageHero>;
 
 export const HomePage: Story = {
   args: {
-    pageHero: {
-      header: 'Weaving Genomics into the Fabric of Healthcare',
-      subheader: {
+    header: 'Weaving Genomics into the Fabric of Healthcare',
+    subheader: [
+      {
         children: [
           {
             _key: 'c5080bab2071',
@@ -30,20 +30,20 @@ export const HomePage: Story = {
         style: 'normal',
         _key: 'c5080bab2071',
       },
-      image: {
-        src: heroFPOImage,
-        width: 434,
-        height: 427,
-        alt: 'Hero FPO image',
-      },
-      button: {
-        text: 'Contact Us',
-        link: 'https://helix.com',
-        linkStyle: 'button',
-        size: 'large',
-        align: 'left',
-        theme: 'dark',
-      },
+    ],
+    image: {
+      src: heroFPOImage,
+      width: 434,
+      height: 427,
+      alt: 'Hero FPO image',
+    },
+    button: {
+      text: 'Contact Us',
+      link: 'https://helix.com',
+      buttonStyle: 'solid',
+      size: 'large',
+      align: 'left',
+      theme: 'dark',
     },
   },
 }
