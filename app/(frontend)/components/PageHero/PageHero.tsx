@@ -10,8 +10,8 @@ export type PageHeroType = {
     header?: string | null,
     subheader?: PortableTextBlock[],
     media?: string | null,
-    button: ButtonProps,
-    image: ImageProps | null,
+    button?: ButtonProps,
+    image?: ImageProps | null,
   }
 
 export default function PageHero({
@@ -21,10 +21,12 @@ export default function PageHero({
     <div className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
-          <h1 className={cx(styles.heroHeader)}>{header}</h1>
-          <div className={cx(styles.heroSubheader)}>
-            { subheader && <PortableText value={subheader} /> }
-          </div>
+          {header && <h1 className={cx(styles.heroHeader)}>{header}</h1>}
+          {subheader && (
+            <div className={cx(styles.heroSubheader)}>
+              <PortableText value={subheader} />
+            </div>
+          )}
           {button && (
             <div className={cx(styles.link)}>
               <Button
