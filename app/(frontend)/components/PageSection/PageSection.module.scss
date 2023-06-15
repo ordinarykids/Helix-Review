@@ -15,18 +15,20 @@
 }
 
 .titleWrap {
-  @include container;
+  @include containerGrid;
 
   text-align: center;
 }
 
 .title {
+  @include columns(3, 11);
   @include headerDesktopMd;
 
   margin-bottom: to-rem(40);
   color: $darkblue-100;
 
   @include media-breakpoint-down(md) {
+    @include columns(1, -1);
     @include headerMobileMd;
 
     margin-bottom: to-rem(24);

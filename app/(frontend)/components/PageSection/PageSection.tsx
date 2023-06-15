@@ -1,10 +1,15 @@
+import CardGrid from '../CardGrid'
+import type { CardGridField } from '../CardGrid/CardGrid'
 import VideoEmbed from '../VideoEmbed'
 import type { VideoEmbedField } from '../VideoEmbed/VideoEmbed'
 import styles from './PageSection.module.scss'
 
 export interface PageSectionProps {
   title?: string
-  innerBlocks: (| VideoEmbedField)[]
+  innerBlocks: (
+    | CardGridField
+    | VideoEmbedField
+  )[]
 }
 
 export default function PageSection({ title, innerBlocks }: PageSectionProps) {
@@ -19,6 +24,9 @@ export default function PageSection({ title, innerBlocks }: PageSectionProps) {
       )}
       {innerBlocks && innerBlocks.length > 0 && innerBlocks.map((block) => {
         switch (block?._type) {
+          case 'cardGrid':
+            return <CardGrid key={block._key} {...block} />
+
           case 'videoEmbed':
             return <VideoEmbed key={block._key} {...block} />
 
