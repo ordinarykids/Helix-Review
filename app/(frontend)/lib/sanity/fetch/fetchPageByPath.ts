@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { PageHeroType } from '@/app/(frontend)/components/PageHero/PageHero'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { sanityFetch } from '../sanityClient'
 
@@ -12,6 +13,7 @@ interface GeometricCTAsField extends Key, GeometricCTAsProps {
 
 type PageByPath = {
   title: string | null
+  pageHero: PageHeroType,
   pageBuilder: (| GeometricCTAsField)[] | null
 }
 
