@@ -41,12 +41,9 @@ export const schemaTypes = [
   link,
   mainNavigation,
   navigationSectionPanel,
-<<<<<<< HEAD
   partnerLogoGrid,
-=======
   pageBuilder,
   pageSection,
->>>>>>> 128e8affc5d6be5fba5c7a8c5b1313eb22e3a820
   seo,
   styledLink,
   tag,
