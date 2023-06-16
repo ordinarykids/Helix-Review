@@ -62,6 +62,7 @@ export default {
       name: 'hero',
       type: 'homePageHero',
       title: 'Hero',
+      hidden: ({ document }) => (document.slug?.current !== 'home'),
     },
     {
       name: 'pageBuilder',
