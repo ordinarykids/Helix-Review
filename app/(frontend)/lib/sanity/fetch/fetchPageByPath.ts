@@ -1,5 +1,5 @@
 import { groq } from 'next-sanity'
-import { PageHeroType } from '@/app/(frontend)/components/PageHero/PageHero'
+import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
@@ -18,14 +18,14 @@ interface PageSectionField extends Key, PageSectionProps {
 
 type PageByPath = {
   title: string | null
-  pageHero: PageHeroType | null,
+  homePageHero: HomePageHeroType | null,
   pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
   const query = groq`*[_type == "page" && slug.current == $pagePath][0]{
     title,
-    'pageHero': hero {
+    'homePageHero': hero {
       header,
       subheader,
       media,

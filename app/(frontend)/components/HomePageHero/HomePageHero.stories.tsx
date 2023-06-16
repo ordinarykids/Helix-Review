@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import heroFPOImage from 'public/HeroFPO.svg'
-import PageHero from '.'
+import HomePageHero from '.'
 
-const meta: Meta<typeof PageHero> = {
+const meta: Meta<typeof HomePageHero> = {
   title: 'Components/PageHero',
-  component: PageHero,
+  component: HomePageHero,
   tags: ['autodocs'], // Uncomment if you aren't using an MDX file for docs here
 }
 
 export default meta
 
-type Story = StoryObj<typeof PageHero>;
+type Story = StoryObj<typeof HomePageHero>;
 
 export const HomePage: Story = {
   args: {

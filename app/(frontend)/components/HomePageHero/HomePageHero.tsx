@@ -4,9 +4,9 @@ import Image, { ImageProps } from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
 import Button, { ButtonProps } from '../Button/Button'
-import styles from './PageHero.module.scss'
+import styles from './HomePageHero.module.scss'
 
-export type PageHeroType = {
+export type HomePageHeroType = {
     header?: string | null,
     subheader?: PortableTextBlock[],
     media?: string | null,
@@ -14,9 +14,9 @@ export type PageHeroType = {
     image?: ImageProps | null,
   }
 
-export default function PageHero({
+export default function HomePageHero({
   header, subheader, media, button, image,
-}: PageHeroType) {
+}: HomePageHeroType) {
   return (
     <div className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
