@@ -38,6 +38,9 @@ export const HomePage: Story = {
       alt: 'Hero FPO image',
     },
     buttonText: 'Contact Us',
-    buttonLink: 'https://helix.com',
+    buttonLink: {
+      link: 'https://helix.com',
+      externalUrl: 'https://helix.com',
+    },
   },
 }
