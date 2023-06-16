@@ -12,7 +12,7 @@ import pageBuilder from './fields/pageBuilder'
 // Object schemas
 import button from './objects/button'
 import featuredImage from './objects/featuredImage'
-import pageHero from './objects/pageHero'
+import homePageHero from './objects/homePageHero'
 import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
 import iconCard from './objects/iconCard'
@@ -34,7 +34,7 @@ export const schemaTypes = [
   cardGrid,
   category,
   featuredImage,
-  pageHero,
+  homePageHero,
   geometricCTA,
   geometricCTAs,
   iconCard,

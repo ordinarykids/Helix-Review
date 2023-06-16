@@ -1,9 +1,18 @@
 import { defineType, defineField, defineArrayMember } from 'sanity'
 
-const pageHero = defineType({
-  name: 'pageHero',
+const homePageHero = defineType({
+  name: 'homePageHero',
   type: 'object',
   title: 'Hero',
+  fieldsets: [
+    {
+      name: 'button',
+      title: 'Button',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    }],
   fields: [
     defineField({
       name: 'header',
@@ -33,9 +42,16 @@ const pageHero = defineType({
       ],
     }),
     defineField({
-      name: 'button',
-      type: 'button',
-      title: 'Button',
+      name: 'buttonText',
+      type: 'string',
+      title: 'Button Text',
+      fieldset: 'button',
+    }),
+    defineField({
+      name: 'buttonlink',
+      type: 'link',
+      title: 'Button Link',
+      fieldset: 'button',
     }),
     defineField({
       name: 'image',
@@ -52,4 +68,4 @@ const pageHero = defineType({
   ],
 })
 
-export default pageHero
+export default homePageHero

@@ -60,7 +60,7 @@ export default {
     },
     {
       name: 'hero',
-      type: 'pageHero',
+      type: 'homePageHero',
       title: 'Hero',
     },
     {
