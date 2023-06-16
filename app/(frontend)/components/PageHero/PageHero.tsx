@@ -27,7 +27,7 @@ export default function PageHero({
               <PortableText value={subheader} />
             </div>
           )}
-          {button && (
+          {(button?.text && button?.link) && (
             <div className={cx(styles.link)}>
               <Button
                 text={button.text}
