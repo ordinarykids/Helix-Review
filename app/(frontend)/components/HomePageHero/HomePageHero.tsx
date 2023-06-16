@@ -3,19 +3,23 @@ import React from 'react'
 import Image, { ImageProps } from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
-import Button, { ButtonProps } from '../Button/Button'
+import Button from '../Button/Button'
 import styles from './HomePageHero.module.scss'
 
 export type HomePageHeroType = {
     header?: string | null,
     subheader?: PortableTextBlock[],
     media?: string | null,
-    button?: ButtonProps,
+    buttonText?: string | null,
+    buttonLink?: {
+      link: string | null,
+      externalUrl: string | null,
+      },
     image?: ImageProps | null,
   }
 
 export default function HomePageHero({
-  header, subheader, media, button, image,
+  header, subheader, media, buttonText, buttonLink, image,
 }: HomePageHeroType) {
   return (
     <div className={cx(styles.wrap)}>
@@ -27,11 +31,11 @@ export default function HomePageHero({
               <PortableText value={subheader} />
             </div>
           )}
-          {(button?.text && button?.link) && (
+          {(buttonText && buttonLink) && (
             <div className={cx(styles.link)}>
               <Button
-                text={button.text}
-                link={button.link}
+                text={buttonText}
+                link={`${buttonLink.link || buttonLink.externalUrl}`}
               />
             </div>
           )}
