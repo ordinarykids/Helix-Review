@@ -29,7 +29,11 @@ const fetchPageByPath = async (pagePath: string) => {
       header,
       subheader,
       media,
-      button,
+      buttonText,
+      'buttonLink': buttonLink {
+        externalUrl,
+        'link': internalLink->slug.current,
+      },
       'image': {
         'src': image.asset->url,
         'alt': image.asset->metadata.altText,
