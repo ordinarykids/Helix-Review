@@ -48,7 +48,7 @@ const homePageHero = defineType({
       fieldset: 'button',
     }),
     defineField({
-      name: 'buttonlink',
+      name: 'buttonLink',
       type: 'link',
       title: 'Button Link',
       fieldset: 'button',
