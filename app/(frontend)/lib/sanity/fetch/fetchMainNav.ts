@@ -1,12 +1,13 @@
 import { groq } from 'next-sanity'
+import type ImageField from 'app/(frontend)/types/image'
+import type LinkField from 'app/(frontend)/types/link'
 import { sanityFetch } from '../sanityClient'
+import imgReference from '../partials/imgReference'
+import link from '../partials/link'
 
 export type MainNavCTALink = {
   title?: string | null;
-  url?: {
-    externalUrl?: string | null;
-    link?: string | null;
-  };
+  url?: LinkField;
 } | null | undefined
 
 export type MainNavigation = {
@@ -18,28 +19,15 @@ export type MainNavigation = {
             navigationLinks: {
               _key: string;
               title: string;
-              url: {
-                externalUrl?: string | null;
-                link?: string | null;
-              };
+              url: LinkField;
             }[];
             _key: string;
             title?: string | null;
-            titlelink?: {
-              externalUrl?: string | null;
-              link?: string | null;
-            } | null;
+            titlelink?: LinkField | null;
           }[];
           teaser: {
             _type: string;
-            image?: {
-              altText?: string | null;
-              aspectRatio: number;
-              blurHash: string;
-              height: number;
-              url: string;
-              width: number;
-            };
+            image?: ImageField;
             slug: string;
             title?: string | null;
           } | null;
@@ -61,28 +49,15 @@ const fetchMainNav = async () => {
         navigationLinkGroups[] {
           _key,
           title,
-          titlelink {
-            "link": internalLink->slug.current,
-            externalUrl,
-          },
+          titlelink ${link},
           navigationLinks[] {
             _key,
             title,
-            url {
-              "link": internalLink->slug.current,
-              externalUrl,
-            },
+            url ${link},
           },
         },
         teaser->{
-          'image': featuredImage.image.asset->{
-            altText,
-            url,
-            'height': metadata.dimensions.height,
-            'width': metadata.dimensions.width,
-            'aspectRatio': metadata.dimensions.aspectRatio,
-            'blurHash': metadata.blurHash,
-          },
+          'image': featuredImage.image.asset->${imgReference},
           title,
           _type,
           "slug": slug.current,
@@ -91,10 +66,7 @@ const fetchMainNav = async () => {
         hideTeaserMobile,
         ctaLink {
           title,
-          url {
-            "link": internalLink->slug.current,
-            externalUrl,
-          },
+          url ${link},
         },
       },
     },
