@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import React from 'react'
-import Image, { ImageProps } from 'next/image'
+import Image from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
 import Button from '../Button/Button'
@@ -15,7 +15,14 @@ export type HomePageHeroType = {
       link: string | null,
       externalUrl: string | null,
       },
-    image?: ImageProps | null,
+    image?: {
+      src?: string | null,
+      alt?: string | null,
+      height?: number | null,
+      width?: number | null,
+      aspectRatio?: number | null,
+      blurHash?: string | null,
+    } | null,
   }
 
 export default function HomePageHero({
@@ -47,7 +54,7 @@ export default function HomePageHero({
                 <h2>FPO animation</h2>
               </div>
             )
-            : image && (
+            : (image?.src && image?.alt && image?.width && image?.height) && (
               <div className={cx(styles.heroImage)}>
                 <Image
                   className={cx(styles.image)}
