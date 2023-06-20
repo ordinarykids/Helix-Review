@@ -5,7 +5,6 @@ export default {
   type: 'object',
   title: 'Link',
   initialValue: {
-    style: 'primary',
     align: 'left',
   },
   fields: [
@@ -14,24 +13,14 @@ export default {
       type: 'string',
       title: 'Text',
       validation: (Rule) => Rule.required(),
+      codegen: { required: true },
     }),
     defineField({
       name: 'link',
       type: 'url',
       title: 'Link',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'style',
-      type: 'string',
-      title: 'Style',
-      options: {
-        list: [
-          { title: 'Primary Button', value: 'primary' },
-          { title: 'Secondary Button', value: 'secondary' },
-          { title: 'Carat', value: 'carat' },
-        ],
-      },
+      codegen: { required: true },
     }),
     defineField({
       name: 'align',

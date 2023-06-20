@@ -4,6 +4,7 @@ import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import GeometricCTAs from '../components/GeometricCTAs'
 import PageSection from '../components/PageSection'
 import styles from './page.module.scss'
+import HomePageHero from '../components/HomePageHero/HomePageHero'
 
 export async function generateMetadata(
   { params }: { params: { slug: string[] } },
@@ -32,13 +33,14 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     notFound()
   }
 
-  const { title, pageBuilder } = pageData
-
+  const { title, homePageHero, pageBuilder } = pageData
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <h1>{title || 'No title found'}</h1>
       </div>
+      {homePageHero && <HomePageHero {...homePageHero} />}
+
       {pageBuilder && pageBuilder.length > 0 && pageBuilder.map((buildingBlock) => {
         switch (buildingBlock?._type) {
           case 'pageSection':

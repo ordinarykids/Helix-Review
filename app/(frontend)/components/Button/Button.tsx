@@ -2,7 +2,7 @@ import Link from 'next/link'
 import cx from 'classnames'
 import styles from './Button.module.scss'
 
-interface ButtonProps {
+export type ButtonProps = {
   text: string,
   link: string,
   className?: string,
