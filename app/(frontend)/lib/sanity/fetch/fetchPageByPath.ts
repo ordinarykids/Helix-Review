@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
@@ -17,12 +18,31 @@ interface PageSectionField extends Key, PageSectionProps {
 
 type PageByPath = {
   title: string | null
+  homePageHero: HomePageHeroType | null,
   pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
   const query = groq`*[_type == "page" && slug.current == $pagePath][0]{
     title,
+    'homePageHero': hero {
+      header,
+      subheader,
+      media,
+      buttonText,
+      'buttonLink': buttonLink {
+        externalUrl,
+        'link': internalLink->slug.current,
+      },
+      'image': {
+        'src': image.asset->url,
+        'alt': image.asset->metadata.altText,
+        'height': image.asset->metadata.dimensions.height,
+        'width': image.asset->metadata.dimensions.width,
+        'aspectRatio': image.asset->metadata.dimensions.aspectRatio,
+        'blurHash': metadata.blurHash,
+      }
+    },
     pageBuilder[] {
       ...,
       _type == 'geometricCTAs' => {
