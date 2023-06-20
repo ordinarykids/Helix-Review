@@ -9,7 +9,7 @@ export type HomeHeroThreeUpType = {
     header?: string | null
     ctas: {
       _key: string
-      image?: ImageField
+      image: ImageField
       header?: string | null
       buttonText?: string | null
       buttonUrl?: LinkField | null
@@ -34,7 +34,7 @@ export default function HomeHeroThreeUp({ header, ctas }: HomeHeroThreeUpType) {
                 } = cta
                 return (
                   <div key={_key} className={styles.cta}>
-                    {image && image.url && (
+                    {image && (
                       <Image
                         className={styles.cta_Image}
                         src={image.url}

@@ -246,7 +246,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               },
                             )}
                           >
-                            {teaser.image?.url && (
+                            {teaser.image && (
                               <div className={styles.teaser_ImageWrap}>
                                 <Image
                                   className={styles.teaser_Image}

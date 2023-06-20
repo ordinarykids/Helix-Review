@@ -14,7 +14,7 @@ export type HomePageHeroType = {
     media?: string | null,
     buttonText?: string | null,
     buttonLink?: LinkField,
-    image?: ImageField,
+    image: ImageField,
   }
 
 export default function HomePageHero({
@@ -46,7 +46,7 @@ export default function HomePageHero({
                 <h2>FPO animation</h2>
               </div>
             )
-            : (image?.url && image?.width && image?.height) && (
+            : (image) && (
               <div className={cx(styles.heroImage)}>
                 <Image
                   className={cx(styles.image)}

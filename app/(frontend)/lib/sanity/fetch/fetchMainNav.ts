@@ -27,7 +27,7 @@ export type MainNavigation = {
           }[];
           teaser: {
             _type: string;
-            image?: ImageField;
+            image: ImageField;
             slug: string;
             title?: string | null;
           } | null;
