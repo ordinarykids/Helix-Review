@@ -35,14 +35,7 @@ const fetchPageByPath = async (pagePath: string) => {
       media,
       buttonText,
       buttonLink ${link},
-      'image': {
-        'src': image.asset->url,
-        'alt': image.asset->metadata.altText,
-        'height': image.asset->metadata.dimensions.height,
-        'width': image.asset->metadata.dimensions.width,
-        'aspectRatio': image.asset->metadata.dimensions.aspectRatio,
-        'blurHash': metadata.blurHash,
-      }
+      'image': image.asset->${imgReference},
     },
     homeHeroThreeUp {
       ...,

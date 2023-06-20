@@ -3,6 +3,8 @@ import React from 'react'
 import Image from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
+import type ImageField from 'app/(frontend)/types/image'
+import type LinkField from 'app/(frontend)/types/link'
 import Button from '../Button/Button'
 import styles from './HomePageHero.module.scss'
 
@@ -11,18 +13,8 @@ export type HomePageHeroType = {
     subheader?: PortableTextBlock[],
     media?: string | null,
     buttonText?: string | null,
-    buttonLink?: {
-      link: string | null,
-      externalUrl: string | null,
-      },
-    image?: {
-      src?: string | null,
-      alt?: string | null,
-      height?: number | null,
-      width?: number | null,
-      aspectRatio?: number | null,
-      blurHash?: string | null,
-    } | null,
+    buttonLink?: LinkField,
+    image?: ImageField,
   }
 
 export default function HomePageHero({
@@ -54,14 +46,15 @@ export default function HomePageHero({
                 <h2>FPO animation</h2>
               </div>
             )
-            : (image?.src && image?.alt && image?.width && image?.height) && (
+            : (image?.url && image?.width && image?.height) && (
               <div className={cx(styles.heroImage)}>
                 <Image
                   className={cx(styles.image)}
-                  src={image.src}
+                  src={image.url}
                   width={image.width}
                   height={image.height}
-                  alt={image.alt}
+                  alt={image.altText ?? 'Helix node animation'}
+                  title={image.title ?? undefined}
                 />
               </div>
             )}
