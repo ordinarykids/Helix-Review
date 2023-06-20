@@ -40,7 +40,7 @@ export default function HomeHeroThreeUp({ header, ctas }: HomeHeroThreeUpType) {
                         src={image.url}
                         width={image.width}
                         height={image.height}
-                        alt={image.altText ?? `${header} image`}
+                        alt={image.altText ?? ''}
                         title={image.title ?? undefined}
                       />
                     )}

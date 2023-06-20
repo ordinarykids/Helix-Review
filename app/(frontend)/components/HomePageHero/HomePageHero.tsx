@@ -53,7 +53,7 @@ export default function HomePageHero({
                   src={image.url}
                   width={image.width}
                   height={image.height}
-                  alt={image.altText ?? 'Helix node animation'}
+                  alt={image.altText ?? ''}
                   title={image.title ?? undefined}
                 />
               </div>
