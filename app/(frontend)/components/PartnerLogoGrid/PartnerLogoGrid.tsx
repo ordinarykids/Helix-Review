@@ -18,12 +18,14 @@ export default function PartnerLogoGrid({ header, subheader, logos }: PartnerLog
   return (
     <section className={cx(styles.wrap)}>
       <div className={cx(styles.container)}>
-        {header && (
-          <h1 className={(cx(styles.header))}>{header}</h1>
-        )}
-        {subheader && (
-          <p className={(cx(styles.subheader))}>{subheader}</p>
-        )}
+        <div className={cx(styles.titleWrap)}>
+          {header && (
+            <h1 className={(cx(styles.header))}>{header}</h1>
+          )}
+          {subheader && (
+            <p className={(cx(styles.subheader))}>{subheader}</p>
+          )}
+        </div>
         {logos && (
           <div className={cx(styles.logoGrid)}>
             {logos.map((logo) => {
