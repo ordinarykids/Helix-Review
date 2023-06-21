@@ -20,7 +20,7 @@ interface PageSectionField extends Key, PageSectionProps {
   _type: 'pageSection'
 }
 
-interface PartnerGridField extends Key, PartnerLogoGridProps {
+interface PartnerLogoGridField extends Key, PartnerLogoGridProps {
   _type: 'partnerLogoGrid'
 }
 
@@ -28,7 +28,7 @@ type PageByPath = {
   title: string | null
   homePageHero: HomePageHeroType | null,
   homeHeroThreeUp: HomeHeroThreeUpType | null,
-  pageBuilder: (| GeometricCTAsField | PartnerGridField | PageSectionField)[] | null
+  pageBuilder: (| GeometricCTAsField | PartnerLogoGridField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
