@@ -20,10 +20,3 @@ export const Default: Story = {
     subheader: 'what',
   },
 }
-
-export const Foo: Story = {
-  args: {
-    header: 'Hello World, different variation!',
-    subheader: 'subheader here',
-  },
-}
