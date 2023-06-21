@@ -59,6 +59,14 @@ const fetchPageByPath = async (pagePath: string) => {
           linkUrl ${link},
         }
       },
+      _type == 'partnerLogoGrid' => {
+        ...,
+        logos[] {
+          ...,
+          'fileUrl': file.asset->url,
+          'image': logo.asset->${imgReference},
+        }
+      },
     },
   }`
   const res = await sanityFetch<PageByPath>(query, { pagePath })
