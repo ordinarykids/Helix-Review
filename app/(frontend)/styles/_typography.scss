@@ -148,36 +148,42 @@ $font-family-tt-norms: var(--tt-norms);
   @include headerDesktopXl;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin h2() {
   @include headerDesktopLg;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin h3() {
   @include headerDesktopMd;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin h4() {
   @include headerDesktopSm;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin h5() {
   @include body2;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin h6() {
   @include body6;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
 }
 
 @mixin link() {
