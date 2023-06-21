@@ -1,5 +1,7 @@
 import cx from 'classnames'
 import type ImageField from 'app/(frontend)/types/image'
+import Image from 'next/image'
+import Link from 'next/link'
 import styles from './PartnerLogoGrid.module.scss'
 
 export interface PartnerLogoGridProps {
@@ -22,19 +24,33 @@ export default function PartnerLogoGrid({ header, subheader, logos }: PartnerLog
         {subheader && (
           <p className={(cx(styles.subheader))}>{subheader}</p>
         )}
-        {logos && logos.map((logo) => {
-          const {
-            // image,
-            external,
-            fileUrl,
-          } = logo
-          return (
-            <div className={cx(styles.logoGrid)}>
-              {external}
-              {fileUrl}
-            </div>
-          )
-        })}
+        {logos && (
+          <div className={cx(styles.logoGrid)}>
+            {logos.map((logo) => {
+              const {
+                image,
+                external,
+                fileUrl,
+              } = logo
+              return (
+                <Link href={external || fileUrl || ''}>
+                  <div className={cx(styles.logo)}>
+                    {image && (
+                      <Image
+                        className={styles.logo_Image}
+                        src={image.url}
+                        width={image.width}
+                        height={image.height}
+                        alt={image.altText ?? ''}
+                        title={image.title ?? undefined}
+                      />
+                    )}
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        )}
       </div>
     </section>
   )
