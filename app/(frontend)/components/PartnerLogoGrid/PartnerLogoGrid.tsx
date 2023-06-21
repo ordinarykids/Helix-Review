@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import styles from './PartnerLogoGrid.module.scss'
 
-interface PartnerLogoGridProps {
+export interface PartnerLogoGridProps {
   header: string,
   subheader: string,
 }
