@@ -32,10 +32,12 @@ export const HomePage: Story = {
       },
     ],
     image: {
-      src: heroFPOImage,
+      url: heroFPOImage,
       width: 434,
       height: 427,
-      alt: 'Hero FPO image',
+      altText: 'Hero FPO image',
+      aspectRatio: 1.0163934426229508,
+      blurHash: null,
     },
     buttonText: 'Contact Us',
     buttonLink: {

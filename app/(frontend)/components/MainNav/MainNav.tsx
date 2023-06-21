@@ -246,14 +246,15 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               },
                             )}
                           >
-                            {teaser.image?.url && (
+                            {teaser.image && (
                               <div className={styles.teaser_ImageWrap}>
                                 <Image
                                   className={styles.teaser_Image}
                                   src={teaser.image.url}
                                   width={teaser.image.width}
                                   height={teaser.image.height}
-                                  alt={teaser.image.altText || `Image for ${teaser.title}`}
+                                  alt={teaser.image.altText ?? ''}
+                                  title={teaser.image.title ?? undefined}
                                 />
                               </div>
                             )}

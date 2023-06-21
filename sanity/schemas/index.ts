@@ -12,6 +12,7 @@ import pageBuilder from './fields/pageBuilder'
 // Object schemas
 import button from './objects/button'
 import featuredImage from './objects/featuredImage'
+import homeHeroThreeUp from './objects/homeHeroThreeUp'
 import homePageHero from './objects/homePageHero'
 import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
@@ -22,6 +23,7 @@ import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageSection from './objects/pageSection'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
+import threeUpCard from './objects/threeUpCard'
 
 // Page sections
 import cardGrid from './pageSections/cardGrid'
@@ -35,6 +37,7 @@ export const schemaTypes = [
   cardGrid,
   category,
   featuredImage,
+  homeHeroThreeUp,
   homePageHero,
   geometricCTA,
   geometricCTAs,
@@ -49,5 +52,6 @@ export const schemaTypes = [
   seo,
   styledLink,
   tag,
+  threeUpCard,
   videoEmbed,
 ]

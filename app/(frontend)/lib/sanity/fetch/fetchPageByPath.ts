@@ -1,8 +1,11 @@
 import { groq } from 'next-sanity'
-import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
+import type { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
+import type { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
+import imgReference from '../partials/imgReference'
+import link from '../partials/link'
 
 interface Key {
   _key: string,
@@ -19,6 +22,7 @@ interface PageSectionField extends Key, PageSectionProps {
 type PageByPath = {
   title: string | null
   homePageHero: HomePageHeroType | null,
+  homeHeroThreeUp: HomeHeroThreeUpType | null,
   pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
@@ -30,17 +34,15 @@ const fetchPageByPath = async (pagePath: string) => {
       subheader,
       media,
       buttonText,
-      'buttonLink': buttonLink {
-        externalUrl,
-        'link': internalLink->slug.current,
-      },
-      'image': {
-        'src': image.asset->url,
-        'alt': image.asset->metadata.altText,
-        'height': image.asset->metadata.dimensions.height,
-        'width': image.asset->metadata.dimensions.width,
-        'aspectRatio': image.asset->metadata.dimensions.aspectRatio,
-        'blurHash': metadata.blurHash,
+      buttonLink ${link},
+      'image': image.asset->${imgReference},
+    },
+    homeHeroThreeUp {
+      ...,
+      ctas[] {
+        ...,
+        'image': image.asset->${imgReference},
+        buttonUrl ${link},
       }
     },
     pageBuilder[] {
@@ -49,10 +51,7 @@ const fetchPageByPath = async (pagePath: string) => {
         ...,
         ctas[] {
           ...,
-          linkUrl {
-            "link": internalLink->slug.current,
-            externalUrl,
-          },
+          linkUrl ${link},
         }
       },
     },

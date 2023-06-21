@@ -15,14 +15,14 @@ export default {
       to: [
         { type: 'page' },
       ],
-      hidden: ({ parent, value }) => !value && parent?.externalUrl,
+      hidden: ({ parent, value }) => !value && !!parent?.externalUrl,
     },
     {
       name: 'externalUrl',
       title: 'External URL',
       description: 'Use fully qualified URLS for external link',
       type: 'url',
-      hidden: ({ parent, value }) => !value && parent?.internalLink,
+      hidden: ({ parent, value }) => !value && !!parent?.internalLink,
     },
   ],
 }
