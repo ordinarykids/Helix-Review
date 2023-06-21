@@ -36,11 +36,13 @@ export default defineType({
               name: 'external',
               type: 'url',
               title: 'URL',
+              hidden: ({ parent, value }) => !value && !!parent?.file,
             }),
             defineField({
               name: 'file',
               type: 'file',
               title: 'File',
+              hidden: ({ parent, value }) => !value && !!parent?.external,
             }),
           ],
         }),
