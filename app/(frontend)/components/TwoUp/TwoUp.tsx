@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/types'
-import type ImageField from 'app/(frontend)/types/image'
+import RichTextType from 'app/(frontend)/types/richText'
+import ImageField from 'app/(frontend)/types/image'
 import portableTextComponents from 'app/(frontend)/utils/portableTextComponents'
 import cx from 'classnames'
-import { StyledLinkField } from '../StyledLink/StyledLink'
 import styles from './TwoUp.module.scss'
 
 export interface TwoUpProps {
   image?: ImageField
-  text?: (PortableTextBlock | StyledLinkField)[]
+  text?: RichTextType
   imageAlignment: 'left' | 'right'
   imagePaddingOverride?: number
 }
@@ -44,7 +43,7 @@ export default function TwoUp({
       )}
       {text && (
         <div className={styles.textWrap}>
-          <PortableText value={text} components={portableTextComponents} />
+          <PortableText value={text} components={portableTextComponents()} />
         </div>
       )}
     </section>

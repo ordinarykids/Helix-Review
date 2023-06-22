@@ -27,6 +27,7 @@ import threeUpCard from './objects/threeUpCard'
 // Page sections
 import cardGrid from './pageSections/cardGrid'
 import twoUp from './pageSections/twoUp'
+import richText from './pageSections/richText'
 import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -48,6 +49,7 @@ export const schemaTypes = [
   navigationSectionPanel,
   pageBuilder,
   pageSection,
+  richText,
   seo,
   styledLink,
   tag,

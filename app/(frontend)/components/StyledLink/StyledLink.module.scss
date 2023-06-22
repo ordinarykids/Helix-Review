@@ -18,3 +18,13 @@
   margin-right: 8px;
   color: $blue-300;
 }
+
+.light {
+  .text {
+    color: $white;
+  }
+
+  svg path {
+    fill: $white;
+  }
+}
