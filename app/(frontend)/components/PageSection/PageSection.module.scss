@@ -25,7 +25,6 @@
   @include headerDesktopMd;
 
   margin-bottom: to-rem(40);
-  color: $darkblue-100;
 
   @include media-breakpoint-down(md) {
     @include columns(1, -1);
