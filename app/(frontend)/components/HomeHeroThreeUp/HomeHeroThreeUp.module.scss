@@ -31,6 +31,7 @@ $inner-padding-h: 42px;
   @include headerMobileMd;
 
   margin-bottom: to-rem(40);
+  color: $darkblue-100;
   text-align: center;
 
   @include media-breakpoint-up(md) {
@@ -76,6 +77,7 @@ $inner-padding-h: 42px;
 
     margin-top: to-rem(24);
     margin-bottom: 0;
+    color: $darkblue-100;
     text-align: center;
 
     @include media-breakpoint-up(md) {
