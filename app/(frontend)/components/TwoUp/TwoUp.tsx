@@ -9,6 +9,7 @@ import styles from './TwoUp.module.scss'
 
 export interface TwoUpProps {
   image?: ImageField
+  title?: string
   text?: (PortableTextBlock | StyledLinkField)[]
   imageAlignment: 'left' | 'right'
   imagePaddingOverride?: number
@@ -21,6 +22,7 @@ export interface TwoUpField extends TwoUpProps {
 
 export default function TwoUp({
   image,
+  title,
   text,
   imageAlignment,
   imagePaddingOverride,
@@ -44,6 +46,7 @@ export default function TwoUp({
       )}
       {text && (
         <div className={styles.textWrap}>
+          {title && <h2 className={styles.title}>{title}</h2>}
           <PortableText value={text} components={portableTextComponents} />
         </div>
       )}
