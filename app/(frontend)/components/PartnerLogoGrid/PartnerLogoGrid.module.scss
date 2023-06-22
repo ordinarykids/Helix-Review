@@ -75,11 +75,14 @@
 
   @include media-breakpoint-up(sm) {
     flex: 0 0 calc(33.33% - 24px);
-    height: to-rem(144);
   }
 
   @include media-breakpoint-up(md) {
     flex: 0 0 16.67%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: to-rem(144);
   }
 
   &_Image {
