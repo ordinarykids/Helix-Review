@@ -46,20 +46,13 @@
 }
 
 .logoGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 
   @include media-breakpoint-up(sm) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     gap: 40px 24px;
-  }
-
-  @include media-breakpoint-up(lg) {
-    padding-right: 8.33%; // offset by one column, include gap?
-    padding-left: 8.33%;
   }
 }
 
@@ -70,15 +63,15 @@
   overflow: hidden;
 
   @include media-breakpoint-down(sm) {
-    grid-column: span 2;
+    flex: 0 0 calc(50% - 12px);
   }
 
   @include media-breakpoint-up(sm) {
-    flex: 0 0 calc(33.33% - 24px);
+    flex: 0 0 calc(33.33% - 16px);
   }
 
   @include media-breakpoint-up(md) {
-    flex: 0 0 16.67%;
+    flex: 0 0 calc(16.66% - 18px);
   }
 
   @include media-breakpoint-up(lg) {
