@@ -1,17 +1,32 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import TwoUp from '.'
+
+const whiteBg: Decorator = (Story) => (
+  <div style={{ backgroundColor: '#fff' }}>
+    <Story />
+  </div>
+)
+
+const darkBlueBg: Decorator = (Story) => (
+  <div style={{ backgroundColor: '#262E47' }}>
+    <Story />
+  </div>
+)
 
 const meta: Meta<typeof TwoUp> = {
   title: 'Components/TwoUp',
   component: TwoUp,
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export default meta
 
 type Story = StoryObj<typeof TwoUp>;
 
-export const Docs: Story = {
-  args: {
+const getArgs = (sectionBgColor = 'gray') => (
+  {
     image: {
       width: 501,
       aspectRatio: 1.2525,
@@ -60,5 +75,20 @@ export const Docs: Story = {
       },
     ],
     imageAlignment: 'left',
-  },
+    sectionBgColor,
+  }
+)
+
+export const GrayBg: Story = {
+  args: getArgs(),
 }
+
+export const WhiteBg: Story = {
+  args: getArgs('white'),
+}
+WhiteBg.decorators = [whiteBg]
+
+export const DarkBlueBg: Story = {
+  args: getArgs('darkBlue'),
+}
+DarkBlueBg.decorators = [darkBlueBg]

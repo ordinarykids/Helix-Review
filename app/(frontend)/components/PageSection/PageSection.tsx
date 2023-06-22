@@ -57,7 +57,7 @@ export default function PageSection({
                 return <RichText key={block._key} {...block} sectionBgColor={bgColor} />
 
               case 'twoUp':
-                return <TwoUp key={block._key} {...block} />
+                return <TwoUp key={block._key} {...block} sectionBgColor={bgColor} />
 
               case 'videoEmbed':
                 return <VideoEmbed key={block._key} {...block} />
