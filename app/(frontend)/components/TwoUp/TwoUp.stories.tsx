@@ -1,5 +1,7 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import PageSectionBgColorType from 'app/(frontend)/types/pageSectionBgColor'
 import TwoUp from '.'
+import { TwoUpProps } from './TwoUp'
 
 const whiteBg: Decorator = (Story) => (
   <div style={{ backgroundColor: '#fff' }}>
@@ -25,7 +27,7 @@ export default meta
 
 type Story = StoryObj<typeof TwoUp>;
 
-const getArgs = (sectionBgColor = 'gray') => (
+const getArgs = (sectionBgColor: PageSectionBgColorType = 'gray'): TwoUpProps => (
   {
     image: {
       width: 501,
