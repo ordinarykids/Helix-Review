@@ -3,7 +3,7 @@ import { defineField } from 'sanity'
 export default {
   name: 'styledLink',
   type: 'object',
-  title: 'Link',
+  title: 'Styled Link',
   initialValue: {
     align: 'left',
   },
