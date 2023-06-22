@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
+import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
 
 interface Key {
@@ -10,9 +11,13 @@ interface GeometricCTAsField extends Key, GeometricCTAsProps {
   _type: 'geometricCTAs'
 }
 
+interface PageSectionField extends Key, PageSectionProps {
+  _type: 'pageSection'
+}
+
 type PageByPath = {
   title: string | null
-  pageBuilder: (| GeometricCTAsField)[] | null
+  pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
