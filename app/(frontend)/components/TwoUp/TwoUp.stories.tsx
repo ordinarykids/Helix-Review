@@ -21,21 +21,8 @@ export const Docs: Story = {
       title: null,
       height: 400,
     },
+    title: 'Stratify Healthcare Risks',
     text: [
-      {
-        children: [
-          {
-            _key: '7d3f3389010e0',
-            _type: 'span',
-            marks: [],
-            text: 'Stratify Healthcare Risks',
-          },
-        ],
-        _type: 'block',
-        style: 'h3',
-        _key: '94775eb6ac3c',
-        markDefs: [],
-      },
       {
         markDefs: [],
         children: [
