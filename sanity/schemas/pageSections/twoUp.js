@@ -14,12 +14,20 @@ export default defineType({
       type: 'image',
     }),
     defineField({
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    }),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+          ],
           marks: {
             decorators: [
               { title: 'Strong', value: 'strong' },
