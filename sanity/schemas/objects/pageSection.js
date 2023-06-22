@@ -13,6 +13,7 @@ export default {
       type: 'array',
       title: 'Inner Blocks',
       of: [
+        { type: 'cardGrid' },
         { type: 'videoEmbed' },
       ],
       validation: (Rule) => Rule.required(),
