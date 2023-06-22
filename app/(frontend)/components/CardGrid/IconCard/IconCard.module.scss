@@ -17,6 +17,7 @@
 
   margin-top: to-rem(24);
   margin-bottom: 0;
+  color: $darkblue-100;
 
   @include media-breakpoint-up(lg) {
     padding-right: 20px;
