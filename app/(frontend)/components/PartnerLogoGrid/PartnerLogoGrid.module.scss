@@ -1,7 +1,18 @@
+@use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/spacing" as *;
+@use "../../styles/typography" as *;
 
 .wrap {
-  background-color: pink;
+  padding-top: to-rem(40);
+  padding-bottom: to-rem(40);
+  background-color: $darkblue-100;
+  background-image: url("../../../../public/globe_background.svg");
+
+  @include media-breakpoint-up(md) {
+    padding-top: to-rem(64);
+    padding-bottom: to-rem(64);
+  }
 }
 
 .container {
@@ -10,11 +21,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: greenyellow;
+}
+
+.titleWrap {
+  @include container;
+
+  text-align: center;
+}
+
+.header {
+  color: $white;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: to-rem(16);
+  }
+}
+
+.subheader {
+  color: $white;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: to-rem(40);
+  }
 }
 
 .logoGrid {
-  @include grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 
-  border: 3px dotted orange;
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px 24px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-right: 8.33%; // offset by one column, include gap?
+    padding-left: 8.33%;
+  }
+}
+
+.logo {
+  display: flex;
+  border-radius: 4px;
+  background-color: $white;
+  overflow: hidden;
+
+  @include media-breakpoint-down(sm) {
+    grid-column: span 2;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex: 0 0 calc(33.33% - 24px);
+    height: to-rem(144);
+  }
+
+  @include media-breakpoint-up(md) {
+    flex: 0 0 16.67%;
+  }
+
+  &_Image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }
