@@ -59,6 +59,18 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'hero',
+      type: 'homePageHero',
+      title: 'Hero',
+      hidden: ({ document }) => (document.slug?.current !== 'home'),
+    },
+    {
+      name: 'homeHeroThreeUp',
+      type: 'homeHeroThreeUp',
+      title: 'Hero 3-Up',
+      hidden: ({ document }) => (document.slug?.current !== 'home'),
+    },
+    {
       name: 'pageBuilder',
       type: 'pageBuilder',
       title: 'Page Builder',

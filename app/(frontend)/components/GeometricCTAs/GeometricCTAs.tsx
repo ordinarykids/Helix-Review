@@ -2,9 +2,9 @@ import Image, { StaticImageData } from 'next/image'
 import { PortableText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 import cx from 'classnames'
-import publicHealthImg from 'public/public_health@2x.webp'
-import lifeSciencesImg from 'public/life_sciences@2x.webp'
-import healthSystemsImg from 'public/health_systems@2x.webp'
+import publicHealthImg from 'public/public_health@2x.png'
+import lifeSciencesImg from 'public/life_sciences@2x.png'
+import healthSystemsImg from 'public/health_systems@2x.png'
 import StyledLink from '../StyledLink'
 import Circles from '../svgs/Circles'
 import Hexagons from '../svgs/Hexagons'
@@ -107,7 +107,7 @@ export default function GeometricCTAs({ title, ctas }: GeometricCTAsProps) {
                       )}
                       {(linkText && linkUrl) && (
                         <div className={styles.link}>
-                          <StyledLink text={linkText} link={`${linkUrl.link || linkUrl.externalUrl}`} linkStyle='carat' />
+                          <StyledLink text={linkText} link={`${linkUrl.link || linkUrl.externalUrl}`} />
                         </div>
                       )}
                     </div>

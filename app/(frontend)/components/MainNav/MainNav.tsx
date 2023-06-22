@@ -71,7 +71,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
             },
           )}
         >
-          <StyledLink text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} linkStyle='carat' theme='nav' />
+          <StyledLink text={ctaLink.title} link={`${ctaLink.url.link || ctaLink.url.externalUrl}`} />
         </div>
       )
     }
@@ -246,14 +246,15 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               },
                             )}
                           >
-                            {teaser.image?.url && (
+                            {teaser.image && (
                               <div className={styles.teaser_ImageWrap}>
                                 <Image
                                   className={styles.teaser_Image}
                                   src={teaser.image.url}
                                   width={teaser.image.width}
                                   height={teaser.image.height}
-                                  alt={teaser.image.altText || `Image for ${teaser.title}`}
+                                  alt={teaser.image.altText ?? ''}
+                                  title={teaser.image.title ?? undefined}
                                 />
                               </div>
                             )}
@@ -264,7 +265,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                               <p className={styles.teaser_Title}>
                                 {teaser.title}
                               </p>
-                              <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} linkStyle='carat' />
+                              <StyledLink text='Read More' link={`${docTypes[teaser._type as teaserDocTypes].slug}/${teaser.slug}`} />
                             </div>
                           </div>
                         )}
