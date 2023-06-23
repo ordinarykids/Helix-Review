@@ -65,7 +65,16 @@ const fetchPageByPath = async (pagePath: string) => {
           ...,
           'fileUrl': file.asset->url,
           'image': logo.asset->${imgReference},
-        }
+        },
+      _type == 'pageSection' => {
+        ...,
+        innerBlocks[] {
+          ...,
+          _type == 'twoUp' => {
+            ...,
+            'image': image.asset->${imgReference},
+          },
+        },
       },
     },
   }`

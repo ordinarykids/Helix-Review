@@ -14,6 +14,7 @@ export default {
       title: 'Inner Blocks',
       of: [
         { type: 'cardGrid' },
+        { type: 'twoUp' },
         { type: 'videoEmbed' },
       ],
       validation: (Rule) => Rule.required(),

@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "./colors" as *;
+@use "./mixins" as *;
 
 $root-font-size: 16px;
 $font-family-tt-norms: var(--tt-norms);
@@ -148,36 +149,52 @@ $font-family-tt-norms: var(--tt-norms);
   @include headerDesktopXl;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
 }
 
 @mixin h2() {
   @include headerDesktopLg;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
 }
 
 @mixin h3() {
   @include headerDesktopMd;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
+
+  @include media-breakpoint-down(md) {
+    @include headerMobileMd;
+  }
 }
 
 @mixin h4() {
   @include headerDesktopSm;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
 }
 
 @mixin h5() {
   @include body2;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
 }
 
 @mixin h6() {
   @include body6;
 
   margin-top: 0;
+  margin-bottom: to-rem(24);
+  color: $darkblue-100;
 }
 
 @mixin link() {
