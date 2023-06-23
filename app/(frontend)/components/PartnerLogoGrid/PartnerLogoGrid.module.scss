@@ -1,6 +1,6 @@
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
-@use "../../styles/spacing" as *;
+@use "../../styles/spacing" as s;
 @use "../../styles/typography" as *;
 
 .wrap {
@@ -47,33 +47,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  gap: s.$spacing-standard s.$grid-column-gap-md;
 
   @include media-breakpoint-up(sm) {
-    gap: 40px 24px;
+    gap: s.$spacing-large s.$grid-column-gap;
   }
 }
 
 .logo {
   display: flex;
+  flex: 0 0 calc(50% - 12px);
   border-radius: 4px;
   background-color: $white;
   overflow: hidden;
 
-  @include media-breakpoint-down(sm) {
-    flex: 0 0 calc(50% - 12px);
-  }
-
   @include media-breakpoint-up(sm) {
-    flex: 0 0 calc(33.33% - 16px);
-  }
-
-  @include media-breakpoint-up(md) {
-    flex: 0 0 calc(16.66% - 18px);
-  }
-
-  @include media-breakpoint-up(lg) {
-    height: to-rem(144);
+    min-width: 167px;
+    max-width: 176px;
+    min-height: 137px;
+    max-height: 144px;
   }
 
   &_Image {
