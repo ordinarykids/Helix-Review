@@ -17,10 +17,6 @@
 
 .container {
   @include container;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .titleWrap {
@@ -47,30 +43,39 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: s.$spacing-standard s.$grid-column-gap-md;
+  gap: s.$grid-column-gap-md;
 
-  @include media-breakpoint-up(sm) {
-    gap: s.$spacing-large s.$grid-column-gap;
+  @include media-breakpoint-up(md) {
+    gap: s.$grid-column-gap;
   }
 }
 
 .logo {
   display: flex;
-  flex: 0 0 calc(50% - 12px);
+  flex: 0 0 calc(50% - (s.$grid-column-gap-md / 2));
+  max-width: 176px;
   border-radius: 4px;
   background-color: $white;
   overflow: hidden;
 
   @include media-breakpoint-up(sm) {
     min-width: 167px;
-    max-width: 176px;
-    min-height: 137px;
-    max-height: 144px;
+  }
+
+  &_Inner {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 81.82%;
   }
 
   &_Image {
-    width: 100%;
-    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    transform: translate(-50%, -50%);
     object-fit: contain;
   }
 }
