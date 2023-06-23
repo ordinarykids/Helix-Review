@@ -26,6 +26,13 @@ export default defineType({
           name: 'linkedLogo',
           fields: [
             defineField({
+              name: 'title',
+              type: 'string',
+              title: 'Title',
+              description: 'Edit field to replace default title',
+              initialValue: 'Partner logo',
+            }),
+            defineField({
               name: 'logo',
               type: 'image',
               title: 'Logo',
@@ -45,6 +52,12 @@ export default defineType({
               hidden: ({ parent, value }) => !value && !!parent?.external,
             }),
           ],
+          preview: {
+            select: {
+              title: 'title',
+              media: 'logo',
+            },
+          },
         }),
       ],
     }),
