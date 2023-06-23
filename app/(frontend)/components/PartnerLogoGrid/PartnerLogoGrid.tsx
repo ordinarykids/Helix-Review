@@ -20,7 +20,7 @@ export default function PartnerLogoGrid({ header, subheader, logos }: PartnerLog
       <div className={cx(styles.container)}>
         <div className={cx(styles.titleWrap)}>
           {header && (
-            <h1 className={(cx(styles.header))}>{header}</h1>
+            <h2 className={(cx(styles.header))}>{header}</h2>
           )}
           {subheader && (
             <p className={(cx(styles.subheader))}>{subheader}</p>
