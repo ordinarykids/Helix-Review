@@ -30,19 +30,17 @@
 }
 
 .header {
-  color: $white;
+  @include h3;
 
-  @include media-breakpoint-up(md) {
-    margin-bottom: to-rem(16);
-  }
+  margin-bottom: to-rem(16);
+  color: $white;
 }
 
 .subheader {
-  color: $white;
+  @include body5;
 
-  @include media-breakpoint-up(md) {
-    margin-bottom: to-rem(40);
-  }
+  margin-bottom: to-rem(40);
+  color: $white;
 }
 
 .logoGrid {
