@@ -19,6 +19,7 @@ import geometricCTAs from './objects/geometricCTAs'
 import iconCard from './objects/iconCard'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
+import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageSection from './objects/pageSection'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
@@ -46,6 +47,7 @@ export const schemaTypes = [
   link,
   mainNavigation,
   navigationSectionPanel,
+  partnerLogoGrid,
   pageBuilder,
   pageSection,
   seo,
