@@ -2,6 +2,7 @@ import { groq } from 'next-sanity'
 import type { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import type { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
+import { PartnerLogoGridProps } from '@/app/(frontend)/components/PartnerLogoGrid/PartnerLogoGrid'
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { sanityFetch } from '../sanityClient'
 import imgReference from '../partials/imgReference'
@@ -19,11 +20,15 @@ interface PageSectionField extends Key, PageSectionProps {
   _type: 'pageSection'
 }
 
+interface PartnerLogoGridField extends Key, PartnerLogoGridProps {
+  _type: 'partnerLogoGrid'
+}
+
 type PageByPath = {
   title: string | null
   homePageHero: HomePageHeroType | null,
   homeHeroThreeUp: HomeHeroThreeUpType | null,
-  pageBuilder: (| GeometricCTAsField | PageSectionField)[] | null
+  pageBuilder: (| GeometricCTAsField | PartnerLogoGridField | PageSectionField)[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
@@ -52,6 +57,14 @@ const fetchPageByPath = async (pagePath: string) => {
         ctas[] {
           ...,
           linkUrl ${link},
+        }
+      },
+      _type == 'partnerLogoGrid' => {
+        ...,
+        logos[] {
+          ...,
+          'fileUrl': file.asset->url,
+          'image': logo.asset->${imgReference},
         }
       },
       _type == 'pageSection' => {

@@ -8,5 +8,6 @@ export default defineType({
   of: [
     defineArrayMember({ type: 'pageSection' }),
     defineArrayMember({ type: 'geometricCTAs' }),
+    defineArrayMember({ type: 'partnerLogoGrid' }),
   ],
 })
