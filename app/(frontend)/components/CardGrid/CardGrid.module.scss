@@ -36,10 +36,4 @@
       @include spanColumns(4);
     }
   }
-
-  @media (max-width: 600px) {
-    > * {
-      @include columns(1, -1);
-    }
-  }
 }

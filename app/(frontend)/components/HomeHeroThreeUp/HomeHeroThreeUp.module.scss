@@ -51,12 +51,7 @@ $inner-padding-h: 42px;
 .cta {
   @include columns(2, 8);
 
-  @include media-breakpoint-only(sm) {
-    padding-right: 24px;
-    padding-left: 24px;
-  }
-
-  @media (min-width: 600px) {
+  @include media-breakpoint-up(sm) {
     @include columns(3, 7);
   }
 
