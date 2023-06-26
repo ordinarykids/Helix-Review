@@ -20,6 +20,7 @@ import iconCard from './objects/iconCard'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import partnerLogoGrid from './objects/partnerLogoGrid'
+import pageHero from './objects/pageHero'
 import pageSection from './objects/pageSection'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
@@ -49,6 +50,7 @@ export const schemaTypes = [
   navigationSectionPanel,
   partnerLogoGrid,
   pageBuilder,
+  pageHero,
   pageSection,
   seo,
   styledLink,
