@@ -10,6 +10,11 @@ export interface StyledLinkProps {
   align?: 'left' | 'center',
 }
 
+export interface StyledLinkField extends StyledLinkProps {
+  _key: string
+  _type: 'styledLink'
+}
+
 export default function StyledLink({
   text, link, className, align = 'left',
 }: StyledLinkProps) {

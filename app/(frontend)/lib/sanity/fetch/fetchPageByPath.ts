@@ -54,6 +54,16 @@ const fetchPageByPath = async (pagePath: string) => {
           linkUrl ${link},
         }
       },
+      _type == 'pageSection' => {
+        ...,
+        innerBlocks[] {
+          ...,
+          _type == 'twoUp' => {
+            ...,
+            'image': image.asset->${imgReference},
+          },
+        },
+      },
     },
   }`
   const res = await sanityFetch<PageByPath>(query, { pagePath })
