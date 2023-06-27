@@ -35,7 +35,7 @@ export default function PartnerLogoGrid({ header, subheader, logos }: PartnerLog
                 fileUrl,
               } = logo
               return (
-                <Link href={external || fileUrl || ''} className={cx(styles.logo)}>
+                <Link key={image?.url} href={external || fileUrl || ''} className={cx(styles.logo)}>
                   <div className={styles.logo_Inner}>
                     {image && (
                       <Image

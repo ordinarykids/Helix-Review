@@ -5,6 +5,7 @@ import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/Geom
 import { PageHeroType } from '@/app/(frontend)/components/PageHero/PageHero'
 import { PartnerLogoGridProps } from '@/app/(frontend)/components/PartnerLogoGrid/PartnerLogoGrid'
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
+import { QuoteField } from 'app/(frontend)/components/Quote/Quote'
 import { sanityFetch } from '../sanityClient'
 import imgReference from '../partials/imgReference'
 import link from '../partials/link'
@@ -30,7 +31,12 @@ type PageByPath = {
   homePageHero: HomePageHeroType | null,
   homeHeroThreeUp: HomeHeroThreeUpType | null,
   pageHero: PageHeroType | null,
-  pageBuilder: (| GeometricCTAsField | PartnerLogoGridField | PageSectionField)[] | null
+  pageBuilder: (
+    | GeometricCTAsField
+    | PartnerLogoGridField
+    | PageSectionField
+    | QuoteField
+  )[] | null
 }
 
 const fetchPageByPath = async (pagePath: string) => {
