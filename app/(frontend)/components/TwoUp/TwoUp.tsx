@@ -1,18 +1,19 @@
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/types'
-import type ImageField from 'app/(frontend)/types/image'
+import RichTextType from 'app/(frontend)/types/richText'
+import ImageField from 'app/(frontend)/types/image'
+import PageSectionBgColorType from 'app/(frontend)/types/pageSectionBgColor'
 import portableTextComponents from 'app/(frontend)/utils/portableTextComponents'
 import cx from 'classnames'
-import { StyledLinkField } from '../StyledLink/StyledLink'
 import styles from './TwoUp.module.scss'
 
 export interface TwoUpProps {
   image?: ImageField
   title?: string
-  text?: (PortableTextBlock | StyledLinkField)[]
+  text?: RichTextType
   imageAlignment: 'left' | 'right'
   imagePaddingOverride?: number
+  sectionBgColor?: PageSectionBgColorType
 }
 
 export interface TwoUpField extends TwoUpProps {
@@ -26,9 +27,12 @@ export default function TwoUp({
   text,
   imageAlignment,
   imagePaddingOverride,
+  sectionBgColor = 'gray',
 }: TwoUpProps) {
+  const styledLinkTheme = sectionBgColor === 'darkBlue' ? 'light' : 'dark'
+
   return (
-    <section className={styles.container}>
+    <section className={cx(styles.container, styles[`container__bg${sectionBgColor}`])}>
       {image && (
         <div
           className={cx(styles.imgWrap, styles[`imgWrap__${imageAlignment}`])}
@@ -47,7 +51,7 @@ export default function TwoUp({
       {text && (
         <div className={styles.textWrap}>
           {title && <h2 className={styles.title}>{title}</h2>}
-          <PortableText value={text} components={portableTextComponents} />
+          <PortableText value={text} components={portableTextComponents(styledLinkTheme)} />
         </div>
       )}
     </section>

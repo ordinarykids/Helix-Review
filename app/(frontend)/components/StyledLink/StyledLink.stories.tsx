@@ -7,6 +7,12 @@ const centered: Decorator = (Story) => (
   </div>
 )
 
+const darkBg: Decorator = (Story) => (
+  <div style={{ backgroundColor: '#262E47', padding: '20px' }}>
+    <Story />
+  </div>
+)
+
 const meta: Meta<typeof StyledLink> = {
   title: 'Components/StyledLink',
   component: StyledLink,
@@ -32,3 +38,23 @@ export const Centered: Story = {
   },
 }
 Centered.decorators = [centered]
+
+export const Light: Story = {
+  args: {
+    text: 'Learn More',
+    link: 'https://aleph.dev/fun',
+    align: 'left',
+    theme: 'light',
+  },
+}
+Light.decorators = [darkBg]
+
+export const LightCentered: Story = {
+  args: {
+    text: 'Learn More',
+    link: 'https://aleph.dev/fun',
+    align: 'center',
+    theme: 'light',
+  },
+}
+LightCentered.decorators = [darkBg, centered]

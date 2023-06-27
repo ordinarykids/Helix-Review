@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     pageBuilder,
   } = pageData
   return (
-    <main className={styles.main}>
+    <main>
       <div className={styles.container}>
         <h1>{title || 'No title found'}</h1>
       </div>
