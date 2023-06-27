@@ -12,6 +12,43 @@
     padding-top: to-rem(40);
     padding-bottom: to-rem(40);
   }
+
+  &__bgwhite {
+    background-color: $white;
+  }
+
+  &__bgdarkBlue {
+    background-color: $darkblue-100;
+  }
+}
+
+.wrapInner {
+  position: relative;
+}
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.bgContainer {
+  @include container;
+
+  position: relative;
+  height: 100%;
+}
+
+.shapesColoredDots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.fgWrap {
+  position: relative;
 }
 
 .titleWrap {
@@ -31,5 +68,9 @@
     @include headerMobileMd;
 
     margin-bottom: to-rem(24);
+  }
+
+  .wrap__bgdarkBlue & {
+    color: $white;
   }
 }

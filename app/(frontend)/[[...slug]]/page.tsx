@@ -4,6 +4,7 @@ import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import HomePageHero from '../components/HomePageHero'
 import HomeHeroThreeUp from '../components/HomeHeroThreeUp'
 import GeometricCTAs from '../components/GeometricCTAs'
+import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
 import PageSection from '../components/PageSection'
 import styles from './page.module.scss'
 
@@ -41,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     pageBuilder,
   } = pageData
   return (
-    <main className={styles.main}>
+    <main>
       <div className={styles.container}>
         <h1>{title || 'No title found'}</h1>
       </div>
@@ -55,6 +56,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'geometricCTAs':
             return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
+
+          case 'partnerLogoGrid':
+            return <PartnerLogoGrid key={buildingBlock._key} {...buildingBlock} />
 
           default:
             return null

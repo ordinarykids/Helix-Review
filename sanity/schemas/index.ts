@@ -19,6 +19,7 @@ import geometricCTAs from './objects/geometricCTAs'
 import iconCard from './objects/iconCard'
 import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
+import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageSection from './objects/pageSection'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
@@ -27,6 +28,7 @@ import threeUpCard from './objects/threeUpCard'
 // Page sections
 import cardGrid from './pageSections/cardGrid'
 import twoUp from './pageSections/twoUp'
+import richText from './pageSections/richText'
 import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -46,8 +48,10 @@ export const schemaTypes = [
   link,
   mainNavigation,
   navigationSectionPanel,
+  partnerLogoGrid,
   pageBuilder,
   pageSection,
+  richText,
   seo,
   styledLink,
   tag,
