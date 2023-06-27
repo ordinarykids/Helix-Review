@@ -1,7 +1,6 @@
 @use "../../styles/typography" as *;
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
-@use "../../styles/spacing";
 
 .wrap {
   padding-top: to-rem(80);
