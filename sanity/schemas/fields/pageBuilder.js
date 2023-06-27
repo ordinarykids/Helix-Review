@@ -7,6 +7,7 @@ export default defineType({
   description: 'Add, edit, and reorder sections',
   of: [
     defineArrayMember({ type: 'pageSection' }),
+    defineArrayMember({ type: 'quote' }),
     defineArrayMember({ type: 'geometricCTAs' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
   ],

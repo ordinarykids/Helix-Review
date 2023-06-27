@@ -32,7 +32,7 @@ export default async function TaxonomyTermIndex({
           {posts.map((post) => {
             const { slug: postSlug, title } = post
             return postSlug && (
-              <li>
+              <li key={postSlug}>
                 <Link href={`/blog/${postSlug}`}>
                   {title}
                 </Link>
