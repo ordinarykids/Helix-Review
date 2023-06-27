@@ -6,6 +6,7 @@ import HomeHeroThreeUp from '../components/HomeHeroThreeUp'
 import GeometricCTAs from '../components/GeometricCTAs'
 import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
 import PageSection from '../components/PageSection'
+import Quote from '../components/Quote'
 import styles from './page.module.scss'
 
 export async function generateMetadata(
@@ -59,6 +60,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'partnerLogoGrid':
             return <PartnerLogoGrid key={buildingBlock._key} {...buildingBlock} />
+
+          case 'quote':
+            return <Quote key={buildingBlock._key} {...buildingBlock} />
 
           default:
             return null

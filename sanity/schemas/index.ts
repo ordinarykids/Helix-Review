@@ -21,6 +21,7 @@ import link from './objects/link'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageSection from './objects/pageSection'
+import quote from './objects/quote'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
 import threeUpCard from './objects/threeUpCard'
@@ -51,6 +52,7 @@ export const schemaTypes = [
   partnerLogoGrid,
   pageBuilder,
   pageSection,
+  quote,
   richText,
   seo,
   styledLink,
