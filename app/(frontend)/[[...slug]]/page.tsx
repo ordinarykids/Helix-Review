@@ -7,7 +7,6 @@ import GeometricCTAs from '../components/GeometricCTAs'
 import PageHero from '../components/PageHero'
 import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
 import PageSection from '../components/PageSection'
-import styles from './page.module.scss'
 
 export async function generateMetadata(
   { params }: { params: { slug: string[] } },
@@ -43,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     pageBuilder,
   } = pageData
   return (
-    <main className={styles.main}>
+    <main>
       {homePageHero && <HomePageHero {...homePageHero} />}
       {homeHeroThreeUp && <HomeHeroThreeUp {...homeHeroThreeUp} />}
       {pageHero && <PageHero {...pageHero} />}
