@@ -28,7 +28,7 @@
   margin-right: auto;
 
   &_Intro {
-    @media (max-width: 575px) {
+    @include media-breakpoint-down(sm) {
       display: none;
     }
   }
