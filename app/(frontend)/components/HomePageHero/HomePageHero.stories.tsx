@@ -3,7 +3,7 @@ import heroFPOImage from 'public/HeroFPO.svg'
 import HomePageHero from '.'
 
 const meta: Meta<typeof HomePageHero> = {
-  title: 'Components/PageHero',
+  title: 'Components/HomePageHero',
   component: HomePageHero,
   tags: ['autodocs'], // Uncomment if you aren't using an MDX file for docs here
 }

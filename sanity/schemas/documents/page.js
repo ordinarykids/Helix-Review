@@ -71,6 +71,12 @@ export default {
       hidden: ({ document }) => (document.slug?.current !== 'home'),
     },
     {
+      name: 'pageHero',
+      type: 'pageHero',
+      title: 'Hero',
+      hidden: ({ document }) => (document.slug?.current === 'home'),
+    },
+    {
       name: 'pageBuilder',
       type: 'pageBuilder',
       title: 'Page Builder',
