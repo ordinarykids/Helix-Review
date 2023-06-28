@@ -23,9 +23,12 @@
   }
 
   .container__bgdarkBlue & {
-    > *,
-    a {
+    > * {
       color: $white;
+    }
+
+    a {
+      color: $link-color-on-dark;
     }
   }
 }
