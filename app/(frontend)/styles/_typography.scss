@@ -208,7 +208,6 @@ $font-family-tt-norms: var(--tt-norms);
   &:hover,
   &:focus,
   &:active {
-    color: $blue-200;
     text-decoration: underline;
     text-underline-offset: to-rem(4);
   }
