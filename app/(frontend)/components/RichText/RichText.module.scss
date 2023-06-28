@@ -23,7 +23,8 @@
   }
 
   .container__bgdarkBlue & {
-    > * {
+    > *,
+    a {
       color: $white;
     }
   }

@@ -4,6 +4,13 @@
 .Button {
   border-radius: 3px;
   text-align: center;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
 }
 
 .text {

@@ -5,7 +5,13 @@
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
-  text-decoration: none;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
 
   svg path {
     fill: $blue-300;

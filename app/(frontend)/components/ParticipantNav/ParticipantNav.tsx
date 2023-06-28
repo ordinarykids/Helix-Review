@@ -16,12 +16,12 @@ export default function ParticipantNav() {
             </Link>
           </li>
           <li>
-            <Link href='https://registration.helix.com/login' className={styles.link}>
+            <Link href='https://registration.helix.com/login' className={cx(styles.link, styles.link__light)}>
               Sign in
             </Link>
           </li>
           <li>
-            <Link href='https://support.helix.com/s/' className={styles.link}>
+            <Link href='https://support.helix.com/s/' className={cx(styles.link, styles.link__light)}>
               Support
             </Link>
           </li>

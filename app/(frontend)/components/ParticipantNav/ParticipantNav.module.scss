@@ -51,4 +51,8 @@
     text-decoration: underline;
     text-underline-offset: to-rem(4);
   }
+
+  &__light {
+    font-weight: inherit;
+  }
 }
