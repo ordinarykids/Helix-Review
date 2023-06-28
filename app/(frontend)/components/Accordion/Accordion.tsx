@@ -17,7 +17,6 @@ export default function Accordion({
   items,
 }: AccordionProps) {
   const itemsCount = items.length
-  console.log(items[0].text[2].children)
   return (
     <section className={styles.wrap}>
       <div className={styles.container}>
@@ -35,7 +34,7 @@ export default function Accordion({
           </h2>
         )}
         <div className={styles.items}>
-          {items.map((item, index) => <AccordionItem {...item} index={index} />)}
+          {items.map((item) => <AccordionItem {...item} />)}
         </div>
       </div>
     </section>
