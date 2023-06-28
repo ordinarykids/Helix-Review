@@ -10,6 +10,7 @@ import icon from './fields/icon'
 import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
+import accordion from './objects/accordion'
 import button from './objects/button'
 import featuredImage from './objects/featuredImage'
 import homeHeroThreeUp from './objects/homeHeroThreeUp'
@@ -35,6 +36,7 @@ import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
+  accordion,
   page,
   blogPost,
   button,

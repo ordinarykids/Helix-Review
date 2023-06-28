@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { AccordionField } from 'app/(frontend)/components/Accordion/Accordion'
 import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
@@ -32,6 +33,7 @@ type PageByPath = {
   homeHeroThreeUp: HomeHeroThreeUpType | null,
   pageHero: PageHeroType | null,
   pageBuilder: (
+    | AccordionField
     | GeometricCTAsField
     | PartnerLogoGridField
     | PageSectionField
