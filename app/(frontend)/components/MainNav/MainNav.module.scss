@@ -331,6 +331,10 @@ $mobile-group-item-margin: to-rem(32);
   }
 }
 
+.linkGroupHeader_Link {
+  font-weight: inherit;
+}
+
 .linkGroupHeader_Link,
 .submenuLink {
   &,
