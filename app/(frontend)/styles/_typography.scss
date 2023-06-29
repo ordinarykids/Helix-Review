@@ -201,12 +201,14 @@ $font-family-tt-norms: var(--tt-norms);
   &,
   &:visited {
     color: $blue-300;
+    font-weight: 545;
     text-decoration: none;
   }
 
   &:hover,
   &:focus,
   &:active {
-    color: $blue-200;
+    text-decoration: underline;
+    text-underline-offset: to-rem(4);
   }
 }
