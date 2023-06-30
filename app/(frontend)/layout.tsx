@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { sanityDataset } from '@/environment'
+import Script from 'next/script'
 import ttNorms from './lib/fonts'
 import SiteHeader from './components/SiteHeader'
 import './styles/globals.scss'
@@ -18,6 +20,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      {sanityDataset === 'staging' && (
+      <>
+        <Script
+          id='markerConfig'
+          dangerouslySetInnerHTML={{
+            __html: `window.markerConfig = {
+            project: '649c5c080ef2001603f300e0', 
+            source: 'snippet'
+          }`,
+          }}
+        />
+        <Script
+          id='markerSnippet'
+          dangerouslySetInnerHTML={{
+          // eslint-disable-next-line
+          __html: `!function(e,r,a){if(!e.__Marker){e.__Marker={};var t=[],n={__cs:t};["show","hide","isVisible","capture","cancelCapture","unload","reload","isExtensionInstalled","setReporter","setCustomData","on","off"].forEach(function(e){n[e]=function(){var r=Array.prototype.slice.call(arguments);r.unshift(e),t.push(r)}}),e.Marker=n;var s=r.createElement("script");s.async=1,s.src="https://edge.marker.io/latest/shim.js";var i=r.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i)}}(window,document);`,
+          }}
+        />
+      </>
+      )}
       <body className={ttNorms.variable}>
         {/* @ts-expect-error Async Server Component */}
         <SiteHeader />
