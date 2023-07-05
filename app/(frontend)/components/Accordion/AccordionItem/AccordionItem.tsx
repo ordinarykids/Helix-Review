@@ -7,25 +7,17 @@ import type { PortableTextBlock } from '@portabletext/types'
 import styles from './AccordionItem.module.scss'
 
 export interface AccordionItemProps {
+  _key: string
   title: string
   text: PortableTextBlock[]
 }
 
 export interface AccordianItemField extends AccordionItemProps {
-  _key: string
   _type: 'item'
 }
 
-function convertToSlug(text: string) {
-  return text.toLowerCase()
-    .replace(/[^\w ]+/g, '')
-    .replace(/ +/g, '-')
-}
-
-export default function AccordionItem({ title, text }: AccordionItemProps) {
+export default function AccordionItem({ title, text, _key: key }: AccordionItemProps) {
   const [isExpanded, setIsExpanded] = useState(false)
-
-  const slugifiedTitle = convertToSlug(title)
 
   return (
     <div className={styles.item}>
@@ -33,8 +25,8 @@ export default function AccordionItem({ title, text }: AccordionItemProps) {
         <button
           type='button'
           className={styles.titleButton}
-          id={`header-${slugifiedTitle}`}
-          aria-controls={`panel-${slugifiedTitle}`}
+          id={`header-${key}`}
+          aria-controls={`panel-${key}`}
           aria-expanded={isExpanded}
           onClick={() => setIsExpanded((prevState) => !prevState)}
         >
@@ -47,8 +39,8 @@ export default function AccordionItem({ title, text }: AccordionItemProps) {
       </h3>
       <section
         className={styles.text}
-        id={`panel-${slugifiedTitle}`}
-        aria-labelledby={`header-${slugifiedTitle}`}
+        id={`panel-${key}`}
+        aria-labelledby={`header-${key}`}
         hidden={!isExpanded}
       >
         <PortableText value={text} />
