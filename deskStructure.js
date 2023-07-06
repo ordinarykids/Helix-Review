@@ -49,7 +49,7 @@ export const structure = (S) => {
   return S.list()
     .title('Content')
     .items([
-      ...S.documentTypeListItems().filter((listItem) => !['blogPost', 'category', 'tag'].includes(listItem.getId())),
+      ...S.documentTypeListItems().filter((listItem) => !['blogPost', 'category', 'tag', 'mainNavigation'].includes(listItem.getId())),
       S.divider(),
       S.listItem()
         .title('Post')
@@ -74,6 +74,18 @@ export const structure = (S) => {
         .child(
           S.documentTypeList('tag')
             .title('Tags'),
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Settings')
+        .child(
+          S.list()
+            .title('Settings Documents')
+            .items([
+              S.listItem()
+                .title('Main Navigation')
+                .child(S.document().schemaType('mainNavigation').documentId('mainNavigation')),
+            ]),
         ),
     ])
 }
