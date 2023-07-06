@@ -96,6 +96,7 @@ export const Docs: Story = {
         _key: '767603757de6',
         title: 'Discovery & Preclinical',
         active: true,
+        icon: 'magnifyingGlass',
       },
       {
         _type: 'stage',
@@ -104,6 +105,7 @@ export const Docs: Story = {
         title: 'Clinical Development',
         subtitle: 'Phase I - Phase II - Phase III',
         active: false,
+        icon: 'shieldPlusSign',
       },
       {
         _type: 'stage',
@@ -112,6 +114,7 @@ export const Docs: Story = {
         title: 'Commercialization',
         subtitle: 'Phase IV',
         active: false,
+        icon: 'increasingBarChart',
       },
     ],
   },
