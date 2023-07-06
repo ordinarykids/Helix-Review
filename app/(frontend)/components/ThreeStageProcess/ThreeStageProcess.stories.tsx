@@ -88,7 +88,7 @@ const portableText = [
 
 export const Docs: Story = {
   args: {
-    header: 'What We Do',
+    header: 'Accelerate Your Efforts Across the Drug Development Process',
     stages: [
       {
         _type: 'stage',
