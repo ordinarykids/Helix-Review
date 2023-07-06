@@ -9,6 +9,7 @@ export default defineType({
     defineArrayMember({ type: 'pageSection' }),
     defineArrayMember({ type: 'accordion' }),
     defineArrayMember({ type: 'quote' }),
+    defineArrayMember({ type: 'threeStageProcess' }),
     defineArrayMember({ type: 'geometricCTAs' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
   ],

@@ -7,9 +7,12 @@ export default defineType({
   options: {
     list: [
       { title: 'Helix', value: 'helix' },
-      { title: 'Network', value: 'network' },
+      { title: 'Increasing Bar Chart', value: 'increasingBarChart' },
       { title: 'Laptop', value: 'laptop' },
       { title: 'Line Bar Chart', value: 'lineBarChart' },
+      { title: 'Magnifying Glass', value: 'magnifyingGlass' },
+      { title: 'Network', value: 'network' },
+      { title: 'Shield With Plus Sign', value: 'shieldPlusSign' },
     ],
   },
 })

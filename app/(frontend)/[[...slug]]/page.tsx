@@ -9,6 +9,7 @@ import PageHero from '../components/PageHero'
 import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
 import PageSection from '../components/PageSection'
 import Quote from '../components/Quote'
+import ThreeStageProcess from '../components/ThreeStageProcess'
 
 export async function generateMetadata(
   { params }: { params: { slug: string[] } },
@@ -65,6 +66,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'quote':
             return <Quote key={buildingBlock._key} {...buildingBlock} />
+
+          case 'threeStageProcess':
+            return <ThreeStageProcess key={buildingBlock._key} {...buildingBlock} />
 
           default:
             return null
