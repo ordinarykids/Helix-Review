@@ -10,10 +10,6 @@ $line-bottom-margin: 24px;
   padding-bottom: to-rem(64);
   background-color: $coolgray-300;
 
-  @include media-breakpoint-down(md) {
-    background-color: $white;
-  }
-
   @include media-breakpoint-down(sm) {
     padding-top: to-rem(40);
     padding-bottom: to-rem(40);
