@@ -10,7 +10,7 @@ import cx from 'classnames'
 import type { MainNavigation, MainNavCTALink } from 'app/(frontend)/lib/sanity/fetch/fetchMainNav'
 import useIsBelowBreakpoint from 'app/(frontend)/hooks/useIsBelowBreakpoint'
 import StyledLink from '../StyledLink'
-import ArrowDropdown from '../svgs/ArrowDropdown'
+import CaretDropdown from '../svgs/CaretDropdown'
 import styles from './MainNav.module.scss'
 
 type teaserDocTypes = | 'blogPost'
@@ -148,7 +148,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                                   { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
                                 )}
                               >
-                                <ArrowDropdown />
+                                <CaretDropdown />
                               </span>
                             </span>
                           )
@@ -161,7 +161,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                           { [styles.menuItem_ButtonArrow__open]: openSubmenuIndex === sectionIndex },
                         )}
                       >
-                        <ArrowDropdown />
+                        <CaretDropdown />
                       </span>
                     </button>
                     <div
