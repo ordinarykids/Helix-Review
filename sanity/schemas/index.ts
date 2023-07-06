@@ -26,6 +26,7 @@ import pageSection from './objects/pageSection'
 import quote from './objects/quote'
 import seo from './objects/seo'
 import styledLink from './objects/styledLink'
+import threeStageProcess from './objects/threeStageProcess'
 import threeUpCard from './objects/threeUpCard'
 
 // Page sections
@@ -61,6 +62,7 @@ export const schemaTypes = [
   seo,
   styledLink,
   tag,
+  threeStageProcess,
   threeUpCard,
   twoUp,
   videoEmbed,
