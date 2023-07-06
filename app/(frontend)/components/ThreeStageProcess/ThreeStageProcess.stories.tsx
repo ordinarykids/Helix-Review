@@ -86,7 +86,7 @@ const portableText = [
   },
 ]
 
-export const Accordion4Items: Story = {
+export const Docs: Story = {
   args: {
     header: 'What We Do',
     stages: [
@@ -116,4 +116,4 @@ export const Accordion4Items: Story = {
     ],
   },
 }
-Accordion4Items.decorators = [grayBg]
+Docs.decorators = [grayBg]
