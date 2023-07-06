@@ -15,6 +15,10 @@
   }
 
   @include media-breakpoint-up(md) {
+    @include columns(3, 11);
+  }
+
+  @include media-breakpoint-up(lg) {
     @include columns(4, 10);
   }
 
