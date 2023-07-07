@@ -6,6 +6,11 @@
 @use "../../styles/typography" as *;
 
 $menu-item-color: $darkgray-300;
+$menu-button-padding-v: 16;
+
+.nav {
+  margin-top: to-rem(-$menu-button-padding-v);
+}
 
 .navList {
   @include media-breakpoint-up(lg) {
@@ -48,8 +53,8 @@ $menu-item-color: $darkgray-300;
 
   @include media-breakpoint-down(lg) {
     width: 100%;
-    padding-top: to-rem(16);
-    padding-bottom: to-rem(16);
+    padding-top: to-rem($menu-button-padding-v);
+    padding-bottom: to-rem($menu-button-padding-v);
 
     &__desktop {
       display: none;
@@ -81,12 +86,6 @@ $menu-item-color: $darkgray-300;
         display: none;
       }
     }
-
-    &__hideMobile {
-      @include media-breakpoint-down(lg) {
-        display: none;
-      }
-    }
   }
 }
 
@@ -96,14 +95,12 @@ $menu-item-color: $darkgray-300;
     transition: max-height 250ms ease-out, visibility 1ms 250ms;
     overflow: hidden;
     visibility: hidden;
-    pointer-events: none;
 
     &__open {
       height: auto;
       max-height: 800px;
       transition: max-height 250ms ease-in;
       visibility: visible;
-      pointer-events: auto;
     }
 
     &__open.submenu__taller {
@@ -116,7 +113,7 @@ $menu-item-color: $darkgray-300;
   @include listReset;
 
   @include media-breakpoint-down(lg) {
-    margin-bottom: to-rem(16);
+    margin-bottom: to-rem($menu-button-padding-v);
   }
 }
 

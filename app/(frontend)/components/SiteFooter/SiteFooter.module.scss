@@ -4,11 +4,6 @@
 
 .footer {
   background-color: $white;
-
-  @include media-breakpoint-down(lg) {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
 }
 
 .main {
