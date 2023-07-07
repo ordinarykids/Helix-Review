@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import cx from 'classnames'
-import type { FooterNavigation } from 'app/(frontend)/lib/sanity/fetch/fetchFooterNav'
+import type { FooterNavigation } from 'app/(frontend)/lib/sanity/fetch/fetchFooter'
 import CaretDropdown from '../svgs/CaretDropdown'
 import styles from './FooterNav.module.scss'
 
