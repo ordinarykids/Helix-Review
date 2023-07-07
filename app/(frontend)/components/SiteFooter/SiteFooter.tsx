@@ -1,11 +1,25 @@
 import Link from 'next/link'
-import fetchFooterNav from 'app/(frontend)/lib/sanity/fetch/fetchFooterNav'
+import fetchFooter from 'app/(frontend)/lib/sanity/fetch/fetchFooter'
 import BrandLogo from '../svgs/BrandLogo'
+import LinkedInLogo from '../svgs/LinkedInLogo'
+import TwitterLogo from '../svgs/TwitterLogo'
 import FooterNav from '../FooterNav'
 import styles from './SiteFooter.module.scss'
 
 export default async function SiteFooter() {
-  const footerNavData = await fetchFooterNav()
+  const footerData = await fetchFooter()
+  const { footerNav, footerContent = {} } = footerData
+  const {
+    tagline,
+    twitterLink,
+    linkedInLink,
+    contactInfo,
+    copyrightStartYear,
+    copyrightCompany,
+    copyrightDescription,
+    // legalLinks,
+    // certifications,
+  } = footerContent
 
   return (
     <footer className={styles.footer} id='siteFooter'>
@@ -15,9 +29,55 @@ export default async function SiteFooter() {
             <Link href='/' className={styles.brandLink} aria-label='Helix brand logo'>
               <BrandLogo />
             </Link>
+            {tagline && (
+              <p className={styles.tagline}>
+                {tagline}
+              </p>
+            )}
+            {(twitterLink || linkedInLink || contactInfo) && (
+              <div className={styles.contactWrap}>
+                {(twitterLink || linkedInLink) && (
+                  <div className={styles.socialLinks}>
+                    {twitterLink && (
+                      <a href={twitterLink} className={styles.socialLink} target='_blank' rel='noopener noreferrer'>
+                        <TwitterLogo />
+                      </a>
+                    )}
+                    {linkedInLink && (
+                      <a href={linkedInLink} className={styles.socialLink} target='_blank' rel='noopener noreferrer'>
+                        <LinkedInLogo />
+                      </a>
+                    )}
+                  </div>
+                )}
+                {contactInfo && (
+                  <div className={styles.contact}>
+                    <p className={styles.contact_Intro}>
+                      Contact us:
+                    </p>
+                    <p className={styles.contact_Info}>
+                      {contactInfo}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+            <div className={styles.copyrightWrap}>
+              <p className={styles.copyright}>
+                &copy;&nbsp;
+                {copyrightStartYear && `${copyrightStartYear}-`}
+                {(new Date().getFullYear())}
+                {copyrightCompany && ` ${copyrightCompany}`}
+              </p>
+              {copyrightDescription && (
+                <p className={styles.copyrightDescription}>
+                  {copyrightDescription}
+                </p>
+              )}
+            </div>
           </div>
           <div className={styles.nav}>
-            <FooterNav navData={footerNavData} />
+            <FooterNav navData={footerNav} />
           </div>
         </div>
       </div>

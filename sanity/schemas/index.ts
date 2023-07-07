@@ -1,6 +1,7 @@
 // Document schemas
 import blogPost from './documents/blogPost'
 import category from './documents/category'
+import footerContent from './documents/footerContent'
 import footerNavigation from './documents/footerNavigation'
 import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
@@ -46,6 +47,7 @@ export const schemaTypes = [
   cardGrid,
   category,
   featuredImage,
+  footerContent,
   footerNavigation,
   homeHeroThreeUp,
   homePageHero,
