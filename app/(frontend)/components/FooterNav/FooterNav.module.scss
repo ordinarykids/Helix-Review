@@ -9,7 +9,9 @@ $menu-item-color: $darkgray-300;
 $menu-button-padding-v: 16;
 
 .nav {
-  margin-top: to-rem(-$menu-button-padding-v);
+  @include media-breakpoint-down(lg) {
+    margin-top: to-rem(-$menu-button-padding-v);
+  }
 }
 
 .navList {
