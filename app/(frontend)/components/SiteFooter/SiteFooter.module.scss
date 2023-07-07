@@ -1,0 +1,54 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+.footer {
+  background-color: $white;
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.main {
+  padding-top: to-rem(64);
+  padding-bottom: to-rem(24);
+
+  &_Container {
+    @include containerGrid;
+  }
+}
+
+.content {
+  @include spanColumns(4);
+}
+
+.brandLink {
+  display: inline-block;
+
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.nav {
+  @include spanColumns(8);
+
+  @include media-breakpoint-down(md) {
+    @include spanColumns(4);
+  }
+}
+
+.legal {
+  padding-top: to-rem(24);
+  padding-bottom: to-rem(24);
+  background-color: $darkgray-100;
+  color: $white;
+
+  &_Container {
+    @include container;
+  }
+}
