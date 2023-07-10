@@ -110,4 +110,44 @@
   &_Container {
     @include container;
   }
+
+  &_Inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: $grid-column-gap;
+    row-gap: 16px;
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+}
+
+.legalLinks,
+.certifications {
+  @include listReset;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: to-rem(16);
+  row-gap: 8px;
+}
+
+.legalLinks {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+
+.legalLink,
+.certification {
+  @include body7;
+}
+
+.legalLink {
+  &,
+  &:visited {
+    color: inherit;
+  }
 }

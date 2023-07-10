@@ -17,8 +17,8 @@ export default async function SiteFooter() {
     copyrightStartYear,
     copyrightCompany,
     copyrightDescription,
-    // legalLinks,
-    // certifications,
+    legalLinks,
+    certifications,
   } = footerContent
 
   return (
@@ -81,11 +81,34 @@ export default async function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className={styles.legal}>
-        <div className={styles.legal_Container}>
-          LEGAL BAR
+      {(legalLinks || certifications) && (
+        <div className={styles.legal}>
+          <div className={styles.legal_Container}>
+            <div className={styles.legal_Inner}>
+              {legalLinks && (
+                <ul className={styles.legalLinks}>
+                  {legalLinks.map((link) => (
+                    <li key={link._key} className={styles.linkItem}>
+                      <Link href={`${link.url.link || link.url.externalUrl}`} className={styles.legalLink}>
+                        {link.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {certifications && (
+                <ul className={styles.certifications}>
+                  {certifications.map((certification) => (
+                    <li key={certification} className={styles.certification}>
+                      {certification}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </footer>
   )
 }

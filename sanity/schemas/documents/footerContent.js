@@ -47,8 +47,6 @@ export default defineType({
       type: 'array',
       title: 'Legal Links',
       of: [defineArrayMember({ type: 'navigationLink' })],
-      codegen: { required: true },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'certifications',
