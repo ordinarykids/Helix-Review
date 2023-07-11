@@ -10,16 +10,8 @@
 .textWrap {
   @include columns(1, -1);
 
-  @include media-breakpoint-up(sm) {
-    @include columns(2, 8);
-  }
-
   @include media-breakpoint-up(md) {
     @include columns(3, 11);
-  }
-
-  @include media-breakpoint-up(lg) {
-    @include columns(4, 10);
   }
 
   > :last-child {

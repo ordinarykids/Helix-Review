@@ -6,6 +6,8 @@ import CardGrid from '../CardGrid'
 import { CardGridField } from '../CardGrid/CardGrid'
 import RichText from '../RichText'
 import { RichTextField } from '../RichText/RichText'
+import ThreeUpIconCard from '../ThreeUpIconCard'
+import { ThreeUpIconCardField } from '../ThreeUpIconCard/ThreeUpIconCard'
 import TwoUp from '../TwoUp'
 import { TwoUpField } from '../TwoUp/TwoUp'
 import VideoEmbed from '../VideoEmbed'
@@ -19,6 +21,7 @@ export interface PageSectionProps {
   innerBlocks: (
     | CardGridField
     | RichTextField
+    | ThreeUpIconCardField
     | TwoUpField
     | VideoEmbedField
   )[]
@@ -48,24 +51,31 @@ export default function PageSection({
               </h2>
             </div>
           )}
-          {innerBlocks && innerBlocks.length > 0 && innerBlocks.map((block) => {
-            switch (block?._type) {
-              case 'cardGrid':
-                return <CardGrid key={block._key} {...block} />
+          {innerBlocks && (
+            <div className={styles.innerBlocks}>
+              {innerBlocks.length > 0 && innerBlocks.map((block) => {
+                switch (block?._type) {
+                  case 'cardGrid':
+                    return <CardGrid key={block._key} {...block} />
 
-              case 'richText':
-                return <RichText key={block._key} {...block} sectionBgColor={bgColor} />
+                  case 'richText':
+                    return <RichText key={block._key} {...block} sectionBgColor={bgColor} />
 
-              case 'twoUp':
-                return <TwoUp key={block._key} {...block} sectionBgColor={bgColor} />
+                  case 'threeUpIconCard':
+                    return <ThreeUpIconCard key={block._key} {...block} sectionBgColor={bgColor} />
 
-              case 'videoEmbed':
-                return <VideoEmbed key={block._key} {...block} />
+                  case 'twoUp':
+                    return <TwoUp key={block._key} {...block} sectionBgColor={bgColor} />
 
-              default:
-                return null
-            }
-          })}
+                  case 'videoEmbed':
+                    return <VideoEmbed key={block._key} {...block} />
+
+                  default:
+                    return null
+                }
+              })}
+            </div>
+          )}
         </div>
       </div>
     </section>

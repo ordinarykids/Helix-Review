@@ -7,6 +7,7 @@ import tag from './documents/tag'
 
 // Fields
 import icon from './fields/icon'
+import iconColor from './fields/iconColor'
 import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
@@ -28,6 +29,7 @@ import seo from './objects/seo'
 import styledLink from './objects/styledLink'
 import threeStageProcess from './objects/threeStageProcess'
 import threeUpCard from './objects/threeUpCard'
+import threeUpIconCard from './objects/threeUpIconCard'
 
 // Page sections
 import cardGrid from './pageSections/cardGrid'
@@ -50,6 +52,7 @@ export const schemaTypes = [
   geometricCTAs,
   iconCard,
   icon,
+  iconColor,
   link,
   mainNavigation,
   navigationSectionPanel,
@@ -64,6 +67,7 @@ export const schemaTypes = [
   tag,
   threeStageProcess,
   threeUpCard,
+  threeUpIconCard,
   twoUp,
   videoEmbed,
 ]
