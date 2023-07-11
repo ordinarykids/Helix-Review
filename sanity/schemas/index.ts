@@ -28,6 +28,7 @@ import seo from './objects/seo'
 import styledLink from './objects/styledLink'
 import threeStageProcess from './objects/threeStageProcess'
 import threeUpCard from './objects/threeUpCard'
+import threeUpCardCta from './objects/threeUpCardCta'
 
 // Page sections
 import cardGrid from './pageSections/cardGrid'
@@ -64,6 +65,7 @@ export const schemaTypes = [
   tag,
   threeStageProcess,
   threeUpCard,
+  threeUpCardCta,
   twoUp,
   videoEmbed,
 ]

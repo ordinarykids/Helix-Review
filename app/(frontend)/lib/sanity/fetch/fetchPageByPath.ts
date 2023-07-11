@@ -10,6 +10,7 @@ import { QuoteField } from 'app/(frontend)/components/Quote/Quote'
 import { ThreeStageProcessField } from 'app/(frontend)/components/ThreeStageProcess/ThreeStageProcess'
 import { sanityFetch } from '../sanityClient'
 import imgReference from '../partials/imgReference'
+import teaser from '../partials/teaser'
 import link from '../partials/link'
 
 interface Key {
@@ -88,6 +89,10 @@ const fetchPageByPath = async (pagePath: string) => {
         ...,
         innerBlocks[] {
           ...,
+          _type == 'threeUpCardCta' => {
+            ...,
+            ctas[]->${teaser},
+          },
           _type == 'twoUp' => {
             ...,
             'image': image.asset->${imgReference},
