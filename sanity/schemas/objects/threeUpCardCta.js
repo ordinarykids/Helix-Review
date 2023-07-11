@@ -18,7 +18,7 @@ export default defineType({
         }),
       ],
       codegen: { required: true },
-      validation: (Rule) => Rule.required().length(3).error('Must have 3 CTAs.'),
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
