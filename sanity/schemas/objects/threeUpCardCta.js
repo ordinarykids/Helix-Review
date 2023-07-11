@@ -37,9 +37,9 @@ export default defineType({
         cta1Title,
         cta2Title,
       ].filter(Boolean)
-      const linksCombined = links.join(', ')
+      const titlesCombined = links.join(', ')
       return {
-        title: `${linksCombined}...`,
+        title: `${titlesCombined}...`,
       }
     },
   },
