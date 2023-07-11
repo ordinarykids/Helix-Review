@@ -14,10 +14,11 @@ $inner-padding-h: 42px;
 }
 
 .inner {
+  @include dropShadow;
+
   padding: to-rem(40) 24px;
   transform: translateY(to-rem(-40));
   background-color: $white;
-  box-shadow: 5px 15px 46px rgba(0 0 0 / 15%);
 
   @include media-breakpoint-up(md) {
     margin-right: -$inner-padding-h;

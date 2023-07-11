@@ -4,10 +4,12 @@
 @use "../../../styles/spacing";
 
 .wrap {
+  @include dropShadow;
+
   padding: to-rem(40) to-rem(24);
+  border-radius: 4px;
   background-color: $white;
   text-align: center;
-  box-shadow: 5px 15px 46px rgba(0 0 0 / 15%);
   overflow: hidden;
   word-wrap: break-word;
 }

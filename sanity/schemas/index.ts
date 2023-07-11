@@ -33,6 +33,7 @@ import threeUpCard from './objects/threeUpCard'
 import cardGrid from './pageSections/cardGrid'
 import twoUp from './pageSections/twoUp'
 import richText from './pageSections/richText'
+import threeUpCardCta from './pageSections/threeUpCardCta'
 import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -64,6 +65,7 @@ export const schemaTypes = [
   tag,
   threeStageProcess,
   threeUpCard,
+  threeUpCardCta,
   twoUp,
   videoEmbed,
 ]

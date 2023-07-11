@@ -4,12 +4,11 @@
 
 .stage {
   @include spanColumns(6, 2);
+  @include dropShadow;
 
   padding: 24px;
   background-color: $white;
-  box-shadow: 5px 15px 46px 0 rgba(0 0 0 / 15%);
   overflow: hidden;
-  backdrop-filter: blur(13.59px);
 
   @include media-breakpoint-up(md) {
     @include spanColumns(8, 3);
