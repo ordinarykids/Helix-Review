@@ -28,12 +28,12 @@ import seo from './objects/seo'
 import styledLink from './objects/styledLink'
 import threeStageProcess from './objects/threeStageProcess'
 import threeUpCard from './objects/threeUpCard'
-import threeUpCardCta from './objects/threeUpCardCta'
 
 // Page sections
 import cardGrid from './pageSections/cardGrid'
 import twoUp from './pageSections/twoUp'
 import richText from './pageSections/richText'
+import threeUpCardCta from './pageSections/threeUpCardCta'
 import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
