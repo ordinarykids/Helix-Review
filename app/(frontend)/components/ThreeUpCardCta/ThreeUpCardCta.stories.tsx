@@ -5,6 +5,9 @@ const meta: Meta<typeof ThreeUpCardCta> = {
   title: 'Components/ThreeUpCardCta',
   component: ThreeUpCardCta,
   tags: ['autodocs'], // Uncomment if you aren't using an MDX file for docs here
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export default meta
