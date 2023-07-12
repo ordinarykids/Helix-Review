@@ -110,7 +110,7 @@ const sharedArgs: ThreeUpIconCardProps = {
     },
     {
       header: 'Market Strategy',
-      _key: 'db39c7366b6a',
+      _key: 'db39c7366b6b',
       icon: 'lineBarChart',
       iconColor: '#F8BE08',
       text: [
@@ -186,7 +186,7 @@ const sharedArgs: ThreeUpIconCardProps = {
     },
     {
       header: 'Research Enablement ',
-      _key: 'db39c7366b6a',
+      _key: 'db39c7366b6c',
       icon: 'lightbulb',
       iconColor: '#F8BE08',
       text: [
