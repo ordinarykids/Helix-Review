@@ -14,6 +14,11 @@ export default defineType({
       type: 'icon',
     }),
     defineField({
+      title: 'Icon Color',
+      name: 'iconColor',
+      type: 'iconColor',
+    }),
+    defineField({
       name: 'header',
       type: 'string',
       title: 'Header',
