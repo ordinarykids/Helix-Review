@@ -1,6 +1,8 @@
 // Document schemas
 import blogPost from './documents/blogPost'
 import category from './documents/category'
+import footerContent from './documents/footerContent'
+import footerNavigation from './documents/footerNavigation'
 import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
 import tag from './documents/tag'
@@ -20,6 +22,7 @@ import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
 import iconCard from './objects/iconCard'
 import link from './objects/link'
+import navigationLink from './objects/navigationLink'
 import navigationSectionPanel from './objects/navigationSectionPanel'
 import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageHero from './objects/pageHero'
@@ -47,6 +50,8 @@ export const schemaTypes = [
   cardGrid,
   category,
   featuredImage,
+  footerContent,
+  footerNavigation,
   homeHeroThreeUp,
   homePageHero,
   geometricCTA,
@@ -56,6 +61,7 @@ export const schemaTypes = [
   iconColor,
   link,
   mainNavigation,
+  navigationLink,
   navigationSectionPanel,
   partnerLogoGrid,
   pageBuilder,

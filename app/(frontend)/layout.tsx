@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { sanityDataset } from '@/environment'
 import Script from 'next/script'
 import ttNorms from './lib/fonts'
+import SiteFooter from './components/SiteFooter'
 import SiteHeader from './components/SiteHeader'
 import './styles/globals.scss'
 
@@ -44,6 +45,8 @@ export default function RootLayout({
         {/* @ts-expect-error Async Server Component */}
         <SiteHeader />
         {children}
+        {/* @ts-expect-error Async Server Component */}
+        <SiteFooter />
       </body>
     </html>
   )
