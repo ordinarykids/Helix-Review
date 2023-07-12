@@ -152,6 +152,14 @@ $font-family-tt-norms: var(--tt-norms);
   font-weight: 500;
 }
 
+@mixin body13() {
+  @include fontSize(12, 14);
+
+  font-family: $font-family-tt-norms;
+  font-weight: 500;
+  letter-spacing: to-rem(1);
+}
+
 @mixin h1() {
   @include headerDesktopXl;
 

@@ -14,4 +14,26 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      card0Header: 'cards.0.header',
+      card1Header: 'cards.1.header',
+      card2Header: 'cards.2.header',
+    },
+    prepare: ({
+      card0Header,
+      card1Header,
+      card2Header,
+    }) => {
+      const links = [
+        card0Header,
+        card1Header,
+        card2Header,
+      ].filter(Boolean)
+      const headersCombined = links.join(', ')
+      return {
+        title: `${headersCombined}...`,
+      }
+    },
+  },
 })

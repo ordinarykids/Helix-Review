@@ -9,6 +9,7 @@ import tag from './documents/tag'
 
 // Fields
 import icon from './fields/icon'
+import iconColor from './fields/iconColor'
 import pageBuilder from './fields/pageBuilder'
 
 // Object schemas
@@ -36,6 +37,8 @@ import threeUpCard from './objects/threeUpCard'
 import cardGrid from './pageSections/cardGrid'
 import twoUp from './pageSections/twoUp'
 import richText from './pageSections/richText'
+import threeUpCardCta from './pageSections/threeUpCardCta'
+import threeUpIconCard from './pageSections/threeUpIconCard'
 import videoEmbed from './pageSections/videoEmbed'
 
 // eslint-disable-next-line import/prefer-default-export
@@ -55,6 +58,7 @@ export const schemaTypes = [
   geometricCTAs,
   iconCard,
   icon,
+  iconColor,
   link,
   mainNavigation,
   navigationLink,
@@ -70,6 +74,8 @@ export const schemaTypes = [
   tag,
   threeStageProcess,
   threeUpCard,
+  threeUpCardCta,
+  threeUpIconCard,
   twoUp,
   videoEmbed,
 ]
