@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import cx from 'classnames'
@@ -32,8 +32,8 @@ export default function FooterNav({ navData }: { navData: FooterNavigation }) {
           {navData?.navigationSections?.map((section, sectionIndex) => {
             const { title, navigationLinks, _key: sectionKey } = section
             return (
-              <>
-                <div key={sectionKey} className={styles.section}>
+              <Fragment key={sectionKey}>
+                <div className={styles.section}>
                   <button
                     className={cx(styles.title, styles.title__mobileBtn)}
                     type='button'
@@ -74,7 +74,7 @@ export default function FooterNav({ navData }: { navData: FooterNavigation }) {
                   </div>
                 </div>
                 {sectionIndex % 4 === 3 && <div className={styles.divider} />}
-              </>
+              </Fragment>
             )
           })}
         </div>
