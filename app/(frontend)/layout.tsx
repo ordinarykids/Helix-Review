@@ -26,7 +26,7 @@ export default function RootLayout({
           id='markerConfig'
           dangerouslySetInnerHTML={{
             __html: `window.markerConfig = {
-            project: '649c5c080ef2001603f300e0', 
+            project: '64b06db09996fc443fac798b', 
             source: 'snippet'
           }`,
           }}
