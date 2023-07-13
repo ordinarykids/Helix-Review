@@ -47,6 +47,7 @@ export default {
         { type: 'cardGrid' },
         { type: 'twoUp' },
         { type: 'richText' },
+        { type: 'threeUpCardCta' },
         { type: 'videoEmbed' },
       ],
       codegen: { required: true },

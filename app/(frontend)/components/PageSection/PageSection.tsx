@@ -6,6 +6,8 @@ import CardGrid from '../CardGrid'
 import { CardGridField } from '../CardGrid/CardGrid'
 import RichText from '../RichText'
 import { RichTextField } from '../RichText/RichText'
+import ThreeUpCardCta from '../ThreeUpCardCta'
+import { ThreeUpCardCtaField } from '../ThreeUpCardCta/ThreeUpCardCta'
 import TwoUp from '../TwoUp'
 import { TwoUpField } from '../TwoUp/TwoUp'
 import VideoEmbed from '../VideoEmbed'
@@ -19,6 +21,7 @@ export interface PageSectionProps {
   innerBlocks: (
     | CardGridField
     | RichTextField
+    | ThreeUpCardCtaField
     | TwoUpField
     | VideoEmbedField
   )[]
@@ -55,6 +58,9 @@ export default function PageSection({
 
               case 'richText':
                 return <RichText key={block._key} {...block} sectionBgColor={bgColor} />
+
+              case 'threeUpCardCta':
+                return <ThreeUpCardCta key={block._key} {...block} />
 
               case 'twoUp':
                 return <TwoUp key={block._key} {...block} sectionBgColor={bgColor} />
