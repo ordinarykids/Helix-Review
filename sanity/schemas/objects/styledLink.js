@@ -32,6 +32,7 @@ export default {
           { title: 'Center', value: 'center' },
         ],
       },
+      hidden: true,
     }),
   ],
 }
