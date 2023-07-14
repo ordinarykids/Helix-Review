@@ -1,5 +1,4 @@
 import { defineField, defineArrayMember } from 'sanity'
-import navigationLink from './navigationLink'
 
 export default defineField({
   name: 'navigationLinkGroup',
@@ -20,7 +19,7 @@ export default defineField({
       name: 'navigationLinks',
       type: 'array',
       title: 'Links',
-      of: [defineArrayMember(navigationLink)],
+      of: [defineArrayMember({ type: 'navigationLink' })],
       codegen: { required: true },
       validation: (Rule) => Rule.required(),
     },
