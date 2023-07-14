@@ -10,6 +10,8 @@
 .textWrap {
   @include columns(1, -1);
 
+  text-align: center;
+
   @include media-breakpoint-up(md) {
     @include columns(3, 11);
   }
