@@ -1,3 +1,5 @@
+import Clipboard from './iconSet/Clipboard'
+import ComputerData from './iconSet/ComputerData'
 import Heart from './iconSet/Heart'
 import Helix from './iconSet/Helix'
 import IncreasingBarChart from './iconSet/IncreasingBarChart'
@@ -7,8 +9,12 @@ import LineBarChart from './iconSet/LineBarChart'
 import MagnifyingGlass from './iconSet/MagnifyingGlass'
 import Network from './iconSet/Network'
 import ShieldPlusSign from './iconSet/ShieldPlusSign'
+import SpeechBubbles from './iconSet/SpeechBubbles'
+import TestTube from './iconSet/TestTube'
 
 export type IconType =
+  | 'clipboard'
+  | 'computerData'
   | 'heart'
   | 'helix'
   | 'increasingBarChart'
@@ -18,6 +24,8 @@ export type IconType =
   | 'magnifyingGlass'
   | 'network'
   | 'shieldPlusSign'
+  | 'speechBubbles'
+  | 'testTube'
 
 export type IconColor =
   | '#7ABC71'
@@ -31,6 +39,8 @@ interface IconProps {
 }
 
 const icons = {
+  clipboard: Clipboard,
+  computerData: ComputerData,
   heart: Heart,
   helix: Helix,
   increasingBarChart: IncreasingBarChart,
@@ -40,6 +50,8 @@ const icons = {
   magnifyingGlass: MagnifyingGlass,
   network: Network,
   shieldPlusSign: ShieldPlusSign,
+  speechBubbles: SpeechBubbles,
+  testTube: TestTube,
 }
 
 export default function Icon({ icon, color }: IconProps) {
