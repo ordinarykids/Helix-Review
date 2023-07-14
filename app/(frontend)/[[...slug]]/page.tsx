@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import Accordion from '../components/Accordion'
+import FourPointChart from '../components/FourPointChart'
 import HomePageHero from '../components/HomePageHero'
 import HomeHeroThreeUp from '../components/HomeHeroThreeUp'
 import GeometricCTAs from '../components/GeometricCTAs'
@@ -57,6 +58,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'accordion':
             return <Accordion key={buildingBlock._key} {...buildingBlock} />
+
+          case 'fourPointChart':
+            return <FourPointChart key={buildingBlock._key} {...buildingBlock} />
 
           case 'geometricCTAs':
             return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
