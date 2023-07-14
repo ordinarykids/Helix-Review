@@ -50,6 +50,7 @@ export default {
         { type: 'threeUpCardCta' },
         { type: 'threeUpIconCard' },
         { type: 'videoEmbed' },
+        { type: 'wideCards' },
       ],
       codegen: { required: true },
       validation: (Rule) => Rule.required(),

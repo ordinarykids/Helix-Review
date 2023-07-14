@@ -41,6 +41,7 @@ import richText from './pageSections/richText'
 import threeUpCardCta from './pageSections/threeUpCardCta'
 import threeUpIconCard from './pageSections/threeUpIconCard'
 import videoEmbed from './pageSections/videoEmbed'
+import wideCards from './pageSections/wideCards'
 
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
@@ -80,4 +81,5 @@ export const schemaTypes = [
   threeUpIconCard,
   twoUp,
   videoEmbed,
+  wideCards,
 ]

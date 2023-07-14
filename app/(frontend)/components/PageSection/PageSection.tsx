@@ -14,6 +14,8 @@ import TwoUp from '../TwoUp'
 import { TwoUpField } from '../TwoUp/TwoUp'
 import VideoEmbed from '../VideoEmbed'
 import { VideoEmbedField } from '../VideoEmbed/VideoEmbed'
+import WideCards from '../WideCards'
+import { WideCardsField } from '../WideCards/WideCards'
 import styles from './PageSection.module.scss'
 
 export interface PageSectionProps {
@@ -27,6 +29,7 @@ export interface PageSectionProps {
     | ThreeUpIconCardField
     | TwoUpField
     | VideoEmbedField
+    | WideCardsField
   )[]
 }
 
@@ -75,6 +78,9 @@ export default function PageSection({
 
                   case 'videoEmbed':
                     return <VideoEmbed key={block._key} {...block} />
+
+                  case 'wideCards':
+                    return <WideCards key={block._key} {...block} />
 
                   default:
                     return null
