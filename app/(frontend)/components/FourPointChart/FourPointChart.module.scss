@@ -31,6 +31,10 @@ $space-btwn-text-and-line: 57px;
 
 .container {
   @include container;
+
+  @include media-breakpoint-up(md) {
+    mix-blend-mode: hard-light;
+  }
 }
 
 .inner {
@@ -69,6 +73,7 @@ $space-btwn-text-and-line: 57px;
 
   & > * {
     position: absolute;
+    z-index: 1;
   }
 
   & > :first-child {
@@ -212,6 +217,14 @@ $space-btwn-text-and-line: 57px;
 
     margin-bottom: 0;
     color: inherit;
+
+    @include media-breakpoint-up(lg) {
+      .point:last-child & {
+        max-width: 215px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
   }
 
   &_Text {
@@ -220,5 +233,20 @@ $space-btwn-text-and-line: 57px;
     margin-top: to-rem(8);
     margin-bottom: 0;
     white-space: pre-wrap;
+  }
+
+  &_HoverBg {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      .point:hover & {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+    }
   }
 }
