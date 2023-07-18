@@ -11,6 +11,7 @@ export default defineType({
     defineArrayMember({ type: 'quote' }),
     defineArrayMember({ type: 'threeStageProcess' }),
     defineArrayMember({ type: 'geometricCTAs' }),
+    defineArrayMember({ type: 'fourPointChart' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
   ],
 })

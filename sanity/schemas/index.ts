@@ -16,6 +16,7 @@ import pageBuilder from './fields/pageBuilder'
 import accordion from './objects/accordion'
 import button from './objects/button'
 import featuredImage from './objects/featuredImage'
+import fourPointChart from './objects/fourPointChart'
 import homeHeroThreeUp from './objects/homeHeroThreeUp'
 import homePageHero from './objects/homePageHero'
 import geometricCTA from './objects/geometricCTA'
@@ -51,6 +52,7 @@ export const schemaTypes = [
   cardGrid,
   category,
   featuredImage,
+  fourPointChart,
   footerContent,
   footerNavigation,
   homeHeroThreeUp,
