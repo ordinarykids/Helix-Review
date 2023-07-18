@@ -177,7 +177,7 @@ $font-family-tt-norms: var(--tt-norms);
   margin-bottom: to-rem(24);
   color: $darkblue-100;
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     @include headerMobileMd;
   }
 }
@@ -219,5 +219,13 @@ $font-family-tt-norms: var(--tt-norms);
   &:active {
     text-decoration: underline;
     text-underline-offset: to-rem(4);
+  }
+}
+
+@mixin pageSectionHeader($screenSizeChange: "sm") {
+  @include headerDesktopMd;
+
+  @include media-breakpoint-down($screenSizeChange) {
+    @include headerMobileMd;
   }
 }

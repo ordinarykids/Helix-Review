@@ -32,13 +32,9 @@ $input-h-padding: 16px;
 }
 
 .title {
-  @include headerDesktopMd;
+  @include pageSectionHeader;
 
   color: $white;
-
-  @include media-breakpoint-down(sm) {
-    @include headerMobileMd;
-  }
 }
 
 .textWrap {
@@ -59,7 +55,7 @@ $input-h-padding: 16px;
 
   h1,
   h2 {
-    @include headerDesktopMd;
+    @include pageSectionHeader;
   }
 
   a {

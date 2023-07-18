@@ -29,7 +29,7 @@
 }
 
 .title {
-  @include headerDesktopMd;
+  @include pageSectionHeader;
 
   margin-bottom: to-rem(40);
   padding-top: to-rem(64);

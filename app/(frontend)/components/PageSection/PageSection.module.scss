@@ -52,13 +52,11 @@
 
 .title {
   @include pageSectionColumns;
-  @include headerDesktopMd;
+  @include pageSectionHeader;
 
   margin-bottom: to-rem(40);
 
   @include media-breakpoint-down(md) {
-    @include headerMobileMd;
-
     margin-bottom: to-rem(24);
   }
 

@@ -29,14 +29,10 @@ $inner-padding-h: 42px;
 }
 
 .header {
-  @include headerMobileMd;
+  @include pageSectionHeader;
 
   margin-bottom: to-rem(40);
   text-align: center;
-
-  @include media-breakpoint-up(md) {
-    @include headerDesktopMd;
-  }
 }
 
 .ctas {
