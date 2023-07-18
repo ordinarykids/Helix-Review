@@ -35,6 +35,10 @@ $input-h-padding: 16px;
   @include headerDesktopMd;
 
   color: $white;
+
+  @include media-breakpoint-down(sm) {
+    @include headerMobileMd;
+  }
 }
 
 .textWrap {
