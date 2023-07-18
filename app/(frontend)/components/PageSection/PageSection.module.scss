@@ -4,14 +4,7 @@
 @use "../../styles/spacing";
 
 .wrap {
-  padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
-  overflow: hidden;
-
-  @include media-breakpoint-down(md) {
-    padding-top: to-rem(40);
-    padding-bottom: to-rem(40);
-  }
+  @include pageSectionWrap;
 
   &__bgwhite {
     background-color: $white;

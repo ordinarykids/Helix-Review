@@ -6,16 +6,10 @@ $dashed-line-length: 40px;
 $space-btwn-text-and-line: 57px;
 
 .wrap {
-  padding-top: to-rem(40);
-  padding-bottom: to-rem(40);
+  @include pageSectionWrap(sm);
+
   background-color: $darkblue-100;
   color: $white;
-  overflow: hidden;
-
-  @include media-breakpoint-up(sm) {
-    padding-top: to-rem(64);
-    padding-bottom: to-rem(64);
-  }
 
   @include media-breakpoint-up(md) {
     padding: 250px 0;

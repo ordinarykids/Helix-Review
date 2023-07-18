@@ -7,16 +7,10 @@
 $input-h-padding: 16px;
 
 .wrap {
-  padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
+  @include pageSectionWrap;
+
   background-color: $darkblue-300;
   color: $white;
-  overflow: hidden;
-
-  @include media-breakpoint-down(md) {
-    padding-top: to-rem(40);
-    padding-bottom: to-rem(40);
-  }
 }
 
 .container {
