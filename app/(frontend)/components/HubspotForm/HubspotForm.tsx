@@ -22,33 +22,33 @@ export interface HubspotFormField extends HubspotFormProps {
   _type: 'hubspotForm'
 }
 
-const HubspotForm = ({ header, text, hubspotFormId }: HubspotFormProps): JSX.Element => (
-  <section className={styles.wrap}>
-    <div className={styles.container}>
-      {(header || text) && (
-        <div className={styles.intro}>
-          {header && (
-            <h2 className={styles.title}>
-              {header}
-            </h2>
-          )}
-          {text && (
-            <div className={styles.textWrap}>
-              <PortableText value={text} />
-            </div>
-          )}
+export default function HubspotForm({ header, text, hubspotFormId }: HubspotFormProps) {
+  return (
+    <section className={styles.wrap}>
+      <div className={styles.container}>
+        {(header || text) && (
+          <div className={styles.intro}>
+            {header && (
+              <h2 className={styles.title}>
+                {header}
+              </h2>
+            )}
+            {text && (
+              <div className={styles.textWrap}>
+                <PortableText value={text} />
+              </div>
+            )}
+          </div>
+        )}
+        <div className={styles.hsFormWrap}>
+          <ReactHubspotForm
+            // eslint-disable-next-line
+            // @ts-ignore
+            portalId='21375987'
+            formId={hubspotFormId}
+          />
         </div>
-      )}
-      <div className={styles.hsFormWrap}>
-        <ReactHubspotForm
-          // eslint-disable-next-line
-          // @ts-ignore
-          portalId='21375987'
-          formId={hubspotFormId}
-        />
       </div>
-    </div>
-  </section>
-)
-
-export default HubspotForm
+    </section>
+  )
+}
