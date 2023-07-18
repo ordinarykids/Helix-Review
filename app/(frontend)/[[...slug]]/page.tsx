@@ -4,6 +4,7 @@ import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
 import Accordion from '../components/Accordion'
 import HomePageHero from '../components/HomePageHero'
 import HomeHeroThreeUp from '../components/HomeHeroThreeUp'
+import HubspotForm from '../components/HubspotForm'
 import GeometricCTAs from '../components/GeometricCTAs'
 import PageHero from '../components/PageHero'
 import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
@@ -60,6 +61,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'geometricCTAs':
             return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
+
+          case 'hubspotForm':
+            return <HubspotForm key={buildingBlock._key} {...buildingBlock} />
 
           case 'partnerLogoGrid':
             return <PartnerLogoGrid key={buildingBlock._key} {...buildingBlock} />
