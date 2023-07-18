@@ -45,6 +45,14 @@
   }
 }
 
+@mixin pageSectionColumns($screenSizeChange: "md") {
+  @include columns(3, 11);
+
+  @include media-breakpoint-down($screenSizeChange) {
+    @include columns(1, -1);
+  }
+}
+
 @mixin buttonReset() {
   padding: 0;
   border: 0;

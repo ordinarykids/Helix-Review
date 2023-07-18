@@ -19,11 +19,7 @@ $input-h-padding: 16px;
 
 .intro,
 .hsFormWrap {
-  @include columns(3, 11);
-
-  @include media-breakpoint-down(md) {
-    @include columns(1, -1);
-  }
+  @include pageSectionColumns;
 }
 
 .intro {
