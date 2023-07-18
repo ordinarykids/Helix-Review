@@ -1,3 +1,4 @@
+@use "./colors" as *;
 @use "./spacing" as *;
 
 @forward "@aleph/nought-sass-mixins" with (
@@ -44,4 +45,58 @@
 @mixin dropShadow {
   box-shadow: 5px 15px 46px 0 rgba(0 0 0 / 15%);
   backdrop-filter: blur(13.59px);
+}
+
+@mixin radio {
+  position: relative;
+  width: 20px !important;
+  height: 20px;
+  margin: 0 2px 0 0;
+  padding: 0;
+  border: 1px solid #ababab;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: content-box;
+}
+
+@mixin radioChecked {
+  border-color: $darkblue-300;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: $darkblue-300;
+    content: "";
+  }
+}
+
+@mixin checkbox {
+  width: 17px !important;
+  height: 17px;
+  margin: 0 2px 0 0;
+  padding: 0;
+  border: 1px solid #ababab;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: content-box;
+}
+
+@mixin checkboxChecked {
+  background-image: url("/checkboxCheck.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px auto;
 }

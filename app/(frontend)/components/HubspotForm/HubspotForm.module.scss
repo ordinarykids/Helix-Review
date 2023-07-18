@@ -4,6 +4,8 @@
 @use "../../styles/typography" as *;
 @use "../../styles/spacing";
 
+$input-h-padding: 16px;
+
 .wrap {
   padding-top: to-rem(64);
   padding-bottom: to-rem(64);
@@ -88,6 +90,7 @@
   :global(.hs-fieldtype-checkbox) label,
   :global(.hs-form-checkbox) label,
   :global(.hs-form-booleancheckbox) label,
+  :global(.hs-form-radio) label,
   :global(.hs-richtext),
   :global(.hs-field-desc) {
     @include body5;
@@ -107,50 +110,126 @@
     }
   }
 
-  :global(.hs-fieldtype-booleancheckbox) {
+  :global(.hs-fieldtype-booleancheckbox),
+  :global(.hs-fieldtype-checkbox),
+  :global(.hs-fieldtype-radio) {
     ul {
-      margin-bottom: 0;
-      padding-left: 0;
-      list-style: none;
-    }
+      @include listReset;
 
-    label {
-      cursor: pointer;
+      margin-top: 0;
     }
 
     legend {
       margin-bottom: to-rem(24);
     }
-
-    :global(.inputs-list) {
-      margin-top: 0;
-    }
   }
 
   :global(.hs-form-booleancheckbox-display),
-  :global(.hs-form-checkbox-display) {
-    display: flex;
+  :global(.hs-form-checkbox-display),
+  :global(.hs-form-radio-display) {
+    display: inline-flex;
+    width: auto;
+    cursor: pointer;
 
     input {
       flex-shrink: 0;
     }
 
     span {
-      margin-top: 2px;
+      margin-top: -1px;
       text-indent: 24px;
     }
   }
 
-  :global(.hs-fieldtype-checkbox .inputs-list) {
-    @include listReset;
-  }
-
   :global(.hs-input) {
-    padding: 8px 16px;
+    padding: 8px $input-h-padding;
     border: 0;
     border-radius: 4px;
     background-color: $white;
     color: $body-text-color;
+  }
+
+  :global(.hs-input):active,
+  :global(.hs-input):focus {
+    border: 0;
+    outline: none;
+    box-shadow: 0 0 0 2px $darkblue-100;
+  }
+
+  textarea:global(.hs-input) {
+    min-height: 160px;
+    padding: 16px 24px;
+    resize: none;
+  }
+
+  select:global(.hs-input) {
+    background-image: url("/selectCarat.svg");
+    background-repeat: no-repeat;
+    background-position: right $input-h-padding center;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  :global(.hs-input[type="checkbox"]) {
+    @include checkbox;
+
+    &:checked {
+      @include checkboxChecked;
+    }
+  }
+
+  :global(.hs-input[type="radio"]) {
+    @include radio;
+
+    &:checked {
+      @include radioChecked;
+    }
+  }
+
+  select:global(.is-placeholder) {
+    color: $darkgray-100;
+  }
+
+  fieldset:global(.form-columns-1),
+  fieldset:global(.form-columns-2),
+  fieldset:global(.form-columns-3) {
+    @include media-breakpoint-up(sm) {
+      max-width: none !important;
+      margin-right: -(spacing.$grid-column-gap-md);
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-right: -(spacing.$grid-column-gap);
+    }
+
+    :global(.hs-form-field) {
+      @include media-breakpoint-down(sm) {
+        width: 100% !important;
+      }
+    }
+
+    :global(.input),
+    :global(ul.hs-error-msgs) {
+      margin-right: spacing.$grid-column-gap !important;
+
+      @include media-breakpoint-down(md) {
+        margin-right: spacing.$grid-column-gap-md !important;
+      }
+
+      @include media-breakpoint-down(sm) {
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  :global(.hs-input.invalid.error) {
+    border: 0;
+    box-shadow: 0 0 0 2px $red-300;
   }
 
   :global(ul.hs-error-msgs) {
@@ -160,7 +239,7 @@
     display: flex;
     flex-direction: column;
     margin-top: to-rem(4);
-    padding: 8px 16px 16px;
+    padding: 8px $input-h-padding 16px;
     border-radius: 4px;
     background-color: $white;
 
@@ -210,90 +289,6 @@
         width: 100%;
       }
     }
-  }
-
-  :global(.hs-input):active,
-  :global(.hs-input):focus {
-    border: 0;
-    outline: none;
-    box-shadow: 0 0 0 2px $darkblue-100;
-  }
-
-  textarea:global(.hs-input) {
-    min-height: 160px;
-    padding: 16px 24px;
-    resize: none;
-  }
-
-  select:global(.hs-input) {
-    // background-image: url("/selectCarat.svg");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-
-    &::-ms-expand {
-      display: none;
-    }
-  }
-
-  select:global(.is-placeholder) {
-    color: $darkgray-400;
-  }
-
-  fieldset:global(.form-columns-1),
-  fieldset:global(.form-columns-2),
-  fieldset:global(.form-columns-3) {
-    @include media-breakpoint-up(sm) {
-      max-width: none !important;
-      margin-right: -(spacing.$grid-column-gap-md);
-    }
-
-    @include media-breakpoint-up(md) {
-      margin-right: -(spacing.$grid-column-gap);
-    }
-
-    :global(.hs-form-field) {
-      @include media-breakpoint-down(sm) {
-        width: 100% !important;
-      }
-    }
-
-    :global(.input),
-    :global(ul.hs-error-msgs) {
-      margin-right: spacing.$grid-column-gap !important;
-
-      @include media-breakpoint-down(md) {
-        margin-right: spacing.$grid-column-gap-md !important;
-      }
-
-      @include media-breakpoint-down(sm) {
-        margin-right: 0 !important;
-      }
-    }
-  }
-
-  :global(.hs-input.invalid.error) {
-    border: 0;
-    box-shadow: 0 0 0 2px $red-300;
-  }
-
-  :global(.hs-input[type="checkbox"]) {
-    // @include checkbox;
-
-    width: 20px !important;
-    height: 20px;
-    padding: 0;
-    border-radius: 0;
-    cursor: pointer;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-
-    // &:checked {
-    //   @include checkboxChecked;
-    // }
   }
 
   /* stylelint-disable */
