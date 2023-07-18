@@ -12,6 +12,7 @@ export default defineType({
     defineArrayMember({ type: 'threeStageProcess' }),
     defineArrayMember({ type: 'hubspotForm' }),
     defineArrayMember({ type: 'geometricCTAs' }),
+    defineArrayMember({ type: 'fourPointChart' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
   ],
 })
