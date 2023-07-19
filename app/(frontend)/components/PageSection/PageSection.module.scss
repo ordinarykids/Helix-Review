@@ -90,6 +90,6 @@
 
 .innerBlocks {
   > :not(:last-child) {
-    margin-bottom: to-rem(40);
+    margin-bottom: to-rem(40px);
   }
 }

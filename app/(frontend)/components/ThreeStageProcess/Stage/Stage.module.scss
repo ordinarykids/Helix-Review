@@ -28,20 +28,20 @@
 .title {
   @include headerDesktopSm;
 
-  margin-top: to-rem(8);
+  margin-top: to-rem(8px);
   margin-bottom: 0;
 }
 
 .subtitle {
   @include body7;
 
-  margin-top: to-rem(8);
+  margin-top: to-rem(8px);
 }
 
 .description {
   @include body5;
 
-  margin-top: to-rem(16);
+  margin-top: to-rem(16px);
 
   > :last-child {
     margin-bottom: 0;

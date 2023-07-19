@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "./colors" as *;
 @use "./spacing" as *;
 
@@ -28,20 +29,21 @@
 
 @use "@aleph/nought-sass-mixins" as *;
 
-@function to-rem($value) {
-  $remValue: ($value / 16) + rem;
+// Convert pixels to rem
+@function to-rem($pixelSize) {
+  $remSize: math.div($pixelSize, 16px);
 
-  @return $remValue;
+  @return #{$remSize}rem;
 }
 
 @mixin pageSectionWrap($screenSizeChange: "md") {
-  padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
+  padding-top: to-rem(64px);
+  padding-bottom: to-rem(64px);
   overflow: hidden;
 
   @include media-breakpoint-down($screenSizeChange) {
-    padding-top: to-rem(40);
-    padding-bottom: to-rem(40);
+    padding-top: to-rem(40px);
+    padding-bottom: to-rem(40px);
   }
 }
 

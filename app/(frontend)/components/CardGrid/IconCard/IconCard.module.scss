@@ -6,7 +6,7 @@
 .wrap {
   @include dropShadow;
 
-  padding: to-rem(40) to-rem(24);
+  padding: to-rem(40px) to-rem(24px);
   border-radius: 4px;
   background-color: $white;
   text-align: center;
@@ -17,7 +17,7 @@
 .header {
   @include headerDesktopSm;
 
-  margin-top: to-rem(24);
+  margin-top: to-rem(24px);
   margin-bottom: 0;
 
   @include media-breakpoint-up(lg) {
@@ -33,7 +33,7 @@
 .subheader {
   @include body6;
 
-  margin-top: to-rem(16);
+  margin-top: to-rem(16px);
   margin-bottom: 0;
   color: $body-text-color;
 }
@@ -41,7 +41,7 @@
 .text {
   @include body5;
 
-  margin-top: to-rem(16);
+  margin-top: to-rem(16px);
 
   > :last-child {
     margin-bottom: 0;

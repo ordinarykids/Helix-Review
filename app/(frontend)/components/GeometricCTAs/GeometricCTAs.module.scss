@@ -32,7 +32,7 @@
   @include pageSectionHeader;
 
   margin-bottom: to-rem(spacing.$page-section-intro-margin-bottom);
-  padding-top: to-rem(64);
+  padding-top: to-rem(64px);
 }
 
 .container {
@@ -134,7 +134,7 @@
 }
 
 .link {
-  margin-top: to-rem(32);
+  margin-top: to-rem(32px);
 }
 
 .shape {
