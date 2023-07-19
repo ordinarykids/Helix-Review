@@ -31,7 +31,7 @@ $inner-padding-h: 42px;
 .header {
   @include pageSectionHeader;
 
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem($page-section-intro-margin-bottom);
   text-align: center;
 }
 

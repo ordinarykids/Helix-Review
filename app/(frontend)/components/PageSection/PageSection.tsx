@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { PortableText } from '@portabletext/react'
+import type { PortableTextBlock } from '@portabletext/types'
 import cx from 'classnames'
 import shapesColoredDots from 'public/shapes_colored_dots.svg'
+import portableTextComponents from 'app/(frontend)/utils/portableTextComponents'
 import PageSectionBgColorType from 'app/(frontend)/types/pageSectionBgColor'
 import CardGrid from '../CardGrid'
 import { CardGridField } from '../CardGrid/CardGrid'
@@ -20,6 +23,7 @@ import styles from './PageSection.module.scss'
 
 export interface PageSectionProps {
   title?: string
+  text?: PortableTextBlock[]
   bgColor: PageSectionBgColorType
   bgImage: 'none' | 'grayShapes'
   innerBlocks: (
@@ -35,10 +39,13 @@ export interface PageSectionProps {
 
 export default function PageSection({
   title,
+  text,
   bgColor,
   bgImage,
   innerBlocks,
 }: PageSectionProps) {
+  const styledLinkTheme = bgColor === 'darkBlue' ? 'light' : 'dark'
+
   return (
     <section className={cx(styles.wrap, styles[`wrap__bg${bgColor}`])}>
       <div className={styles.wrapInner}>
@@ -50,11 +57,20 @@ export default function PageSection({
           </div>
         </div>
         <div className={styles.fgWrap}>
-          {title && (
-            <div className={styles.titleWrap}>
-              <h2 className={styles.title}>
-                {title}
-              </h2>
+          {(title || text) && (
+            <div className={styles.introWrap}>
+              <div className={styles.intro}>
+                {title && (
+                  <h2 className={styles.title}>
+                    {title}
+                  </h2>
+                )}
+                {text && (
+                  <div className={styles.text}>
+                    <PortableText value={text} components={portableTextComponents(styledLinkTheme)} />
+                  </div>
+                )}
+              </div>
             </div>
           )}
           {innerBlocks && (

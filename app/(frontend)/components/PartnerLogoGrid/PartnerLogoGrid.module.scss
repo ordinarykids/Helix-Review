@@ -23,14 +23,14 @@
 .header {
   @include h3;
 
-  margin-bottom: to-rem(16);
+  margin-bottom: to-rem(s.$page-section-title-margin-bottom);
   color: $white;
 }
 
 .subheader {
   @include body5;
 
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(s.$page-section-intro-margin-bottom);
   color: $white;
 }
 

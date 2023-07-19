@@ -16,6 +16,10 @@
     list-style-position: inside;
   }
 
+  :global(.styledLink):not(:last-child) {
+    margin-bottom: to-rem(spacing.$p-margin-bottom);
+  }
+
   > :last-child {
     margin-bottom: 0;
   }
