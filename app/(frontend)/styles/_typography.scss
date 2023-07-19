@@ -2,7 +2,6 @@
 @use "./colors" as *;
 @use "./mixins" as *;
 
-$root-font-size: 16px;
 $font-family-tt-norms: var(--tt-norms);
 
 @mixin fontSize($fontSize: 16, $lineHeight: 24) {
