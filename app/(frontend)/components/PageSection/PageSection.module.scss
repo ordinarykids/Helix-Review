@@ -4,14 +4,7 @@
 @use "../../styles/spacing";
 
 .wrap {
-  padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
-  overflow: hidden;
-
-  @include media-breakpoint-down(md) {
-    padding-top: to-rem(40);
-    padding-bottom: to-rem(40);
-  }
+  @include pageSectionWrap;
 
   &__bgwhite {
     background-color: $white;
@@ -58,15 +51,12 @@
 }
 
 .title {
-  @include columns(3, 11);
-  @include headerDesktopMd;
+  @include pageSectionColumns;
+  @include pageSectionHeader;
 
   margin-bottom: to-rem(40);
 
   @include media-breakpoint-down(md) {
-    @include columns(1, -1);
-    @include headerMobileMd;
-
     margin-bottom: to-rem(24);
   }
 

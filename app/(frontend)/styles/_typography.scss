@@ -5,12 +5,6 @@
 $root-font-size: 16px;
 $font-family-tt-norms: var(--tt-norms);
 
-@function to-rem($value) {
-  $remValue: ($value / 16) + rem;
-
-  @return $remValue;
-}
-
 @mixin fontSize($fontSize: 16, $lineHeight: 24) {
   font-size: $fontSize * 1px;
   font-size: math.div($fontSize, 16) + rem;
@@ -183,7 +177,7 @@ $font-family-tt-norms: var(--tt-norms);
   margin-bottom: to-rem(24);
   color: $darkblue-100;
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     @include headerMobileMd;
   }
 }
@@ -225,5 +219,13 @@ $font-family-tt-norms: var(--tt-norms);
   &:active {
     text-decoration: underline;
     text-underline-offset: to-rem(4);
+  }
+}
+
+@mixin pageSectionHeader($screenSizeChange: "sm") {
+  @include headerDesktopMd;
+
+  @include media-breakpoint-down($screenSizeChange) {
+    @include headerMobileMd;
   }
 }

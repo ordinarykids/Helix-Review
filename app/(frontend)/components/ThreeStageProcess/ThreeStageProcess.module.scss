@@ -6,14 +6,9 @@ $circle-diameter: 54px;
 $line-bottom-margin: 24px;
 
 .wrap {
-  padding-top: to-rem(64);
-  padding-bottom: to-rem(64);
-  background-color: $coolgray-300;
+  @include pageSectionWrap;
 
-  @include media-breakpoint-down(sm) {
-    padding-top: to-rem(40);
-    padding-bottom: to-rem(40);
-  }
+  background-color: $coolgray-300;
 }
 
 .titleWrap {
@@ -23,15 +18,10 @@ $line-bottom-margin: 24px;
 }
 
 .title {
-  @include columns(3, 11);
-  @include headerDesktopMd;
+  @include pageSectionColumns;
+  @include pageSectionHeader;
 
   margin-bottom: to-rem(40);
-
-  @include media-breakpoint-down(md) {
-    @include columns(1, -1);
-    @include headerMobileMd;
-  }
 }
 
 .visual {

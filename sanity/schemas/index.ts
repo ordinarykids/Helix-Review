@@ -19,6 +19,7 @@ import featuredImage from './objects/featuredImage'
 import fourPointChart from './objects/fourPointChart'
 import homeHeroThreeUp from './objects/homeHeroThreeUp'
 import homePageHero from './objects/homePageHero'
+import hubspotForm from './objects/hubspotForm'
 import geometricCTA from './objects/geometricCTA'
 import geometricCTAs from './objects/geometricCTAs'
 import iconCard from './objects/iconCard'
@@ -57,6 +58,7 @@ export const schemaTypes = [
   footerNavigation,
   homeHeroThreeUp,
   homePageHero,
+  hubspotForm,
   geometricCTA,
   geometricCTAs,
   iconCard,

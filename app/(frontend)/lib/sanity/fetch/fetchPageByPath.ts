@@ -3,6 +3,7 @@ import { AccordionField } from 'app/(frontend)/components/Accordion/Accordion'
 import { FourPointChartField } from '@/app/(frontend)/components/FourPointChart/FourPointChart'
 import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
+import { HubspotFormField } from '@/app/(frontend)/components/HubspotForm/HubspotForm'
 import { GeometricCTAsProps } from 'app/(frontend)/components/GeometricCTAs/GeometricCTAs'
 import { PageHeroType } from '@/app/(frontend)/components/PageHero/PageHero'
 import { PartnerLogoGridProps } from '@/app/(frontend)/components/PartnerLogoGrid/PartnerLogoGrid'
@@ -39,6 +40,7 @@ type PageByPath = {
     | AccordionField
     | FourPointChartField
     | GeometricCTAsField
+    | HubspotFormField
     | PartnerLogoGridField
     | PageSectionField
     | QuoteField
