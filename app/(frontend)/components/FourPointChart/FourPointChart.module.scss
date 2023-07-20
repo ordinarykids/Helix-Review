@@ -1,6 +1,7 @@
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/spacing";
 
 $dashed-line-length: 40px;
 $space-btwn-text-and-line: 57px;
@@ -47,7 +48,7 @@ $space-btwn-text-and-line: 57px;
 .header {
   @include headerMobileMd;
 
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(spacing.$page-section-intro-margin-bottom);
   color: inherit;
   text-align: center;
 

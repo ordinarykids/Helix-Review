@@ -1,6 +1,7 @@
 @use "../../styles/typography" as *;
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/spacing" as s;
 
 $circle-diameter: 54px;
 $line-bottom-margin: 24px;
@@ -21,7 +22,7 @@ $line-bottom-margin: 24px;
   @include pageSectionColumns;
   @include pageSectionHeader;
 
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(s.$page-section-intro-margin-bottom);
 }
 
 .visual {

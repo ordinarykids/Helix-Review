@@ -70,7 +70,7 @@
 .header {
   @include headerMobileLg;
 
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem($page-section-title-margin-bottom);
   font-size: 38px;
   font-size: to-rem(38);
 

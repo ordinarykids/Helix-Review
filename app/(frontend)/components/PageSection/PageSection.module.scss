@@ -44,24 +44,47 @@
   position: relative;
 }
 
-.titleWrap {
+.introWrap {
   @include containerGrid;
 
+  margin-bottom: to-rem(spacing.$page-section-intro-margin-bottom);
+}
+
+.intro {
+  @include pageSectionColumns;
+
   text-align: center;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .title {
-  @include pageSectionColumns;
   @include pageSectionHeader;
 
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(spacing.$page-section-title-margin-bottom);
 
-  @include media-breakpoint-down(md) {
-    margin-bottom: to-rem(24);
+  .wrap__bgdarkBlue & {
+    color: $white;
+  }
+}
+
+.text {
+  :global(.styledLink):not(:last-child) {
+    margin-bottom: to-rem(spacing.$p-margin-bottom);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
   }
 
   .wrap__bgdarkBlue & {
     color: $white;
+
+    a {
+      color: $link-color-on-dark;
+    }
   }
 }
 

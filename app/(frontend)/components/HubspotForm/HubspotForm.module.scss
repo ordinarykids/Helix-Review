@@ -23,7 +23,7 @@ $input-h-padding: 16px;
 }
 
 .intro {
-  margin-bottom: to-rem(40);
+  margin-bottom: to-rem(spacing.$page-section-intro-margin-bottom);
   text-align: center;
 
   a {
