@@ -93,6 +93,10 @@ const fetchPageByPath = async (pagePath: string) => {
         ...,
         innerBlocks[] {
           ...,
+          _type == 'pageSectionImage' => {
+            ...,
+            'image': image.asset->${imgReference},
+          },
           _type == 'threeUpCardCta' => {
             ...,
             ctas[]->${teaser},

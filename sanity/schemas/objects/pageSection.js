@@ -61,6 +61,7 @@ export default defineType({
       of: [
         defineArrayMember({ type: 'cardGrid' }),
         defineArrayMember({ type: 'twoUp' }),
+        defineArrayMember({ type: 'pageSectionImage' }),
         defineArrayMember({ type: 'richText' }),
         defineArrayMember({ type: 'threeUpCardCta' }),
         defineArrayMember({ type: 'threeUpIconCard' }),
