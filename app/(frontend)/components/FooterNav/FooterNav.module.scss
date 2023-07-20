@@ -6,7 +6,7 @@
 @use "../../styles/typography" as *;
 
 $menu-item-color: $darkgray-300;
-$menu-button-padding-v: 16;
+$menu-button-padding-v: 16px;
 
 .nav {
   @include media-breakpoint-down(lg) {
@@ -46,7 +46,7 @@ $menu-button-padding-v: 16;
   }
 
   @include media-breakpoint-up(lg) {
-    margin-bottom: to-rem(16);
+    margin-bottom: to-rem(16px);
 
     &__mobileBtn {
       display: none;
@@ -64,7 +64,7 @@ $menu-button-padding-v: 16;
   }
 
   &_Arrow {
-    margin-left: to-rem(8);
+    margin-left: to-rem(8px);
 
     svg {
       path {
@@ -121,14 +121,14 @@ $menu-button-padding-v: 16;
 
 .linkItem {
   &:not(:last-child) {
-    margin-bottom: to-rem(8);
+    margin-bottom: to-rem(8px);
   }
 }
 
 .link {
   @include body7;
 
-  margin-bottom: to-rem(8);
+  margin-bottom: to-rem(8px);
 
   &,
   &:visited {
@@ -140,7 +140,7 @@ $menu-button-padding-v: 16;
   &:active {
     color: $menu-item-color;
     text-decoration: underline;
-    text-underline-offset: to-rem(5);
+    text-underline-offset: to-rem(5px);
   }
 }
 

@@ -93,10 +93,10 @@ $input-h-padding: 16px;
   :global(.hs-form-field),
   :global(.hs-richtext),
   :global(.hs_error_rollup) {
-    margin-bottom: to-rem(40);
+    margin-bottom: to-rem(40px);
 
     @include media-breakpoint-down(sm) {
-      margin-bottom: to-rem(24);
+      margin-bottom: to-rem(24px);
     }
   }
 
@@ -110,7 +110,7 @@ $input-h-padding: 16px;
     }
 
     legend {
-      margin-bottom: to-rem(24);
+      margin-bottom: to-rem(24px);
     }
   }
 
@@ -228,7 +228,7 @@ $input-h-padding: 16px;
 
     display: flex;
     flex-direction: column;
-    margin-top: to-rem(4);
+    margin-top: to-rem(4px);
     padding: 8px $input-h-padding 16px;
     border-radius: 4px;
     background-color: $red-800;
@@ -262,7 +262,7 @@ $input-h-padding: 16px;
       @include body6;
 
       display: inline-block;
-      padding: to-rem(16) 96px;
+      padding: to-rem(16px) 96px;
       border: 2px solid $white;
       border-radius: 3px;
       background-color: transparent;

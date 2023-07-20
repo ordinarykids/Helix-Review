@@ -1,8 +1,8 @@
 @use "sass:math";
 @use "./colors" as *;
 @use "./mixins" as *;
+@use "./spacing" as *;
 
-$root-font-size: 16px;
 $font-family-tt-norms: var(--tt-norms);
 
 @mixin fontSize($fontSize: 16, $lineHeight: 24) {
@@ -87,7 +87,7 @@ $font-family-tt-norms: var(--tt-norms);
 
   font-family: $font-family-tt-norms;
   font-weight: 500;
-  letter-spacing: to-rem(0.5);
+  letter-spacing: to-rem(0.5px);
 }
 
 @mixin body3() {
@@ -151,14 +151,14 @@ $font-family-tt-norms: var(--tt-norms);
 
   font-family: $font-family-tt-norms;
   font-weight: 500;
-  letter-spacing: to-rem(1);
+  letter-spacing: to-rem(1px);
 }
 
 @mixin h1() {
   @include headerDesktopXl;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 }
 
@@ -166,7 +166,7 @@ $font-family-tt-norms: var(--tt-norms);
   @include headerDesktopLg;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 }
 
@@ -174,7 +174,7 @@ $font-family-tt-norms: var(--tt-norms);
   @include headerDesktopMd;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 
   @include media-breakpoint-down(sm) {
@@ -186,7 +186,7 @@ $font-family-tt-norms: var(--tt-norms);
   @include headerDesktopSm;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 }
 
@@ -194,7 +194,7 @@ $font-family-tt-norms: var(--tt-norms);
   @include body2;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 }
 
@@ -202,7 +202,7 @@ $font-family-tt-norms: var(--tt-norms);
   @include body6;
 
   margin-top: 0;
-  margin-bottom: to-rem(24);
+  margin-bottom: to-rem(24px);
   color: $darkblue-100;
 }
 
@@ -218,12 +218,14 @@ $font-family-tt-norms: var(--tt-norms);
   &:focus,
   &:active {
     text-decoration: underline;
-    text-underline-offset: to-rem(4);
+    text-underline-offset: to-rem(4px);
   }
 }
 
 @mixin pageSectionHeader($screenSizeChange: "sm") {
   @include headerDesktopMd;
+
+  margin-bottom: to-rem($page-section-title-margin-bottom);
 
   @include media-breakpoint-down($screenSizeChange) {
     @include headerMobileMd;

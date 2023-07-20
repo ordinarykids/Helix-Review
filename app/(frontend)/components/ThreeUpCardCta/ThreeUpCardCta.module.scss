@@ -5,7 +5,7 @@
 .container {
   @include containerGrid;
 
-  row-gap: to-rem(24);
+  row-gap: to-rem(24px);
 }
 
 .cta {
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: to-rem(40) to-rem(24);
+  padding: to-rem(40px) to-rem(24px);
   border-radius: 4px;
   background-color: $white;
   overflow: hidden;
@@ -24,7 +24,7 @@
     position: relative;
     width: 100%;
     height: 0;
-    margin-bottom: to-rem(24);
+    margin-bottom: to-rem(24px);
     padding-bottom: 58.9%;
     background-color: $coolgray-300;
   }
@@ -39,7 +39,7 @@
   &_Type {
     @include body13;
 
-    margin-bottom: to-rem(8);
+    margin-bottom: to-rem(8px);
     color: $darkgray-100;
     text-align: center;
     text-transform: uppercase;
@@ -48,7 +48,7 @@
   &_Title {
     @include body3;
 
-    margin-bottom: to-rem(24);
+    margin-bottom: to-rem(24px);
     color: $body-text-color;
     text-align: center;
   }

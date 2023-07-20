@@ -63,8 +63,6 @@
 .title {
   @include pageSectionHeader;
 
-  margin-bottom: to-rem(spacing.$page-section-title-margin-bottom);
-
   .wrap__bgdarkBlue & {
     color: $white;
   }
@@ -90,6 +88,6 @@
 
 .innerBlocks {
   > :not(:last-child) {
-    margin-bottom: to-rem(40);
+    margin-bottom: to-rem(40px);
   }
 }

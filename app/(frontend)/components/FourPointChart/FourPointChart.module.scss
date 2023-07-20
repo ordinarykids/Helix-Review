@@ -225,7 +225,7 @@ $space-btwn-text-and-line: 57px;
   &_Text {
     @include body5;
 
-    margin-top: to-rem(8);
+    margin-top: to-rem(8px);
     margin-bottom: 0;
     white-space: pre-wrap;
   }
