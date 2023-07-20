@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "./colors" as *;
 @use "./mixins" as *;
+@use "./spacing" as *;
 
 $font-family-tt-norms: var(--tt-norms);
 
@@ -223,6 +224,8 @@ $font-family-tt-norms: var(--tt-norms);
 
 @mixin pageSectionHeader($screenSizeChange: "sm") {
   @include headerDesktopMd;
+
+  margin-bottom: to-rem($page-section-title-margin-bottom);
 
   @include media-breakpoint-down($screenSizeChange) {
     @include headerMobileMd;
