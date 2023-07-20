@@ -7,6 +7,8 @@ import portableTextComponents from 'app/(frontend)/utils/portableTextComponents'
 import PageSectionBgColorType from 'app/(frontend)/types/pageSectionBgColor'
 import CardGrid from '../CardGrid'
 import { CardGridField } from '../CardGrid/CardGrid'
+import PageSectionImage from '../PageSectionImage'
+import { PageSectionImageField } from '../PageSectionImage/PageSectionImage'
 import RichText from '../RichText'
 import { RichTextField } from '../RichText/RichText'
 import ThreeUpCardCta from '../ThreeUpCardCta'
@@ -28,6 +30,7 @@ export interface PageSectionProps {
   bgImage: 'none' | 'grayShapes'
   innerBlocks: (
     | CardGridField
+    | PageSectionImageField
     | RichTextField
     | ThreeUpCardCtaField
     | ThreeUpIconCardField
@@ -79,6 +82,9 @@ export default function PageSection({
                 switch (block?._type) {
                   case 'cardGrid':
                     return <CardGrid key={block._key} {...block} />
+
+                  case 'pageSectionImage':
+                    return <PageSectionImage key={block._key} {...block} />
 
                   case 'richText':
                     return <RichText key={block._key} {...block} sectionBgColor={bgColor} />

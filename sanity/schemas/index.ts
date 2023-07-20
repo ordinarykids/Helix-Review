@@ -37,10 +37,11 @@ import threeUpCard from './objects/threeUpCard'
 
 // Page sections
 import cardGrid from './pageSections/cardGrid'
-import twoUp from './pageSections/twoUp'
+import pageSectionImage from './pageSections/pageSectionImage'
 import richText from './pageSections/richText'
 import threeUpCardCta from './pageSections/threeUpCardCta'
 import threeUpIconCard from './pageSections/threeUpIconCard'
+import twoUp from './pageSections/twoUp'
 import videoEmbed from './pageSections/videoEmbed'
 import wideCards from './pageSections/wideCards'
 
@@ -72,6 +73,7 @@ export const schemaTypes = [
   pageBuilder,
   pageHero,
   pageSection,
+  pageSectionImage,
   quote,
   richText,
   seo,
