@@ -99,7 +99,10 @@ const fetchPageByPath = async (pagePath: string) => {
           },
           _type == 'threeUpCardCta' => {
             ...,
-            ctas[]->${teaser},
+            ctas[] {
+              _key,
+              ...@->${teaser},
+            },
           },
           _type == 'twoUp' => {
             ...,
