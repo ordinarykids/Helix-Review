@@ -139,6 +139,11 @@ $input-h-padding: 16px;
     color: $body-text-color;
   }
 
+  :global(.hs-input:not(.invalid)[data-filled="true"]),
+  :global(.hs-dateinput .hs-input:not(.invalid, [value=""])) {
+    background-color: $darkblue-700;
+  }
+
   :global(.hs-input):active,
   :global(.hs-input):focus {
     border: 0;
