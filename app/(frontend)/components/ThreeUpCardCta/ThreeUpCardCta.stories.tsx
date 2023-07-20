@@ -18,6 +18,7 @@ export const ThreeUpCardCtaStory: Story = {
   args: {
     ctas: [
       {
+        _key: '5ade475331ed',
         _type: 'blogPost',
         image: {
           url: 'https://cdn.sanity.io/images/g5irbagy/staging/526b351808562325eab086dbb3a33d303f0d9a2f-1440x810.jpg',
@@ -32,6 +33,7 @@ export const ThreeUpCardCtaStory: Story = {
         slug: 'this-is-a-blog-post-with-a-title',
       },
       {
+        _key: 'cf1fdc09fdd7',
         _type: 'blogPost',
         image: {
           height: 656,
@@ -46,6 +48,7 @@ export const ThreeUpCardCtaStory: Story = {
         slug: 'this-is-a-blog-post-with-a-title',
       },
       {
+        _key: 'a97aff563802',
         _type: 'blogPost',
         image: null,
         title: 'HealthPartners testimonial',
