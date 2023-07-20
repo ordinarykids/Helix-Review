@@ -1,6 +1,6 @@
 import type ImageField from './image'
 
-type TeaserType = {
+interface TeaserType {
   _type: string
   image: ImageField
   slug: string

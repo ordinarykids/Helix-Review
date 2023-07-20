@@ -6,8 +6,12 @@ import DocTypes from 'app/(frontend)/types/docTypes'
 import Button from '../Button'
 import styles from './ThreeUpCardCta.module.scss'
 
+interface ThreeUpCardCtaType extends TeaserType {
+  _key: string
+}
+
 interface ThreeUpCardCtaProps {
-  ctas: TeaserType[]
+  ctas: ThreeUpCardCtaType[]
 }
 
 export interface ThreeUpCardCtaField extends ThreeUpCardCtaProps {
@@ -20,13 +24,14 @@ export default function ThreeUpCardCta({ ctas }: ThreeUpCardCtaProps) {
     <div className={styles.container}>
       {ctas && ctas.map((cta) => {
         const {
+          _key,
           _type,
           image,
           title,
           slug,
         } = cta
         return (
-          <div key={slug} className={styles.cta}>
+          <div key={_key} className={styles.cta}>
             <div className={styles.cta_ImageWrap}>
               {image && (
                 <Image
