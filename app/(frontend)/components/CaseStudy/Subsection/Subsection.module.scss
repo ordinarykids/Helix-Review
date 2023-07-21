@@ -1,0 +1,53 @@
+@use "../../../styles/typography" as *;
+@use "../../../styles/colors" as *;
+@use "../../../styles/mixins" as *;
+@use "../../../styles/spacing" as s;
+
+$section-padding: s.$spacing-large;
+$section-padding-h-mobile: s.$spacing-standard;
+
+.subsection {
+  &:not(:last-child) {
+    margin-bottom: to-rem(24px);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.subsectionInner {
+  padding-top: to-rem($section-padding);
+  padding-bottom: to-rem($section-padding);
+  background-color: $white;
+
+  > *:not(:last-child) {
+    margin-bottom: to-rem(40px);
+  }
+}
+
+.eyebrow {
+  padding-right: to-rem($section-padding);
+  padding-left: to-rem($section-padding);
+
+  @include media-breakpoint-down(sm) {
+    padding-right: to-rem($section-padding-h-mobile);
+    padding-left: to-rem($section-padding-h-mobile);
+  }
+
+  &_Decorator {
+    width: 24px;
+    height: 6px;
+    margin-bottom: to-rem(8px);
+  }
+
+  &_Text {
+    @include body9;
+
+    margin-bottom: 0;
+    color: $darkgray-300;
+    font-weight: 620;
+    letter-spacing: to-rem(0.5px);
+    text-transform: uppercase;
+  }
+}

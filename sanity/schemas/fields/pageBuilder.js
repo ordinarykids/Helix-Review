@@ -14,5 +14,6 @@ export default defineType({
     defineArrayMember({ type: 'geometricCTAs' }),
     defineArrayMember({ type: 'fourPointChart' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
+    defineArrayMember({ type: 'caseStudy' }),
   ],
 })

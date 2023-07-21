@@ -15,6 +15,7 @@ import pageBuilder from './fields/pageBuilder'
 // Object schemas
 import accordion from './objects/accordion'
 import button from './objects/button'
+import caseStudy from './objects/caseStudy'
 import featuredImage from './objects/featuredImage'
 import fourPointChart from './objects/fourPointChart'
 import homeHeroThreeUp from './objects/homeHeroThreeUp'
@@ -52,6 +53,7 @@ export const schemaTypes = [
   blogPost,
   button,
   cardGrid,
+  caseStudy,
   category,
   featuredImage,
   fourPointChart,
