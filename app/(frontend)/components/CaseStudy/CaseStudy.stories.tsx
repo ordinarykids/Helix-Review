@@ -1,15 +1,9 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
-import ThreeStageProcess from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import CaseStudy from '.'
 
-const grayBg: Decorator = (Story) => (
-  <div style={{ backgroundColor: '#f2f2f2' }}>
-    <Story />
-  </div>
-)
-
-const meta: Meta<typeof ThreeStageProcess> = {
-  title: 'Components/ThreeStageProcess',
-  component: ThreeStageProcess,
+const meta: Meta<typeof CaseStudy> = {
+  title: 'Components/CaseStudy',
+  component: CaseStudy,
   parameters: {
     layout: 'fullscreen',
   },
@@ -17,106 +11,26 @@ const meta: Meta<typeof ThreeStageProcess> = {
 
 export default meta
 
-type Story = StoryObj<typeof ThreeStageProcess>;
-
-const portableText = [
-  {
-    _key: '003c9a8178d7',
-    markDefs: [
-      { _type: 'link', href: 'https://helix.com', _key: '77a562f8e62c' },
-    ],
-    children: [
-      {
-        marks: [],
-        text: 'Use ',
-        _key: 'cd8acc6687900',
-        _type: 'span',
-      },
-      {
-        text: 'genomics',
-        _key: 'cb5348846953',
-        _type: 'span',
-        marks: ['strong'],
-      },
-      {
-        marks: [],
-        text: ' to ',
-        _key: '82407347d29f',
-        _type: 'span',
-      },
-      {
-        _type: 'span',
-        marks: ['em'],
-        text: 'identify',
-        _key: 'e9ee9b06146c',
-      },
-      {
-        marks: [],
-        text: ' better ',
-        _key: '18fb0f3fcbaa',
-        _type: 'span',
-      },
-      {
-        text: 'patient',
-        _key: '987f182a1ff7',
-        _type: 'span',
-        marks: ['underline'],
-      },
-      {
-        text: ' populations to ',
-        _key: '7178b4ebe74f',
-        _type: 'span',
-        marks: [],
-      },
-      {
-        marks: ['77a562f8e62c'],
-        text: 'accelerate',
-        _key: '1989fc71994f',
-        _type: 'span',
-      },
-      {
-        _type: 'span',
-        marks: [],
-        text: ' enrollment and reduce trial length. Develop better patients analytics to prepare for both market access and product launch plans.',
-        _key: '7d58c266b448',
-      },
-    ],
-    _type: 'block',
-    style: 'normal',
-  },
-]
+type Story = StoryObj<typeof CaseStudy>;
 
 export const Docs: Story = {
   args: {
-    header: 'Accelerate Your Efforts Across the Drug Development Process',
-    stages: [
+    sections: [
       {
-        _type: 'stage',
-        description: portableText,
         _key: '767603757de6',
-        title: 'Discovery & Preclinical',
-        active: true,
-        icon: 'magnifyingGlass',
+        eyebrow: 'The Challenge',
+        header: 'Rapidly Scaling a Genomic Research Initiative with Results that can be Integrated into Clinical Care for a Large Population in Nevada.',
       },
       {
-        _type: 'stage',
-        description: portableText,
         _key: '767603757de7',
-        title: 'Clinical Development',
-        subtitle: 'Phase I - Phase II - Phase III',
-        active: false,
-        icon: 'shieldPlusSign',
+        eyebrow: 'The Solution',
+        header: 'Combining Renown IHI’s Expertise in Healthcare and Research with Helix’s End-to-End Population Health Solution.',
       },
       {
-        _type: 'stage',
-        description: portableText,
         _key: '767603757de8',
-        title: 'Commercialization',
-        subtitle: 'Phase IV',
-        active: false,
-        icon: 'increasingBarChart',
+        eyebrow: 'The Results',
+        header: 'In Less than One Year, Renown IHI has Assembled One of the Largest Genomic and Health Data Sets in the World and Changed the Standard of Care in their Community.',
       },
     ],
   },
 }
-Docs.decorators = [grayBg]

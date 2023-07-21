@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import { AccordionField } from 'app/(frontend)/components/Accordion/Accordion'
+import { CaseStudyField } from 'app/(frontend)/components/CaseStudy/CaseStudy'
 import { FourPointChartField } from '@/app/(frontend)/components/FourPointChart/FourPointChart'
 import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
@@ -38,6 +39,7 @@ type PageByPath = {
   pageHero: PageHeroType | null,
   pageBuilder: (
     | AccordionField
+    | CaseStudyField
     | FourPointChartField
     | GeometricCTAsField
     | HubspotFormField
