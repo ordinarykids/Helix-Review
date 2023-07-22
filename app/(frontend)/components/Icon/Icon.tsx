@@ -1,5 +1,6 @@
 import Clipboard from './iconSet/Clipboard'
 import ComputerData from './iconSet/ComputerData'
+import DataFolders from './iconSet/DataFolders'
 import Heart from './iconSet/Heart'
 import Helix from './iconSet/Helix'
 import IncreasingBarChart from './iconSet/IncreasingBarChart'
@@ -15,6 +16,7 @@ import TestTube from './iconSet/TestTube'
 export type IconType =
   | 'clipboard'
   | 'computerData'
+  | 'dataFolders'
   | 'heart'
   | 'helix'
   | 'increasingBarChart'
@@ -41,6 +43,7 @@ interface IconProps {
 const icons = {
   clipboard: Clipboard,
   computerData: ComputerData,
+  dataFolders: DataFolders,
   heart: Heart,
   helix: Helix,
   increasingBarChart: IncreasingBarChart,

@@ -49,6 +49,14 @@ export default defineType({
                       type: 'iconColor',
                       hidden: ({ parent }) => !parent?.eyebrow,
                     }),
+                    defineField({
+                      name: 'innerBlocks',
+                      type: 'array',
+                      title: 'Inner Blocks',
+                      of: [
+                        defineArrayMember({ type: 'caseStudyTwoUp' }),
+                      ],
+                    }),
                   ],
                 }),
               ],

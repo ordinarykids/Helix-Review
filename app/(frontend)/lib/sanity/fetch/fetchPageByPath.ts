@@ -76,6 +76,22 @@ const fetchPageByPath = async (pagePath: string) => {
     },
     pageBuilder[] {
       ...,
+      _type == 'caseStudy' => {
+        ...,
+        sections[] {
+          ...,
+          subsections[] {
+            ...,
+            innerBlocks[] {
+              ...,
+              _type == 'caseStudyTwoUp' => {
+                ...,
+                'image': image.asset->${imgReference},
+              },
+            },
+          },
+        },
+      },
       _type == 'geometricCTAs' => {
         ...,
         ctas[] {

@@ -3,9 +3,6 @@
 @use "../../../styles/mixins" as *;
 @use "../../../styles/spacing" as s;
 
-$section-padding: s.$spacing-large;
-$section-padding-h-mobile: s.$spacing-standard;
-
 .subsection {
   &:not(:last-child) {
     margin-bottom: to-rem(24px);
@@ -17,22 +14,29 @@ $section-padding-h-mobile: s.$spacing-standard;
 }
 
 .subsectionInner {
-  padding-top: to-rem($section-padding);
-  padding-bottom: to-rem($section-padding);
+  padding-top: to-rem(s.$case-study-subsection-padding);
+  padding-bottom: to-rem(s.$case-study-subsection-padding);
   background-color: $white;
 
+  @include media-breakpoint-down(md) {
+    padding-right: to-rem(s.$case-study-subsection-padding);
+    padding-left: to-rem(s.$case-study-subsection-padding);
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-right: to-rem(s.$case-study-subsection-padding-h-mobile);
+    padding-left: to-rem(s.$case-study-subsection-padding-h-mobile);
+  }
+
   > *:not(:last-child) {
-    margin-bottom: to-rem(40px);
+    margin-bottom: to-rem(s.$spacing-large);
   }
 }
 
 .eyebrow {
-  padding-right: to-rem($section-padding);
-  padding-left: to-rem($section-padding);
-
-  @include media-breakpoint-down(sm) {
-    padding-right: to-rem($section-padding-h-mobile);
-    padding-left: to-rem($section-padding-h-mobile);
+  @include media-breakpoint-up(md) {
+    padding-right: to-rem(s.$case-study-subsection-padding);
+    padding-left: to-rem(s.$case-study-subsection-padding);
   }
 
   &_Decorator {

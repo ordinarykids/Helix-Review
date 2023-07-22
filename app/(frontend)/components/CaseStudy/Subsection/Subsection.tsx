@@ -1,9 +1,13 @@
 import type { IconColor } from '../../Icon/Icon'
+import TwoUp, { TwoUpField } from './components/TwoUp/TwoUp'
 import styles from './Subsection.module.scss'
 
 export interface SubsectionProps {
   eyebrow?: string
   iconColor: IconColor
+  innerBlocks?: (
+    | TwoUpField
+  )[]
 }
 
 export interface SubsectionField extends SubsectionProps {
@@ -11,7 +15,7 @@ export interface SubsectionField extends SubsectionProps {
   _type: 'subsection'
 }
 
-export default function Subsection({ eyebrow, iconColor }: SubsectionProps) {
+export default function Subsection({ eyebrow, iconColor, innerBlocks }: SubsectionProps) {
   return (
     <section className={styles.subsection}>
       <div className={styles.container}>
@@ -24,6 +28,15 @@ export default function Subsection({ eyebrow, iconColor }: SubsectionProps) {
               </h4>
             </div>
           )}
+          {innerBlocks && innerBlocks.length > 0 && innerBlocks.map((block) => {
+            switch (block?._type) {
+              case 'caseStudyTwoUp':
+                return <TwoUp key={block._key} {...block} />
+
+              default:
+                return null
+            }
+          })}
         </div>
       </div>
     </section>
