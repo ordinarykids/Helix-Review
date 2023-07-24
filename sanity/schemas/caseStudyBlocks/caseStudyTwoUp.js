@@ -50,6 +50,46 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'logos',
+      type: 'array',
+      title: 'Logos',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'linkedLogo',
+          fields: [
+            defineField({
+              name: 'image',
+              type: 'image',
+              title: 'Logo',
+              codegen: { required: true },
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'externalUrl',
+              type: 'url',
+              title: 'URL',
+            }),
+          ],
+          preview: {
+            select: {
+              media: 'image',
+              externalUrl: 'externalUrl',
+            },
+            prepare: ({
+              media,
+              externalUrl,
+            }) => (
+              {
+                title: externalUrl ? `Links to ${externalUrl}` : 'unlinked',
+                media,
+              }
+            ),
+          },
+        }),
+      ],
+    }),
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',

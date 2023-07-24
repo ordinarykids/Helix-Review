@@ -17,6 +17,10 @@ export interface TwoUpProps {
       iconColor: IconColor
     }[]
   }
+  logos?: {
+    image: NonNullable<ImageField>
+    externalUrl?: string
+  }[]
   title?: string
   text?: RichTextType
   imageAlignment: 'left' | 'right'
@@ -30,18 +34,53 @@ export interface TwoUpField extends TwoUpProps {
 export default function TwoUp({
   image,
   iconCard,
+  logos,
   title,
   text,
   imageAlignment,
 }: TwoUpProps) {
   return (
     <section className={styles.container}>
-      {(text || title) && (
+      {(text || title || logos) && (
         <div className={cx(styles.textWrap, styles[`textWrap__img${imageAlignment}`])}>
-          {title && <h1 className={styles.title}>{title}</h1>}
-          {text && (
-            <div className={styles.text}>
-              <PortableText value={text} components={portableTextComponents()} />
+          {logos && (
+            <div className={styles.logos}>
+              {logos.map((logo) => {
+                const { image: logoImage, externalUrl } = logo
+                const logoImageEl = (
+                  <Image
+                    className={styles.logo}
+                    src={logoImage.url}
+                    width={logoImage.width}
+                    height={logoImage.height}
+                    alt={logoImage.altText ?? ''}
+                    title={logoImage.title ?? undefined}
+                  />
+                )
+                return (
+                  <div className={styles.logoWrap}>
+                    {externalUrl ? (
+                      <a href={externalUrl} className={styles.logoInner}>
+                        {logoImageEl}
+                      </a>
+                    ) : (
+                      <div className={styles.logoInner}>
+                        {logoImageEl}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          )}
+          {(text || title) && (
+            <div className={styles.titleTextWrap}>
+              {title && <h1 className={styles.title}>{title}</h1>}
+              {text && (
+                <div className={styles.text}>
+                  <PortableText value={text} components={portableTextComponents()} />
+                </div>
+              )}
             </div>
           )}
         </div>

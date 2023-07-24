@@ -87,6 +87,10 @@ const fetchPageByPath = async (pagePath: string) => {
               _type == 'caseStudyTwoUp' => {
                 ...,
                 'image': image.asset->${imgReference},
+                logos[] {
+                  ...,
+                  'image': image.asset->${imgReference},
+                },
               },
             },
           },

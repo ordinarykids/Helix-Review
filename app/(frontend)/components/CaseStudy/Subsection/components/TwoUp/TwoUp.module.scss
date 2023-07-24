@@ -79,6 +79,43 @@
   }
 }
 
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: to-rem(s.$spacing-large);
+
+  @include media-breakpoint-down(sm) {
+    row-gap: to-rem(s.$spacing-standard);
+  }
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include media-breakpoint-down(md) {
+    order: 2;
+  }
+}
+
+.logoWrap {
+  flex: 0 0 50%;
+  text-align: center;
+}
+
+.logoInner {
+  display: block;
+  padding: 10px;
+}
+
+.logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .visuals {
   > :not(:last-child) {
     margin-bottom: to-rem(s.$spacing-large);
