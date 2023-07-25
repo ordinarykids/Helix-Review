@@ -20,16 +20,362 @@ export const Docs: Story = {
         _key: '767603757de6',
         eyebrow: 'The Challenge',
         header: 'Rapidly Scaling a Genomic Research Initiative with Results that can be Integrated into Clinical Care for a Large Population in Nevada.',
+        subsections: [
+          {
+            _type: 'subsection',
+            iconColor: '#7ABC71',
+            innerBlocks: [
+              {
+                image: {
+                  aspectRatio: 0.6625,
+                  blurHash: 'dIL}HcIUxp?b-;_Nof%MMvM{00of-;%MIUIU00WB-;%M',
+                  url: 'https://cdn.sanity.io/images/g5irbagy/staging/e04e3c5617927e0fc13cdec3a6e0b99907f83c5e-371x560.svg',
+                  altText: null,
+                  title: null,
+                  height: 560,
+                  width: 371,
+                },
+                _type: 'caseStudyTwoUp',
+                imageAlignment: 'right',
+                text: [
+                  {
+                    markDefs: [
+                      {
+                        _type: 'link',
+                        href: 'https://helix.com',
+                        _key: '10b81b665cc8',
+                      },
+                    ],
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: ['strong'],
+                        text: 'As part of the expansion of the Healthy Nevada Project (HNP), Renown Health Institute for Health Innovation (Renown IHI) sought to engage 40,000 Nevadans',
+                        _key: '13cac5eba170',
+                      },
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: ' in a large scale genomics research initiative that would drive novel discoveries as well as improve clinical care.\n'
+                          + 'This meant that, in addition to needing participant friendly engagement tools, they needed ',
+                        _key: 'c94535fcbe8c',
+                      },
+                      {
+                        _type: 'span',
+                        marks: ['10b81b665cc8'],
+                        text: 'next-generation sequencing technology',
+                        _key: 'd27efda6a9bd',
+                      },
+                      {
+                        _key: '7d09ba4aa556',
+                        _type: 'span',
+                        marks: [],
+                        text: ' that could produce clinical-grade data at scale. Historically, this would have required coordinating with multiple partners.',
+                      },
+                    ],
+                    _type: 'block',
+                    style: 'normal',
+                    _key: '489b9a98bb3b',
+                  },
+                ],
+                _key: '7c9eb57a272d',
+                logos: [
+                  {
+                    _key: '5e8f6a037f63',
+                    externalUrl: 'https://healthynv.org/',
+                    image: {
+                      aspectRatio: 3.34,
+                      blurHash: 'D14xlDxu9Fxu?b~qt7oyRQRj',
+                      url: 'https://cdn.sanity.io/images/g5irbagy/staging/1998b1f0101a8d0b25cac2106a5a639d29cad515-167x50.svg',
+                      altText: null,
+                      title: null,
+                      height: 50,
+                      width: 167,
+                    },
+                    _type: 'linkedLogo',
+                  },
+                  {
+                    _type: 'linkedLogo',
+                    _key: 'b6ceeb85880f',
+                    image: {
+                      url: 'https://cdn.sanity.io/images/g5irbagy/staging/2bed1fddd6ab838f10e51b2ed3cd947f75f4b53a-159x42.svg',
+                      altText: null,
+                      title: null,
+                      height: 42,
+                      width: 159,
+                      aspectRatio: 3.7857142857142856,
+                      blurHash: 'D15q|sD%xu%MIU_3Rjof%MM{',
+                    },
+                  },
+                ],
+              },
+            ],
+            _key: 'de54f6ff7899',
+          },
+        ],
       },
       {
         _key: '767603757de7',
         eyebrow: 'The Solution',
         header: 'Combining Renown IHI’s Expertise in Healthcare and Research with Helix’s End-to-End Population Health Solution.',
+        subsections: [
+          {
+            _key: '06e744eb8ec7',
+            _type: 'subsection',
+            iconColor: '#7ABC71',
+            innerBlocks: [
+              {
+                _key: 'abf0a8bd72c4',
+                logos: [
+                  {
+                    _key: '5e8f6a037f63',
+                    externalUrl: 'https://healthynv.org/',
+                    image: {
+                      aspectRatio: 3.34,
+                      blurHash: 'D14xlDxu9Fxu?b~qt7oyRQRj',
+                      url: 'https://cdn.sanity.io/images/g5irbagy/staging/1998b1f0101a8d0b25cac2106a5a639d29cad515-167x50.svg',
+                      altText: null,
+                      title: null,
+                      height: 50,
+                      width: 167,
+                    },
+                    _type: 'linkedLogo',
+                  },
+                  {
+                    _type: 'linkedLogo',
+                    _key: 'b6ceeb85880f',
+                    image: {
+                      url: 'https://cdn.sanity.io/images/g5irbagy/staging/2bed1fddd6ab838f10e51b2ed3cd947f75f4b53a-159x42.svg',
+                      altText: null,
+                      title: null,
+                      height: 42,
+                      width: 159,
+                      aspectRatio: 3.7857142857142856,
+                      blurHash: 'D15q|sD%xu%MIU_3Rjof%MM{',
+                    },
+                  },
+                ],
+                image: {
+                  aspectRatio: 1.7777777777777777,
+                  blurHash: 'MAH2N2ib11XT%g%g?a4:D%bGI7_N4mI9IA',
+                  url: 'https://cdn.sanity.io/images/g5irbagy/staging/526b351808562325eab086dbb3a33d303f0d9a2f-1440x810.jpg',
+                  altText: 'A cute sandy colored medium sized dog with white paws lays on an outdoor bench on a deck with trees in the background',
+                  title: null,
+                  height: 810,
+                  width: 1440,
+                },
+                _type: 'caseStudyTwoUp',
+                imageAlignment: 'right',
+                text: [
+                  {
+                    _key: '55a45e376429',
+                    markDefs: [],
+                    children: [
+                      {
+                        text: 'Renown IHI worked closely with Helix',
+                        _key: '6dbf08fd94340',
+                        _type: 'span',
+                        marks: ['strong'],
+                      },
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: " to customize its end-to-end population health solution. Helix's participant-facing engagement tools, in-house clinical and scientific expertise, clinical-grade Exome+® assay, and next-generation sequencing lab (one of the world's largest) provided this project with powerful tools that helped it become one of the fastest growing population sequencing initiatives in the United States.",
+                        _key: 'a5b9964248a8',
+                      },
+                    ],
+                    _type: 'block',
+                    style: 'normal',
+                  },
+                ],
+              },
+              {
+                image: {
+                  blurHash: 'eGODnKnm00.800^+nlWUS1WB00njxvWU%M~qodaeoLR%D$tQxbV@xb',
+                  url: 'https://cdn.sanity.io/images/g5irbagy/staging/20b030e5821a592f10c10c65b3c19461e967c4ea-483x482.png',
+                  altText: null,
+                  title: null,
+                  height: 482,
+                  width: 483,
+                  aspectRatio: 1.0020746887966805,
+                },
+                iconCard: {
+                  rows: [
+                    {
+                      _type: 'row',
+                      icon: 'magnifyingGlass',
+                      iconColor: '#F8BE08',
+                      text: '20K genes sequenced per participants',
+                      _key: '48fd502653b5',
+                    },
+                    {
+                      _key: '40f24961575e',
+                      _type: 'row',
+                      icon: 'dataFolders',
+                      iconColor: '#F8BE08',
+                      text: 'More data equals a lifetime of insights',
+                    },
+                  ],
+                },
+                _type: 'caseStudyTwoUp',
+                imageAlignment: 'right',
+                logos: null,
+                text: [
+                  {
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: 'Each participant’s DNA was sequenced using the ',
+                        _key: '7b67980b08d80',
+                      },
+                      {
+                        _type: 'span',
+                        marks: ['a0fa5266469e'],
+                        text: 'Exome+® assay',
+                        _key: 'f8ee8495187d',
+                      },
+                      {
+                        _key: 'c09ea4a09d8f',
+                        _type: 'span',
+                        marks: [],
+                        text: '—far surpassing the amount of data collected in other comparable initiatives—enabling Renown IHI to deliver actionable insights to their patients and to be a leading innovator in precision health. Additionally, the Exome+ assay covers the entire exome plus ',
+                      },
+                      {
+                        marks: ['strong'],
+                        text: 'more than 300,000 informative non-coding regions',
+                        _key: '8b500951e28a',
+                        _type: 'span',
+                      },
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: ' that are available to help participants (and their physicians) continue learning from their DNA over time.',
+                        _key: 'f59eca8bd0db',
+                      },
+                    ],
+                    _type: 'block',
+                    style: 'normal',
+                    _key: '009e882bfcd4',
+                    markDefs: [
+                      { _key: 'a0fa5266469e', _type: 'link', href: 'https://helix.com' },
+                    ],
+                  },
+                  {
+                    _type: 'styledLink',
+                    link: 'https://helix.com',
+                    text: 'Styled link test',
+                    _key: '3dbcc5871bc2',
+                  },
+                  {
+                    _key: 'ae6682c1a7f0',
+                    markDefs: [],
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: 'List test:',
+                        _key: 'bdb36b7eaa8f',
+                      },
+                    ],
+                    _type: 'block',
+                    style: 'normal',
+                  },
+                  {
+                    level: 1,
+                    _type: 'block',
+                    style: 'normal',
+                    _key: '0c3e484434e5',
+                    listItem: 'bullet',
+                    markDefs: [
+                      { _type: 'link', href: 'https://helix.com', _key: 'b07a7e38cc26' },
+                    ],
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: 'List item 1 lorem ipsume delteum sic amor. Each participant’s DNA was sequenced using the ',
+                        _key: '546d753a1231',
+                      },
+                      {
+                        _type: 'span',
+                        marks: ['b07a7e38cc26'],
+                        text: 'Exome+® assay',
+                        _key: 'ae1001e9cd5a',
+                      },
+                      {
+                        _key: '679f50de5842',
+                        _type: 'span',
+                        marks: [],
+                        text: '—far surpassing the amount of data collected in other comparable initiatives—enabling Renown IHI to deliver actionable insights to their patients and to be a leading innovator in precision health.',
+                      },
+                    ],
+                  },
+                  {
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: 'Each participant’s DNA was sequenced using the ',
+                        _key: '483eaf97063c',
+                      },
+                      {
+                        _type: 'span',
+                        marks: ['79c5e7165ac8'],
+                        text: 'Exome+® assay',
+                        _key: 'bf181f466386',
+                      },
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: '—far surpassing the amount of data collected in other comparable initiatives—enabling Renown IHI to deliver actionable insights to their patients and to be a leading innovator in precision health.',
+                        _key: 'e54ff1497942',
+                      },
+                    ],
+                    level: 1,
+                    _type: 'block',
+                    style: 'normal',
+                    _key: '301d67f66acd',
+                    listItem: 'bullet',
+                    markDefs: [
+                      { _type: 'link', href: 'https://helix.com', _key: '79c5e7165ac8' },
+                    ],
+                  },
+                ],
+                _key: '68490e2402c6',
+                title: 'More than an Exome',
+              },
+            ],
+          },
+        ],
       },
       {
         _key: '767603757de8',
         eyebrow: 'The Results',
         header: 'In Less than One Year, Renown IHI has Assembled One of the Largest Genomic and Health Data Sets in the World and Changed the Standard of Care in their Community.',
+        subsections: [
+          {
+            _key: 'fdab95f82de2',
+            eyebrow: 'Unprecedented Pace',
+            _type: 'subsection',
+            iconColor: '#F8BE08',
+            // innerBlocks: [ [Object] ],
+          },
+          {
+            eyebrow: ' Measurable Clinical Impact',
+            _type: 'subsection',
+            iconColor: '#F45B83',
+            // innerBlocks: [ [Object] ],
+            _key: '53f70c1620e3',
+          },
+          {
+            _type: 'subsection',
+            iconColor: '#7ABC71',
+            // innerBlocks: [ [Object] ],
+            _key: 'de1d146d7ce4',
+            eyebrow: 'Research Advancement',
+          },
+        ],
       },
     ],
   },
