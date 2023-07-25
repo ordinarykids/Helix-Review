@@ -41,9 +41,14 @@ export default function CaseStudy({ sections }: CaseStudyField) {
       </div>
       <div className={styles.sections}>
         {sections.map((section) => {
-          const { eyebrow, header, subsections } = section
+          const {
+            _key,
+            eyebrow,
+            header,
+            subsections,
+          } = section
           return (
-            <section id={slugify(eyebrow)} className={styles.section}>
+            <section key={_key} id={slugify(eyebrow)} className={styles.section}>
               <div className={styles.section_Intro}>
                 <h3 className={styles.section_Eyebrow}>{eyebrow}</h3>
                 <h2 className={styles.section_Header}>{header}</h2>

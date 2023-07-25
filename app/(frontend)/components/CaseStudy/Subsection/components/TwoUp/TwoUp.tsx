@@ -12,15 +12,19 @@ export interface TwoUpProps {
   image?: ImageField
   iconCard?: {
     rows?: {
+      _key: string
+      _type: 'row'
       text?: string
       icon?: IconType
       iconColor: IconColor
     }[]
   }
   logos?: {
+    _key: string
+    _type: 'linkedLogo'
     image: NonNullable<ImageField>
     externalUrl?: string
-  }[]
+  }[] | null
   title?: string
   text?: RichTextType
   imageAlignment: 'left' | 'right'
@@ -46,7 +50,7 @@ export default function TwoUp({
           {logos && (
             <div className={styles.logos}>
               {logos.map((logo) => {
-                const { image: logoImage, externalUrl } = logo
+                const { _key, image: logoImage, externalUrl } = logo
                 const logoImageEl = (
                   <Image
                     className={styles.logo}
@@ -58,7 +62,7 @@ export default function TwoUp({
                   />
                 )
                 return (
-                  <div className={styles.logoWrap}>
+                  <div key={_key} className={styles.logoWrap}>
                     {externalUrl ? (
                       <a href={externalUrl} className={styles.logoInner}>
                         {logoImageEl}
@@ -102,9 +106,14 @@ export default function TwoUp({
           {iconCard && (
             <div className={styles.iconCard}>
               {iconCard.rows?.map((row) => {
-                const { text: iconRowText, icon, iconColor } = row
+                const {
+                  _key,
+                  text: iconRowText,
+                  icon,
+                  iconColor,
+                } = row
                 return (
-                  <div className={styles.iconCard_Row}>
+                  <div key={_key} className={styles.iconCard_Row}>
                     {icon && (
                       <div className={styles.iconCard_Icon}>
                         <Icon icon={icon} color={iconColor} />
