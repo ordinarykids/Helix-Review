@@ -21,8 +21,8 @@ type TStatCard = {
 export interface TwoUpStatsProps {
   header?: string
   columns: {
-    col1?: TStatCard[]
-    col2?: TStatCard[]
+    col1?: TStatCard[] | null
+    col2?: TStatCard[] | null
   }
 }
 

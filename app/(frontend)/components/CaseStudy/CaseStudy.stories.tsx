@@ -492,13 +492,246 @@ export const Docs: Story = {
             eyebrow: 'Unprecedented Pace',
             _type: 'subsection',
             iconColor: '#F8BE08',
-            // innerBlocks: [ [Object] ],
+            innerBlocks: [
+              {
+                _type: 'caseStudyTwoUpStats',
+                header: 'Within 4 Days:',
+                _key: '00c973b6890f',
+                columns: {
+                  col1: [
+                    {
+                      _key: '06ae33f0ecb7',
+                      statistic: '10,000',
+                      icon: 'timer',
+                      iconColor: '#F8BE08',
+                      image: null,
+                      description: [
+                        {
+                          _type: 'block',
+                          style: 'normal',
+                          _key: '3c0a4d97b932',
+                          markDefs: [],
+                          children: [
+                            {
+                              _type: 'span',
+                              marks: [],
+                              text: 'participant sign-ups',
+                              _key: '1b030a8afc4a0',
+                            },
+                          ],
+                        },
+                      ],
+                      mediaType: 'icon',
+                    },
+                  ],
+                  col2: null,
+                },
+              },
+              {
+                _type: 'caseStudyTwoUpStats',
+                header: 'Within 6 Months:',
+                _key: 'cb9feaec4df3',
+                columns: {
+                  col1: [
+                    {
+                      description: [
+                        {
+                          children: [
+                            {
+                              text: 'participants recruited, sequenced, and given results',
+                              _key: '22d135850f5c0',
+                              _type: 'span',
+                              marks: [],
+                            },
+                          ],
+                          _type: 'block',
+                          style: 'normal',
+                          _key: 'a23618c0722a',
+                          markDefs: [],
+                        },
+                      ],
+                      image: null,
+                      _key: '1c1e0435db17',
+                      statistic: '20,000+',
+                      iconColor: '#3F4C77',
+                    },
+                  ],
+                  col2: [
+                    {
+                      _key: '06dce8ac0ce8',
+                      statistic: '40%',
+                      image: null,
+                      iconColor: '#7ABC71',
+                      description: [
+                        {
+                          children: [
+                            {
+                              text: 'had their first healthcare encounter with Renown',
+                              _key: '22d135850f5c0',
+                              _type: 'span',
+                              marks: [],
+                            },
+                          ],
+                          _type: 'block',
+                          style: 'normal',
+                          _key: 'a23618c0722b',
+                          markDefs: [],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              },
+            ],
           },
           {
             eyebrow: ' Measurable Clinical Impact',
             _type: 'subsection',
             iconColor: '#F45B83',
-            // innerBlocks: [ [Object] ],
+            innerBlocks: [
+              {
+                _key: '95047031da7c',
+                columns: {
+                  col1: [
+                    {
+                      statistic: '1 in 75',
+                      image: null,
+                      iconColor: '#7ABC71',
+                      description: [
+                        {
+                          _key: 'a82fac4f315c',
+                          markDefs: [],
+                          children: [
+                            {
+                              text: 'were at-risk for at least one serious, actionable genetic condition across CDC Tier 1 conditions:',
+                              _key: '436b5cc96e860',
+                              _type: 'span',
+                              marks: [],
+                            },
+                          ],
+                          _type: 'block',
+                          style: 'normal',
+                        },
+                        {
+                          _type: 'block',
+                          style: 'normal',
+                          _key: '5645ff60f524',
+                          listItem: 'bullet',
+                          markDefs: [],
+                          children: [
+                            {
+                              text: 'Familial Hypercholesterolemia (FH),',
+                              _key: '52d931e1b14f0',
+                              _type: 'span',
+                              marks: [],
+                            },
+                          ],
+                          level: 1,
+                        },
+                        {
+                          _type: 'block',
+                          style: 'normal',
+                          _key: 'c761e615dcd3',
+                          listItem: 'bullet',
+                          markDefs: [],
+                          children: [
+                            {
+                              _type: 'span',
+                              marks: [],
+                              text: 'Lynch Syndrome (LS),',
+                              _key: '59d675c71b11',
+                            },
+                          ],
+                          level: 1,
+                        },
+                        {
+                          style: 'normal',
+                          _key: '48528f6708af',
+                          listItem: 'bullet',
+                          markDefs: [],
+                          children: [
+                            {
+                              marks: [],
+                              text: 'Hereditary Breast and Ovarian Cancer (HBOC).',
+                              _key: '6f4cc1226b88',
+                              _type: 'span',
+                            },
+                          ],
+                          level: 1,
+                          _type: 'block',
+                        },
+                      ],
+                      _key: 'e76e26dc8181',
+                    },
+                  ],
+                  col2: [
+                    {
+                      statistic: '90%',
+                      iconColor: '#7ABC71',
+                      description: [
+                        {
+                          markDefs: [],
+                          children: [
+                            {
+                              text: 'would have been missed under current medical practice',
+                              _key: 'd4b5f78696510',
+                              _type: 'span',
+                              marks: [],
+                            },
+                          ],
+                          _type: 'block',
+                          style: 'normal',
+                          _key: '39d9ee859475',
+                        },
+                      ],
+                      mediaType: 'image',
+                      _key: 'ffb39d27b26e',
+                      image: {
+                        title: null,
+                        height: 84,
+                        width: 113,
+                        aspectRatio: 1.3452380952380953,
+                        blurHash: 'VDAT.^00~p9Gxt4o_29G-:NGogWBoeayj[xtIoxtRjoe',
+                        url: 'https://cdn.sanity.io/images/g5irbagy/staging/76f1f467f3442358e1b4a0b5eb5fc0f05ce0d193-113x84.svg',
+                        altText: 'Graphic showing 90% of people objects filled in',
+                      },
+                    },
+                    {
+                      mediaType: 'image',
+                      _key: '6eb87183e7fb',
+                      image: {
+                        title: null,
+                        height: 84,
+                        width: 113,
+                        aspectRatio: 1.3452380952380953,
+                        blurHash: 'VBLEQh00ae~pIU0000t6-:WC%Mayj[j[j[?G?bayM|WB',
+                        url: 'https://cdn.sanity.io/images/g5irbagy/staging/56797e09d1d64efb8512b3ccb9034a63d8271127-113x84.svg',
+                        altText: 'Graphic showing approximately 22% of people objects filled in',
+                      },
+                      statistic: '22%',
+                      iconColor: '#7ABC71',
+                      description: [
+                        {
+                          _key: '5a2aacea7e3c',
+                          markDefs: [],
+                          children: [
+                            {
+                              _key: 'b40cdd90e13d0',
+                              _type: 'span',
+                              marks: [],
+                              text: 'had already developed indications of disease',
+                            },
+                          ],
+                          _type: 'block',
+                          style: 'normal',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                _type: 'caseStudyTwoUpStats',
+              },
+            ],
             _key: '53f70c1620e3',
           },
           {
