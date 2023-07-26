@@ -6,15 +6,33 @@ export default defineType({
   title: 'Stat Card',
   fields: [
     defineField({
+      title: 'Add Icon Or Image?',
+      name: 'mediaType',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Icon', value: 'icon' },
+          { title: 'Image', value: 'image' },
+        ],
+      },
+    }),
+    defineField({
       title: 'Icon',
       name: 'icon',
       type: 'icon',
+      hidden: ({ parent }) => parent?.mediaType !== 'icon',
     }),
     defineField({
       title: 'Icon Color',
       name: 'iconColor',
       type: 'iconColor',
-      hidden: ({ parent }) => !parent?.icon,
+      hidden: ({ parent }) => parent?.mediaType !== 'icon',
+    }),
+    defineField({
+      title: 'Image',
+      name: 'image',
+      type: 'image',
+      hidden: ({ parent }) => parent?.mediaType !== 'image',
     }),
     defineField({
       title: 'Statistic',
@@ -47,4 +65,9 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'statistic',
+    },
+  },
 })

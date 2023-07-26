@@ -92,6 +92,20 @@ const fetchPageByPath = async (pagePath: string) => {
                   'image': image.asset->${imgReference},
                 },
               },
+              _type == 'caseStudyTwoUpStats' => {
+                ...,
+                columns {
+                  ...,
+                  col1[] {
+                    ...,
+                    'image': image.asset->${imgReference},
+                  },
+                  col2[] {
+                    ...,
+                    'image': image.asset->${imgReference},
+                  },
+                },
+              },
             },
           },
         },

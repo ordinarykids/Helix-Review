@@ -1,5 +1,7 @@
+import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import RichTextType from 'app/(frontend)/types/richText'
+import ImageField from 'app/(frontend)/types/image'
 import portableTextComponents from 'app/(frontend)/utils/portableTextComponents'
 import Icon from 'app/(frontend)/components/Icon'
 import type { IconType, IconColor } from 'app/(frontend)/components/Icon/Icon'
@@ -8,8 +10,10 @@ import styles from './TwoUpStats.module.scss'
 
 type TStatCard = {
   _key: string
+  mediaType?: 'icon' | 'image'
   icon?: IconType
   iconColor: IconColor
+  image?: ImageField
   statistic: string;
   description?: RichTextType
 }
@@ -33,16 +37,39 @@ export default function TwoUpStats({ header, columns }: TwoUpStatsProps) {
     col?.map((row: TStatCard) => {
       const {
         _key,
+        mediaType,
         icon,
         iconColor,
+        image,
         statistic,
         description,
       } = row
       return (
-        <div key={_key} className={cx(styles.statCard, { [styles.statCard__centered]: icon })}>
-          {icon && (
+        <div
+          key={_key}
+          className={cx(
+            styles.statCard,
+            {
+              [styles.statCard__withIcon]: mediaType === 'icon' && icon,
+              [styles.statCard__withImage]: mediaType === 'image' && image,
+            },
+          )}
+        >
+          {(mediaType === 'icon' && icon) && (
             <div className={styles.statCard_Icon}>
               <Icon icon={icon} color={iconColor} />
+            </div>
+          )}
+          {(mediaType === 'image' && image) && (
+            <div className={styles.statCard_Image}>
+              <Image
+                className={styles.logo}
+                src={image.url}
+                width={image.width}
+                height={image.height}
+                alt={image.altText ?? ''}
+                title={image.title ?? undefined}
+              />
             </div>
           )}
           <div className={styles.statCard_TextWrap}>

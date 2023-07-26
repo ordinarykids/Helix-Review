@@ -21,10 +21,18 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: $grid-column-gap;
+  row-gap: s.$spacing-standard;
 
   &_Col {
+    display: flex;
     flex: 0 0 auto;
+    flex-direction: column;
     width: calc(50% - ($grid-column-gap / 2));
+    row-gap: s.$spacing-standard;
+
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
   }
 }
 
@@ -36,14 +44,25 @@
   padding: to-rem(s.$spacing-large);
   column-gap: $grid-column-gap;
   border-radius: 4px;
+  overflow: hidden;
 
   @include media-breakpoint-down(lg) {
     padding-right: to-rem(s.$spacing-standard);
     padding-left: to-rem(s.$spacing-standard);
   }
 
-  &__centered {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+
+  &__withIcon {
     align-items: center;
+  }
+
+  &__withImage {
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+    }
   }
 
   &_Statistic {
@@ -52,7 +71,6 @@
     margin-bottom: to-rem(s.$spacing-x-small);
     color: $darkblue-300;
     font-weight: 740;
-    word-break: break-all;
   }
 
   &_Text {
@@ -70,24 +88,35 @@
   }
 
   &_Icon {
-    flex-shrink: 0;
+    flex-shrink: 1;
     width: 132px;
 
-    @include media-breakpoint-down(lg) {
-      width: 88px;
-    }
-
-    @include media-breakpoint-down(md) {
-      width: 104px;
-    }
-
-    @include media-breakpoint-down(sm) {
-      width: 107px;
+    @include media-breakpoint-down(xl) {
+      flex-shrink: 1;
     }
 
     svg {
       display: block;
       width: 100%;
+      height: auto;
+    }
+  }
+
+  &_Image {
+    flex-shrink: 0;
+    width: 112px;
+
+    @include media-breakpoint-down(xl) {
+      flex-shrink: 1;
+    }
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
       height: auto;
     }
   }
