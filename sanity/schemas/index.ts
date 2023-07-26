@@ -1,5 +1,6 @@
 // Case Study block schemas
 import caseStudyTwoUp from './caseStudyBlocks/caseStudyTwoUp'
+import caseStudyWideCards from './caseStudyBlocks/caseStudyWideCards'
 
 // Document schemas
 import blogPost from './documents/blogPost'
@@ -58,6 +59,7 @@ export const schemaTypes = [
   cardGrid,
   caseStudy,
   caseStudyTwoUp,
+  caseStudyWideCards,
   category,
   featuredImage,
   fourPointChart,

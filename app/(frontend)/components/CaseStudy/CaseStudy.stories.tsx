@@ -345,6 +345,139 @@ export const Docs: Story = {
                 _key: '68490e2402c6',
                 title: 'More than an Exome',
               },
+              {
+                iconColor: '#F8BE08',
+                stages: [
+                  {
+                    _type: 'stage',
+                    icon: 'speechBubbles',
+                    iconColor: '#F8BE08',
+                    index: 0,
+                    active: true,
+                    description: [
+                      {
+                        _key: '03222022c8c4',
+                        markDefs: [],
+                        children: [
+                          {
+                            _type: 'span',
+                            marks: [],
+                            text: 'By digitizing front-end enrollment into a consumer-friendly, self-service approach, we expand patient access and involvement.',
+                            _key: '7ebf299a17f80',
+                          },
+                        ],
+                        _type: 'block',
+                        style: 'normal',
+                      },
+                    ],
+                    _key: '67c69bf9990b',
+                    title: 'Enrollment',
+                  },
+                  {
+                    _key: '2dfb98ef643d',
+                    title: 'Consent',
+                    _type: 'stage',
+                    icon: 'clipboard',
+                    iconColor: '#F8BE08',
+                    index: 1,
+                    active: true,
+                    description: [
+                      {
+                        _key: '03222022c8c4',
+                        markDefs: [],
+                        children: [
+                          {
+                            _type: 'span',
+                            marks: [],
+                            text: 'All participants are electronically consented, and own their data. Helix creates a process to make that data portable.',
+                            _key: '7ebf299a17f81',
+                          },
+                        ],
+                        _type: 'block',
+                        style: 'normal',
+                      },
+                    ],
+                  },
+                  {
+                    _type: 'stage',
+                    icon: 'testTube',
+                    _key: '50c505f867e0',
+                    title: 'Collection',
+                    iconColor: '#F8BE08',
+                    index: 2,
+                    active: true,
+                    description: [
+                      {
+                        _key: '03222022c8c4',
+                        markDefs: [],
+                        children: [
+                          {
+                            _type: 'span',
+                            marks: [],
+                            text: 'To streamline collection, we meet participants where they are - collecting at home or in the clinic.',
+                            _key: '7ebf299a17f82',
+                          },
+                        ],
+                        _type: 'block',
+                        style: 'normal',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Sequencing',
+                    _type: 'stage',
+                    icon: 'helix',
+                    _key: '582fa15fee80',
+                    iconColor: '#F8BE08',
+                    index: 3,
+                    active: true,
+                    description: [
+                      {
+                        _key: '03222022c8c4',
+                        markDefs: [],
+                        children: [
+                          {
+                            _type: 'span',
+                            marks: [],
+                            text: 'That sample is sent to our CLIA/CAP next-generation sequencing lab, to be sequenced with our proprietary Exome+ assay.',
+                            _key: '7ebf299a17f83',
+                          },
+                        ],
+                        _type: 'block',
+                        style: 'normal',
+                      },
+                    ],
+                  },
+                  {
+                    _type: 'stage',
+                    icon: 'computerData',
+                    _key: '59d29b38428c',
+                    title: 'Actionable Results',
+                    iconColor: '#F8BE08',
+                    index: 4,
+                    active: true,
+                    description: [
+                      {
+                        _key: '03222022c8c4',
+                        markDefs: [],
+                        children: [
+                          {
+                            _type: 'span',
+                            marks: [],
+                            text: 'We send discrete results on actionable genetic conditions back to the EHR to ensure providers have the right information at the right time to make decisions in the care of their patients.',
+                            _key: '7ebf299a17f84',
+                          },
+                        ],
+                        _type: 'block',
+                        style: 'normal',
+                      },
+                    ],
+                  },
+                ],
+                header: "Helix's End-to-End Solution is Powering One of the Fastest Growing Population Genomics Initiatives in the United States",
+                _key: '470211d8b8b3',
+                _type: 'caseStudyWideCards',
+              },
             ],
           },
         ],
