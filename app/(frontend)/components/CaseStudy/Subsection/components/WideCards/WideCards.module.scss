@@ -125,8 +125,8 @@ $line-bottom-margin: 24px;
     @include body3;
 
     position: relative;
-    margin: -($circle-diameter + $line-bottom-margin) 20px 0;
-    padding-top: $circle-diameter + $line-bottom-margin;
+    margin: -($circle-diameter + $line-bottom-margin + 12px) 20px 0;
+    padding-top: $circle-diameter + $line-bottom-margin + 12px;
     color: $darkblue-400;
 
     &__active {
