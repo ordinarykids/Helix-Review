@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import cx from 'classnames'
 import ArrowRight from 'app/(frontend)/components/svgs/ArrowRight'
 import type { IconColor } from 'app/(frontend)/components/Icon/Icon'
@@ -53,8 +53,8 @@ export default function WideCards({ header, iconColor, stages }: WideCardsProps)
         </div>
         <div className={styles.titleGraphic}>
           {stages.map((stage, index) => (
-            <>
-              <div className={styles.titleGraphic_TitleWrap} key={stage._key}>
+            <Fragment key={stage._key}>
+              <div className={styles.titleGraphic_TitleWrap}>
                 <button
                   className={cx(
                     styles.titleGraphic_Title,
@@ -74,7 +74,7 @@ export default function WideCards({ header, iconColor, stages }: WideCardsProps)
                   <ArrowRight />
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
