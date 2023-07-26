@@ -20,6 +20,7 @@ export default defineType({
       { title: 'Shield With Plus Sign', value: 'shieldPlusSign' },
       { title: 'Speech Bubbles', value: 'speechBubbles' },
       { title: 'Test Tube', value: 'testTube' },
+      { title: 'Timer', value: 'timer' },
     ],
   },
 })

@@ -1,0 +1,94 @@
+@use "../../../../../styles/typography" as *;
+@use "../../../../../styles/colors" as *;
+@use "../../../../../styles/mixins" as *;
+@use "../../../../../styles/spacing" as s;
+
+.container {
+  @include media-breakpoint-up(md) {
+    padding-right: to-rem(s.$case-study-subsection-padding);
+    padding-left: to-rem(s.$case-study-subsection-padding);
+  }
+}
+
+.title {
+  @include headerDesktopSm;
+
+  margin-bottom: to-rem(s.$spacing-standard);
+  color: $darkblue-300;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: $grid-column-gap;
+
+  &_Col {
+    flex: 0 0 auto;
+    width: calc(50% - ($grid-column-gap / 2));
+  }
+}
+
+.statCard {
+  @include dropShadow;
+
+  display: flex;
+  height: 100%;
+  padding: to-rem(s.$spacing-large);
+  column-gap: $grid-column-gap;
+  border-radius: 4px;
+
+  @include media-breakpoint-down(lg) {
+    padding-right: to-rem(s.$spacing-standard);
+    padding-left: to-rem(s.$spacing-standard);
+  }
+
+  &__centered {
+    align-items: center;
+  }
+
+  &_Statistic {
+    @include headerDesktopLg;
+
+    margin-bottom: to-rem(s.$spacing-x-small);
+    color: $darkblue-300;
+    font-weight: 740;
+    word-break: break-all;
+  }
+
+  &_Text {
+    @include body3;
+
+    color: $darkblue-300;
+
+    :global(.styledLink:not(:last-child)) {
+      margin-bottom: to-rem(s.$p-margin-bottom);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_Icon {
+    flex-shrink: 0;
+    width: 132px;
+
+    @include media-breakpoint-down(lg) {
+      width: 88px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 104px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 107px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

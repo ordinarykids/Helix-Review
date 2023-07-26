@@ -12,6 +12,7 @@ import Network from './iconSet/Network'
 import ShieldPlusSign from './iconSet/ShieldPlusSign'
 import SpeechBubbles from './iconSet/SpeechBubbles'
 import TestTube from './iconSet/TestTube'
+import Timer from './iconSet/Timer'
 
 export type IconType =
   | 'clipboard'
@@ -28,6 +29,7 @@ export type IconType =
   | 'shieldPlusSign'
   | 'speechBubbles'
   | 'testTube'
+  | 'timer'
 
 export type IconColor =
   | '#7ABC71'
@@ -55,6 +57,7 @@ const icons = {
   shieldPlusSign: ShieldPlusSign,
   speechBubbles: SpeechBubbles,
   testTube: TestTube,
+  timer: Timer,
 }
 
 export default function Icon({ icon, color }: IconProps) {

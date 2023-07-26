@@ -1,5 +1,6 @@
 // Case Study block schemas
 import caseStudyTwoUp from './caseStudyBlocks/caseStudyTwoUp'
+import caseStudyTwoUpStats from './caseStudyBlocks/caseStudyTwoUpStats'
 import caseStudyWideCards from './caseStudyBlocks/caseStudyWideCards'
 
 // Document schemas
@@ -36,6 +37,7 @@ import pageHero from './objects/pageHero'
 import pageSection from './objects/pageSection'
 import quote from './objects/quote'
 import seo from './objects/seo'
+import statCard from './objects/statCard'
 import styledLink from './objects/styledLink'
 import threeStageProcess from './objects/threeStageProcess'
 import threeUpCard from './objects/threeUpCard'
@@ -59,6 +61,7 @@ export const schemaTypes = [
   cardGrid,
   caseStudy,
   caseStudyTwoUp,
+  caseStudyTwoUpStats,
   caseStudyWideCards,
   category,
   featuredImage,
@@ -85,6 +88,7 @@ export const schemaTypes = [
   quote,
   richText,
   seo,
+  statCard,
   styledLink,
   tag,
   threeStageProcess,

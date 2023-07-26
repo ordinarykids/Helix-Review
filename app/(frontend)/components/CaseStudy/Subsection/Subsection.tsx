@@ -1,5 +1,6 @@
 import type { IconColor } from '../../Icon/Icon'
 import TwoUp, { TwoUpField } from './components/TwoUp/TwoUp'
+import TwoUpStats, { TwoUpStatsField } from './components/TwoUpStats/TwoUpStats'
 import WideCards, { WideCardsField } from './components/WideCards/WideCards'
 import styles from './Subsection.module.scss'
 
@@ -8,6 +9,7 @@ export interface SubsectionProps {
   iconColor: IconColor
   innerBlocks?: (
     | TwoUpField
+    | TwoUpStatsField
     | WideCardsField
   )[]
 }
@@ -34,6 +36,9 @@ export default function Subsection({ eyebrow, iconColor, innerBlocks }: Subsecti
             switch (block?._type) {
               case 'caseStudyTwoUp':
                 return <TwoUp key={block._key} {...block} />
+
+              case 'caseStudyTwoUpStats':
+                return <TwoUpStats key={block._key} {...block} />
 
               case 'caseStudyWideCards':
                 return <WideCards key={block._key} {...block} />

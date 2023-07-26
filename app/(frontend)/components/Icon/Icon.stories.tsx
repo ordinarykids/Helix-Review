@@ -93,3 +93,9 @@ export const TestTube: Story = {
     icon: 'testTube',
   },
 }
+
+export const Timer: Story = {
+  args: {
+    icon: 'timer',
+  },
+}

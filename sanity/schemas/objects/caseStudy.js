@@ -55,6 +55,7 @@ export default defineType({
                       title: 'Inner Blocks',
                       of: [
                         defineArrayMember({ type: 'caseStudyTwoUp' }),
+                        defineArrayMember({ type: 'caseStudyTwoUpStats' }),
                         defineArrayMember({ type: 'caseStudyWideCards' }),
                       ],
                     }),
