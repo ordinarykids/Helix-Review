@@ -28,7 +28,7 @@ export interface TwoUpProps {
   title?: string
   text?: RichTextType
   imageAlignment: 'left' | 'right'
-  styleAsCard: boolean
+  styleAsCard?: boolean
 }
 
 export interface TwoUpField extends TwoUpProps {
