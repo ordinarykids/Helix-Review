@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import { AccordionField } from 'app/(frontend)/components/Accordion/Accordion'
+import { CaseStudyField } from 'app/(frontend)/components/CaseStudy/CaseStudy'
 import { FourPointChartField } from '@/app/(frontend)/components/FourPointChart/FourPointChart'
 import { HomePageHeroType } from '@/app/(frontend)/components/HomePageHero/HomePageHero'
 import { HomeHeroThreeUpType } from '@/app/(frontend)/components/HomeHeroThreeUp/HomeHeroThreeUp'
@@ -38,6 +39,7 @@ type PageByPath = {
   pageHero: PageHeroType | null,
   pageBuilder: (
     | AccordionField
+    | CaseStudyField
     | FourPointChartField
     | GeometricCTAsField
     | HubspotFormField
@@ -74,6 +76,40 @@ const fetchPageByPath = async (pagePath: string) => {
     },
     pageBuilder[] {
       ...,
+      _type == 'caseStudy' => {
+        ...,
+        sections[] {
+          ...,
+          subsections[] {
+            ...,
+            innerBlocks[] {
+              ...,
+              _type == 'caseStudyTwoUp' => {
+                ...,
+                'image': image.asset->${imgReference},
+                logos[] {
+                  ...,
+                  'image': image.asset->${imgReference},
+                },
+              },
+              _type == 'caseStudyTwoUpStats' => {
+                ...,
+                columns {
+                  ...,
+                  col1[] {
+                    ...,
+                    'image': image.asset->${imgReference},
+                  },
+                  col2[] {
+                    ...,
+                    'image': image.asset->${imgReference},
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
       _type == 'geometricCTAs' => {
         ...,
         ctas[] {

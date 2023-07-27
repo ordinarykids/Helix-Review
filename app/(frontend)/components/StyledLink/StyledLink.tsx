@@ -22,7 +22,7 @@ export default function StyledLink({
   const linkClasses = cx(styles.StyledLink, styles[align], styles[theme])
 
   return (
-    <Link href={link} className={cx(linkClasses, className, 'styledLink')}>
+    <Link href={link} className={cx(linkClasses, className)}>
       <span className={styles.text}>{text}</span>
       <CaretRight />
     </Link>

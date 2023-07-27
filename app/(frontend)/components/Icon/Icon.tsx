@@ -1,5 +1,6 @@
 import Clipboard from './iconSet/Clipboard'
 import ComputerData from './iconSet/ComputerData'
+import DataFolders from './iconSet/DataFolders'
 import Heart from './iconSet/Heart'
 import Helix from './iconSet/Helix'
 import IncreasingBarChart from './iconSet/IncreasingBarChart'
@@ -11,10 +12,12 @@ import Network from './iconSet/Network'
 import ShieldPlusSign from './iconSet/ShieldPlusSign'
 import SpeechBubbles from './iconSet/SpeechBubbles'
 import TestTube from './iconSet/TestTube'
+import Timer from './iconSet/Timer'
 
 export type IconType =
   | 'clipboard'
   | 'computerData'
+  | 'dataFolders'
   | 'heart'
   | 'helix'
   | 'increasingBarChart'
@@ -26,6 +29,7 @@ export type IconType =
   | 'shieldPlusSign'
   | 'speechBubbles'
   | 'testTube'
+  | 'timer'
 
 export type IconColor =
   | '#7ABC71'
@@ -41,6 +45,7 @@ interface IconProps {
 const icons = {
   clipboard: Clipboard,
   computerData: ComputerData,
+  dataFolders: DataFolders,
   heart: Heart,
   helix: Helix,
   increasingBarChart: IncreasingBarChart,
@@ -52,6 +57,7 @@ const icons = {
   shieldPlusSign: ShieldPlusSign,
   speechBubbles: SpeechBubbles,
   testTube: TestTube,
+  timer: Timer,
 }
 
 export default function Icon({ icon, color }: IconProps) {
