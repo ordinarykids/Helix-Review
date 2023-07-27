@@ -3,6 +3,27 @@
 @use "../../../../../styles/mixins" as *;
 @use "../../../../../styles/spacing" as s;
 
+.cardContainer {
+  @include dropShadow;
+
+  padding-top: to-rem(s.$spacing-x-large);
+  padding-bottom: to-rem(s.$spacing-x-large);
+
+  @include media-breakpoint-down(md) {
+    padding: to-rem(s.$spacing-large);
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-right: to-rem(s.$spacing-standard);
+    padding-left: to-rem(s.$spacing-standard);
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-right: to-rem(s.$spacing-large);
+    margin-left: to-rem(s.$spacing-large);
+  }
+}
+
 .container {
   @include grid;
 
@@ -27,23 +48,55 @@
       padding-bottom: to-rem(s.$spacing-standard);
     }
   }
+
+  &__inCard {
+    align-items: center;
+  }
+}
+
+.visuals__left {
+  @include columns(1, 8);
+}
+
+.textWrap__imgright {
+  @include columns(1, 6);
 }
 
 .visuals__left,
 .textWrap__imgright {
-  @include columns(1, 6);
-
   @include media-breakpoint-up(md) {
     padding-left: to-rem(s.$case-study-subsection-padding);
+
+    &.visuals__inCard {
+      @include columns(1, 7);
+    }
+
+    &.textWrap__inCard {
+      margin-right: -(s.$spacing-medium);
+    }
   }
+}
+
+.visuals__right {
+  @include columns(6, -1);
+}
+
+.textWrap__imgleft {
+  @include columns(8, -1);
 }
 
 .visuals__right,
 .textWrap__imgleft {
-  @include columns(6, -1);
-
   @include media-breakpoint-up(md) {
     padding-right: to-rem(s.$case-study-subsection-padding);
+
+    &.visuals__inCard {
+      @include columns(7, -1);
+    }
+
+    &.textWrap__inCard {
+      margin-left: -(s.$spacing-medium);
+    }
   }
 }
 
@@ -77,6 +130,12 @@
   @include media-breakpoint-down(md) {
     @include columns(2, 8);
   }
+
+  &__inCard {
+    @include media-breakpoint-down(md) {
+      @include columns(1, -1);
+    }
+  }
 }
 
 .textWrap {
@@ -88,6 +147,12 @@
   @include media-breakpoint-down(sm) {
     row-gap: to-rem(s.$spacing-standard);
   }
+
+  &__inCard {
+    @include media-breakpoint-down(md) {
+      order: 1;
+    }
+  }
 }
 
 .logos {
@@ -96,7 +161,9 @@
   align-items: center;
 
   @include media-breakpoint-down(md) {
-    order: 2;
+    &:not(.logos__inCard) {
+      order: 1;
+    }
   }
 }
 

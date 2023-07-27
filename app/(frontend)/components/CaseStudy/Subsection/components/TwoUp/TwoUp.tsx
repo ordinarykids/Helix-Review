@@ -28,6 +28,7 @@ export interface TwoUpProps {
   title?: string
   text?: RichTextType
   imageAlignment: 'left' | 'right'
+  styleAsCard: boolean
 }
 
 export interface TwoUpField extends TwoUpProps {
@@ -42,13 +43,20 @@ export default function TwoUp({
   title,
   text,
   imageAlignment,
+  styleAsCard,
 }: TwoUpProps) {
-  return (
-    <section className={styles.container}>
+  const twoUpMarkup = (
+    <section className={cx(styles.container, { [styles.container__inCard]: styleAsCard })}>
       {(text || title || logos) && (
-        <div className={cx(styles.textWrap, styles[`textWrap__img${imageAlignment}`])}>
+        <div
+          className={cx(
+            styles.textWrap,
+            styles[`textWrap__img${imageAlignment}`],
+            { [styles.textWrap__inCard]: styleAsCard },
+          )}
+        >
           {logos && (
-            <div className={styles.logos}>
+            <div className={cx(styles.logos, { [styles.logos__inCard]: styleAsCard })}>
               {logos.map((logo) => {
                 const { _key, image: logoImage, externalUrl } = logo
                 const logoImageEl = (
@@ -90,7 +98,13 @@ export default function TwoUp({
         </div>
       )}
       {(image || iconCard) && (
-        <div className={cx(styles.visuals, styles[`visuals__${imageAlignment}`])}>
+        <div
+          className={cx(
+            styles.visuals,
+            styles[`visuals__${imageAlignment}`],
+            { [styles.visuals__inCard]: styleAsCard },
+          )}
+        >
           {image && (
             <div className={styles.imgWrap}>
               <Image
@@ -128,5 +142,10 @@ export default function TwoUp({
         </div>
       )}
     </section>
+  )
+  return (
+    styleAsCard ? (
+      <div className={styles.cardContainer}>{twoUpMarkup}</div>
+    ) : twoUpMarkup
   )
 }

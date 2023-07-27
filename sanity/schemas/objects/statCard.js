@@ -6,7 +6,7 @@ export default defineType({
   title: 'Stat Card',
   fields: [
     defineField({
-      title: 'Add Icon Or Image?',
+      title: 'Add Icon or Image?',
       name: 'mediaType',
       type: 'string',
       options: {
