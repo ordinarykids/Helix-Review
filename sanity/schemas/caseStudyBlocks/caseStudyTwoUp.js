@@ -129,5 +129,10 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    {
+      title: 'Style as card',
+      name: 'styleAsCard',
+      type: 'boolean',
+    },
   ],
 })
