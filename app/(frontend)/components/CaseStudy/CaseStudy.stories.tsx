@@ -737,7 +737,53 @@ export const Docs: Story = {
           {
             _type: 'subsection',
             iconColor: '#7ABC71',
-            // innerBlocks: [ [Object] ],
+            innerBlocks: [
+              {
+                image: {
+                  title: null,
+                  height: 323,
+                  width: 323,
+                  aspectRatio: 1,
+                  blurHash: 'e56RsAog8^a#-o-:j[D*ay-;sgj[9DWBxS%Nj@IUWCxss*ayISax-@',
+                  url: 'https://cdn.sanity.io/images/g5irbagy/staging/ca07ba3ad5c8441516de133290e046ac8d09fa89-323x323.svg',
+                  altText: '97% of participants opted-in for future research',
+                },
+                _type: 'caseStudyTwoUp',
+                imageAlignment: 'right',
+                styleAsCard: true,
+                logos: null,
+                text: [
+                  {
+                    children: [
+                      {
+                        _type: 'span',
+                        marks: [],
+                        text: 'Renown IHI & Helix have published research demonstrating how a broad population preventative genetic screening approach may improve outcomes and how the Exome+ can power novel discovery [1,2]. Collaboration between Helix and Renown IHI continues as they work together to re-engage participants and carry out ground-breaking research.',
+                        _key: '7b67980b08d80',
+                      },
+                    ],
+                    _type: 'block',
+                    style: 'normal',
+                    _key: '009e882bfcd4',
+                    markDefs: [],
+                  },
+                  {
+                    _type: 'styledLink',
+                    link: 'https://helix.com',
+                    text: 'Preventive Genetic Screening',
+                    _key: '3dbcc5871bc2',
+                  },
+                  {
+                    _type: 'styledLink',
+                    link: 'https://helix.com',
+                    text: 'Novel discoveries',
+                    _key: '3dbcc5871bc2',
+                  },
+                ],
+                _key: '68490e2402c6',
+                title: 'More than an Exome',
+              },
+            ],
             _key: 'de1d146d7ce4',
             eyebrow: 'Research Advancement',
           },
