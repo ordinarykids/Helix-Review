@@ -4,9 +4,6 @@ export default {
   name: 'styledLink',
   type: 'object',
   title: 'Styled Link',
-  initialValue: {
-    align: 'left',
-  },
   fields: [
     defineField({
       name: 'text',
