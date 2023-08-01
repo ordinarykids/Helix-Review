@@ -6,6 +6,8 @@
 $underline-height: 4px;
 
 .navWrap {
+  @include dropShadow;
+
   position: sticky;
   top: 0;
   padding-top: to-rem(26px);

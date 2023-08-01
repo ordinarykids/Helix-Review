@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import Subsection, { SubsectionField } from './Subsection/Subsection'
 import Button from '../Button'
@@ -33,12 +33,27 @@ const slugify = (string: string) => (
 )
 
 export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
+  const navRef = useRef<HTMLDivElement>(null)
   /* eslint-disable-next-line */
   const [activeNavItemIndex, setActiveNavItemIndex] = useState(0)
 
+  const [headerHeight, setHeaderHeight] = useState(112)
+
+  useEffect(() => {
+    function getHeaderheight() {
+      const currentHeaderHeight = navRef.current?.offsetHeight
+      if (currentHeaderHeight) {
+        setHeaderHeight(currentHeaderHeight)
+      }
+    }
+    window.addEventListener('resize', getHeaderheight)
+    getHeaderheight()
+    return () => window.removeEventListener('resize', getHeaderheight)
+  }, [])
+
   return (
     <article className={styles.wrap}>
-      <div className={styles.navWrap}>
+      <div className={styles.navWrap} ref={navRef}>
         <div className={styles.navContainer}>
           <div className={styles.navInner}>
             <nav className={styles.nav}>
@@ -74,7 +89,12 @@ export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
             subsections,
           } = section
           return (
-            <section key={_key} id={slugify(eyebrow)} className={styles.section}>
+            <section
+              key={_key}
+              id={slugify(eyebrow)}
+              className={styles.section}
+              style={{ scrollMarginTop: headerHeight }}
+            >
               <div className={styles.section_Intro}>
                 <h3 className={styles.section_Eyebrow}>{eyebrow}</h3>
                 <h2 className={styles.section_Header}>{header}</h2>
