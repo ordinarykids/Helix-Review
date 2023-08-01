@@ -1,4 +1,9 @@
+'use client'
+
+import { useState } from 'react'
+import cx from 'classnames'
 import Subsection, { SubsectionField } from './Subsection/Subsection'
+import Button from '../Button'
 import styles from './CaseStudy.module.scss'
 
 export interface CaseStudySection {
@@ -9,6 +14,10 @@ export interface CaseStudySection {
 }
 
 export interface CaseStudyProps {
+  fileDownload?: {
+    extension: string
+    url: string
+  } | null
   sections: CaseStudySection[]
 }
 
@@ -23,19 +32,36 @@ const slugify = (string: string) => (
     .slice(0, 200)
 )
 
-export default function CaseStudy({ sections }: CaseStudyField) {
+export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
+  /* eslint-disable-next-line */
+  const [activeNavItemIndex, setActiveNavItemIndex] = useState(0)
+
   return (
     <article className={styles.wrap}>
       <div className={styles.navWrap}>
         <div className={styles.navContainer}>
           <div className={styles.navInner}>
             <nav className={styles.nav}>
-              {sections.map((section) => (
-                <a href={`#${slugify(section.eyebrow)}`} className={styles.titleGraphic_TitleWrap} key={section._key}>
+              {sections.map((section, index) => (
+                <a
+                  href={`#${slugify(section.eyebrow)}`}
+                  className={cx(styles.nav_Item, { [styles.nav_Item__active]: index === activeNavItemIndex })}
+                  key={section._key}
+                >
                   {section.eyebrow}
                 </a>
               ))}
             </nav>
+            {fileDownload && (
+              <Button
+                className={styles.nav_Button}
+                text={`Download ${fileDownload.extension.toUpperCase()}`}
+                shortText={fileDownload.extension.toUpperCase()}
+                link={`${fileDownload.url}?dl=`}
+                download
+                buttonStyle='outline'
+              />
+            )}
           </div>
         </div>
       </div>

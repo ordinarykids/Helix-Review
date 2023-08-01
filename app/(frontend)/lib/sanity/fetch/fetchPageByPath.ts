@@ -78,6 +78,10 @@ const fetchPageByPath = async (pagePath: string) => {
       ...,
       _type == 'caseStudy' => {
         ...,
+        fileDownload {
+          'extension': asset->extension,
+          'url': asset->url,
+        },
         sections[] {
           ...,
           subsections[] {
