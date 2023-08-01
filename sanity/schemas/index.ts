@@ -4,6 +4,7 @@ import caseStudyTwoUpStats from './caseStudyBlocks/caseStudyTwoUpStats'
 import caseStudyWideCards from './caseStudyBlocks/caseStudyWideCards'
 
 // Document schemas
+import author from './documents/author'
 import blogPost from './documents/blogPost'
 import category from './documents/category'
 import footerContent from './documents/footerContent'
@@ -55,6 +56,7 @@ import wideCards from './pageSections/wideCards'
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
   accordion,
+  author,
   page,
   blogPost,
   button,
