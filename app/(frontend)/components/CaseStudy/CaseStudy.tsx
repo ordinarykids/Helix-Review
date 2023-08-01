@@ -33,26 +33,61 @@ const slugify = (string: string) => (
 )
 
 export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
-  const navRef = useRef<HTMLDivElement>(null)
-  /* eslint-disable-next-line */
+  const caseStudyRef = useRef<HTMLElement | null>(null)
+  const navRef = useRef<HTMLDivElement | null>(null)
   const [activeNavItemIndex, setActiveNavItemIndex] = useState(0)
 
-  const [headerHeight, setHeaderHeight] = useState(112)
+  const [caseStudyNavHeight, setCaseStudyNavHeight] = useState(112)
 
+  // Get header height and refresh on resize
   useEffect(() => {
     function getHeaderheight() {
-      const currentHeaderHeight = navRef.current?.offsetHeight
+      const currentHeaderHeight = navRef?.current?.offsetHeight
       if (currentHeaderHeight) {
-        setHeaderHeight(currentHeaderHeight)
+        setCaseStudyNavHeight(currentHeaderHeight)
       }
     }
     window.addEventListener('resize', getHeaderheight)
     getHeaderheight()
+
     return () => window.removeEventListener('resize', getHeaderheight)
   }, [])
 
+  // Use intersection observer for sections to add active class to nav item
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target instanceof HTMLElement) {
+            const entryIndex = entry.target.dataset.sectionIndex
+            if (entryIndex) {
+              setActiveNavItemIndex(Number(entryIndex))
+            }
+          }
+        }
+      })
+    }, {
+      rootMargin: '-50% 0px',
+    })
+
+    const sectionList = caseStudyRef?.current?.querySelectorAll('.caseStudy_Section')
+    if (sectionList) {
+      sectionList.forEach((el) => {
+        observer.observe(el)
+      })
+    }
+
+    return () => {
+      if (sectionList) {
+        sectionList.forEach((el) => {
+          observer.unobserve(el)
+        })
+      }
+    }
+  }, [])
+
   return (
-    <article className={styles.wrap}>
+    <article className={styles.wrap} ref={caseStudyRef}>
       <div className={styles.navWrap} ref={navRef}>
         <div className={styles.navContainer}>
           <div className={styles.navInner}>
@@ -81,7 +116,7 @@ export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
         </div>
       </div>
       <div className={styles.sections}>
-        {sections.map((section) => {
+        {sections.map((section, index) => {
           const {
             _key,
             eyebrow,
@@ -92,8 +127,9 @@ export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
             <section
               key={_key}
               id={slugify(eyebrow)}
-              className={styles.section}
-              style={{ scrollMarginTop: headerHeight }}
+              data-section-index={index}
+              className={cx(styles.section, 'caseStudy_Section')}
+              style={{ scrollMarginTop: caseStudyNavHeight }}
             >
               <div className={styles.section_Intro}>
                 <h3 className={styles.section_Eyebrow}>{eyebrow}</h3>
