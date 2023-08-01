@@ -15,6 +15,10 @@ type Story = StoryObj<typeof CaseStudy>;
 
 export const Docs: Story = {
   args: {
+    fileDownload: {
+      extension: 'pdf',
+      url: 'https://cdn.sanity.io/files/g5irbagy/staging/22756265d4e1544e46259b9fb13c7b5b0762134b.pdf',
+    },
     sections: [
       {
         _key: '767603757de6',
