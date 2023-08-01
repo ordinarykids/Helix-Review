@@ -39,18 +39,18 @@ export default function CaseStudy({ fileDownload, sections }: CaseStudyField) {
 
   const [caseStudyNavHeight, setCaseStudyNavHeight] = useState(112)
 
-  // Get header height and refresh on resize
+  // Get case study nav height and refresh on resize
   useEffect(() => {
-    function getHeaderheight() {
-      const currentHeaderHeight = navRef?.current?.offsetHeight
-      if (currentHeaderHeight) {
-        setCaseStudyNavHeight(currentHeaderHeight)
+    function getCaseStudyNavHeight() {
+      const currentCaseStudyNavHeight = navRef?.current?.offsetHeight
+      if (currentCaseStudyNavHeight) {
+        setCaseStudyNavHeight(currentCaseStudyNavHeight)
       }
     }
-    window.addEventListener('resize', getHeaderheight)
-    getHeaderheight()
+    window.addEventListener('resize', getCaseStudyNavHeight)
+    getCaseStudyNavHeight()
 
-    return () => window.removeEventListener('resize', getHeaderheight)
+    return () => window.removeEventListener('resize', getCaseStudyNavHeight)
   }, [])
 
   // Use intersection observer for sections to add active class to nav item
