@@ -44,4 +44,24 @@ export default defineType({
       title: 'Avatar',
     }),
   ],
+  preview: {
+    select: {
+      firstName: 'firstName',
+      lastName: 'lastName',
+      title: 'title',
+      avatar: 'avatar',
+    },
+    prepare: ({
+      firstName,
+      lastName,
+      title,
+      avatar,
+    }) => (
+      {
+        title: `${firstName} ${lastName}`,
+        subtitle: title,
+        media: avatar,
+      }
+    ),
+  },
 })
