@@ -11,6 +11,7 @@ import footerContent from './documents/footerContent'
 import footerNavigation from './documents/footerNavigation'
 import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
+import resourceType from './documents/resourceType'
 import tag from './documents/tag'
 
 // Fields
@@ -88,6 +89,7 @@ export const schemaTypes = [
   pageSection,
   pageSectionImage,
   quote,
+  resourceType,
   richText,
   seo,
   statCard,
