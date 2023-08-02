@@ -60,13 +60,10 @@ export const structure = (S) => {
         ),
       S.listItem()
         .title('Categories')
-        .icon(SchemaIcon)
+        .icon(TagIcon)
         .child(
           S.documentTypeList('category')
-            .title('Categories')
-            .filter('_type == "category" && !defined(parent)')
-            .canHandleIntent(() => false)
-            .child(subCategoryList),
+            .title('Categories'),
         ),
       S.listItem()
         .title('Tags')
