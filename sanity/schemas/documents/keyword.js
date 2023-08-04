@@ -1,15 +1,15 @@
 import { TagIcon } from '@sanity/icons'
 
 export default {
-  name: 'tag',
+  name: 'keyword',
   type: 'document',
-  title: 'Tag',
+  title: 'Keyword',
   icon: TagIcon,
   fields: [
     {
       name: 'name',
       type: 'string',
-      title: 'Tag Name',
+      title: 'Name',
       codegen: { required: true },
       validation: (Rule) => Rule.required(),
     },

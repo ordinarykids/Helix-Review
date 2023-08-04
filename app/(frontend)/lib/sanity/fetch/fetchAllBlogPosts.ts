@@ -4,7 +4,7 @@ import { sanityFetch } from '../sanityClient'
 const fetchAllBlogPosts = async () => {
   const query = codegen(
     'AllBlogPosts',
-    groq`*[_type == "blogPost"]{
+    groq`*[_type == "resource"]{
       "slug": slug.current,
       title,
     }`,

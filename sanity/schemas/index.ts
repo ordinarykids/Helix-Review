@@ -5,14 +5,14 @@ import caseStudyWideCards from './caseStudyBlocks/caseStudyWideCards'
 
 // Document schemas
 import author from './documents/author'
-import blogPost from './documents/blogPost'
+import resource from './documents/resource'
 import category from './documents/category'
 import footerContent from './documents/footerContent'
 import footerNavigation from './documents/footerNavigation'
+import keyword from './documents/keyword'
 import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
 import resourceType from './documents/resourceType'
-import tag from './documents/tag'
 
 // Fields
 import icon from './fields/icon'
@@ -59,7 +59,6 @@ export const schemaTypes = [
   accordion,
   author,
   page,
-  blogPost,
   button,
   cardGrid,
   caseStudy,
@@ -79,6 +78,7 @@ export const schemaTypes = [
   iconCard,
   icon,
   iconColor,
+  keyword,
   link,
   mainNavigation,
   navigationLink,
@@ -89,12 +89,12 @@ export const schemaTypes = [
   pageSection,
   pageSectionImage,
   quote,
+  resource,
   resourceType,
   richText,
   seo,
   statCard,
   styledLink,
-  tag,
   threeStageProcess,
   threeUpCard,
   threeUpCardCta,

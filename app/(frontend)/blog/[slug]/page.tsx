@@ -29,7 +29,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     notFound()
   }
 
-  const { title, categories, tags } = blogPost
+  const { title, categories, keywords } = blogPost
+  console.log('categories: ', categories)
 
   return (
     <main className={styles.container}>
@@ -40,33 +41,39 @@ export default async function Page({ params }: { params: { slug: string } }) {
             Categories:
             <ul>
               {categories.map((category) => {
-                const { slug: categorySlug, name: categoryName } = category
-                return categorySlug ? (
-                  <li>
-                    <Link href={`/blog/category/${categorySlug}`}>
-                      {categoryName}
-                    </Link>
-                  </li>
-                ) : null
+                if (category) {
+                  const { slug: categorySlug, name: categoryName } = category
+                  return categorySlug ? (
+                    <li>
+                      <Link href={`/blog/category/${categorySlug}`}>
+                        {categoryName}
+                      </Link>
+                    </li>
+                  ) : null
+                }
+                return null
               })}
             </ul>
           </div>
         </div>
       )}
-      {tags && (
+      {keywords && (
         <div>
           <div>
-            Tags:
+            Keywords:
             <ul>
-              {tags.map((tag) => {
-                const { slug: tagSlug, name: tagName } = tag
-                return tagSlug ? (
-                  <li>
-                    <Link href={`/blog/tag/${tagSlug}`}>
-                      {tagName}
-                    </Link>
-                  </li>
-                ) : null
+              {keywords.map((keyword) => {
+                if (keyword) {
+                  const { slug: keywordSlug, name: keywordName } = keyword
+                  return keywordSlug ? (
+                    <li>
+                      <Link href={`/blog/keyword/${keywordSlug}`}>
+                        {keywordName}
+                      </Link>
+                    </li>
+                  ) : null
+                }
+                return null
               })}
             </ul>
           </div>

@@ -4,13 +4,13 @@ import { sanityFetch } from '../sanityClient'
 const fetchBlogPostBySlug = async (slug: string) => {
   const query = codegen(
     'BlogPost',
-    groq`*[_type == "blogPost" && slug.current == $slug][0]{
+    groq`*[_type == "resource" && slug.current == $slug][0]{
       title,
       categories[]->{
         name,
         "slug": slug.current,
       },
-      tags[]->{
+      keywords[]->{
         name,
         "slug": slug.current,
       },

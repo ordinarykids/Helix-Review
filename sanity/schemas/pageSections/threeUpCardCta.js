@@ -14,7 +14,7 @@ export default defineType({
           title: 'CTA',
           name: 'cta',
           type: 'reference',
-          to: [{ type: 'blogPost' }],
+          to: [{ type: 'resource' }],
         }),
       ],
       codegen: { required: true },

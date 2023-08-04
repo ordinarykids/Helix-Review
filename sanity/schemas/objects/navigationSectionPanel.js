@@ -18,7 +18,7 @@ export default defineField({
       title: 'Teaser',
       name: 'teaser',
       type: 'reference',
-      to: [{ type: 'blogPost' }],
+      to: [{ type: 'resource' }],
     },
     {
       title: 'Hide teaser on desktop',

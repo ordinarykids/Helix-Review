@@ -49,14 +49,14 @@ export const structure = (S) => {
   return S.list()
     .title('Content')
     .items([
-      ...S.documentTypeListItems().filter((listItem) => !['blogPost', 'category', 'tag', 'resourceType', 'author', 'footerContent', 'footerNavigation', 'mainNavigation'].includes(listItem.getId())),
+      ...S.documentTypeListItems().filter((listItem) => !['resource', 'category', 'keyword', 'resourceType', 'author', 'footerContent', 'footerNavigation', 'mainNavigation'].includes(listItem.getId())),
       S.divider(),
       S.listItem()
-        .title('Post')
+        .title('Resources')
         .icon(DocumentIcon)
         .child(
-          S.documentTypeList('blogPost')
-            .title('All Posts'),
+          S.documentTypeList('resource')
+            .title('All Resources'),
         ),
       S.listItem()
         .title('Types')
@@ -73,11 +73,11 @@ export const structure = (S) => {
             .title('Categories'),
         ),
       S.listItem()
-        .title('Tags')
+        .title('Keywords')
         .icon(TagIcon)
         .child(
-          S.documentTypeList('tag')
-            .title('Tags'),
+          S.documentTypeList('keyword')
+            .title('Keywords'),
         ),
       S.listItem()
         .title('Authors')
