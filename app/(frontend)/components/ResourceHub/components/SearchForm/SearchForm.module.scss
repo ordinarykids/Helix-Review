@@ -11,6 +11,10 @@ $search-form-padding: s.$spacing-x-small;
   width: 475px;
   max-width: 100%;
 
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+  }
+
   &_Input {
     @include body3;
 
@@ -23,10 +27,6 @@ $search-form-padding: s.$spacing-x-small;
     border-radius: 3px;
     color: $charcoal-300;
     appearance: none;
-
-    @include media-breakpoint-down(lg) {
-      width: 100%;
-    }
 
     &::placeholder {
       color: $charcoal-300;

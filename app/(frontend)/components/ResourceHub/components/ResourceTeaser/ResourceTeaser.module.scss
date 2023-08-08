@@ -26,6 +26,10 @@
     align-items: center;
     margin-bottom: to-rem(s.$spacing-small);
     gap: s.$spacing-standard;
+
+    @include media-breakpoint-down(sm) {
+      justify-content: space-between;
+    }
   }
 
   &_Type {
