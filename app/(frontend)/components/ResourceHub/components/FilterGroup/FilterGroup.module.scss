@@ -22,7 +22,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   row-gap: s.$spacing-x-small;
 }
 
@@ -33,5 +32,10 @@
   padding: s.$spacing-x-small;
   color: $darkgray-100;
   letter-spacing: to-rem(0.5px);
+  text-align: left;
   text-transform: uppercase;
+
+  &__selected {
+    background-color: $coolgray-500;
+  }
 }

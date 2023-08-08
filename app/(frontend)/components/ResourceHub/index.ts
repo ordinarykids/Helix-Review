@@ -1,1 +1,1 @@
-export { default } from './ResourceHub'
+export { default } from './ResourceHubLayout'
