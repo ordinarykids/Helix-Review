@@ -30,7 +30,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   const { title, categories, keywords } = blogPost
-  console.log('categories: ', categories)
 
   return (
     <main className={styles.container}>
@@ -45,7 +44,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   const { slug: categorySlug, name: categoryName } = category
                   return categorySlug ? (
                     <li>
-                      <Link href={`/blog/category/${categorySlug}`}>
+                      <Link href={`/resources/category/${categorySlug}`}>
                         {categoryName}
                       </Link>
                     </li>
@@ -67,7 +66,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   const { slug: keywordSlug, name: keywordName } = keyword
                   return keywordSlug ? (
                     <li>
-                      <Link href={`/blog/keyword/${keywordSlug}`}>
+                      <Link href={`/resources/keyword/${keywordSlug}`}>
                         {keywordName}
                       </Link>
                     </li>

@@ -1,0 +1,83 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/spacing" as s;
+
+.wrap {
+  background-color: $white;
+}
+
+.stickySearch {
+  @include dropShadow;
+
+  position: sticky;
+  top: 0;
+  padding-top: to-rem(s.$spacing-standard);
+  padding-bottom: to-rem(s.$spacing-standard);
+  background-color: $white;
+  z-index: 1001;
+
+  @include media-breakpoint-down(md) {
+    padding-top: to-rem(s.$spacing-small);
+    padding-bottom: to-rem(s.$spacing-small);
+  }
+}
+
+.stickySearchContainer {
+  @include containerGrid;
+
+  align-items: center;
+}
+
+.header {
+  @include spanColumns(4, $fullWidthBreakpoint: md);
+  @include headerDesktopSm;
+
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(md) {
+    @include body2;
+
+    margin-bottom: to-rem(s.$spacing-small);
+  }
+}
+
+.searchWrap {
+  @include spanColumns(8, $fullWidthBreakpoint: md);
+}
+
+.postsWrap {
+  padding-top: to-rem(s.$spacing-x-large);
+  padding-bottom: to-rem(s.$spacing-x-large);
+
+  @include media-breakpoint-down(sm) {
+    padding-top: to-rem(s.$spacing-large);
+    padding-bottom: to-rem(s.$spacing-large);
+  }
+}
+
+.postContainer {
+  @include containerGrid;
+}
+
+.filtersWrap {
+  @include columns(1, 4, $fullWidthBreakpoint: md);
+
+  display: flex;
+  flex-direction: column;
+  padding: s.$spacing-small;
+  gap: s.$spacing-large;
+
+  @include media-breakpoint-down(lg) {
+    @include columns(1, 5, $fullWidthBreakpoint: md);
+  }
+}
+
+.posts {
+  @include columns(5, -1, $fullWidthBreakpoint: md);
+}
+
+.postList {
+  @include listReset;
+}

@@ -38,6 +38,7 @@ import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageHero from './objects/pageHero'
 import pageSection from './objects/pageSection'
 import quote from './objects/quote'
+import resourceHub from './objects/resourceHub'
 import seo from './objects/seo'
 import statCard from './objects/statCard'
 import styledLink from './objects/styledLink'
@@ -90,6 +91,7 @@ export const schemaTypes = [
   pageSectionImage,
   quote,
   resource,
+  resourceHub,
   resourceType,
   richText,
   seo,

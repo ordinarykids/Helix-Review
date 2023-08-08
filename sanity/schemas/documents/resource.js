@@ -82,7 +82,7 @@ const resource = defineType({
     }),
     defineField({
       name: 'publicationSource',
-      type: 'string',
+      type: 'url',
       title: 'Publication Source',
       group: 'mainContent',
     }),
