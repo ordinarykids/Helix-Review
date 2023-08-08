@@ -16,6 +16,7 @@ interface IResourceFilterGroup {
   terms: TResourceFilter[]
   selectedTerms: TSelectedTerms
   setSelectedTerms: React.Dispatch<React.SetStateAction<TSelectedTerms>>
+  setFilterInteraction: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function FilterGroup({
@@ -23,6 +24,7 @@ export default function FilterGroup({
   terms,
   selectedTerms,
   setSelectedTerms,
+  setFilterInteraction,
 }: IResourceFilterGroup) {
   const updateSelectedTerms = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (event.target instanceof HTMLButtonElement) {
@@ -54,6 +56,7 @@ export default function FilterGroup({
             type: selectedTermSlug,
           }
         })
+        setFilterInteraction(true)
       }
     }
   }

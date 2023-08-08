@@ -26,16 +26,17 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
   const { resources, categories, types } = resourcesData
   const [selectedResources, setSelectedResources] = useState(resources)
   const [selectedTerms, setSelectedTerms] = useState<TSelectedTerms>({ categories: [], type: '' })
+  const [filterInteraction, setFilterInteraction] = useState(false)
 
   useEffect(() => {
-    if (selectedTerms.categories.length > 0 || selectedTerms.type) {
+    if (filterInteraction) {
       const fetchNewResources = async () => {
         const filteredResourcesData = await fetchFilteredResources(selectedTerms.categories, selectedTerms.type)
         setSelectedResources(filteredResourcesData)
       }
       fetchNewResources()
     }
-  }, [selectedTerms])
+  }, [selectedTerms, filterInteraction])
 
   return (
     <section className={styles.wrap}>
@@ -50,8 +51,8 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
       <div className={styles.postsWrap}>
         <div className={styles.postContainer}>
           <div className={styles.filtersWrap}>
-            {categories.length > 0 && <FilterGroup terms={categories} taxonomyName='category' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} />}
-            {types.length > 0 && <FilterGroup terms={types} taxonomyName='type' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} />}
+            {categories.length > 0 && <FilterGroup terms={categories} taxonomyName='category' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} setFilterInteraction={setFilterInteraction} />}
+            {types.length > 0 && <FilterGroup terms={types} taxonomyName='type' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} setFilterInteraction={setFilterInteraction} />}
           </div>
           <div className={styles.posts}>
             {selectedResources.length > 0 ? (
