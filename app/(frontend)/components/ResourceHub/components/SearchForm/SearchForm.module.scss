@@ -1,0 +1,76 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/typography" as *;
+@use "../../../../styles/colors" as *;
+@use "../../../../styles/spacing" as s;
+
+$search-button-width: 40px;
+$search-form-padding: s.$spacing-x-small;
+
+.searchForm {
+  position: relative;
+  width: 475px;
+  max-width: 100%;
+
+  &_Input {
+    @include body3;
+
+    width: 100%;
+    margin: 0;
+    padding: $search-form-padding;
+    padding-left: ($search-form-padding * 2) + $search-button-width;
+    border: 2px solid $charcoal-300;
+    border-radius: 3px;
+    color: $charcoal-300;
+    appearance: none;
+
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
+
+    &::placeholder {
+      color: $charcoal-300;
+    }
+
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    &::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      width: $search-button-width;
+      height: $search-button-width;
+      background-image: url("/closeX.svg");
+      -webkit-appearance: none;
+    }
+  }
+
+  &_Submit {
+    @include buttonReset;
+
+    position: absolute;
+    top: 50%;
+    left: $search-form-padding;
+    width: $search-button-width;
+    height: $search-button-width;
+    transform: translateY(-50%);
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import cx from 'classnames'
 import fetchAllResourcesAndTerms from 'app/(frontend)/lib/sanity/fetch/fetchAllResourcesAndTerms'
 import FilterGroup from './components/FilterGroup'
 import ResourceTeaser from './components/ResourceTeaser'
+import SearchForm from './components/SearchForm'
 import styles from './ResourceHub.module.scss'
 
 interface ResourceHubProps {
@@ -23,7 +24,7 @@ export default async function ResourceHub({ header }: ResourceHubProps) {
         <div className={cx(styles.stickySearchContainer)}>
           {header && <h2 className={styles.header}>{header}</h2>}
           <div className={styles.searchWrap}>
-            Search
+            <SearchForm />
           </div>
         </div>
       </div>
