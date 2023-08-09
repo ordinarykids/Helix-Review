@@ -29,6 +29,7 @@ export interface ResourceHubField extends ResourceHubProps {
 export default function ResourceHub({ header, resourcesData }: ResourceHubProps) {
   const { resources, categories, types } = resourcesData
   const [selectedResources, setSelectedResources] = useState(resources)
+  const [showResultsBtnText, setShowResultsBtnText] = useState('Show All')
   const [selectedTerms, setSelectedTerms] = useState<TSelectedTerms>({ categories: [], type: '' })
   const [filterInteraction, setFilterInteraction] = useState(false)
   const [isBelowBreakpoint] = useIsBelowBreakpoint('768px')
@@ -38,7 +39,13 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
     if (filterInteraction) {
       const fetchNewResources = async () => {
         const filteredResourcesData = await fetchFilteredResources(selectedTerms.categories, selectedTerms.type)
-        setSelectedResources(filteredResourcesData)
+        const { resources: filteredResources, count } = filteredResourcesData
+        let resultsButtonText = 'Show All'
+        if (selectedTerms.categories.length > 0 || selectedTerms.type) {
+          resultsButtonText = `Show ${count} Result${count === 1 ? '' : 's'}`
+        }
+        setSelectedResources(filteredResources)
+        setShowResultsBtnText(resultsButtonText)
       }
       fetchNewResources()
     }
@@ -70,6 +77,11 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
               <div className={styles.filtersInner}>
                 {categories.length > 0 && <FilterGroup terms={categories} taxonomyName='category' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} setFilterInteraction={setFilterInteraction} />}
                 {types.length > 0 && <FilterGroup terms={types} taxonomyName='type' selectedTerms={selectedTerms} setSelectedTerms={setSelectedTerms} setFilterInteraction={setFilterInteraction} />}
+              </div>
+              <div className={styles.filterShowResults}>
+                <button className={styles.filterShowResults_Button} onClick={() => setMobileFiltersOpen(false)} type='button'>
+                  {showResultsBtnText}
+                </button>
               </div>
             </div>
           </RemoveScroll>

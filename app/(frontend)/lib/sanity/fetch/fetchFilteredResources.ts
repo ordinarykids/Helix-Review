@@ -7,14 +7,21 @@ interface ResourceFetchTeaser extends IResourceTeaser {
   _id: string
 }
 
-export type FilteredResources = ResourceFetchTeaser[]
+export type FilteredResources = {
+  resources: ResourceFetchTeaser[]
+  count: number
+}
 
 const fetchFilteredResources = async (categoryTerms: string[], type: string) => {
-  const query = groq`*[
+  const resourcesQuery = `*[
     _type == "resource"
     ${categoryTerms && categoryTerms.length > 0 ? '&& count((categories[]->slug.current)[@ in $categoryTerms]) == count($categoryTerms)' : ''}
     ${type ? '&& type->slug.current == $type' : ''}
-  ] | order(_createdAt desc)${resourceTeaser}`
+  ]`
+  const query = groq`{
+    'resources': ${resourcesQuery} | order(_createdAt desc)${resourceTeaser},
+    'count': count(${resourcesQuery})
+  }`
   const res = await sanityFetch<FilteredResources>(query, { categoryTerms, type })
   return res
 }

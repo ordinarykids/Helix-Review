@@ -96,9 +96,7 @@
 
   @include media-breakpoint-down(md) {
     position: fixed;
-    padding-top: 0;
-    padding-right: s.$container-padding-md;
-    padding-left: s.$container-padding-md;
+    padding: 0 s.$container-padding-md;
     transform: translateX(-100%);
     transition: transform $transition-speed, visibility $transition-speed;
     background-color: $white;
@@ -120,8 +118,6 @@
 
   &_Header {
     display: flex;
-    position: sticky;
-    top: 0;
     align-items: center;
     justify-content: space-between;
     margin-bottom: s.$spacing-small;
@@ -146,6 +142,30 @@
   display: flex;
   flex-direction: column;
   gap: s.$spacing-large;
+}
+
+.filterShowResults {
+  position: sticky;
+  bottom: 0;
+  margin-top: to-rem(s.$spacing-small);
+  padding-bottom: s.$spacing-small;
+  background-color: $white;
+
+  &_Button {
+    @include buttonReset;
+    @include body6;
+
+    width: 100%;
+    margin-top: to-rem(s.$spacing-x-small);
+    padding: s.$spacing-x-small to-rem(s.$spacing-small);
+    border-radius: 3px;
+    background-color: $darkblue-300;
+    color: $white;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
 }
 
 .posts {
