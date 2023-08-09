@@ -95,7 +95,9 @@
   }
 
   @include media-breakpoint-down(md) {
+    display: flex;
     position: fixed;
+    flex-direction: column;
     padding: 0 s.$container-padding-md;
     transform: translateX(-100%);
     transition: transform $transition-speed, visibility $transition-speed;
@@ -103,6 +105,7 @@
     overflow: auto;
     visibility: hidden;
     z-index: 1002;
+    gap: to-rem(s.$spacing-small);
     inset: 0;
 
     &__mobileOpen {
@@ -120,7 +123,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: s.$spacing-small;
     padding-top: s.$spacing-x-small;
     padding-bottom: s.$spacing-x-small;
     background-color: $white;
@@ -147,7 +149,7 @@
 .filterShowResults {
   position: sticky;
   bottom: 0;
-  margin-top: to-rem(s.$spacing-small);
+  margin-top: auto;
   padding-bottom: s.$spacing-small;
   background-color: $white;
 
