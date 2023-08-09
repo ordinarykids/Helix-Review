@@ -6,6 +6,11 @@ export default defineType({
   title: 'Case Study',
   fields: [
     defineField({
+      name: 'fileDownload',
+      type: 'file',
+      title: 'File Download',
+    }),
+    defineField({
       name: 'sections',
       type: 'array',
       title: 'Sections',
