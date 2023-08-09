@@ -9,14 +9,17 @@ interface ResourceFetchTeaser extends IResourceTeaser {
 }
 
 export type AllResources = {
-  resources: ResourceFetchTeaser[];
+  resources: ResourceFetchTeaser[]
+  count: number
   categories: TResourceFilter[]
   types: TResourceFilter[]
 }
 
 const fetchAllResourcesAndTerms = async () => {
+  const resourcesQuery = '*[_type == "resource"]'
   const query = groq`{
-    'resources': *[_type == "resource"] | order(_createdAt desc)${resourceTeaser},
+    'resources': ${resourcesQuery} | order(_createdAt desc)${resourceTeaser},
+    'count': count(${resourcesQuery}),
     'categories': *[_type == 'category'] | order(name asc){
       name,
       "slug": slug.current,

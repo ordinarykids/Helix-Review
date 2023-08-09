@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { RemoveScroll } from 'react-remove-scroll'
+import ReactPaginate from 'react-paginate'
 import cx from 'classnames'
 import { AllResources } from 'app/(frontend)/lib/sanity/fetch/fetchAllResourcesAndTerms'
 import fetchFilteredResources from 'app/(frontend)/lib/sanity/fetch/fetchFilteredResources'
@@ -9,6 +10,7 @@ import useIsBelowBreakpoint from 'app/(frontend)/hooks/useIsBelowBreakpoint'
 import FilterGroup, { TSelectedTerms } from '../FilterGroup/FilterGroup'
 import ResourceTeaser from '../ResourceTeaser'
 import SearchForm from '../SearchForm'
+import CaretRight from '../../../svgs/CaretRight'
 import CloseXIcon from '../../../svgs/CloseX'
 import FilterIcon from '../../../svgs/Filter'
 import styles from './ResourceHub.module.scss'
@@ -27,24 +29,48 @@ export interface ResourceHubField extends ResourceHubProps {
 }
 
 export default function ResourceHub({ header, resourcesData }: ResourceHubProps) {
-  const { resources, categories, types } = resourcesData
+  const {
+    resources,
+    count,
+    categories,
+    types,
+  } = resourcesData
   const [selectedResources, setSelectedResources] = useState(resources)
+  const [resourcesCount, setResourcesCount] = useState(count)
   const [showResultsBtnText, setShowResultsBtnText] = useState('Show All')
   const [selectedTerms, setSelectedTerms] = useState<TSelectedTerms>({ categories: [], type: '' })
   const [filterInteraction, setFilterInteraction] = useState(false)
   const [isBelowBreakpoint] = useIsBelowBreakpoint('768px')
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
+  // Pagination
+  const [reactPaginateKey, setReactPaginateKey] = useState(0)
+  const anchorId = 'paginationTopAnchor'
+  const itemsPerPage = 2
+  const pageCount = Math.ceil(resourcesCount / itemsPerPage)
+  useEffect(() => {
+    // Update key when resources list is filtered to unmount and remount the ReactPaginate component
+    // to fix a bug where it doesn't make first page active on change of items
+    setReactPaginateKey((prevKey) => prevKey + 1)
+  }, [selectedTerms])
+  // Invoked when user clicks to request another page
+  const handlePageClick = () => {
+    // const newOffset = (event.selected * itemsPerPage) % items.length
+    // setItemOffset(newOffset)
+    document.getElementById(anchorId)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   useEffect(() => {
     if (filterInteraction) {
       const fetchNewResources = async () => {
         const filteredResourcesData = await fetchFilteredResources(selectedTerms.categories, selectedTerms.type)
-        const { resources: filteredResources, count } = filteredResourcesData
+        const { resources: filteredResources, count: filteredCount } = filteredResourcesData
         let resultsButtonText = 'Show All'
         if (selectedTerms.categories.length > 0 || selectedTerms.type) {
-          resultsButtonText = `Show ${count} Result${count === 1 ? '' : 's'}`
+          resultsButtonText = `Show ${filteredCount} Result${filteredCount === 1 ? '' : 's'}`
         }
         setSelectedResources(filteredResources)
+        setResourcesCount(filteredCount)
         setShowResultsBtnText(resultsButtonText)
       }
       fetchNewResources()
@@ -52,7 +78,7 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
   }, [selectedTerms, filterInteraction])
 
   return (
-    <section className={styles.wrap}>
+    <section id={anchorId} className={styles.wrap}>
       <div className={styles.stickySearch}>
         <div className={cx(styles.stickySearchContainer)}>
           {header && <h2 className={styles.header}>{header}</h2>}
@@ -87,9 +113,37 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
           </RemoveScroll>
           <div className={styles.posts}>
             {selectedResources.length > 0 ? (
-              <ul className={styles.postList}>
-                {selectedResources.map((resource) => <ResourceTeaser key={resource._id} {...resource} />)}
-              </ul>
+              <>
+                <ul className={styles.postList}>
+                  {selectedResources.map((resource) => <ResourceTeaser key={resource._id} {...resource} />)}
+                </ul>
+                <ReactPaginate
+                  key={reactPaginateKey}
+                  containerClassName={styles.pagination}
+                  pageLinkClassName={styles.pagination_Link}
+                  activeLinkClassName={styles.pagination_Link__active}
+                  previousLinkClassName={styles.pagination_NavLink}
+                  nextLinkClassName={styles.pagination_NavLink}
+                  breakLinkClassName={styles.pagination_Link}
+                  disabledLinkClassName={styles.pagination_NavLink__disabled}
+                  breakLabel='...'
+                  nextLabel={(
+                    <span className={cx(styles.pagination_NavSpan, styles.pagination_NextSpan)}>
+                      <CaretRight />
+                    </span>
+                  )}
+                  onPageChange={handlePageClick}
+                  marginPagesDisplayed={1}
+                  pageRangeDisplayed={3}
+                  pageCount={pageCount}
+                  previousLabel={(
+                    <span className={cx(styles.pagination_NavSpan, styles.pagination_PrevSpan)}>
+                      <CaretRight />
+                    </span>
+                  )}
+                  renderOnZeroPageCount={null}
+                />
+              </>
             ) : (
               <h3>No resources found</h3>
             )}

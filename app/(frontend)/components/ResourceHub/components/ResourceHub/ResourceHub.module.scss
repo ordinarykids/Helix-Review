@@ -177,3 +177,78 @@
 .postList {
   @include listReset;
 }
+
+.pagination {
+  @include listReset;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: to-rem(s.$spacing-large);
+  gap: 4px;
+
+  &_Link {
+    @include body8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: $body-text-color;
+    cursor: pointer;
+    box-sizing: content-box;
+
+    &__active {
+      border: 2px solid;
+      border-radius: 50%;
+      color: $blue-300;
+      cursor: default;
+
+      &,
+      &:visited,
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &_NavLink {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    cursor: pointer;
+
+    svg {
+      max-width: 100%;
+      height: auto;
+
+      path {
+        fill: $darkgray-100;
+      }
+    }
+
+    &__disabled {
+      cursor: default;
+
+      svg {
+        path {
+          fill: $coolgray-100;
+        }
+      }
+    }
+  }
+
+  &_NavSpan {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  &_PrevSpan {
+    transform: scaleX(-1);
+  }
+}
