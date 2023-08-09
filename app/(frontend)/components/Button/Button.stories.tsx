@@ -86,6 +86,23 @@ export const DefaultCenter: Story = {
   },
 }
 
+export const DefaultDarkDownload: Story = {
+  args: {
+    text: 'Download Dark',
+    link: '#',
+    download: true,
+  },
+}
+
+export const DefaultLightDownload: Story = {
+  args: {
+    text: 'Download Light',
+    link: '#',
+    theme: 'light',
+    download: true,
+  },
+}
+
 export const Outline: Story = {
   args: {
     text: 'Outline',
@@ -174,5 +191,28 @@ export const OutlineCenter: Story = {
     buttonStyle: 'outline',
     size: 'large',
     align: 'center',
+  },
+}
+
+export const OutlineDarkDownload: Story = {
+  args: {
+    text: 'Download Dark',
+    link: '#',
+    buttonStyle: 'outline',
+    size: 'large',
+    align: 'left',
+    download: true,
+  },
+}
+
+export const OutlineLightDownload: Story = {
+  args: {
+    text: 'Download Light',
+    link: '#',
+    buttonStyle: 'outline',
+    size: 'large',
+    align: 'left',
+    theme: 'light',
+    download: true,
   },
 }
