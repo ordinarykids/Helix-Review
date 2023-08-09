@@ -1,0 +1,7 @@
+const CloseX = (): JSX.Element => (
+  <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <path fillRule='evenodd' clipRule='evenodd' d='M21.4147 20L27.7787 13.6361L26.3645 12.2219L20.0005 18.5858L13.6365 12.2219L12.2223 13.6361L18.5863 20L12.2223 26.364L13.6365 27.7782L20.0005 21.4143L26.3644 27.7782L27.7787 26.364L21.4147 20Z' fill='#5F5F5F' />
+  </svg>
+)
+
+export default CloseX

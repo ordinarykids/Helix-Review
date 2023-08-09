@@ -17,6 +17,10 @@
   font-weight: 620;
   letter-spacing: to-rem(0.5px);
   text-transform: uppercase;
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: to-rem(s.$spacing-small);
+  }
 }
 
 .list {

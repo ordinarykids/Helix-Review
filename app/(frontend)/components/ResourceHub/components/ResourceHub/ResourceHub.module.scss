@@ -1,3 +1,4 @@
+@use "../../../../styles/misc" as *;
 @use "../../../../styles/mixins" as *;
 @use "../../../../styles/typography" as *;
 @use "../../../../styles/colors" as *;
@@ -45,11 +46,34 @@
 
 .searchWrap {
   @include spanColumns(8, $fullWidthBreakpoint: md);
+
+  display: flex;
+  align-items: center;
+  gap: s.$spacing-small;
+}
+
+.filterButton {
+  @include buttonReset;
+
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .postsWrap {
   padding-top: to-rem(s.$spacing-x-large);
   padding-bottom: to-rem(s.$spacing-x-large);
+  overflow: hidden;
 
   @include media-breakpoint-down(sm) {
     padding-top: to-rem(s.$spacing-large);
@@ -64,14 +88,64 @@
 .filtersWrap {
   @include columns(1, 4, $fullWidthBreakpoint: md);
 
-  display: flex;
-  flex-direction: column;
   padding: s.$spacing-small;
-  gap: s.$spacing-large;
 
   @include media-breakpoint-down(lg) {
     @include columns(1, 5, $fullWidthBreakpoint: md);
   }
+
+  @include media-breakpoint-down(md) {
+    position: fixed;
+    padding-top: 0;
+    padding-right: s.$container-padding-md;
+    padding-left: s.$container-padding-md;
+    transform: translateX(-100%);
+    transition: transform $transition-speed, visibility $transition-speed;
+    background-color: $white;
+    overflow: auto;
+    visibility: hidden;
+    z-index: 1002;
+    inset: 0;
+
+    &__mobileOpen {
+      transform: none;
+      visibility: visible;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-right: s.$container-padding-sm;
+    padding-left: s.$container-padding-sm;
+  }
+
+  &_Header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: s.$spacing-small;
+    padding-top: s.$spacing-x-small;
+    padding-bottom: s.$spacing-x-small;
+    background-color: $white;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &_Title {
+    @include body3;
+
+    margin-bottom: 0;
+    color: $charcoal-300;
+  }
+}
+
+.filtersInner {
+  display: flex;
+  flex-direction: column;
+  gap: s.$spacing-large;
 }
 
 .posts {
