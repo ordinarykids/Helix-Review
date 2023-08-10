@@ -2,24 +2,36 @@ import { groq } from '@sanity-codegen/client'
 import { IResourceTeaser } from 'app/(frontend)/components/ResourceHub/components/ResourceTeaser/ResourceTeaser'
 import { TResourceFilter } from 'app/(frontend)/components/ResourceHub/components/FilterGroup/FilterGroup'
 import { sanityFetch } from '../sanityClient'
-import resourceTeaser from '../partials/resourceTeaser'
 
 interface ResourceFetchTeaser extends IResourceTeaser {
   _id: string
+  categories: string[] | null;
 }
 
 export type AllResources = {
   resources: ResourceFetchTeaser[]
-  count: number
   categories: TResourceFilter[]
   types: TResourceFilter[]
 }
 
 const fetchAllResourcesAndTerms = async () => {
-  const resourcesQuery = '*[_type == "resource"]'
   const query = groq`{
-    'resources': ${resourcesQuery} | order(_createdAt desc)${resourceTeaser},
-    'count': count(${resourcesQuery}),
+    'resources': *[_type == "resource"] | order(_createdAt desc) {
+      _id,
+      _createdAt,
+      "slug": slug.current,
+      title,
+      publication,
+      publicationSource,
+      externalUrl,
+      color,
+      type->{
+        name,
+        "slug": slug.current,
+        color,
+      },
+      'categories': categories[]->slug.current,
+    },
     'categories': *[_type == 'category'] | order(name asc){
       name,
       "slug": slug.current,

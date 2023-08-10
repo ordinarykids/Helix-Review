@@ -5,7 +5,6 @@ import { RemoveScroll } from 'react-remove-scroll'
 import ReactPaginate from 'react-paginate'
 import cx from 'classnames'
 import { AllResources } from 'app/(frontend)/lib/sanity/fetch/fetchAllResourcesAndTerms'
-import fetchFilteredResources from 'app/(frontend)/lib/sanity/fetch/fetchFilteredResources'
 import useIsBelowBreakpoint from 'app/(frontend)/hooks/useIsBelowBreakpoint'
 import FilterGroup, { TSelectedTerms } from '../FilterGroup/FilterGroup'
 import ResourceTeaser from '../ResourceTeaser'
@@ -31,12 +30,11 @@ export interface ResourceHubField extends ResourceHubProps {
 export default function ResourceHub({ header, resourcesData }: ResourceHubProps) {
   const {
     resources,
-    count,
     categories,
     types,
   } = resourcesData
   const [selectedResources, setSelectedResources] = useState(resources)
-  const [resourcesCount, setResourcesCount] = useState(count)
+  const [resourcesCount, setResourcesCount] = useState(resources.length)
   const [showResultsBtnText, setShowResultsBtnText] = useState('Show All')
   const [selectedTerms, setSelectedTerms] = useState<TSelectedTerms>({ categories: [], type: '' })
   const [filterInteraction, setFilterInteraction] = useState(false)
@@ -45,37 +43,48 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
 
   // Pagination
   const [reactPaginateKey, setReactPaginateKey] = useState(0)
+  const [itemOffset, setItemOffset] = useState(0)
+  const itemsPerPage = 10
+  const endOffset = itemOffset + itemsPerPage
+  const visibleResources = selectedResources.slice(itemOffset, endOffset)
   const anchorId = 'paginationTopAnchor'
-  const itemsPerPage = 2
   const pageCount = Math.ceil(resourcesCount / itemsPerPage)
-  useEffect(() => {
-    // Update key when resources list is filtered to unmount and remount the ReactPaginate component
-    // to fix a bug where it doesn't make first page active on change of items
-    setReactPaginateKey((prevKey) => prevKey + 1)
-  }, [selectedTerms])
   // Invoked when user clicks to request another page
-  const handlePageClick = () => {
-    // const newOffset = (event.selected * itemsPerPage) % items.length
-    // setItemOffset(newOffset)
+  const handlePageClick = (event: { selected: number }) => {
+    const newOffset = (event.selected * itemsPerPage) % selectedResources.length
+    setItemOffset(newOffset)
     document.getElementById(anchorId)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   useEffect(() => {
     if (filterInteraction) {
-      const fetchNewResources = async () => {
-        const filteredResourcesData = await fetchFilteredResources(selectedTerms.categories, selectedTerms.type)
-        const { resources: filteredResources, count: filteredCount } = filteredResourcesData
-        let resultsButtonText = 'Show All'
-        if (selectedTerms.categories.length > 0 || selectedTerms.type) {
-          resultsButtonText = `Show ${filteredCount} Result${filteredCount === 1 ? '' : 's'}`
+      const filteredResources = resources.filter((resource) => {
+        let hasCategories = true
+        let isType = true
+        if (selectedTerms.categories.length > 0) {
+          hasCategories = selectedTerms.categories.every(
+            (selectedCategory) => resource.categories?.includes(selectedCategory),
+          )
         }
-        setSelectedResources(filteredResources)
-        setResourcesCount(filteredCount)
-        setShowResultsBtnText(resultsButtonText)
+        if (selectedTerms.type) {
+          isType = selectedTerms.type === resource.type?.slug
+        }
+        return hasCategories && isType
+      })
+      const filteredCount = filteredResources.length
+      let resultsButtonText = 'Show All'
+      if (selectedTerms.categories.length > 0 || selectedTerms.type) {
+        resultsButtonText = `Show ${filteredCount} Result${filteredCount === 1 ? '' : 's'}`
       }
-      fetchNewResources()
+      setSelectedResources(filteredResources)
+      setResourcesCount(filteredCount)
+      setShowResultsBtnText(resultsButtonText)
+      setItemOffset(0)
+      // Update ReactPaginate key when resources list is filtered to unmount and remount the ReactPaginate component
+      // to fix a bug where it doesn't make first page active
+      setReactPaginateKey((prevKey) => prevKey + 1)
     }
-  }, [selectedTerms, filterInteraction])
+  }, [selectedTerms, filterInteraction, resources])
 
   return (
     <section id={anchorId} className={styles.wrap}>
@@ -112,10 +121,10 @@ export default function ResourceHub({ header, resourcesData }: ResourceHubProps)
             </div>
           </RemoveScroll>
           <div className={styles.posts}>
-            {selectedResources.length > 0 ? (
+            {visibleResources.length > 0 ? (
               <>
                 <ul className={styles.postList}>
-                  {selectedResources.map((resource) => <ResourceTeaser key={resource._id} {...resource} />)}
+                  {visibleResources.map((resource) => <ResourceTeaser key={resource._id} {...resource} />)}
                 </ul>
                 <ReactPaginate
                   key={reactPaginateKey}
