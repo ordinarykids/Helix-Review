@@ -28,14 +28,13 @@ export default function Stage({
   _key: key,
   active,
 }: StageProps) {
-  const visualNumber = index + 1
-  const number = visualNumber < 10 ? `0${visualNumber}` : visualNumber
+  const visualNumber = (index + 1).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
   return (
     <div className={cx(styles.stage, { [styles.stage__active]: active })} id={`stage-${key}`}>
       <div className={styles.stage_TextWrap}>
         <div className={styles.stage_HeaderWrap}>
           <span className={styles.stage_Number} style={{ color: iconColor }}>
-            {number}
+            {visualNumber}
           </span>
           <h3 className={styles.stage_Title}>{title}</h3>
         </div>
