@@ -1,5 +1,4 @@
 import { SchemaIcon } from '@sanity/icons'
-import isUniqueAcrossAllDocuments from '../../lib/isUniqueAcrossAllDocuments'
 
 // https://maxkarlsson.dev/blog/how-to-make-hierarchical-slugs-in-sanity
 async function asyncSlugifier(input, type, context) {
@@ -49,7 +48,6 @@ export default {
       title: 'Slug',
       options: {
         source: (doc, options) => ({ doc, options }),
-        isUnique: isUniqueAcrossAllDocuments,
         slugify: asyncSlugifier,
         maxLength: 200,
       },
