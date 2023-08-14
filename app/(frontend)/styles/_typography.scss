@@ -62,7 +62,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin headerMobileMd() {
-  @include fontSize(34, 40);
+  @include fontSize(30, 40);
 
   font-family: $font-family-tt-norms;
   font-weight: 620;
