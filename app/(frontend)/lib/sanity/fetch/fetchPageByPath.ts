@@ -11,6 +11,7 @@ import { PartnerLogoGridProps } from '@/app/(frontend)/components/PartnerLogoGri
 import { PageSectionProps } from 'app/(frontend)/components/PageSection/PageSection'
 import { QuoteField } from 'app/(frontend)/components/Quote/Quote'
 import { ResourceHubField } from 'app/(frontend)/components/ResourceHub/components/ResourceHub/ResourceHub'
+import { ResourceLatestContentField } from 'app/(frontend)/components/ResourceLatestContent/ResourceLatestContent'
 import { ThreeStageProcessField } from 'app/(frontend)/components/ThreeStageProcess/ThreeStageProcess'
 import { sanityFetch } from '../sanityClient'
 import imgReference from '../partials/imgReference'
@@ -48,6 +49,7 @@ type PageByPath = {
     | PageSectionField
     | QuoteField
     | ResourceHubField
+    | ResourceLatestContentField
     | ThreeStageProcessField
   )[] | null
 }
@@ -129,6 +131,19 @@ const fetchPageByPath = async (pagePath: string) => {
           ...,
           'fileUrl': file.asset->url,
           'image': logo.asset->${imgReference},
+        }
+      },
+      _type == 'resourceLatestContent' => {
+        ...,
+        sections[] {
+          ...,
+          term->{
+            _type,
+            name,
+            descriptiveName,
+            "slug": slug.current,
+            color,
+          },
         }
       },
       _type == 'pageSection' => {

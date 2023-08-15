@@ -13,6 +13,7 @@ import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
 import PageSection from '../components/PageSection'
 import Quote from '../components/Quote'
 import ResourceHub from '../components/ResourceHub'
+import ResourceLatestContent from '../components/ResourceLatestContent'
 import ThreeStageProcess from '../components/ThreeStageProcess'
 
 export async function generateMetadata(
@@ -83,6 +84,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           case 'resourceHub':
             /* @ts-expect-error Async Server Component */
             return <ResourceHub key={buildingBlock._key} {...buildingBlock} />
+
+          case 'resourceLatestContent':
+            return <ResourceLatestContent key={buildingBlock._key} {...buildingBlock} />
 
           case 'threeStageProcess':
             return <ThreeStageProcess key={buildingBlock._key} {...buildingBlock} />

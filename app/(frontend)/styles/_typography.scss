@@ -231,3 +231,15 @@ $font-family-tt-norms: var(--tt-norms);
     @include headerMobileMd;
   }
 }
+
+@mixin taxonomyTermPill {
+  @include body9;
+
+  padding: 0 $spacing-x-small;
+  border: 2px solid $darkblue-300;
+  border-radius: 4px;
+  color: $darkblue-300;
+  font-weight: 620;
+  letter-spacing: to-rem(0.5px);
+  text-transform: uppercase;
+}
