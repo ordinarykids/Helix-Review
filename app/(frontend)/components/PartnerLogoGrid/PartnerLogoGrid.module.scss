@@ -29,7 +29,7 @@
 }
 
 .subheader {
-  @include body1;
+  @include pageSectionIntroBody;
 
   color: $white;
 

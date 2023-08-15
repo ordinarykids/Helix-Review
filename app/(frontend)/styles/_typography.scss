@@ -231,3 +231,7 @@ $font-family-tt-norms: var(--tt-norms);
     @include headerMobileMd;
   }
 }
+
+@mixin pageSectionIntroBody() {
+  @include body1;
+}
