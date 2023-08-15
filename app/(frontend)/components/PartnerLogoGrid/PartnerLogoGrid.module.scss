@@ -17,6 +17,7 @@
 .titleWrap {
   @include container;
 
+  margin-bottom: to-rem(s.$page-section-intro-margin-bottom);
   text-align: center;
 }
 
@@ -30,8 +31,11 @@
 .subheader {
   @include body1;
 
-  margin-bottom: to-rem(s.$spacing-standard);
   color: $white;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .logoGrid {
