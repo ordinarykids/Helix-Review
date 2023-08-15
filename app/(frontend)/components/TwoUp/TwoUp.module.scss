@@ -1,7 +1,7 @@
 @use "../../styles/typography" as *;
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
-@use "../../styles/spacing" as s;
+@use "../../styles/spacing" as spacing;
 
 .container {
   @include containerGrid;
@@ -55,7 +55,7 @@
   p {
     @include body5;
 
-    margin-bottom: to-rem(s.$spacing-small);
+    margin-bottom: to-rem(spacing.$spacing-small);
   }
 
   > :last-child {
