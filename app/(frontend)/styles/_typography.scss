@@ -13,10 +13,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin bodyBase() {
-  @include fontSize(20, 24);
-
-  font-family: $font-family-tt-norms;
-  font-weight: 344;
+  @include body1;
 }
 
 @mixin headerDesktopXl() {
@@ -62,7 +59,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin headerMobileMd() {
-  @include fontSize(34, 40);
+  @include fontSize(30, 40);
 
   font-family: $font-family-tt-norms;
   font-weight: 620;
@@ -230,6 +227,10 @@ $font-family-tt-norms: var(--tt-norms);
   @include media-breakpoint-down($screenSizeChange) {
     @include headerMobileMd;
   }
+}
+
+@mixin pageSectionIntroBody() {
+  @include body1;
 }
 
 @mixin taxonomyTermPill {
