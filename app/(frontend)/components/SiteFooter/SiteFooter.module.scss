@@ -8,10 +8,10 @@
 
 .main {
   padding-top: to-rem(64px);
-  padding-bottom: to-rem(24px);
+  padding-bottom: to-rem(64px);
 
-  @include media-breakpoint-down(sm) {
-    padding-bottom: to-rem(8px);
+  @include media-breakpoint-down(md) {
+    padding-bottom: to-rem(40px);
   }
 
   &_Container {
