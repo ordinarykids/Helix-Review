@@ -39,6 +39,7 @@ import pageHero from './objects/pageHero'
 import pageSection from './objects/pageSection'
 import quote from './objects/quote'
 import resourceHub from './objects/resourceHub'
+import resourceLatestContent from './objects/resourceLatestContent'
 import seo from './objects/seo'
 import statCard from './objects/statCard'
 import styledLink from './objects/styledLink'
@@ -92,6 +93,7 @@ export const schemaTypes = [
   quote,
   resource,
   resourceHub,
+  resourceLatestContent,
   resourceType,
   richText,
   seo,

@@ -1,0 +1,225 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/typography" as *;
+@use "../../../../styles/colors" as *;
+@use "../../../../styles/spacing" as s;
+
+.section {
+  &:not(:last-child) {
+    margin-bottom: to-rem(s.$spacing-x-large);
+  }
+}
+
+.headerWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: to-rem(s.$spacing-large);
+  gap: to-rem(s.$spacing-small);
+
+  @include media-breakpoint-up(sm) {
+    align-items: center;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+
+.sectionTitle {
+  @include headerDesktopSm;
+
+  margin-bottom: 0;
+  color: $body-text-color;
+
+  @include media-breakpoint-down(sm) {
+    @include headerMobileSm;
+  }
+}
+
+.sectionLink {
+  @include body6;
+
+  flex-shrink: 0;
+}
+
+.cards {
+  @include grid;
+
+  row-gap: to-rem(s.$grid-column-gap);
+}
+
+.card {
+  @include dropShadow;
+
+  overflow-wrap: anywhere;
+
+  &,
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $body-text-color;
+  }
+
+  // layout
+  &__threeUp {
+    @include spanColumns(4);
+
+    min-height: 556px;
+
+    @include media-breakpoint-down(lg) {
+      @include spanColumns(6);
+    }
+
+    @include media-breakpoint-down(md) {
+      @include spanColumns(4);
+    }
+  }
+
+  &__fourUp {
+    @include spanColumns(3);
+
+    min-height: 568px;
+
+    @include media-breakpoint-down(lg) {
+      @include spanColumns(6);
+    }
+
+    @include media-breakpoint-down(md) {
+      @include spanColumns(4);
+    }
+  }
+
+  &__wideCards {
+    @include columns(2, 12, md);
+
+    background-color: $seafoam-700;
+  }
+
+  // bg color
+  &__blue {
+    min-height: 440px;
+    background-color: $darkblue-300;
+
+    &,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardImageWrap {
+  position: relative;
+  flex-shrink: 0;
+  height: 0;
+  padding-bottom: 53.3%;
+
+  .card__fourUp & {
+    padding-bottom: 78.3%;
+  }
+}
+
+.cardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardText {
+  padding: s.$spacing-standard s.$spacing-small s.$spacing-small;
+
+  .card__wideCards & {
+    padding-bottom: s.$spacing-standard;
+  }
+
+  &__horizontal {
+    display: flex;
+    column-gap: s.$spacing-standard;
+    row-gap: to-rem(s.$spacing-small);
+
+    @include media-breakpoint-up(sm) {
+      align-items: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__vertical {
+    flex-grow: 1;
+  }
+}
+
+.cardTextInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  row-gap: to-rem(s.$spacing-small);
+}
+
+.cardNumber {
+  @include fontSize(36, 36);
+
+  margin-bottom: 0;
+  font-family: $font-family-tt-norms;
+  font-weight: 740;
+}
+
+.cardTerm {
+  @include taxonomyTermPill;
+}
+
+.cardTitle {
+  @include headerDesktopSm;
+
+  margin-bottom: 0;
+  color: inherit;
+
+  @include media-breakpoint-down(sm) {
+    @include headerMobileSm;
+  }
+
+  .card__wideCards & {
+    @include body3;
+  }
+}
+
+.cardSubtitle {
+  @include body5;
+
+  margin-top: to-rem(s.$spacing-x-small);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cardMeta {
+  margin-top: auto;
+}
+
+.cardAuthor,
+.cardDate {
+  @include body9;
+
+  margin-bottom: 0;
+}

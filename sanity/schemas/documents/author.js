@@ -9,11 +9,23 @@ export default defineType({
       name: 'firstName',
       type: 'string',
       title: 'First Name',
+      validation: (Rule) => Rule.custom((field, context) => {
+        if (context.document.lastName === undefined && field === undefined) {
+          return 'Either First Name or Last Name must have a value'
+        }
+        return true
+      }),
     }),
     defineField({
       name: 'lastName',
       type: 'string',
       title: 'Last Name',
+      validation: (Rule) => Rule.custom((field, context) => {
+        if (context.document.firstName === undefined && field === undefined) {
+          return 'Either First Name or Last Name must have a value'
+        }
+        return true
+      }),
     }),
     defineField({
       name: 'designation',

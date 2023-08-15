@@ -33,14 +33,7 @@
   }
 
   &_Type {
-    @include body9;
-
-    padding: 0 s.$spacing-x-small;
-    border: 2px solid $darkblue-300;
-    border-radius: 4px;
-    font-weight: 620;
-    letter-spacing: to-rem(0.5px);
-    text-transform: uppercase;
+    @include taxonomyTermPill;
   }
 
   &_Date,

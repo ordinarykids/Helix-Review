@@ -16,5 +16,6 @@ export default defineType({
     defineArrayMember({ type: 'partnerLogoGrid' }),
     defineArrayMember({ type: 'caseStudy' }),
     defineArrayMember({ type: 'resourceHub' }),
+    defineArrayMember({ type: 'resourceLatestContent' }),
   ],
 })
