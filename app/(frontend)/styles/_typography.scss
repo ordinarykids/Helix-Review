@@ -13,7 +13,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin bodyBase() {
-  @include fontSize(20, 24);
+  @include fontSize(20, 32);
 
   font-family: $font-family-tt-norms;
   font-weight: 344;
