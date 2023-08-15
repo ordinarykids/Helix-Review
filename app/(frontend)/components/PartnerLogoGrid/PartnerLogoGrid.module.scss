@@ -28,9 +28,9 @@
 }
 
 .subheader {
-  @include body5;
+  @include body1;
 
-  margin-bottom: to-rem(s.$page-section-intro-margin-bottom);
+  margin-bottom: to-rem(s.$spacing-standard);
   color: $white;
 }
 
