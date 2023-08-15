@@ -55,7 +55,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin headerMobileLg() {
-  @include fontSize(40, 48);
+  @include fontSize(32, 40);
 
   font-family: $font-family-tt-norms;
   font-weight: 620;

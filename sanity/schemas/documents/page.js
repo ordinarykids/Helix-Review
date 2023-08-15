@@ -1,5 +1,4 @@
 import { DocumentIcon } from '@sanity/icons'
-import isUniqueAcrossAllDocuments from '../../lib/isUniqueAcrossAllDocuments'
 
 // https://maxkarlsson.dev/blog/how-to-make-hierarchical-slugs-in-sanity
 async function asyncSlugifier(input, type, context) {
@@ -53,7 +52,6 @@ export default {
       description: 'Include entire path to page if this is a child page. E.g., "parent-page/child-page"',
       options: {
         source: (doc, options) => ({ doc, options }),
-        isUnique: isUniqueAcrossAllDocuments,
         slugify: asyncSlugifier,
       },
       validation: (Rule) => Rule.required(),

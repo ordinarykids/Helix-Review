@@ -31,14 +31,13 @@ export default function WideCards({ cards }: WideCardsProps) {
           header,
           text,
         } = card
-        const visualNumber = index + 1
-        const number = visualNumber < 10 ? `0${visualNumber}` : visualNumber
+        const visualNumber = (index + 1).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })
         return (
           <div key={_key} className={styles.card}>
             <div className={styles.card_TextWrap}>
               <div className={styles.card_HeaderWrap}>
                 <span className={styles.card_Number} style={{ color: iconColor }}>
-                  {number}
+                  {visualNumber}
                 </span>
                 {header && <h3 className={styles.card_Title}>{header}</h3>}
               </div>

@@ -71,8 +71,6 @@
   @include headerMobileLg;
 
   margin-bottom: to-rem($page-section-title-margin-bottom);
-  font-size: 38px;
-  font-size: to-rem(38px);
 
   @include media-breakpoint-up(sm) {
     @include headerDesktopLg;
