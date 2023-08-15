@@ -91,6 +91,8 @@
 
   &__wideCards {
     @include columns(2, 12, md);
+
+    background-color: $seafoam-700;
   }
 
   // bg color
