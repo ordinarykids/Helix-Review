@@ -13,10 +13,7 @@ $font-family-tt-norms: var(--tt-norms);
 }
 
 @mixin bodyBase() {
-  @include fontSize(20, 24);
-
-  font-family: $font-family-tt-norms;
-  font-weight: 344;
+  @include body1;
 }
 
 @mixin headerDesktopXl() {
