@@ -1,6 +1,7 @@
 @use "../../styles/typography" as *;
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/spacing" as spacing;
 
 .wrap {
   padding-top: to-rem(80px);
@@ -66,4 +67,9 @@
 
 .items {
   @include columns(7, -1, md);
+  @include body5;
+
+  p {
+    margin-bottom: to-rem(spacing.$spacing-small);
+  }
 }
