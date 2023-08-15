@@ -33,7 +33,7 @@ export default async function TaxonomyTermIndex({
             const { slug: postSlug, title } = post
             return postSlug && (
               <li key={postSlug}>
-                <Link href={`/blog/${postSlug}`}>
+                <Link href={`/resources/${postSlug}`}>
                   {title}
                 </Link>
               </li>

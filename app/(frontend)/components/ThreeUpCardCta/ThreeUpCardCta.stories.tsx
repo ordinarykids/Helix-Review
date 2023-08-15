@@ -19,7 +19,7 @@ export const ThreeUpCardCtaStory: Story = {
     ctas: [
       {
         _key: '5ade475331ed',
-        _type: 'blogPost',
+        _type: 'resource',
         image: {
           url: 'https://cdn.sanity.io/images/g5irbagy/staging/526b351808562325eab086dbb3a33d303f0d9a2f-1440x810.jpg',
           altText: 'A female doctor looks at a clipboard held by a male doctor',
@@ -34,7 +34,7 @@ export const ThreeUpCardCtaStory: Story = {
       },
       {
         _key: 'cf1fdc09fdd7',
-        _type: 'blogPost',
+        _type: 'resource',
         image: {
           height: 656,
           width: 748,
@@ -49,7 +49,7 @@ export const ThreeUpCardCtaStory: Story = {
       },
       {
         _key: 'a97aff563802',
-        _type: 'blogPost',
+        _type: 'resource',
         image: null,
         title: 'HealthPartners testimonial',
         slug: 'this-is-a-blog-post-with-a-title',

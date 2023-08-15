@@ -6,7 +6,7 @@ export async function generateMetadata(
   { params }: { params: { slug: string[] } },
 ): Promise<Metadata> {
   const { slug } = params
-  const pageData = await fetchTermAndPosts('category', slug.join('/'), 'blogPost', 'categories')
+  const pageData = await fetchTermAndPosts('category', slug.join('/'), 'resource', 'categories')
 
   if (!pageData || !pageData.term) {
     return {}
@@ -23,5 +23,5 @@ export default function Page({ params }: { params: { slug: string[] } }) {
   const { slug } = params
 
   /* @ts-expect-error Async Server Component */
-  return <TaxonomyTermIndex taxonomy='category' postType='blogPost' slug={slug.join('/')} taxonomyField='categories' />
+  return <TaxonomyTermIndex taxonomy='category' postType='resource' slug={slug.join('/')} taxonomyField='categories' />
 }

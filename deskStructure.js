@@ -1,79 +1,45 @@
-import { createClient } from '@sanity/client'
-import {
-  DocumentIcon, EditIcon, SchemaIcon, TagIcon,
-} from '@sanity/icons'
-import { sanityProjectId, sanityDataset, sanityApiVersion } from './environment'
+import { DocumentIcon, TagIcon } from '@sanity/icons'
 
-export const structure = (S) => {
-  const client = createClient({
-    projectId: sanityProjectId,
-    dataset: sanityDataset,
-    useCdn: false,
-    apiVersion: sanityApiVersion,
-  })
-
-  const getCategoryMenuItems = (id) => {
-    const customEditButton = S.menuItem()
-      .icon(EditIcon)
-      .title('Edit Category')
-      .showAsAction(true)
-      .intent({
-        type: 'edit',
-        params: { id, type: 'category' },
-      })
-
-    const defaultItems = S.documentTypeList('category').getMenuItems()
-    return [...defaultItems, customEditButton]
-  }
-
-  const subCategoryList = async (categoryId) => {
-    const category = await client.getDocument(categoryId)
-
-    return S.documentTypeList('category')
-      .title(category.name)
-      .filter('parent._ref == $categoryId')
-      .params({ categoryId })
-      .menuItems(getCategoryMenuItems(categoryId))
-      .canHandleIntent(() => false)
-      .initialValueTemplates([
-        S.initialValueTemplateItem(
-          'subCategory',
-          { parentCategoryId: categoryId },
-        ),
-      ])
-      .child(
-        subCategoryList,
-      )
-  }
-
-  return S.list()
+export const structure = (S) => (
+  S.list()
     .title('Content')
     .items([
-      ...S.documentTypeListItems().filter((listItem) => !['blogPost', 'category', 'tag', 'footerContent', 'footerNavigation', 'mainNavigation'].includes(listItem.getId())),
+      ...S.documentTypeListItems().filter((listItem) => !['resource', 'category', 'keyword', 'resourceType', 'author', 'footerContent', 'footerNavigation', 'mainNavigation'].includes(listItem.getId())),
       S.divider(),
       S.listItem()
-        .title('Post')
+        .title('Resources')
         .icon(DocumentIcon)
         .child(
-          S.documentTypeList('blogPost')
-            .title('All Posts'),
+          S.documentTypeList('resource')
+            .title('All Resources'),
+        ),
+      S.listItem()
+        .title('Types')
+        .icon(TagIcon)
+        .child(
+          S.documentTypeList('resourceType')
+            .title('Types'),
         ),
       S.listItem()
         .title('Categories')
-        .icon(SchemaIcon)
-        .child(
-          S.documentTypeList('category')
-            .title('Categories')
-            .filter('_type == "category" && !defined(parent)')
-            .canHandleIntent(() => false)
-            .child(subCategoryList),
-        ),
-      S.listItem()
-        .title('Tags')
         .icon(TagIcon)
         .child(
-          S.documentTypeList('tag')
-            .title('Tags'),
+          S.documentTypeList('category')
+            .title('Categories'),
+        ),
+      S.listItem()
+        .title('Keywords')
+        .icon(TagIcon)
+        .child(
+          S.documentTypeList('keyword')
+            .title('Keywords'),
+        ),
+      S.listItem()
+        .title('Authors')
+        .icon(DocumentIcon)
+        .child(
+          S.documentTypeList('author')
+            .title('All Authors'),
         ),
       S.divider(),
       S.listItem()
@@ -94,6 +60,6 @@ export const structure = (S) => {
             ]),
         ),
     ])
-}
+)
 
 export default structure

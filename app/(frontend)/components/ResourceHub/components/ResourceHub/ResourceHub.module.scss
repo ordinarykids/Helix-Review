@@ -1,0 +1,254 @@
+@use "../../../../styles/misc" as *;
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/typography" as *;
+@use "../../../../styles/colors" as *;
+@use "../../../../styles/spacing" as s;
+
+.wrap {
+  background-color: $white;
+}
+
+.stickySearch {
+  @include dropShadow;
+
+  position: sticky;
+  top: 0;
+  padding-top: to-rem(s.$spacing-standard);
+  padding-bottom: to-rem(s.$spacing-standard);
+  background-color: $white;
+  z-index: 1001;
+
+  @include media-breakpoint-down(md) {
+    padding-top: to-rem(s.$spacing-small);
+    padding-bottom: to-rem(s.$spacing-small);
+  }
+}
+
+.stickySearchContainer {
+  @include containerGrid;
+
+  align-items: center;
+}
+
+.header {
+  @include columns(1, 5, md);
+  @include headerDesktopSm;
+
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(md) {
+    @include body2;
+
+    margin-bottom: to-rem(s.$spacing-small);
+  }
+}
+
+.searchWrap {
+  @include columns(5, -1, md);
+
+  display: flex;
+  align-items: center;
+  gap: s.$spacing-small;
+}
+
+.filterButton {
+  @include buttonReset;
+
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.postsWrap {
+  padding-top: to-rem(s.$spacing-x-large);
+  padding-bottom: to-rem(s.$spacing-x-large);
+  overflow: hidden;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: to-rem(s.$spacing-large);
+    padding-bottom: to-rem(s.$spacing-large);
+  }
+}
+
+.postContainer {
+  @include containerGrid;
+}
+
+.filtersWrap {
+  @include columns(1, 4, $fullWidthBreakpoint: md);
+
+  padding: s.$spacing-small;
+
+  @include media-breakpoint-down(lg) {
+    @include columns(1, 5, $fullWidthBreakpoint: md);
+  }
+
+  @include media-breakpoint-down(md) {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 0 s.$container-padding-md;
+    transform: translateX(-100%);
+    transition: transform $transition-speed, visibility $transition-speed;
+    background-color: $white;
+    overflow: auto;
+    visibility: hidden;
+    z-index: 1002;
+    gap: to-rem(s.$spacing-small);
+    inset: 0;
+
+    &__mobileOpen {
+      transform: none;
+      visibility: visible;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-right: s.$container-padding-sm;
+    padding-left: s.$container-padding-sm;
+  }
+
+  &_Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: s.$spacing-x-small;
+    padding-bottom: s.$spacing-x-small;
+    background-color: $white;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &_Title {
+    @include body3;
+
+    margin-bottom: 0;
+    color: $charcoal-300;
+  }
+}
+
+.filtersInner {
+  display: flex;
+  flex-direction: column;
+  gap: s.$spacing-large;
+}
+
+.filterShowResults {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  padding-bottom: s.$spacing-small;
+  background-color: $white;
+
+  &_Button {
+    @include buttonReset;
+    @include body6;
+
+    width: 100%;
+    margin-top: to-rem(s.$spacing-x-small);
+    padding: s.$spacing-x-small to-rem(s.$spacing-small);
+    border-radius: 3px;
+    background-color: $darkblue-300;
+    color: $white;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+
+.posts {
+  @include columns(5, -1, $fullWidthBreakpoint: md);
+}
+
+.postList {
+  @include listReset;
+}
+
+.pagination {
+  @include listReset;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: to-rem(s.$spacing-large);
+  gap: 4px;
+
+  &_Link {
+    @include body8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: $body-text-color;
+    cursor: pointer;
+    box-sizing: content-box;
+
+    &__active {
+      border: 2px solid;
+      border-radius: 50%;
+      color: $blue-300;
+      cursor: default;
+
+      &,
+      &:visited,
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &_NavLink {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    cursor: pointer;
+
+    svg {
+      max-width: 100%;
+      height: auto;
+
+      path {
+        fill: $darkgray-100;
+      }
+    }
+
+    &__disabled {
+      cursor: default;
+
+      svg {
+        path {
+          fill: $coolgray-100;
+        }
+      }
+    }
+  }
+
+  &_NavSpan {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  &_PrevSpan {
+    transform: scaleX(-1);
+  }
+}

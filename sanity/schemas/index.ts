@@ -4,13 +4,15 @@ import caseStudyTwoUpStats from './caseStudyBlocks/caseStudyTwoUpStats'
 import caseStudyWideCards from './caseStudyBlocks/caseStudyWideCards'
 
 // Document schemas
-import blogPost from './documents/blogPost'
+import author from './documents/author'
+import resource from './documents/resource'
 import category from './documents/category'
 import footerContent from './documents/footerContent'
 import footerNavigation from './documents/footerNavigation'
+import keyword from './documents/keyword'
 import mainNavigation from './documents/mainNavigation'
 import page from './documents/page'
-import tag from './documents/tag'
+import resourceType from './documents/resourceType'
 
 // Fields
 import icon from './fields/icon'
@@ -36,6 +38,7 @@ import partnerLogoGrid from './objects/partnerLogoGrid'
 import pageHero from './objects/pageHero'
 import pageSection from './objects/pageSection'
 import quote from './objects/quote'
+import resourceHub from './objects/resourceHub'
 import seo from './objects/seo'
 import statCard from './objects/statCard'
 import styledLink from './objects/styledLink'
@@ -55,8 +58,8 @@ import wideCards from './pageSections/wideCards'
 // eslint-disable-next-line import/prefer-default-export
 export const schemaTypes = [
   accordion,
+  author,
   page,
-  blogPost,
   button,
   cardGrid,
   caseStudy,
@@ -76,6 +79,7 @@ export const schemaTypes = [
   iconCard,
   icon,
   iconColor,
+  keyword,
   link,
   mainNavigation,
   navigationLink,
@@ -86,11 +90,13 @@ export const schemaTypes = [
   pageSection,
   pageSectionImage,
   quote,
+  resource,
+  resourceHub,
+  resourceType,
   richText,
   seo,
   statCard,
   styledLink,
-  tag,
   threeStageProcess,
   threeUpCard,
   threeUpCardCta,
