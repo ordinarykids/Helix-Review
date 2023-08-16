@@ -4,6 +4,9 @@ const resource = defineType({
   name: 'resource',
   type: 'document',
   title: 'Resource',
+  initialValue: () => ({
+    publishedDate: (new Date().toISOString()),
+  }),
   groups: [
     {
       name: 'mainContent',
@@ -84,6 +87,16 @@ const resource = defineType({
       name: 'publicationSource',
       type: 'url',
       title: 'Publication Source',
+      group: 'mainContent',
+    }),
+    defineField({
+      name: 'publishedDate',
+      type: 'datetime',
+      title: 'Published Date',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+      },
       group: 'mainContent',
     }),
     defineField({
