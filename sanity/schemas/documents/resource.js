@@ -97,6 +97,8 @@ const resource = defineType({
         dateFormat: 'YYYY-MM-DD',
         timeFormat: 'HH:mm',
       },
+      codegen: { required: true },
+      validation: (Rule) => Rule.required(),
       group: 'mainContent',
     }),
     defineField({
