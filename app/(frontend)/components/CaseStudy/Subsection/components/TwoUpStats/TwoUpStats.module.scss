@@ -78,10 +78,6 @@
 
     color: $darkblue-300;
 
-    :global(.styledLink:not(:last-child)) {
-      margin-bottom: to-rem(s.$p-margin-bottom);
-    }
-
     > :last-child {
       margin-bottom: 0;
     }

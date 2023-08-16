@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import StyledLink from '../components/StyledLink'
 import { StyledLinkField } from '../components/StyledLink/StyledLink'
 import styles from './portableTextComponents.module.scss'
@@ -8,7 +9,7 @@ const portableTextComponents = (theme: TypeTheme = 'dark') => (
   {
     types: {
       styledLink: ({ value }: { value: StyledLinkField}) => (
-        <div className={styles.styledLink}>
+        <div className={cx(styles.styledLink, 'styledLink')}>
           <StyledLink {...value} theme={theme} />
         </div>
       ),
