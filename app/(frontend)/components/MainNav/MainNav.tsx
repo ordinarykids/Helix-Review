@@ -253,12 +253,12 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                             )}
                             <div className={styles.teaser_TextWrap}>
                               <p className={styles.teaser_Type}>
-                                {`Featured ${docTypeInfo[teaser._type as DocTypes].text}`}
+                                {`Featured ${docTypeInfo[teaser._type as DocTypes]?.text}`}
                               </p>
                               <p className={styles.teaser_Title}>
                                 {teaser.title}
                               </p>
-                              <StyledLink text='Read More' link={`${docTypeInfo[teaser._type as DocTypes].slug}/${teaser.slug}`} />
+                              <StyledLink text='Read More' link={`${docTypeInfo[teaser._type as DocTypes]?.slug}/${teaser.slug}`} />
                             </div>
                           </div>
                         )}
