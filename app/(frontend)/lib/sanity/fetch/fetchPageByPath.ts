@@ -13,6 +13,7 @@ import { QuoteField } from 'app/(frontend)/components/Quote/Quote'
 import { ResourceHubField } from 'app/(frontend)/components/ResourceHub/components/ResourceHub/ResourceHub'
 import { ResourceLatestContentField } from 'app/(frontend)/components/ResourceLatestContent/ResourceLatestContent'
 import { ThreeStageProcessField } from 'app/(frontend)/components/ThreeStageProcess/ThreeStageProcess'
+import { VideoEmbedField } from 'app/(frontend)/components/VideoEmbed/VideoEmbed'
 import { sanityFetch } from '../sanityClient'
 import imgReference from '../partials/imgReference'
 import teaser from '../partials/teaser'
@@ -51,6 +52,7 @@ type PageByPath = {
     | ResourceHubField
     | ResourceLatestContentField
     | ThreeStageProcessField
+    | VideoEmbedField
   )[] | null
 }
 

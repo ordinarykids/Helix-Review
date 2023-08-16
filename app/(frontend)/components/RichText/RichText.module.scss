@@ -14,11 +14,8 @@
 
   ol,
   ul {
+    padding-left: 0;
     list-style-position: inside;
-  }
-
-  :global(.styledLink):not(:last-child) {
-    margin-bottom: to-rem(spacing.$p-margin-bottom);
   }
 
   > :last-child {

@@ -45,10 +45,10 @@ export default function ThreeUpCardCta({ ctas }: ThreeUpCardCtaProps) {
               )}
             </div>
             <p className={styles.cta_Type}>
-              {docTypeInfo[_type as DocTypes].text}
+              {docTypeInfo[_type as DocTypes]?.text}
             </p>
             {title && <h3 className={styles.cta_Title}>{title}</h3>}
-            <Button className={styles.cta_Button} text={docTypeInfo[_type as DocTypes].buttonText} link={`${docTypeInfo[_type as DocTypes].slug}/${slug}`} buttonStyle='outline' align='center' />
+            <Button className={styles.cta_Button} text={docTypeInfo[_type as DocTypes]?.buttonText} link={`${docTypeInfo[_type as DocTypes]?.slug}/${slug}`} buttonStyle='outline' align='center' />
           </div>
         )
       })}

@@ -15,6 +15,7 @@ import Quote from '../components/Quote'
 import ResourceHub from '../components/ResourceHub'
 import ResourceLatestContent from '../components/ResourceLatestContent'
 import ThreeStageProcess from '../components/ThreeStageProcess'
+import VideoEmbed from '../components/VideoEmbed'
 
 export async function generateMetadata(
   { params }: { params: { slug: string[] } },
@@ -90,6 +91,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
           case 'threeStageProcess':
             return <ThreeStageProcess key={buildingBlock._key} {...buildingBlock} />
+
+          case 'videoEmbed':
+            return <VideoEmbed key={buildingBlock._key} {...buildingBlock} />
 
           default:
             return null

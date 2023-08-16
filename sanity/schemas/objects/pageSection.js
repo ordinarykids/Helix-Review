@@ -65,7 +65,6 @@ export default defineType({
         defineArrayMember({ type: 'richText' }),
         defineArrayMember({ type: 'threeUpCardCta' }),
         defineArrayMember({ type: 'threeUpIconCard' }),
-        defineArrayMember({ type: 'videoEmbed' }),
         defineArrayMember({ type: 'wideCards' }),
       ],
       codegen: { required: true },

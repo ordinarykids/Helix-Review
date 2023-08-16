@@ -115,10 +115,6 @@
 
 .text {
   @include body5;
-
-  :global(.styledLink:not(:last-child)) {
-    margin-bottom: to-rem(s.$p-margin-bottom);
-  }
 }
 
 .visuals,
