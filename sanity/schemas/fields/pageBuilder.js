@@ -15,6 +15,7 @@ export default defineType({
     defineArrayMember({ type: 'fourPointChart' }),
     defineArrayMember({ type: 'partnerLogoGrid' }),
     defineArrayMember({ type: 'caseStudy' }),
+    defineArrayMember({ type: 'videoEmbed' }),
     defineArrayMember({ type: 'resourceHub' }),
     defineArrayMember({ type: 'resourceLatestContent' }),
   ],
