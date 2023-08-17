@@ -18,7 +18,8 @@ const Controls = () => {
   const { camera, gl } = useThree()
   const ref = useRef()
   useFrame(() => ref.current.update())
-  return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} target={[0,0,0]} center={[0, 0, 0]} />
+  
+  return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} target={[0,0,0]} center={[0, 20, 0]} />
 }
 
 
@@ -49,7 +50,7 @@ function Sphere() {
       if (window.innerWidth < 800) {
         setGlobePosition([-1,0, 0])
       } else {
-        setGlobePosition([0, 0, 0])
+        setGlobePosition([5, 0, 0])
       }
     }
    // window.addEventListener('scroll', onScroll)
@@ -68,10 +69,10 @@ function Sphere() {
 
   return (
     <div id='interactiveSphere' className={styles.wrap} ref={sphereWrapRef}>
-      <Canvas linear flat  camera={{  fov: 20 }} onCreated={((state) => ScrollTrigger.refresh())}>
-        <Controls ref={cameraControlRef}   />
+      <Canvas linear flat camera={{ position: [0, 0, 10], fov: 55 }} onCreated={((state) => ScrollTrigger.refresh())}>
+        <Controls ref={cameraControlRef}  target={[0,0,0]} />
         <ambientLight intensity={3} />
-        <HelixSphere scale={.35} position={globePosition}  />
+        <HelixSphere scale={2} position={globePosition}  />
       </Canvas>
     </div>
   )
@@ -99,13 +100,17 @@ function HelixSphere({ ...props }) {
   
   useEffect(() => {
     const onScroll = () => {
+    
+      
+      //model.position.setY(y)
+
     //console.log(camera);
       if (sphereWrapRef.current) {
         setCurrentScrollY(window.scrollY)
       }
       // plays animation when page is scrolled.
       //actions['firstAction'].play().paused = false
-
+      sphereWrapRef.current.position.setX(0);
       
     }
     window.addEventListener('scroll', onScroll)
@@ -119,7 +124,7 @@ function HelixSphere({ ...props }) {
 
   // This hook gives you offets, ranges and other useful things
   const scroll = useScroll()
-  const { scene, animations } = useGLTF('/wtf-18-darker.glb')
+  const { scene, animations } = useGLTF('/w11.glb')
   const { actions } = useAnimations(animations, scene)
   //useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
   // useEffect(() => void (actions['firstAction'].play().paused = true), [actions])
@@ -130,8 +135,8 @@ function HelixSphere({ ...props }) {
   //  // console.log(offset)
   //   // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
     // state.camera.position.set(10 / offset, 1 * offset*4, 120*offset)
-    
-    state.camera.lookAt(-1, 0, 0)
+    // state.camera.position.set(4, 0, 0)
+    //state.camera.lookAt(0, 0, 0)
   //   //console.log(state.camera)
   })
 
@@ -151,7 +156,10 @@ function HelixSphere({ ...props }) {
 
 
 
-  return <primitive object={scene} {...props} ref={sphereWrapRef} />
+  return (
+    <primitive object={scene} {...props} ref={sphereWrapRef} >
+    </primitive>
+  )
 }
 
 /*
@@ -159,8 +167,24 @@ author: glenatron (https://sketchfab.com/glenatron)
 license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/models/94b24a60dc1b48248de50bf087c0f042
 title: Littlest Tokyo */
-useGLTF.preload('/wtf-18-darker.glb')
+useGLTF.preload('/w11.glb')
 
 
 
 export default Sphere
+
+
+
+export  function Model(props) {
+  const { scene, animations } = useGLTF('/w11.glb')
+
+  return (
+    
+      <primitive object={scene} />
+   
+
+
+  )
+}
+
+
