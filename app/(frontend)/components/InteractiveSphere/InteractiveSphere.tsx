@@ -107,10 +107,11 @@ function HelixSphere({ ...props }) {
     //console.log(camera);
       if (sphereWrapRef.current) {
         setCurrentScrollY(window.scrollY)
+     
       }
       // plays animation when page is scrolled.
       //actions['firstAction'].play().paused = false
-      sphereWrapRef.current.position.setX(0);
+      //sphereWrapRef.current.gltf.scene.children[0].position.setX(0);
       
     }
     window.addEventListener('scroll', onScroll)
@@ -138,6 +139,8 @@ function HelixSphere({ ...props }) {
     // state.camera.position.set(4, 0, 0)
     //state.camera.lookAt(0, 0, 0)
   //   //console.log(state.camera)
+
+    console.log(scene.children[0].rotation)
   })
 
   useEffect(() => {
