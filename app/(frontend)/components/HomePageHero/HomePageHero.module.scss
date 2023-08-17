@@ -24,6 +24,11 @@
   &Left {
     @include columns(1, -1);
 
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+    padding: 1rem;
+
     @include media-breakpoint-up(lg) {
       @include spanColumns(6, 1);
     }
@@ -61,14 +66,10 @@
       @include spanColumns(6, 7);
     }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     grid-row-start: 1;
-
-    img {
-      max-width: 100%;
-    }
   }
 }
 

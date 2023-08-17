@@ -1,27 +1,75 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
 import cx from 'classnames'
-import React from 'react'
-import Image from 'next/image'
 import type { PortableTextBlock } from '@portabletext/types'
 import { PortableText } from '@portabletext/react'
-import type ImageField from 'app/(frontend)/types/image'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type LinkField from 'app/(frontend)/types/link'
+import InteractiveSphere from 'app/(frontend)/components/InteractiveSphere'
 import Button from '../Button/Button'
 import styles from './HomePageHero.module.scss'
 
 export type HomePageHeroType = {
-    header?: string | null,
-    subheader?: PortableTextBlock[],
-    media?: string | null,
-    buttonText?: string | null,
-    buttonLink?: LinkField,
-    image: ImageField,
-  }
+  header?: string | null,
+  subheader?: PortableTextBlock[],
+  buttonText?: string | null,
+  buttonLink?: LinkField,
+}
 
 export default function HomePageHero({
-  header, subheader, media, buttonText, buttonLink, image,
+  header, subheader, buttonText, buttonLink,
 }: HomePageHeroType) {
+  gsap.registerPlugin(ScrollTrigger)
+  // Set up the scope for our gsap context and set our timeline variables
+  const animationRootScope = useRef(null)
+  // don't create timelines inside a ref declaration, create them in the useEffect
+  // https://greensock.com/forums/topic/24383-why-is-my-timeline-working-twice/
+  const scrollTriggerTimeline: React.MutableRefObject<
+    GSAPTimeline | HTMLElement | null
+  > = useRef(null)
+
+  useEffect(() => {
+    // DOM elements ready for animation
+    // Use gsatp matchMedia for responsive targeing
+    const mm = gsap.matchMedia(animationRootScope)
+    // Only run the animation on desktop
+    mm.add(
+      {
+        isDesktop: '(min-width: 1024px)',
+      },
+      (context) => {
+        if (context.conditions) {
+          const { isDesktop } = context.conditions
+          if (isDesktop) {
+            // Create a timeline and add the scrollTrigger for the globe animation
+            scrollTriggerTimeline.current = gsap.timeline({
+              scrollTrigger: {
+                id: 'stID',
+                trigger: animationRootScope.current,
+                start: 'top 80',
+                end: '+=400',
+                pin: true,
+                scrub: 1,
+                pinSpacing: false
+              },
+
+            })
+          }
+        }
+      },
+    )
+
+    return () => {
+      // Cleanup code
+      // Calling revert() on gsap.matchMedia() is the same thing as calling it on gsap.context()
+      mm.revert()
+    }
+  }, [])
+
   return (
-    <div className={cx(styles.wrap)}>
+    <div className={cx(styles.wrap)} ref={animationRootScope}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           {header && <h1 className={cx(styles.heroHeader)}>{header}</h1>}
@@ -40,24 +88,7 @@ export default function HomePageHero({
           )}
         </div>
         <div className={cx(styles.heroRight)}>
-          {media
-            ? (
-              <div className={cx(styles.heroAnimation)}>
-                <h2>FPO animation</h2>
-              </div>
-            )
-            : (image) && (
-              <div className={cx(styles.heroImage)}>
-                <Image
-                  className={cx(styles.image)}
-                  src={image.url}
-                  width={image.width}
-                  height={image.height}
-                  alt={image.altText ?? ''}
-                  title={image.title ?? undefined}
-                />
-              </div>
-            )}
+          <InteractiveSphere />
         </div>
       </div>
     </div>
