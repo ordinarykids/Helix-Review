@@ -1,0 +1,70 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/typography" as *;
+@use "../../../../styles/colors" as *;
+@use "../../../../styles/spacing" as s;
+
+.post {
+  @include body9;
+
+  padding-top: to-rem(s.$spacing-small);
+  padding-bottom: to-rem(s.$spacing-small);
+  border-bottom: 1px solid $coolgray-200;
+  color: $darkblue-300;
+
+  @include media-breakpoint-up(md) {
+    padding-left: to-rem(s.$spacing-small);
+  }
+
+  &_Inner {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_Meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: to-rem(s.$spacing-small);
+    gap: s.$spacing-standard;
+
+    @include media-breakpoint-down(sm) {
+      justify-content: space-between;
+    }
+  }
+
+  &_Type {
+    @include taxonomyTermPill;
+  }
+
+  &_Date,
+  &_Publication {
+    font-weight: 344;
+    text-transform: uppercase;
+  }
+
+  &_Publication__link {
+    &,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+      color: inherit;
+    }
+  }
+
+  &_Title {
+    @include body3;
+
+    margin-bottom: to-rem(s.$spacing-small);
+
+    a {
+      &,
+      &:visited,
+      &:hover,
+      &:focus,
+      &:active {
+        color: $darkblue-300;
+      }
+    }
+  }
+}

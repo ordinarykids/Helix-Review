@@ -1,0 +1,81 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/spacing" as *;
+@use "../../styles/typography" as *;
+
+$inner-padding-h: 42px;
+
+.wrap {
+  background-color: $white;
+}
+
+.container {
+  @include container;
+}
+
+.inner {
+  @include dropShadow;
+
+  padding: to-rem(40px) 24px;
+  transform: translateY(to-rem(-40px));
+  background-color: $white;
+
+  @include media-breakpoint-up(md) {
+    margin-right: -$inner-padding-h;
+    margin-left: -$inner-padding-h;
+    padding: to-rem(64px) $inner-padding-h;
+    transform: translateY(to-rem(-64px));
+  }
+}
+
+.header {
+  @include pageSectionHeader;
+
+  margin-bottom: to-rem($page-section-intro-margin-bottom);
+  text-align: center;
+}
+
+.ctas {
+  @include grid;
+
+  row-gap: to-rem(64px);
+
+  @include media-breakpoint-up(sm) {
+    row-gap: to-rem(80px);
+  }
+}
+
+.cta {
+  @include columns(2, 8);
+
+  @include media-breakpoint-up(sm) {
+    @include columns(3, 7);
+  }
+
+  @include media-breakpoint-up(md) {
+    @include spanColumns(4);
+
+    padding-bottom: to-rem(40px);
+  }
+
+  &_Image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &_Title {
+    @include headerMobileSm;
+
+    margin-top: to-rem(24px);
+    margin-bottom: 0;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      @include headerDesktopSm;
+    }
+  }
+
+  &_Button {
+    margin-top: to-rem(24px);
+  }
+}

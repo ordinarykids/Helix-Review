@@ -1,0 +1,104 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import fetchPageByPath from '../lib/sanity/fetch/fetchPageByPath'
+import Accordion from '../components/Accordion'
+import CaseStudy from '../components/CaseStudy'
+import FourPointChart from '../components/FourPointChart'
+import HomePageHero from '../components/HomePageHero'
+import HomeHeroThreeUp from '../components/HomeHeroThreeUp'
+import HubspotForm from '../components/HubspotForm'
+import GeometricCTAs from '../components/GeometricCTAs'
+import PageHero from '../components/PageHero'
+import PartnerLogoGrid from '../components/PartnerLogoGrid/PartnerLogoGrid'
+import PageSection from '../components/PageSection'
+import Quote from '../components/Quote'
+import ResourceHub from '../components/ResourceHub'
+import ResourceLatestContent from '../components/ResourceLatestContent'
+import ThreeStageProcess from '../components/ThreeStageProcess'
+import VideoEmbed from '../components/VideoEmbed'
+
+export async function generateMetadata(
+  { params }: { params: { slug: string[] } },
+): Promise<Metadata> {
+  const { slug } = params
+  const pagePath = slug ?? ['home']
+  const pageData = await fetchPageByPath(pagePath.join('/'))
+
+  if (!pageData) {
+    return {}
+  }
+
+  const { title } = pageData
+
+  return {
+    title,
+  }
+}
+
+export default async function Page({ params }: { params: { slug: string[] } }) {
+  const { slug } = params
+  const pagePath = slug ?? ['home']
+  const pageData = await fetchPageByPath(pagePath.join('/'))
+
+  if (!pageData) {
+    notFound()
+  }
+
+  const {
+    homePageHero,
+    homeHeroThreeUp,
+    pageHero,
+    pageBuilder,
+  } = pageData
+  return (
+    <main>
+      {homePageHero && <HomePageHero {...homePageHero} />}
+      {homeHeroThreeUp && <HomeHeroThreeUp {...homeHeroThreeUp} />}
+      {pageHero && <PageHero {...pageHero} />}
+
+      {pageBuilder && pageBuilder.length > 0 && pageBuilder.map((buildingBlock) => {
+        switch (buildingBlock?._type) {
+          case 'pageSection':
+            return <PageSection key={buildingBlock._key} {...buildingBlock} />
+
+          case 'accordion':
+            return <Accordion key={buildingBlock._key} {...buildingBlock} />
+
+          case 'caseStudy':
+            return <CaseStudy key={buildingBlock._key} {...buildingBlock} />
+
+          case 'fourPointChart':
+            return <FourPointChart key={buildingBlock._key} {...buildingBlock} />
+
+          case 'geometricCTAs':
+            return <GeometricCTAs key={buildingBlock._key} {...buildingBlock} />
+
+          case 'hubspotForm':
+            return <HubspotForm key={buildingBlock._key} {...buildingBlock} />
+
+          case 'partnerLogoGrid':
+            return <PartnerLogoGrid key={buildingBlock._key} {...buildingBlock} />
+
+          case 'quote':
+            return <Quote key={buildingBlock._key} {...buildingBlock} />
+
+          case 'resourceHub':
+            /* @ts-expect-error Async Server Component */
+            return <ResourceHub key={buildingBlock._key} {...buildingBlock} />
+
+          case 'resourceLatestContent':
+            return <ResourceLatestContent key={buildingBlock._key} {...buildingBlock} />
+
+          case 'threeStageProcess':
+            return <ThreeStageProcess key={buildingBlock._key} {...buildingBlock} />
+
+          case 'videoEmbed':
+            return <VideoEmbed key={buildingBlock._key} {...buildingBlock} />
+
+          default:
+            return null
+        }
+      })}
+    </main>
+  )
+}

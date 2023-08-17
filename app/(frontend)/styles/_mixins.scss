@@ -1,0 +1,132 @@
+@use "sass:math";
+@use "./colors" as *;
+@use "./spacing" as *;
+
+@forward "@aleph/nought-sass-mixins" with (
+  $grid-column-count: 12,
+  $grid-column-gap: $grid-column-gap,
+  $container-width: $container-width,
+  $container-padding: $container-padding,
+  $container-responsive-padding: (
+    md: $container-padding-md,
+    sm: $container-padding-sm,
+  ),
+  $grid-responsive-column-counts: (
+    md: 8,
+    sm: 4,
+  ),
+  $grid-responsive-column-gap: (
+    md: $grid-column-gap-md,
+  ),
+  $grid-breakpoints: (
+    xs: $breakpoint-xs,
+    sm: $breakpoint-sm,
+    md: $breakpoint-md,
+    lg: $breakpoint-lg,
+    xl: $breakpoint-xl,
+  )
+);
+
+@use "@aleph/nought-sass-mixins" as *;
+
+$root-font-size: 16px;
+// Convert pixels to rem
+@function to-rem($pixelSize) {
+  $remSize: math.div($pixelSize, $root-font-size);
+
+  @return #{$remSize}rem;
+}
+
+@mixin pageSectionWrap($screenSizeChange: "md") {
+  padding-top: to-rem(80px);
+  padding-bottom: to-rem(80px);
+  overflow: hidden;
+
+  @include media-breakpoint-down($screenSizeChange) {
+    padding-top: to-rem(40px);
+    padding-bottom: to-rem(40px);
+  }
+}
+
+@mixin pageSectionColumns($screenSizeChange: "md") {
+  @include columns(3, 11);
+
+  @include media-breakpoint-down($screenSizeChange) {
+    @include columns(1, -1);
+  }
+}
+
+@mixin buttonReset() {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+@mixin listReset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin dropShadow {
+  box-shadow: 5px 15px 46px 0 rgba(0 0 0 / 15%);
+  backdrop-filter: blur(13.59px);
+}
+
+@mixin radio {
+  position: relative;
+  width: 20px !important;
+  height: 20px;
+  margin: 0 2px 0 0;
+  padding: 0;
+  border: 1px solid #ababab;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: content-box;
+}
+
+@mixin radioChecked {
+  border-color: $darkblue-300;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: $darkblue-300;
+    content: "";
+  }
+}
+
+@mixin checkbox {
+  width: 17px !important;
+  height: 17px;
+  margin: 0 2px 0 0;
+  padding: 0;
+  border: 1px solid #ababab;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: content-box;
+}
+
+@mixin checkboxChecked {
+  background-image: url("/checkboxCheck.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px auto;
+}

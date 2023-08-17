@@ -1,0 +1,103 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+
+.Button {
+  border-radius: 3px;
+  text-align: center;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.text {
+  @include body6;
+
+  color: #fff;
+
+  &__short {
+    display: none;
+
+    @include media-breakpoint-between(sm, lg) {
+      display: block;
+    }
+  }
+
+  &__long {
+    @include media-breakpoint-between(sm, lg) {
+      display: none;
+    }
+  }
+}
+
+.dark {
+  background-color: $darkblue-300;
+
+  &.solid {
+    svg path {
+      stroke: #fff;
+      fill: #fff;
+    }
+  }
+}
+
+.light {
+  background-color: #fff;
+
+  .text {
+    color: $darkblue-300;
+  }
+}
+
+.outline {
+  border: 2px solid $darkblue-300;
+  background-color: transparent;
+
+  .text {
+    color: $darkblue-300;
+  }
+
+  &.light {
+    border: 2px solid #fff;
+
+    .text {
+      color: #fff;
+    }
+
+    svg path {
+      stroke: #fff;
+      fill: #fff;
+    }
+  }
+}
+
+.large {
+  display: block;
+  width: 280px;
+  max-width: 100%;
+  padding: 16px to-rem(16px);
+}
+
+.Button__download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 24px;
+}
+
+.small {
+  padding: 8px to-rem(16px);
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+
+  &.Button__download {
+    display: flex;
+  }
+}

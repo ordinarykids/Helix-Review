@@ -1,0 +1,34 @@
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/spacing";
+
+.container {
+  @include containerGrid;
+}
+
+.textWrap {
+  @include pageSectionColumns;
+
+  text-align: center;
+
+  ol,
+  ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  .container__bgdarkBlue & {
+    > * {
+      color: $white;
+    }
+
+    a {
+      color: $link-color-on-dark;
+    }
+  }
+}

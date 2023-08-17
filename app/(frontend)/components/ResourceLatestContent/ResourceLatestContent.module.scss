@@ -1,0 +1,45 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/spacing" as s;
+
+.wrap {
+  background-color: $white;
+}
+
+.stickyNav {
+  @include dropShadow;
+
+  position: sticky;
+  top: 0;
+  padding-top: to-rem(s.$spacing-large);
+  padding-bottom: to-rem(s.$spacing-large);
+  background-color: $white;
+  z-index: 1001;
+
+  @include media-breakpoint-down(md) {
+    padding-top: to-rem(s.$spacing-standard + 2px);
+    padding-bottom: to-rem(s.$spacing-standard + 2px);
+  }
+}
+
+.stickyNavContainer {
+  @include container;
+}
+
+.header {
+  @include headerDesktopSm;
+
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(sm) {
+    @include headerMobileSm;
+  }
+}
+
+.sections {
+  @include container;
+
+  padding-top: to-rem(s.$spacing-x-large);
+  padding-bottom: to-rem(s.$spacing-x-large);
+}

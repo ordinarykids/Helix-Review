@@ -1,0 +1,187 @@
+@use "../../styles/typography" as *;
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/spacing" as s;
+
+$underline-height: 4px;
+
+.navWrap {
+  @include dropShadow;
+
+  position: sticky;
+  top: 0;
+  padding-top: to-rem(26px);
+  padding-bottom: to-rem(26px);
+  background-color: $white;
+  z-index: 101;
+
+  @include media-breakpoint-down(md) {
+    padding-top: to-rem(40px);
+    padding-bottom: to-rem(40px);
+  }
+}
+
+.navContainer {
+  @include container;
+}
+
+.navInner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: $grid-column-gap;
+  row-gap: to-rem(s.$spacing-medium);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 70px;
+  row-gap: 70px;
+
+  @include media-breakpoint-down(xl) {
+    column-gap: 38px;
+    row-gap: 38px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 28px;
+    row-gap: 28px;
+  }
+
+  @media (max-width: 370.98px) {
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  &_Item {
+    @include body9;
+
+    position: relative;
+    padding-bottom: 16px + $underline-height;
+    font-weight: 500;
+    letter-spacing: to-rem(1px);
+    text-transform: uppercase;
+
+    &,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+      color: $charcoal-500;
+      text-decoration: none;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: $underline-height;
+      transform: scaleX(0);
+      transform-origin: left;
+      background-color: $darkblue-300;
+      content: "";
+    }
+
+    &__active,
+    &:hover,
+    &:focus {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        transition: transform 0.25s ease-out;
+      }
+    }
+
+    &__active {
+      &,
+      &:visited,
+      &:hover,
+      &:focus,
+      &:active {
+        color: $darkblue-100;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      @include body12;
+
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 370.98px) {
+      letter-spacing: -0.5px;
+    }
+  }
+
+  &_Button {
+    flex: 1 1 min-content;
+    max-width: 280px;
+
+    @include media-breakpoint-down(lg) {
+      max-width: 161px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      max-width: 100%;
+    }
+  }
+}
+
+.section {
+  @include pageSectionWrap;
+
+  background-color: $coolgray-300;
+  overflow: unset;
+  scroll-margin-top: 112px;
+
+  &:nth-child(even) {
+    background-color: $coolgray-500;
+  }
+
+  @include media-breakpoint-down(md) {
+    scroll-margin-top: 140px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    scroll-margin-top: 208px;
+  }
+
+  &_Intro {
+    @include containerGrid;
+
+    margin-bottom: to-rem(s.$page-section-intro-margin-bottom);
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_Eyebrow {
+    @include columns(1, 7, md);
+    @include body2;
+
+    margin-bottom: to-rem(s.$page-section-title-margin-bottom);
+    text-transform: uppercase;
+  }
+
+  &_Header {
+    @include columns(1, 10, md);
+    @include pageSectionHeader;
+
+    white-space: pre-wrap;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
