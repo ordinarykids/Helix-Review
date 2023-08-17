@@ -1,5 +1,6 @@
-// @ts-nocheck
 'use client'
+
+// @ts-nocheck
 
 /* eslint-disable */
 import * as THREE from 'three'
