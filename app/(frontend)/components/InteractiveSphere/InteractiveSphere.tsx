@@ -6,38 +6,47 @@ import * as THREE from 'three'
 import { Suspense, useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
 import { ScrollControls, Sky, OrbitControls, useScroll, useGLTF, useAnimations } from '@react-three/drei'
-import CameraControls from 'camera-controls'
+import { CameraControls } from '@react-three/drei';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
 import styles from './InteractiveSphere.module.scss'
 
 extend({ OrbitControls })
 
-const Controls = () => {
-  const { camera, gl } = useThree()
-  const ref = useRef()
-  useFrame(() => ref.current.update())
-  return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} target={[0,0,0]} center={[-15, 1, 0]} />
-}
+// const Controls = () => {
+//   const { camera, gl } = useThree()
+//   const ref = useRef()
+//   useFrame(() => ref.current.update())
+//   return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} target={[0,0,0]} center={[-15, 1, 0]} />
+// }
 
 
 
 function Sphere() {
+  const cameraControlRef = useRef<CameraControls | null>(null);
 
-
+  const helixSphereRef = useRef<HTMLDivElement | null>(null)
   
   const sphereWrapRef = useRef<HTMLDivElement | null>(null)
   const [globePosition, setGlobePosition] = useState(0)
   useEffect(() => {
+  
     const onScroll = () => {
+     // cameraControlRef.current?.position(123, 0, true);
+      if (cameraControlRef.current) {
+
+        console.log('sphereWrapRef')
+        console.log(cameraControlRef)
+      }
+
       if (sphereWrapRef.current) {
-        console.log(sphereWrapRef)
+    //    console.log(sphereWrapRef)
         // const currentScrollY = window.scrollY
         // sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
        // sphereWrapRef.current.camera.rotation.set(THREE.MathUtils.degToRad(30), 0, 0);
       }
       if (window.innerWidth < 800) {
-        setGlobePosition([-10, 0, 13])
+        setGlobePosition([1, 5, 4])
       } else {
         setGlobePosition([0, 0, 0])
       }
@@ -59,9 +68,9 @@ function Sphere() {
   return (
     <div id='interactiveSphere' className={styles.wrap} ref={sphereWrapRef}>
       <Canvas linear flat rotation={[80, 0, 0]}  camera={{ position: [1, 1, 44], rotation: [30, 40, 0], fov: 50 }} onCreated={((state) => ScrollTrigger.refresh())}>
-        <Controls />
+        <CameraControls ref={cameraControlRef}   />
         <ambientLight intensity={3} />
-        <HelixSphere scale={7} position={globePosition} />
+        <HelixSphere scale={9} position={globePosition}  />
       </Canvas>
     </div>
   )
@@ -75,13 +84,28 @@ function HelixSphere({ ...props }) {
 
   const [currentScrollY, setCurrentScrollY] = useState(0)
 
+
+
+  useFrame(({ camera }, delta) => {
+  //  console.log(camera)
+    camera.position.set(10, 1, 12)
+      // controls.current.target.lerp(target, delta)
+
+  })
+
+
+
+  
   useEffect(() => {
     const onScroll = () => {
+    //console.log(camera);
       if (sphereWrapRef.current) {
         setCurrentScrollY(window.scrollY)
       }
       // plays animation when page is scrolled.
       //actions['firstAction'].play().paused = false
+
+      
     }
     window.addEventListener('scroll', onScroll)
     onScroll();
