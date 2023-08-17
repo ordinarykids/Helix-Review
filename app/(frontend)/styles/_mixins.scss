@@ -38,8 +38,8 @@ $root-font-size: 16px;
 }
 
 @mixin pageSectionWrap($screenSizeChange: "md") {
-  padding-top: to-rem(64px);
-  padding-bottom: to-rem(64px);
+  padding-top: to-rem(80px);
+  padding-bottom: to-rem(80px);
   overflow: hidden;
 
   @include media-breakpoint-down($screenSizeChange) {
