@@ -56,79 +56,79 @@ function Sphere() {
 }
 
 
-function HelixSphere({ ...props }) {
+// function HelixSphere({ ...props }) {
 
-  const sphereWrapRef = useRef<HTMLDivElement | null>(null)
-
-
-  const [currentScrollY, setCurrentScrollY] = useState(0)
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (sphereWrapRef.current) {
-        setCurrentScrollY(window.scrollY)
-      }
-      // plays animation when page is scrolled.
-      //actions['firstAction'].play().paused = false
-    }
-    window.addEventListener('scroll', onScroll)
-    onScroll();
-
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-nocheck
-
-  // This hook gives you offets, ranges and other useful things
-  const scroll = useScroll()
-  const { scene, animations } = useGLTF('/w11.glb')
-
-  // Center the rotation on the model's origin
-  scene.rotation.set(Math.PI / 20, 0, 0)
-  scene.position.set(20, 0, 0)
+//   const sphereWrapRef = useRef<HTMLDivElement | null>(null)
 
 
+//   const [currentScrollY, setCurrentScrollY] = useState(0)
 
-  const { actions } = useAnimations(animations, scene)
-  //useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-  // useEffect(() => void (actions['firstAction'].play().paused = true), [actions])
-  // useFrame((state, delta) => { 
-  //   // const action = actions['Take 001']
-  //   // The offset is between 0 and 1, you can apply it to your models any way you like
-  //   const offset = 1 - currentScrollY / 900;
-  //  // console.log(offset)
-  //   // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-  //   state.camera.position.set(10 / offset, 1 * offset*4, 120*offset)
-  //   state.camera.rotation.set(0, offset * 42, offset * 2)
-  //   state.camera.lookAt(0, 0, 0)
-  //   //console.log(state.camera)
-  // })
+//   useEffect(() => {
+//     const onScroll = () => {
+//       if (sphereWrapRef.current) {
+//         setCurrentScrollY(window.scrollY)
+//       }
+//       // plays animation when page is scrolled.
+//       //actions['firstAction'].play().paused = false
+//     }
+//     window.addEventListener('scroll', onScroll)
+//     onScroll();
 
-  useEffect(() => {
-    console.log(scene.children[0])
+//     return () => window.removeEventListener('scroll', onScroll)
+//   }, [])
 
-   // scene.children[0].position.set(-2,0,0)
-    let ctx = gsap.context(() => {
-      gsap.to(sphereWrapRef.current.rotation,
-        { z: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
-      gsap.to(sphereWrapRef.current.rotation,
-        { y: "-=.03", repeat: -1, ease: 'none', repeatRefresh: true })
-      gsap.to(sphereWrapRef.current.rotation,
-        { x: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
-    }, sphereWrapRef); // <- scopes all selector text inside the context to this component (optional, default is document)
-    return () => ctx.revert(); // cleanup! 
+//   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//   // @ts-nocheck
 
-  }, []);
+//   // This hook gives you offets, ranges and other useful things
+//   const scroll = useScroll()
+//   const { scene, animations } = useGLTF('/w11.glb')
+
+//   // Center the rotation on the model's origin
+//   scene.rotation.set(Math.PI / 20, 0, 0)
+//   scene.position.set(20, 0, 0)
 
 
 
+//   const { actions } = useAnimations(animations, scene)
+//   //useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
+//   // useEffect(() => void (actions['firstAction'].play().paused = true), [actions])
+//   // useFrame((state, delta) => { 
+//   //   // const action = actions['Take 001']
+//   //   // The offset is between 0 and 1, you can apply it to your models any way you like
+//   //   const offset = 1 - currentScrollY / 900;
+//   //  // console.log(offset)
+//   //   // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
+//   //   state.camera.position.set(10 / offset, 1 * offset*4, 120*offset)
+//   //   state.camera.rotation.set(0, offset * 42, offset * 2)
+//   //   state.camera.lookAt(0, 0, 0)
+//   //   //console.log(state.camera)
+//   // })
 
-  return (
-  <primitive object={scene} {...props} ref={sphereWrapRef} />
-  )
+//   useEffect(() => {
+//     console.log(scene.children[0])
+
+//    // scene.children[0].position.set(-2,0,0)
+//     let ctx = gsap.context(() => {
+//       gsap.to(sphereWrapRef.current.rotation,
+//         { z: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
+//       gsap.to(sphereWrapRef.current.rotation,
+//         { y: "-=.03", repeat: -1, ease: 'none', repeatRefresh: true })
+//       gsap.to(sphereWrapRef.current.rotation,
+//         { x: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
+//     }, sphereWrapRef); // <- scopes all selector text inside the context to this component (optional, default is document)
+//     return () => ctx.revert(); // cleanup! 
+
+//   }, []);
+
+
+
+
+//   return (
+//   <primitive object={scene} {...props} ref={sphereWrapRef} />
+//   )
  
-}
+// }
 
 /*
 author: glenatron (https://sketchfab.com/glenatron)
