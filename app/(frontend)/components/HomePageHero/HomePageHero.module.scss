@@ -26,6 +26,8 @@
 
     position: relative;
     z-index: 1;
+    background-color: #ffffff;
+    padding: 1rem;
 
     @include media-breakpoint-up(lg) {
       @include spanColumns(6, 1);
