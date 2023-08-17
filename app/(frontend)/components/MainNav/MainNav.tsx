@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable */
+
 import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -251,7 +253,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                                 />
                               </div>
                             )}
-                            {/* <div className={styles.teaser_TextWrap}>
+                            <div className={styles.teaser_TextWrap}>
                               <p className={styles.teaser_Type}>
                                 {`Featured ${docTypeInfo[teaser._type as DocTypes]?.text}`}
                               </p>
@@ -259,7 +261,7 @@ export default function MainNav({ navData }: { navData: MainNavigation }) {
                                 {teaser.title}
                               </p>
                               <StyledLink text='Read More' link={`${docTypeInfo[teaser._type as DocTypes]?.slug}/${teaser.slug}`} />
-                            </div> */}
+                            </div>
                           </div>
                         )}
                       </div>

@@ -3,9 +3,9 @@
 // @ts-nocheck
 
 /* eslint-disable */
-import * as THREE from 'three'
+
 import { Suspense, useEffect, useLayoutEffect, useState, useRef } from 'react'
-import { Canvas, useFrame, useThree, extend, group } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
 import { ScrollControls, Sky, OrbitControls, useScroll, useGLTF, useAnimations } from '@react-three/drei'
 import CameraControls from 'camera-controls'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
