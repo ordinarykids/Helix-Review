@@ -1,13 +1,12 @@
-'use client'
-
 // @ts-nocheck
+'use client'
 
 /* eslint-disable */
 import * as THREE from 'three'
 import { Suspense, useEffect, useLayoutEffect, useState, useRef } from 'react'
-import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, extend, group } from '@react-three/fiber'
 import { ScrollControls, Sky, OrbitControls, useScroll, useGLTF, useAnimations } from '@react-three/drei'
-import { CameraControls } from '@react-three/drei';
+import CameraControls from 'camera-controls'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
 import styles from './InteractiveSphere.module.scss'
@@ -18,63 +17,41 @@ const Controls = () => {
   const { camera, gl } = useThree()
   const ref = useRef()
   useFrame(() => ref.current.update())
-  
-  return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} target={[0,0,0]} center={[0, 20, 0]} />
+  return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} />
 }
 
 
 
 function Sphere() {
-  const cameraControlRef = useRef<CameraControls | null>(null);
 
-  const helixSphereRef = useRef<HTMLDivElement | null>(null)
-  
   const sphereWrapRef = useRef<HTMLDivElement | null>(null)
   const [globePosition, setGlobePosition] = useState(0)
   useEffect(() => {
-  
     const onScroll = () => {
-     // cameraControlRef.current?.position(123, 0, true);
-      if (cameraControlRef.current) {
-
-        console.log('sphereWrapRef')
-        console.log(cameraControlRef)
-      }
-
-      if (sphereWrapRef.current) {
-    //    console.log(sphereWrapRef)
-        // const currentScrollY = window.scrollY
-        // sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
-       // sphereWrapRef.current.camera.rotation.set(THREE.MathUtils.degToRad(30), 0, 0);
-      }
+      // if (sphereWrapRef.current) {
+      //   const currentScrollY = window.scrollY
+      //   sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
+      // }
       if (window.innerWidth < 800) {
-        setGlobePosition([-1,0, 0])
+        setGlobePosition([3, 0, 0])
       } else {
-        setGlobePosition([5, 0, 0])
+        setGlobePosition([20, 0, 0])
       }
     }
-   // window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll)
     window.addEventListener('resize', onScroll);
     onScroll()
-    
-    //sphereWrapRef.current.camera.rotation.set(THREE.MathUtils.degToRad(30), 0, 0);
-  
-    //sphereWrapRef.current.camera.rotation.set(THREE.MathUtils.degToRad(30), 0, 0);
-
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
 
-  
-
   return (
-    <div id='interactiveSphere' className={styles.wrap} ref={sphereWrapRef}>
-      <Canvas linear flat camera={{ position: [0, 0, 10], fov: 55 }} onCreated={((state) => ScrollTrigger.refresh())}>
-        <Controls ref={cameraControlRef}  target={[0,0,0]} />
-        <ambientLight intensity={3} />
-        <HelixSphere scale={2} position={globePosition}  />
-      </Canvas>
-    </div>
+    <Canvas camera={{ position: [5, 0, 5] }}>
+      <ambientLight intensity={2.5} />
+      {/* <directionalLight position={[-2, 5, 2]} /> */}
+      <Controls />
+      <Model position={[2, 0, 12]} />
+    </Canvas>
   )
 }
 
@@ -86,33 +63,13 @@ function HelixSphere({ ...props }) {
 
   const [currentScrollY, setCurrentScrollY] = useState(0)
 
-
-
-  useFrame(({ camera }, delta) => {
-  //  console.log(camera)
-  //  camera.position.set(-1.4, 1, 0)
-      // controls.current.target.lerp(target, delta)
-
-  })
-
-
-
-  
   useEffect(() => {
     const onScroll = () => {
-    
-      
-      //model.position.setY(y)
-
-    //console.log(camera);
       if (sphereWrapRef.current) {
         setCurrentScrollY(window.scrollY)
-     
       }
       // plays animation when page is scrolled.
       //actions['firstAction'].play().paused = false
-      //sphereWrapRef.current.gltf.scene.children[0].position.setX(0);
-      
     }
     window.addEventListener('scroll', onScroll)
     onScroll();
@@ -126,29 +83,37 @@ function HelixSphere({ ...props }) {
   // This hook gives you offets, ranges and other useful things
   const scroll = useScroll()
   const { scene, animations } = useGLTF('/w11.glb')
+
+  // Center the rotation on the model's origin
+  scene.rotation.set(Math.PI / 20, 0, 0)
+  scene.position.set(20, 0, 0)
+
+
+
   const { actions } = useAnimations(animations, scene)
   //useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
   // useEffect(() => void (actions['firstAction'].play().paused = true), [actions])
-  useFrame((state, delta) => { 
+  // useFrame((state, delta) => { 
   //   // const action = actions['Take 001']
   //   // The offset is between 0 and 1, you can apply it to your models any way you like
   //   const offset = 1 - currentScrollY / 900;
   //  // console.log(offset)
   //   // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-    // state.camera.position.set(10 / offset, 1 * offset*4, 120*offset)
-    // state.camera.position.set(4, 0, 0)
-    //state.camera.lookAt(0, 0, 0)
+  //   state.camera.position.set(10 / offset, 1 * offset*4, 120*offset)
+  //   state.camera.rotation.set(0, offset * 42, offset * 2)
+  //   state.camera.lookAt(0, 0, 0)
   //   //console.log(state.camera)
-
-    console.log(scene.children[0].rotation)
-  })
+  // })
 
   useEffect(() => {
+    console.log(scene.children[0])
+
+   // scene.children[0].position.set(-2,0,0)
     let ctx = gsap.context(() => {
       gsap.to(sphereWrapRef.current.rotation,
         { z: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
       gsap.to(sphereWrapRef.current.rotation,
-        { y: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
+        { y: "-=.03", repeat: -1, ease: 'none', repeatRefresh: true })
       gsap.to(sphereWrapRef.current.rotation,
         { x: "+=.03", repeat: -1, ease: 'none', repeatRefresh: true })
     }, sphereWrapRef); // <- scopes all selector text inside the context to this component (optional, default is document)
@@ -160,9 +125,9 @@ function HelixSphere({ ...props }) {
 
 
   return (
-    <primitive object={scene} {...props} ref={sphereWrapRef} >
-    </primitive>
+  <primitive object={scene} {...props} ref={sphereWrapRef} />
   )
+ 
 }
 
 /*
@@ -178,16 +143,25 @@ export default Sphere
 
 
 
-export  function Model(props) {
-  const { scene, animations } = useGLTF('/w11.glb')
+
+
+function Model() {
+  const gltf  = useGLTF('/w11.glb')
+
+  // Center the rotation on the model's origin
+  gltf.scene.rotation.set(Math.PI / 2, 0, 0)
+  gltf.scene.position.set(0, 0, 0)
+
+  // Rotate model continuously
+  useFrame((state, delta) => {
+    gltf.scene.rotation.y += 0.003
+    gltf.scene.rotation.x += 0.003
+  })
 
   return (
-    
-      <primitive object={scene} />
-   
-
-
+    <mesh scale={2.35}>
+      <primitive object={gltf.scene} />
+    </mesh>
   )
 }
-
 
