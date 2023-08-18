@@ -51,7 +51,7 @@
 
     margin-bottom: to-rem(32px);
     text-align: center;
-
+    
     @include media-breakpoint-up(lg) {
       text-align: left;
     }
@@ -59,7 +59,7 @@
 
   &Right {
     @include columns(1, -1);
-
+    min-height: 400px;
     @include media-breakpoint-up(lg) {
       @include spanColumns(6, 7);
     }
