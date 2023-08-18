@@ -41,7 +41,7 @@
     }
 
     @include media-breakpoint-up(lg) {
-      padding-right: $spacing-x-large;
+     // padding-right: $spacing-x-large;
       text-align: left;
     }
   }
