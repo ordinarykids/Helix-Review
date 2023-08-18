@@ -1,8 +1,7 @@
+/* eslint-disable  */
 'use client'
 
-// @ts-nocheck
 
-/* eslint-disable */
 
 import { Suspense, useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
@@ -17,7 +16,7 @@ extend({ OrbitControls })
 const Controls = () => {
   const { camera, gl } = useThree()
   const ref = useRef()
-  useFrame(() => ref.current.update())
+  useFrame(() => ref?.current.update())
   return <OrbitControls enableZoom={false} ref={ref} args={[camera, gl.domElement]} />
 }
 
@@ -25,7 +24,7 @@ const Controls = () => {
 
 function Sphere() {
 
-  const sphereWrapRef = useRef<HTMLDivElement | null>(null)
+  const sphereWrapRef = useRef(null)
   const [globePosition, setGlobePosition] = useState(0)
   useEffect(() => {
     const onScroll = () => {
@@ -39,8 +38,8 @@ function Sphere() {
         setGlobePosition([20, 0, 0])
       }
     }
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('resize', onScroll);
+    //window.addEventListener('scroll', onScroll)
+  //  window.addEventListener('resize', onScroll);
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -147,14 +146,14 @@ export default Sphere
 
 
 function Model() {
-  const gltf  = useGLTF('/w11.glb')
+  const gltf = useGLTF('/w11.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)
   gltf.scene.position.set(0, 0, 0)
 
   // Rotate model continuously
-  useFrame((state, delta) => {
+  useFrame(() => {
     gltf.scene.rotation.y += 0.003
     gltf.scene.rotation.x += 0.003
   })
