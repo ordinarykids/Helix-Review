@@ -135,7 +135,7 @@ author: glenatron (https://sketchfab.com/glenatron)
 license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/models/94b24a60dc1b48248de50bf087c0f042
 title: Littlest Tokyo */
-useGLTF.preload('/w11.glb')
+useGLTF.preload('/helix-globe01.glb')
 
 
 
@@ -146,7 +146,7 @@ export default Sphere
 
 
 function Model() {
-  const gltf = useGLTF('/w11.glb')
+  const gltf = useGLTF('/helix-globe01.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)

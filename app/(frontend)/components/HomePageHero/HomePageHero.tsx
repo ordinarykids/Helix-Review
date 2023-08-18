@@ -49,7 +49,7 @@ export default function HomePageHero({
                 id: 'stID',
                 trigger: animationRootScope.current,
                 start: 'top 80',
-                end: '+=400',
+                end: '+=800',
                 pin: true,
                 scrub: 1,
                 pinSpacing: false,
