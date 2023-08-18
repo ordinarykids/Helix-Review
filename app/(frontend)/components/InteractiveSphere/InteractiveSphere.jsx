@@ -50,7 +50,7 @@ function Sphere() {
     <div id='interactiveSphere' className={styles.wrap} ref={sphereWrapRef}>
       <Canvas shadows camera={{ position: [1, 1, 44], fov: 300 }} onCreated={((state) => ScrollTrigger.refresh())}>
         <Controls />
-        <ambientLight intensity={1} />
+        <ambientLight intensity={4} />
         <HelixSphere scale={90} position={globePosition} />
       </Canvas>
     </div>
@@ -84,7 +84,7 @@ function HelixSphere({ ...props }) {
 
   // This hook gives you offets, ranges and other useful things
   const scroll = useScroll()
-  const { scene, animations } = useGLTF('/w11.glb')
+  const { scene, animations } = useGLTF('/helix-globe01a.glb')
   const { actions } = useAnimations(animations, scene)
   //useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
  // useEffect(() => void (actions['firstAction'].play().paused = true), [actions])
@@ -124,7 +124,7 @@ author: glenatron (https://sketchfab.com/glenatron)
 license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/models/94b24a60dc1b48248de50bf087c0f042
 title: Littlest Tokyo */
-useGLTF.preload('/w11.glb')
+useGLTF.preload('/helix-globe01a.glb')
 
 
 
