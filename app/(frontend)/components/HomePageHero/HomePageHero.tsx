@@ -87,9 +87,7 @@ export default function HomePageHero({
             </div>
           )}
         </div>
-       
       </div>
-
       <div className={cx(styles.heroRight)}>
         <InteractiveSphere />
       </div>
