@@ -102,8 +102,8 @@ function Model() {
      //console.log( state.camera.position)
   })
 
-  
-  const gltf = useGLTF('/helix-globe01.glb')
+  const gltf = useGLTF('/helix-animation-test4.glb')
+  //const gltf = useGLTF('/helix-globe01.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)
