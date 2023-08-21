@@ -4,8 +4,9 @@
 
 
 import { Suspense, useEffect, useLayoutEffect, useState, useRef } from 'react'
-import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, extend, useLoader } from '@react-three/fiber'
 import { ScrollControls, Sky, OrbitControls, useScroll, useGLTF, useAnimations } from '@react-three/drei'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import CameraControls from 'camera-controls'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
@@ -39,7 +40,7 @@ function Sphere() {
       }
     }
     //window.addEventListener('scroll', onScroll)
-  //  window.addEventListener('resize', onScroll);
+    //  window.addEventListener('resize', onScroll);
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -55,7 +56,6 @@ function Sphere() {
   )
 }
 
-useGLTF.preload('/helix-globe01.glb')
 
 
 
@@ -67,25 +67,29 @@ export default Sphere
 
 function Model() {
 
-  useEffect(() => {
-      const onScroll = () => {
-        
-          setCurrentScrollY(window.scrollY)
-        
-        // plays animation when page is scrolled.
-        //actions['firstAction'].play().paused = false
-      }
-      window.addEventListener('scroll', onScroll)
-      onScroll();
 
-      return () => window.removeEventListener('scroll', onScroll)
-    }, [])
+
+  const gltf = useLoader(GLTFLoader, 'helix-animation-test4.glb')
+
+  useEffect(() => {
+    const onScroll = () => {
+
+      setCurrentScrollY(window.scrollY)
+
+      // plays animation when page is scrolled.
+      //actions['firstAction'].play().paused = false
+    }
+    window.addEventListener('scroll', onScroll)
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
 
 
   const [currentScrollY, setCurrentScrollY] = useState(0)
 
-  useFrame((state, delta) => { 
+  useFrame((state, delta) => {
     // const action = actions['Take 001']
     // The offset is between 0 and 1, you can apply it to your models any way you like
     const offset = 1 - currentScrollY / 1200;
@@ -93,16 +97,16 @@ function Model() {
     // gltf.scene.rotation.x = 0.003* currentScrollY;
     //console.log(offset)
 
-   //  action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-      state.camera.position.set(1 / offset, 1 * offset*3, 12*offset)
-      state.camera.rotation.set(0, offset * 42, offset * 2)
-      state.camera.lookAt(-6, -1, 0)
+    //  action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
+    state.camera.position.set(1 / offset, 1 * offset * 3, 12 * offset)
+    state.camera.rotation.set(0, offset * 42, offset * 2)
+    state.camera.lookAt(-6, -1, 0)
     //console.log(state.camera)
 
-     //console.log( state.camera.position)
+    //console.log( state.camera.position)
   })
 
-  const gltf = useGLTF('/helix-animation-test4.glb')
+
   //const gltf = useGLTF('/helix-globe01.glb')
 
   // Center the rotation on the model's origin
