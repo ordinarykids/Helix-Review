@@ -69,7 +69,7 @@ export default function HomePageHero({
   }, [])
 
   return (
-    <div className={cx(styles.wrap)} ref={animationRootScope}>
+    <div asdasd className={cx(styles.wrap)} ref={animationRootScope}>
       <div className={cx(styles.container)}>
         <div className={cx(styles.heroLeft)}>
           {header && <h1 className={cx(styles.heroHeader)}>{header}</h1>}
@@ -87,10 +87,13 @@ export default function HomePageHero({
             </div>
           )}
         </div>
-        <div className={cx(styles.heroRight)}>
-          <InteractiveSphere />
-        </div>
+       
       </div>
+      
+      <div className={cx(styles.heroRight)}>
+        <InteractiveSphere />
+      </div>
+
     </div>
   )
 }
