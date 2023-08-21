@@ -91,7 +91,7 @@ function Model() {
     const offset = 1 - currentScrollY / 1200;
     // gltf.scene.rotation.y = 0.003 * currentScrollY;
     // gltf.scene.rotation.x = 0.003* currentScrollY;
-    console.log(offset)
+    //console.log(offset)
 
    //  action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
       state.camera.position.set(1 / offset, 1 * offset*3, 12*offset)
@@ -99,7 +99,7 @@ function Model() {
       state.camera.lookAt(0, -1, 0)
     //console.log(state.camera)
 
-  console.log( state.camera.position)
+  //console.log( state.camera.position)
   })
 
   
@@ -116,7 +116,7 @@ function Model() {
   })
 
   return (
-    <mesh scale={2.35}>
+    <mesh scale={3.7}>
       <primitive object={gltf.scene} />
     </mesh>
   )
