@@ -49,7 +49,7 @@ export default function HomePageHero({
                 id: 'stID',
                 trigger: animationRootScope.current,
                 start: 'top 80',
-                end: '+=700',
+                end: '+=100',
                 pin: true,
                 scrub: 1,
                 pinSpacing: false,
@@ -90,6 +90,9 @@ export default function HomePageHero({
         <div className={cx(styles.heroRight)}>
           <InteractiveSphere />
         </div>
+      </div>
+      <div className={cx(styles.sphereDiv)}>
+        <InteractiveSphere />
       </div>
     </div>
   )
