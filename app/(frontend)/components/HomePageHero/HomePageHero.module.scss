@@ -5,9 +5,11 @@
 
 .wrap {
   background-color: $coolgray-300;
+  overflow: hidden;
 }
 
 .container {
+  overflow: hidden;
   @include containerGrid;
 
   padding-top: to-rem(40px);
@@ -91,7 +93,8 @@
   left: 0;
   width: 130%;
   height: 100%;
-  // background-color: red;
+  overflow: hidden;
+  //background-color: red;
 
   @include media-breakpoint-down(lg) {
       position: relative;
