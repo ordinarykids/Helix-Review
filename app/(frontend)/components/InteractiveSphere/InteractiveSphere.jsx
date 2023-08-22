@@ -76,20 +76,20 @@ function Model() {
   useEffect(() => {
       const onScroll = () => {
         
-          setCurrentScrollY(window.scrollY)
+       //   setCurrentScrollY(window.scrollY)
         
          if (window.innerWidth < 800) {
       
-          setZoomPosition(4)
+          setZoomPosition(2.4)
         } else {
     
-          setZoomPosition(3)
+          setZoomPosition(2)
         }
 
         // plays animation when page is scrolled.
         //actions['firstAction'].play().paused = false
       }
-      window.addEventListener('scroll', onScroll, {passive: true})
+    //  window.addEventListener('scroll', onScroll, {passive: true})
       onScroll();
 
       return () => window.removeEventListener('scroll', onScroll)
@@ -99,22 +99,22 @@ function Model() {
 
   const [currentScrollY, setCurrentScrollY] = useState(0)
 
-  useFrame((state, delta) => { 
-    // const action = actions['Take 001']
-    // The offset is between 0 and 1, you can apply it to your models any way you like
-    const offset = 1 - currentScrollY / 1200;
-    // gltf.scene.rotation.y = 0.003 * currentScrollY;
-    // gltf.scene.rotation.x = 0.003* currentScrollY;
-    //console.log(offset)
+  // useFrame((state, delta) => { 
+  //   // const action = actions['Take 001']
+  //   // The offset is between 0 and 1, you can apply it to your models any way you like
+  //   const offset = 1 - currentScrollY / 1200;
+  //   // gltf.scene.rotation.y = 0.003 * currentScrollY;
+  //   // gltf.scene.rotation.x = 0.003* currentScrollY;
+  //   //console.log(offset)
 
-   //  action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-      state.camera.position.set(1 / offset, 1 * offset*3, 12*offset)
-      state.camera.rotation.set(0, offset * 42, offset * 2)
-      state.camera.lookAt(0, -1, 0)
-    //console.log(state.camera)
+  //  //  action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
+  //     // state.camera.position.set(1 / offset, 1 * offset*3, 12*offset)
+  //     // state.camera.rotation.set(0, offset * 42, offset * 2)
+  //     // state.camera.lookAt(0, -1, 0)
+  //   //console.log(state.camera)
 
-  //console.log( state.camera.position)
-  })
+  // //console.log( state.camera.position)
+  // })
 
   
   const gltf = useGLTF('/helix-globe01.glb')
