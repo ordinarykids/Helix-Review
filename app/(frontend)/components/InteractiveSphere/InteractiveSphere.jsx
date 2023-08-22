@@ -26,6 +26,7 @@ function Sphere() {
 
   const sphereWrapRef = useRef(null)
   const [globePosition, setGlobePosition] = useState(0)
+  const [globeZoom, setZoomPosition] = useState(0)
   useEffect(() => {
     const onScroll = () => {
       // if (sphereWrapRef.current) {
@@ -34,14 +35,16 @@ function Sphere() {
       // }
       if (window.innerWidth < 800) {
         setGlobePosition([3, 0, 0])
+        setZoomPosition(2)
       } else {
         setGlobePosition([20, 0, 0])
+        setZoomPosition(5)
       }
     }
     //window.addEventListener('scroll', onScroll)
   //  window.addEventListener('resize', onScroll);
     onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll, {passive: true})
   }, [])
 
 
@@ -66,16 +69,27 @@ export default Sphere
 
 
 function Model() {
+  const [globeZoom, setZoomPosition] = useState(0)
+ 
+
 
   useEffect(() => {
       const onScroll = () => {
         
           setCurrentScrollY(window.scrollY)
         
+         if (window.innerWidth < 800) {
+      
+          setZoomPosition(4)
+        } else {
+    
+          setZoomPosition(3)
+        }
+
         // plays animation when page is scrolled.
         //actions['firstAction'].play().paused = false
       }
-      window.addEventListener('scroll', onScroll)
+      window.addEventListener('scroll', onScroll, {passive: true})
       onScroll();
 
       return () => window.removeEventListener('scroll', onScroll)
@@ -116,7 +130,7 @@ function Model() {
   })
 
   return (
-    <mesh scale={3.7}>
+    <mesh scale={globeZoom}>
       <primitive object={gltf.scene} />
     </mesh>
   )

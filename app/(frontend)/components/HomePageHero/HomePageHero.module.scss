@@ -91,5 +91,14 @@
   left: 0;
   width: 130%;
   height: 100%;
+  // background-color: red;
+
+  @include media-breakpoint-down(lg) {
+      position: relative;
+      top: 40px;
+      width: 100%;
+      height: 40vh;
+    }
+
 
 }
