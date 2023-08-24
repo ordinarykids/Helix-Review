@@ -94,9 +94,11 @@
   width: 130%;
   height: 100%;
   overflow: hidden;
+  z-index: 12123;
 //  background-color: red;
 
   @include media-breakpoint-down(lg) {
+      overflow: hidden;
       position: relative;
       top: 40px;
       width: 100%;

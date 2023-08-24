@@ -84,7 +84,7 @@ function Model() {
           setZoomPosition(4)
         } else {
     
-          setZoomPosition(3)
+          setZoomPosition(2.4)
         }
 
         // plays animation when page is scrolled.
