@@ -58,7 +58,7 @@ function Sphere() {
   )
 }
 
-useGLTF.preload('/helix-globe01.glb')
+useGLTF.preload('/Helix-Sphere-Working-081723-a-darker-wires.glb')
 
 
 
@@ -83,7 +83,7 @@ function Model() {
         setZoomPosition(2.4)
       } else {
 
-        setZoomPosition(1.4)
+        setZoomPosition(2.4)
       }
 
       // plays animation when page is scrolled.
@@ -95,7 +95,7 @@ function Model() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const gltf = useGLTF('/helix-globe01.glb')
+  const gltf = useGLTF('/Helix-Sphere-Working-081723-a-darker-wires.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)

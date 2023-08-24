@@ -8,6 +8,7 @@
   overflow: hidden;
 }
 
+
 .container {
   overflow: hidden;
   @include containerGrid;
@@ -60,8 +61,11 @@
   }
 
   &Right {
+    margin-left: 40px;
+    margin-right: -40px;
     @include columns(1, -1);
     min-height: 400px;
+    //background-color: red;
 
     @include media-breakpoint-up(lg) {
       @include spanColumns(6, 7);
@@ -90,11 +94,11 @@
 .sphereDiv {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 130%;
+  left: 20vw;
+  width: 100vw;
   height: 100%;
   overflow: hidden;
-  background-color: red;
+  //background-color: red;
 
   @include media-breakpoint-down(lg) {
       position: relative;
