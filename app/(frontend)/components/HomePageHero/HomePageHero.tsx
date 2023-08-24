@@ -57,8 +57,6 @@ export default function HomePageHero({
 
             })
           }
-
-          
         }
       },
     )
@@ -72,7 +70,7 @@ export default function HomePageHero({
 
   return (
     <div className={cx(styles.wrap)}>
-      <div  className={cx(styles.sphereDiv)} ref={animationRootScope}>
+      <div className={cx(styles.sphereDiv)} ref={animationRootScope}>
         <InteractiveSphere />
       </div>
       <div className={cx(styles.container)}>
