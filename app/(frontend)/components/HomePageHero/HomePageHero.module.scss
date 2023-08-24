@@ -62,7 +62,7 @@
   &Right {
     @include columns(1, -1);
     min-height: 400px;
-
+  
     @include media-breakpoint-up(lg) {
       @include spanColumns(6, 7);
     }
@@ -94,7 +94,7 @@
   width: 130%;
   height: 100%;
   overflow: hidden;
-  //background-color: red;
+//  background-color: red;
 
   @include media-breakpoint-down(lg) {
       position: relative;

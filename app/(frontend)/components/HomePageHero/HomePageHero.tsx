@@ -49,7 +49,7 @@ export default function HomePageHero({
                 id: 'stID',
                 trigger: animationRootScope.current,
                 start: 'top 80',
-                end: '+=100',
+                end: '+=10',
                 pin: true,
                 scrub: 1,
                 pinSpacing: false,
@@ -57,6 +57,8 @@ export default function HomePageHero({
 
             })
           }
+
+          
         }
       },
     )
@@ -69,8 +71,8 @@ export default function HomePageHero({
   }, [])
 
   return (
-    <div className={cx(styles.wrap)} ref={animationRootScope}>
-      <div className={cx(styles.sphereDiv)}>
+    <div className={cx(styles.wrap)}>
+      <div  className={cx(styles.sphereDiv)} ref={animationRootScope}>
         <InteractiveSphere />
       </div>
       <div className={cx(styles.container)}>

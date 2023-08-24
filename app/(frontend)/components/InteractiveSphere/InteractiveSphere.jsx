@@ -29,10 +29,11 @@ function Sphere() {
   const [globeZoom, setZoomPosition] = useState(0)
   useEffect(() => {
     const onScroll = () => {
-      // if (sphereWrapRef.current) {
-      //   const currentScrollY = window.scrollY
-      //   sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
-      // }
+      if (sphereWrapRef.current) {
+        // console.log(sphereWrapRef.current.style.opacity)
+        const currentScrollY = window.scrollY
+        sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 600), 0)}`
+      }
       if (window.innerWidth < 800) {
         setGlobePosition([3, 0, 0])
         setZoomPosition(2)
@@ -41,15 +42,15 @@ function Sphere() {
         setZoomPosition(5)
       }
     }
-    //window.addEventListener('scroll', onScroll)
-  //  window.addEventListener('resize', onScroll);
+    window.addEventListener('scroll', onScroll)
+   window.addEventListener('resize', onScroll);
     onScroll()
     return () => window.removeEventListener('scroll', onScroll, {passive: true})
   }, [])
 
 
   return (
-    <Canvas camera={{ position: [5, 0, 5] }}>
+    <Canvas camera={{ position: [5, 0, 5] }}  ref={sphereWrapRef}>
       <ambientLight intensity={2.5} />
       {/* <directionalLight position={[-2, 5, 2]} /> */}
       <Controls />
@@ -58,7 +59,7 @@ function Sphere() {
   )
 }
 
-useGLTF.preload('/helix-globe01.glb')
+useGLTF.preload('/Helix-082423-darker.glb')
 
 
 
@@ -117,7 +118,7 @@ function Model() {
   })
 
   
-  const gltf = useGLTF('/helix-globe01.glb')
+  const gltf = useGLTF('/Helix-082423-darker.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)
