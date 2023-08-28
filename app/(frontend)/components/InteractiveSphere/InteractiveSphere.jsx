@@ -25,27 +25,26 @@ const Controls = () => {
 function Sphere() {
 
   const sphereWrapRef = useRef(null)
-  const [globePosition, setGlobePosition] = useState(0)
   const [globeZoom, setZoomPosition] = useState(0)
-  useEffect(() => {
-    const onScroll = () => {
-      // if (sphereWrapRef.current) {
-      //   const currentScrollY = window.scrollY
-      //   sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
-      // }
-      if (window.innerWidth < 800) {
-        setGlobePosition([3, 0, 0])
-        setZoomPosition(2)
-      } else {
-        setGlobePosition([20, 0, 0])
-        setZoomPosition(5)
-      }
-    }
-    //window.addEventListener('scroll', onScroll)
-  //  window.addEventListener('resize', onScroll);
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll, {passive: true})
-  }, [])
+  // useEffect(() => {
+  //   const onScroll = () => {
+  //     // if (sphereWrapRef.current) {
+  //     //   const currentScrollY = window.scrollY
+  //     //   sphereWrapRef.current.style.opacity = `${Math.max(1 - (currentScrollY / 900), 0)}`
+  //     // }
+  //     if (window.innerWidth < 800) {
+     
+  //       setZoomPosition(200)
+  //     } else {
+        
+  //       setZoomPosition(100)
+  //     }
+  //   }
+  //   //window.addEventListener('scroll', onScroll)
+  // //  window.addEventListener('resize', onScroll);
+  //   onScroll()
+  //   return () => window.removeEventListener('scroll', onScroll, {passive: true})
+  // }, [])
 
 
   return (
@@ -58,7 +57,7 @@ function Sphere() {
   )
 }
 
-useGLTF.preload('/helix-globe01.glb')
+useGLTF.preload('/Helix-082823-darker.glb')
 
 
 
@@ -80,10 +79,10 @@ function Model() {
         
          if (window.innerWidth < 800) {
       
-          setZoomPosition(4)
+          setZoomPosition(5)
         } else {
     
-          setZoomPosition(3)
+          setZoomPosition(3.5)
         }
 
         // plays animation when page is scrolled.
@@ -117,7 +116,7 @@ function Model() {
   })
 
   
-  const gltf = useGLTF('/helix-globe01.glb')
+  const gltf = useGLTF('/Helix-082823-darker.glb')
 
   // Center the rotation on the model's origin
   gltf.scene.rotation.set(Math.PI / 2, 0, 0)
