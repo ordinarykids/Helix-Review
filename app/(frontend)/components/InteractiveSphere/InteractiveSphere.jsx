@@ -79,7 +79,7 @@ function Model() {
         
          if (window.innerWidth < 800) {
       
-          setZoomPosition(5)
+          setZoomPosition(4)
         } else {
     
           setZoomPosition(3.5)
