@@ -23,11 +23,9 @@ const Controls = () => {
 function Sphere() {
 
   const sphereWrapRef = useRef(null)
-  const [globeZoom, setZoomPosition] = useState(0)
   return (
     <Canvas camera={{ position: [5, 0, 5] }}>
       <ambientLight intensity={2.5} />
-      {/* <directionalLight position={[-2, 5, 2]} /> */}
       <Controls />
       <Model position={[2, 0, 12]} />
     </Canvas>
@@ -42,33 +40,26 @@ export default Sphere
 function Model() {
   const [globeZoom, setZoomPosition] = useState(0)
 
-
-
-  useEffect(() => {
-    const onScroll = () => {
-
-      setCurrentScrollY(window.scrollY)
-
-      if (window.innerWidth < 800) {
-
-        setZoomPosition(4)
-      } else {
-
-        setZoomPosition(3.5)
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll();
-
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-
-
   const [currentScrollY, setCurrentScrollY] = useState(0)
 
+  // useEffect(() => {
+  //   const onScroll = () => {
+
+  //     setCurrentScrollY(window.scrollY)
+
+  //   }
+  //   window.addEventListener('scroll', onScroll, { passive: false   })
+  //  // onScroll();
+
+  //   return () => window.removeEventListener('scroll', onScroll)
+  // }, [])
+
+
+
+  
+
   useFrame((state, delta) => {
-    const offset = 1 - currentScrollY / 1200;
+    const offset = 1 - window.scrollY / 1200;
     state.camera.position.set(1 / offset, 1 * offset * 3, 12 * offset)
     state.camera.rotation.set(0, offset * 42, offset * 2)
     state.camera.lookAt(0, -1, 0)
@@ -88,7 +79,7 @@ function Model() {
   })
 
   return (
-    <mesh scale={globeZoom}>
+    <mesh scale={3.5}>
       <primitive object={gltf.scene} />
     </mesh>
   )
