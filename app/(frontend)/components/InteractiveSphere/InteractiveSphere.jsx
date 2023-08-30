@@ -57,9 +57,9 @@ function Model() {
 
 
   
-
+ 
   useFrame((state, delta) => {
-    const offset = 1 - window.scrollY / 1200;
+    const offset = 1 - window.scrollY / 1200;  // THROTTLE THIS ?
     state.camera.position.set(1 / offset, 1 * offset * 3, 12 * offset)
     state.camera.rotation.set(0, offset * 42, offset * 2)
     state.camera.lookAt(0, -1, 0)
